@@ -1,0 +1,35 @@
+- Hero hops between islands
+- Encounters enemies of 2 types:
+    - Orcs (Boss is also an Orc)
+    - Obstacles
+- 2 Ways to kill Orcs:
+    - Push them into the abyss
+    - Kill them with a weapon
+- Treasure Chests:
+    - Weapon
+    - Coin
+- Game ends if:
+    - Players falls into the abyss
+    - Player fails to defeat the boss
+
+## To Implement
+
+- Default Theme
+- First Level
+- Hero keeps jumping be default with fixed height
+- The game should always display the Hero's location at the top.
+- Hero Moves Forward in Fixed Lengths
+- Game can have 122 Locations
+- Boss fights between locations 107 to 112.
+- Implement 3 Types of Orcs including Boss:
+    - Standard Green Orc
+    - Standard Red Orc
+    - Boss
+- Implement 1 Obstacle: TNT
+- If hero loses give option to revive with fixed number of coins
+- Only one resurrection is permitted
+- One Helmet and Two Weapons
+- Get Coins on Defeating Orc
+- Declare hero winner as soon as he defeats the boss
+- Give Player power to save, reload multiple times
+- Save should include Hero's current position, Helmet with weapons unlocked, and the coins collected so far.
