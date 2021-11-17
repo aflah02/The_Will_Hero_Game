@@ -1,8 +1,8 @@
 - Hero hops between islands
 - Encounters enemies of 2 types:
-    - Orcs (Boss is also an Orc)
+    - Orc (Boss is also an Orc)
     - Obstacles
-- 2 Ways to kill Orcs:
+- 2 Ways to kill Orc:
     - Push them into the abyss
     - Kill them with a weapon
 - Treasure Chests:
@@ -21,7 +21,7 @@
 - Hero Moves Forward in Fixed Lengths
 - Game can have 122 Locations
 - Boss fights between locations 107 to 112.
-- Implement 3 Types of Orcs including Boss:
+- Implement 3 Types of Orc including Boss:
     - Standard Green Orc
     - Standard Red Orc
     - Boss
