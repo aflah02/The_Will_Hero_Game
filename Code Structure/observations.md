@@ -28,8 +28,8 @@
 - Implement 1 Obstacle: TNT
 - If hero loses give option to revive with fixed number of coins
 - Only one resurrection is permitted
-- One Helmet and Two Weapons
+- One Panda_Helmet and Two Weapon
 - Get Coins on Defeating Orc
 - Declare hero winner as soon as he defeats the boss
 - Give Player power to save, reload multiple times
-- Save should include Hero's current position, Helmet with weapons unlocked, and the coins collected so far.
+- Save should include Hero's current position, Panda_Helmet with weapons unlocked, and the coins collected so far.
