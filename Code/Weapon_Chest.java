@@ -10,4 +10,9 @@ public class Weapon_Chest extends Chests implements Serializable {
     public Weapon getWeapon() {
         return weapon;
     }
+
+    @Override
+    public void collide(Player player) {
+
+    }
 }

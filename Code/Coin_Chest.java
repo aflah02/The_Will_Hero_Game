@@ -10,4 +10,9 @@ public class Coin_Chest extends Chests implements Serializable {
     public int getCoins() {
         return coins;
     }
+
+    @Override
+    public void collide(Player player) {
+
+    }
 }
