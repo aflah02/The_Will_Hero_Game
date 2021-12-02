@@ -7,4 +7,4 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 #custom
-/target/classes/module-info.class
+../target/classes/module-info.class
