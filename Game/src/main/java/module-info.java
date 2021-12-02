@@ -10,6 +10,7 @@ module com.example.game {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
+    requires javafx.media;
 
     opens com.example.game to javafx.fxml;
     exports com.example.game;
