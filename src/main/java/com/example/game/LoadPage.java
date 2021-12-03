@@ -25,12 +25,13 @@ public class LoadPage {
     private String bg = "src/main/resources/com/example/game/images/cloud2.jpeg";
     private Timeline time;
     //private Panda_Helmet hero;
-    private Circle ball;
-    private int xSpeed;
+    private Circle ball , ball2;
+    private int xSpeed,yspeed;
     private AnchorPane newpane;
 
     LoadPage() {
         xSpeed = 1;
+        yspeed = 2;
         newpane = null;
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
@@ -101,10 +102,14 @@ public class LoadPage {
         ball.setCenterX(300);
         ball.setCenterY(400);
         mainPane.getChildren().add(ball);
+        ball2 = new Circle(20);
+        ball2.setFill(Color.AQUA);
+        ball2.setCenterX(500);
+        ball2.setCenterY(400);
+        mainPane.getChildren().add(ball2);
         stage.setScene(this.mainScene);
         stage.show();
         pausegame(pause);
-
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{ moveBall(); });
         this.time = new Timeline(frame);
         time.setCycleCount(Timeline.INDEFINITE);
@@ -112,8 +117,14 @@ public class LoadPage {
     }
 
     private void moveBall(){
-        ball.setCenterY(ball.getCenterY()-xSpeed);
+
+        ball.setCenterY(ball.getCenterY()-yspeed);
         if(ball.getCenterY()>=400 || ball.getCenterY()<=200){
+            yspeed=-yspeed;
+        }
+
+        ball2.setCenterY(ball2.getCenterY()-xSpeed);
+        if(ball2.getCenterY()>=400 || ball2.getCenterY()<=200){
             xSpeed=-xSpeed;
         }
     }
