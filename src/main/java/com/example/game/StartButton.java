@@ -42,6 +42,7 @@ public class StartButton extends Button {
 
     private void handler() {
         LoadPage page = new LoadPage();
+        manager.removevideo();
         page.start(manager.getMainStage());
     }
 

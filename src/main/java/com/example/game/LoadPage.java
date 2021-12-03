@@ -27,15 +27,30 @@ public class LoadPage {
     //private Panda_Helmet hero;
     private Circle ball;
     private int xSpeed;
+    private AnchorPane newpane;
 
     LoadPage() {
-        xSpeed = 2;
+        xSpeed = 1;
+        newpane = null;
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
         addobjects(null);
-
+        newpane = pausemenu();
         //hero = new Panda_Helmet();
 
+    }
+    private AnchorPane pausemenu(){
+        AnchorPane menu = new AnchorPane();
+        menu.setPrefHeight(100);
+        menu.setPrefWidth(200);
+        menu.setLayoutX(300);
+        menu.setLayoutY(200);
+        Button button = new Button("start");
+        button.setLayoutX(50);
+        button.setLayoutY(50);
+        menu.getChildren().add(button);
+        startgame(button);
+        return menu;
     }
 
     private void addobjects(MediaPlayer player){
@@ -72,34 +87,33 @@ public class LoadPage {
         background.setFitHeight(600);
         background.setFitWidth(800);
         mainPane.getChildren().add(background);
+
+    }
+    public void start(Stage stage){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
         pause.setLayoutY(0);
-        Button button = new Button("start");
-        button.setLayoutX(400);
-        button.setLayoutY(50);
 
         mainPane.getChildren().add(pause);
-        mainPane.getChildren().add(button);
-    }
-    public void start(Stage stage){
+
         ball = new Circle(20);
         ball.setFill(Color.AQUA);
         ball.setCenterX(300);
         ball.setCenterY(400);
         mainPane.getChildren().add(ball);
+        stage.setScene(this.mainScene);
+        stage.show();
+        pausegame(pause);
 
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{ moveBall(); });
         this.time = new Timeline(frame);
         time.setCycleCount(Timeline.INDEFINITE);
-        System.out.println("Hello");
-        stage.setScene(this.mainScene);
-        stage.show();
+        time.play();
     }
 
     private void moveBall(){
-        ball.setCenterX(ball.getCenterX()+xSpeed);
-        if(ball.getCenterX()>=800 || ball.getCenterX()<=0){
+        ball.setCenterY(ball.getCenterY()-xSpeed);
+        if(ball.getCenterY()>=400 || ball.getCenterY()<=200){
             xSpeed=-xSpeed;
         }
     }
@@ -107,11 +121,13 @@ public class LoadPage {
     public void pausegame(PauseButton pause){
         pause.setOnAction(e ->{
             time.pause();
+            mainPane.getChildren().add(newpane);
         });
     }
     public void startgame(Button button){
         button.setOnAction(e ->{
             time.play();
+            mainPane.getChildren().remove(newpane);
         });
     }
 
