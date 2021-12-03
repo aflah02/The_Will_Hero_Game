@@ -41,8 +41,8 @@ public class StartButton extends Button {
 
 
     private void handler() {
-        AnchorPane newpane = new AnchorPane();
-        Scene scene = new Scene(newpane,800,600);
+        LoadPage page = new LoadPage();
+        Scene scene = page.getMainScene();
         manager.changeScene(scene);
     }
 

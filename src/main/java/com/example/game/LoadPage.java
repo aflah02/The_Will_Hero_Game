@@ -17,22 +17,15 @@ import java.io.File;
 public class LoadPage {
     private AnchorPane mainPane;
     private Scene mainScene;
-    private Stage mainStage;
     private String gradient = "src/main/resources/com/example/game/images/GradientBackground.jpg";
 
     LoadPage() {
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
-        mainStage = new Stage();
-        mainStage.setScene(mainScene);
-        String path = "src/main/resources/com/example/game/videos/openingBackground.mp4";
-        Media media = new Media(new File(path).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        MediaView mediaView = new MediaView(mediaPlayer);
-        createButtons(mediaPlayer);
     }
 
-    private void createButtons(MediaPlayer player){
+    private void addobjects(MediaPlayer player){
+        /*
         //Image of Gradient to stop video showing extra buttons
         ImageView grad = new ImageView(new File(gradient).toURI().toString());
         grad.setFitHeight(147);
@@ -41,12 +34,10 @@ public class LoadPage {
         grad.setLayoutY(390);
         mainPane.getChildren().add(grad);
         //Start button
-        /*
         StartButton button = new StartButton(this);
         button.setLayoutX(340);
         button.setLayoutY(260);
         mainPane.getChildren().add(button);
-         */
         //Load Button
         LoadButton button1 = new LoadButton();
         button1.setLayoutX(425);
@@ -62,6 +53,8 @@ public class LoadPage {
         button3.setLayoutX(700);
         button3.setLayoutY(50);
         mainPane.getChildren().add(button3);
+        */
+
     }
 
     public AnchorPane getMainPane() {
@@ -72,9 +65,6 @@ public class LoadPage {
         return mainScene;
     }
 
-    public Stage getMainStage() {
-        return mainStage;
-    }
 
 
 
