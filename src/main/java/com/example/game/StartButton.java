@@ -42,8 +42,7 @@ public class StartButton extends Button {
 
     private void handler() {
         LoadPage page = new LoadPage();
-        Scene scene = page.getMainScene();
-        manager.changeScene(scene);
+        page.start(manager.getMainStage());
     }
 
 

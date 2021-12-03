@@ -19,6 +19,7 @@ public class View_Manager {
     private Scene mainScene;
     private Stage mainStage;
     private String gradient = "src/main/resources/com/example/game/images/GradientBackground.jpg";
+    private MediaPlayer player;
 
     View_Manager() {
         mainPane = new AnchorPane();
@@ -33,6 +34,7 @@ public class View_Manager {
         mediaPlayer.setAutoPlay(true);
         mainPane.getChildren().add(mediaView);
         createButtons(mediaPlayer);
+        this.player = mediaPlayer;
     }
 
     private void createButtons(MediaPlayer player){
@@ -78,7 +80,10 @@ public class View_Manager {
     }
 
     public void changeScene(Scene scene){
+        mainPane.getChildren().remove(player);
+        player.setMute(true);
         mainStage.setScene(scene);
+        mainStage.show();
     }
 
 
