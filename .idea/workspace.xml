@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/GoogleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/GoogleButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/StartButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/StartButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/View_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/View_Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/gladiator.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/LevelButton.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/LevelButton.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicbutton.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicbutton.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicstopped.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicstopped.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/View_Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/View_Manager.class" afterDir="false" />
     </list>
@@ -109,6 +109,8 @@
       <workItem from="1638466789664" duration="4331000" />
       <workItem from="1638508140915" duration="414000" />
       <workItem from="1638509056053" duration="555000" />
+      <workItem from="1638510092096" duration="2652000" />
+      <workItem from="1638513597039" duration="1613000" />
     </task>
     <servers />
   </component>

@@ -1,20 +1,25 @@
 package com.example.game;
 
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.File;
 
 public class StartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
-    private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
+    private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover";
     private String path = "src/main/resources/com/example/game/images/resume.png";
+    private View_Manager manager;
 
-    StartButton(){
+    StartButton(View_Manager manager){
+        this.manager = manager;
         setText("");
         setPrefHeight(110);
         setPrefWidth(110);
@@ -35,7 +40,21 @@ public class StartButton extends Button {
     }
 
 
+    private void handler() {
+        AnchorPane newpane = new AnchorPane();
+        Scene scene = new Scene(newpane,800,600);
+        manager.changeScene(scene);
+    }
+
+
     private void initialisebutton(){
+        setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                handler();
+            }
+        });
+
         setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -68,6 +87,8 @@ public class StartButton extends Button {
             }
         });
     }
+
+
 
 
 }

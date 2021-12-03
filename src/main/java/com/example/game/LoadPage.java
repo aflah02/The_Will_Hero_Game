@@ -14,13 +14,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class View_Manager {
+public class LoadPage {
     private AnchorPane mainPane;
     private Scene mainScene;
     private Stage mainStage;
     private String gradient = "src/main/resources/com/example/game/images/GradientBackground.jpg";
 
-    View_Manager() {
+    LoadPage() {
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
         mainStage = new Stage();
@@ -28,10 +28,7 @@ public class View_Manager {
         String path = "src/main/resources/com/example/game/videos/openingBackground.mp4";
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         MediaView mediaView = new MediaView(mediaPlayer);
-        mediaPlayer.setAutoPlay(true);
-        mainPane.getChildren().add(mediaView);
         createButtons(mediaPlayer);
     }
 
@@ -44,10 +41,12 @@ public class View_Manager {
         grad.setLayoutY(390);
         mainPane.getChildren().add(grad);
         //Start button
+        /*
         StartButton button = new StartButton(this);
         button.setLayoutX(340);
         button.setLayoutY(260);
         mainPane.getChildren().add(button);
+         */
         //Load Button
         LoadButton button1 = new LoadButton();
         button1.setLayoutX(425);
@@ -75,10 +74,6 @@ public class View_Manager {
 
     public Stage getMainStage() {
         return mainStage;
-    }
-
-    public void changeScene(Scene scene){
-        mainStage.setScene(scene);
     }
 
 
