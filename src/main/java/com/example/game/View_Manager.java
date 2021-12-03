@@ -45,17 +45,15 @@ public class View_Manager {
         mainPane.getChildren().add(grad);
         //Start button
         StartButton button = new StartButton();
-        button.setLayoutX(348);
-        button.setLayoutY(264);
+        button.setLayoutX(340);
+        button.setLayoutY(260);
         mainPane.getChildren().add(button);
         //Load Button
         LoadButton button1 = new LoadButton();
         button1.setLayoutX(425);
         button1.setLayoutY(380);
         mainPane.getChildren().add(button1);
-
         //Google Button
-
         GoogleButton button2 = new GoogleButton();
         button2.setLayoutX(270);
         button2.setLayoutY(380);

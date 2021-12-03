@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="" />
+    <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/GoogleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/GoogleButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/StartButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/StartButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/View_Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/View_Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/gladiator.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/LevelButton.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/LevelButton.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicbutton.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicbutton.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicstopped.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/musicstopped.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/StartButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/StartButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/View_Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/View_Manager.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +28,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="21fSQuIAu3B9OA9zcJcmg0J8JHx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,12 +41,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="16" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/example/game/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../apgame/The_Will_Hero_Game/Game" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kusha\VSCODE\java\game\src\main\resources\com\example\game\images" />
       <recent name="C:\Users\kusha\VSCODE\java\game\src\main\resources\com\example\game" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kusha\VSCODE\java\game\src\main\resources\com\example\game\images" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.game" />
@@ -90,10 +107,24 @@
       <workItem from="1638460858197" duration="32000" />
       <workItem from="1638461881384" duration="4454000" />
       <workItem from="1638466789664" duration="4331000" />
+      <workItem from="1638508140915" duration="414000" />
+      <workItem from="1638509056053" duration="555000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

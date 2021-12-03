@@ -12,8 +12,7 @@ import java.io.File;
 public class StartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
-    private String path = "src/main/resources/com/example/game/images/resume.jpeg";
-    private String path2 = "src/main/resources/com/example/game/images/retry.jpeg";
+    private String path = "src/main/resources/com/example/game/images/resume.png";
 
     StartButton(){
         setText("");
@@ -21,17 +20,18 @@ public class StartButton extends Button {
         setPrefWidth(110);
         setStyle(STYLE);
         initialisebutton();
-        this.setGraphic(new ImageView(new File(path).toURI().toString()));
+        ImageView img = new ImageView(new File(path).toURI().toString());
+        img.setFitHeight(110);
+        img.setFitWidth(110);
+        this.setGraphic(img);
     }
     private void click(){
         setStyle(STYLE_Closed);
-        this.setGraphic(new ImageView(new File(path).toURI().toString()));
         //Here we can use Event Handler;
     }
 
     private void againclick(){
         setStyle(STYLE);
-        this.setGraphic(new ImageView(new File(path).toURI().toString()));
     }
 
 
