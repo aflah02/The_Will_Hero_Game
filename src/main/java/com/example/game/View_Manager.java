@@ -22,10 +22,16 @@ public class View_Manager {
     private MediaPlayer player;
     private MediaView view;
 
-    View_Manager() {
+    View_Manager(Stage stage) {
+
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
-        mainStage = new Stage();
+        if(stage==null){
+            mainStage = new Stage();
+        }
+        else{
+            mainStage = stage;
+        }
         mainStage.setScene(mainScene);
         String path = "src/main/resources/com/example/game/videos/openingBackground.mp4";
         Media media = new Media(new File(path).toURI().toString());

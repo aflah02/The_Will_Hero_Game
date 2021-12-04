@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         try{
-            View_Manager manager = new View_Manager();
+            View_Manager manager = new View_Manager(null);
             stage = manager.getMainStage();
             stage.show();
         }

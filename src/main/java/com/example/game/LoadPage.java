@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -22,14 +22,17 @@ import java.io.File;
 public class LoadPage {
     private AnchorPane mainPane;
     private Scene mainScene;
-    private String bg = "src/main/resources/com/example/game/images/cloud2.jpeg";
+    private String image = "src/main/resources/com/example/game/images/cloud2.jpeg";
+    private String bg = "src/main/resources/com/example/game/images/background.png";
     private Timeline time;
     //private Panda_Helmet hero;
     private Circle ball , ball2;
     private int xSpeed,yspeed;
     private AnchorPane newpane;
+    private Stage stage;
 
-    LoadPage() {
+    LoadPage(Stage stage) {
+        this.stage = stage;
         xSpeed = 1;
         yspeed = 2;
         newpane = null;
@@ -41,16 +44,32 @@ public class LoadPage {
 
     }
     private AnchorPane pausemenu(){
+        ImageView background = new ImageView(new File(image).toURI().toString());
+        background.setFitHeight(600);
+        background.setFitWidth(800);
+        mainPane.getChildren().add(background);
+        PauseButton pause = new PauseButton();
+        pause.setLayoutX(400);
+        pause.setLayoutY(0);
+        mainPane.getChildren().add(pause);
         AnchorPane menu = new AnchorPane();
-        menu.setPrefHeight(100);
-        menu.setPrefWidth(200);
-        menu.setLayoutX(300);
-        menu.setLayoutY(200);
-        Button button = new Button("start");
-        button.setLayoutX(50);
-        button.setLayoutY(50);
-        menu.getChildren().add(button);
-        startgame(button);
+        menu.setPrefHeight(300);
+        menu.setPrefWidth(300);
+        menu.setLayoutX(250);
+        menu.setLayoutY(150);
+        Image bg = new Image(new File(this.bg).toURI().toString(),300,300,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
+        menu.setBackground(new Background(image));
+        ResumeButton resume = new ResumeButton();
+        resume.setLayoutX(50);
+        resume.setLayoutY(50);
+        menu.getChildren().add(resume);
+        pausegame(pause);
+        startgame(resume,pause);
+        Homebutton home = new Homebutton(stage);
+        home.setLayoutX(100);
+        home.setLayoutY(100);
+        menu.getChildren().add(home);
         return menu;
     }
 
@@ -84,18 +103,12 @@ public class LoadPage {
         button3.setLayoutY(50);
         mainPane.getChildren().add(button3);
         */
-        ImageView background = new ImageView(new File(bg).toURI().toString());
-        background.setFitHeight(600);
-        background.setFitWidth(800);
-        mainPane.getChildren().add(background);
+
 
     }
-    public void start(Stage stage){
-        PauseButton pause = new PauseButton();
-        pause.setLayoutX(400);
-        pause.setLayoutY(0);
+    public void start(){
+        this.stage = stage;
 
-        mainPane.getChildren().add(pause);
 
         ball = new Circle(20);
         ball.setFill(Color.AQUA);
@@ -109,7 +122,7 @@ public class LoadPage {
         mainPane.getChildren().add(ball2);
         stage.setScene(this.mainScene);
         stage.show();
-        pausegame(pause);
+
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{ moveBall(); });
         this.time = new Timeline(frame);
         time.setCycleCount(Timeline.INDEFINITE);
@@ -132,12 +145,14 @@ public class LoadPage {
     public void pausegame(PauseButton pause){
         pause.setOnAction(e ->{
             time.pause();
+            mainPane.getChildren().remove(pause);
             mainPane.getChildren().add(newpane);
         });
     }
-    public void startgame(Button button){
+    public void startgame(Button button , PauseButton pause){
         button.setOnAction(e ->{
             time.play();
+            mainPane.getChildren().add(pause);
             mainPane.getChildren().remove(newpane);
         });
     }
