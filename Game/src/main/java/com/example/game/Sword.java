@@ -1,6 +1,6 @@
 package com.example.game;
 
-public class sword extends Weapon{
+public class Sword extends Weapon{
     @Override
     int getDamage() {
         return 0;

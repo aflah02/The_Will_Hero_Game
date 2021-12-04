@@ -18,18 +18,23 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class LoadPage {
     private AnchorPane mainPane;
     private Scene mainScene;
     private String image = "src/main/resources/com/example/game/images/cloud2.jpeg";
     private String bg = "src/main/resources/com/example/game/images/background.png";
+    private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
+    private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
+    private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
     private Timeline time;
     //private Panda_Helmet hero;
     private Circle ball , ball2;
     private int xSpeed,yspeed;
     private AnchorPane newpane;
     private Stage stage;
+    private final ArrayList<Game_Objects> game_objects = new ArrayList<>();
 
     LoadPage(Stage stage) {
         this.stage = stage;
@@ -38,8 +43,9 @@ public class LoadPage {
         newpane = null;
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
-        addobjects(null);
         newpane = pausemenu();
+        addobjects(null);
+        Hero hero = new Hero(mainPane, new Position(75,300-50), 50, 50);
         //hero = new Panda_Helmet();
 
     }
@@ -74,6 +80,11 @@ public class LoadPage {
     }
 
     private void addobjects(MediaPlayer player){
+        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,300-50), 50, 50);
+        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50);
+        Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,300), 200, 100);
+//        Island mediumIsland1 = new Island(islandMedium, mainPane, new Position(500,500), 200, 50);
+        Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150);
         /*
         //Image of Gradient to stop video showing extra buttons
         ImageView grad = new ImageView(new File(gradient).toURI().toString());
@@ -105,7 +116,6 @@ public class LoadPage {
         */
     }
     public void start(){
-        this.stage = stage;
 
 
         ball = new Circle(20);
@@ -139,6 +149,18 @@ public class LoadPage {
             xSpeed=-xSpeed;
         }
     }
+
+//    private void moveHero(Hero hero){
+//        hero.setCenterY(ball.getCenterY()-yspeed);
+//        if(ball.getCenterY()>=400 || ball.getCenterY()<=200){
+//            yspeed=-yspeed;
+//        }
+//
+//        ball2.setCenterY(ball2.getCenterY()-xSpeed);
+//        if(ball2.getCenterY()>=400 || ball2.getCenterY()<=200){
+//            xSpeed=-xSpeed;
+//        }
+//    }
 
     public void pausegame(PauseButton pause){
         pause.setOnAction(e ->{
