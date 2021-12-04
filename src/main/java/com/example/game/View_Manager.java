@@ -94,7 +94,6 @@ public class View_Manager {
         mainStage.show();
     }
 
-
     public void removevideo() {
         player.setMute(true);
         mainPane.getChildren().remove(view);
