@@ -7,6 +7,9 @@ import java.io.File;
 
 public class Standard_Green_Orc extends Orc{
     private String imagePath = "src/main/resources/com/example/game/images/StandardGreenOrc.png";
+
+
+
     private ImageView standardGreenOrc;
     public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height){
         createImage();
@@ -24,4 +27,13 @@ public class Standard_Green_Orc extends Orc{
         this.standardGreenOrc = new ImageView(new File(imagePath).toURI().toString());
     }
 
+    @Override
+    public ImageView getOrc() {
+        return standardGreenOrc;
+    }
+
+    @Override
+    public void setOrc(ImageView Orc) {
+
+    }
 }

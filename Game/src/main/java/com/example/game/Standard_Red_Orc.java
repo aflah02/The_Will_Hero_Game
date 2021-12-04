@@ -16,6 +16,15 @@ public class Standard_Red_Orc extends Orc{
         standardRedOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardRedOrc);
     }
+
+    public ImageView getOrc() {
+        return standardRedOrc;
+    }
+
+    public void setOrc(ImageView standardRedOrc) {
+        this.standardRedOrc = standardRedOrc;
+    }
+
     @Override
     public void collide(Player player) {
 

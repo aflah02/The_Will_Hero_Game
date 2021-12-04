@@ -12,6 +12,15 @@ public class Hero {
     private int speed;
     private Boolean isRevived;
     private ImageView Hero;
+
+    public ImageView getHero() {
+        return Hero;
+    }
+
+    public void setHero(ImageView hero) {
+        Hero = hero;
+    }
+
     Hero(AnchorPane anchorPane, Position position, int width, int height){
         helmet = new pandaHelmet(anchorPane, position, width, height);
         Hero = helmet.getPandaHelmet();

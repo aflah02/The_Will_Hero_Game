@@ -1,5 +1,7 @@
 package com.example.game;
 
+import javafx.scene.image.ImageView;
+
 public abstract class Orc extends Game_Objects{
     private int HitPoints;
     private int Damage;
@@ -20,4 +22,6 @@ public abstract class Orc extends Game_Objects{
     public void setIsDead(){
         Dead = true;
     }
+    public abstract ImageView getOrc();
+    public abstract void setOrc(ImageView Orc);
 }
