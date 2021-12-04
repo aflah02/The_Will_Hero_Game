@@ -1,17 +1,10 @@
 package com.example.game;
 
-public abstract class Game_Objects {
+import java.io.Serializable;
+
+public abstract class Game_Objects implements Serializable {
     private Position position;
     private int speed;
-
-    public Game_Objects(Position position, int speed) {
-        this.position = position;
-        this.speed = speed;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
 
     public Position getPosition() {
         return position;
@@ -19,6 +12,10 @@ public abstract class Game_Objects {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     public abstract void collide(Player player);

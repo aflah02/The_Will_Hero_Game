@@ -1,15 +1,11 @@
 package com.example.game;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
-public class Coin_Chest extends Chests implements Serializable {
-    int coins;
-    public Coin_Chest(Position position, int speed, int coins) {
-        super(position, speed);
-        this.coins = coins;
-    }
+public class Coin_Chest extends Chest{
+    private ArrayList<Coins> coins;
 
-    public int getCoins() {
+    public ArrayList<Coins> getCoins() {
         return coins;
     }
 

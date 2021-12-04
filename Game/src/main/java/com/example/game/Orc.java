@@ -1,36 +1,23 @@
 package com.example.game;
 
 public abstract class Orc extends Game_Objects{
-    int hitPoints;
-    int damage;
-    int coins;
-    Boolean dead;
-
-    public Orc(Position position, int speed, int hitPoints, int damage, int coins) {
-        super(position, speed);
-        this.hitPoints = hitPoints;
-        this.damage = damage;
-        this.coins = coins;
-        this.dead = false;
+    private int HitPoints;
+    private int Damage;
+    private int Coins;
+    private Boolean Dead;
+    public int getHitPoints(){
+        return this.HitPoints;
     }
-
-    public int getHitPoints() {
-        return hitPoints;
+    public int getDamage(){
+        return this.Damage;
     }
-
-    public int getDamage() {
-        return damage;
+    public int getCoins(){
+        return this.Coins;
     }
-
-    public int getCoins() {
-        return coins;
+    public Boolean isDead(){
+        return Dead;
     }
-
-    public boolean isDead() {
-        return this.dead;
-    }
-
-    public void setIsDead() {
-        this.dead = true;
+    public void setIsDead(){
+        Dead = true;
     }
 }

@@ -1,7 +1,23 @@
 package com.example.game;
 
-import java.io.Serializable;
+public class Lance extends Weapon{
+    @Override
+    int getDamage() {
+        return 0;
+    }
 
-public class Lance extends Weapon implements Serializable {
+    @Override
+    int setDamage() {
+        return 0;
+    }
 
+    @Override
+    int getRadius() {
+        return 0;
+    }
+
+    @Override
+    int increaseLevel() {
+        return 0;
+    }
 }

@@ -5,7 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Chest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Chest_Coin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coins.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Floor_Loot_Coin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/gameObstacles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/pandaHelmet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Chests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Islands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Lance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Lance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Panda_Helmet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Sword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Boss_Orc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Chests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Game_Objects.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Islands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Lance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Orc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Panda_Helmet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Green_Orc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Red_Orc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Sword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/TNT.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,14 +57,24 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="21fSQuIAu3B9OA9zcJcmg0J8JHx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -109,6 +161,7 @@
       <workItem from="1638562209876" duration="45000" />
       <workItem from="1638593298716" duration="3273000" />
       <workItem from="1638601018442" duration="1658000" />
+      <workItem from="1638603508602" duration="3653000" />
     </task>
     <servers />
   </component>
