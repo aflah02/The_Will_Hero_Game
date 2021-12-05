@@ -13,6 +13,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Objects;
 
 public class View_Manager {
     private AnchorPane mainPane;
@@ -84,6 +85,10 @@ public class View_Manager {
     }
 
     public Stage getMainStage() {
+        Image icon = new Image(new File("src/main/resources/com/example/game/images/logo.png").toURI().toString());
+        mainStage.getIcons().add(icon);
+        mainStage.setTitle("Will Hero");
+        mainStage.setResizable(false);
         return mainStage;
     }
 

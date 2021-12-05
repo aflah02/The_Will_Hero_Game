@@ -9,11 +9,14 @@ public class Standard_Green_Orc extends Orc{
     private String imagePath = "src/main/resources/com/example/game/images/StandardGreenOrc.png";
     private double speed;
     private double initpos;
+    private Island islandofResidence;
 
-
+    public Island getIslandofResidence() {
+        return islandofResidence;
+    }
 
     private ImageView standardGreenOrc;
-    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height,double speed){
+    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height,double speed,Island islandofResidence){
         createImage();
         this.speed = speed;
         standardGreenOrc.setX(position.getX());
@@ -22,6 +25,7 @@ public class Standard_Green_Orc extends Orc{
         standardGreenOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardGreenOrc);
         this.initpos = position.getY();
+        this.islandofResidence = islandofResidence;
     }
     @Override
     public void collide(Player player) {

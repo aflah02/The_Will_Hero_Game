@@ -38,7 +38,7 @@ public class LoadPage {
     private Hero hero;
     private ArrayList<Island> islands;
     private double pos;
-    private Chest_Coin chest;
+    private Coin_Chest chest;
     LoadPage(Stage stage) {
         this.stage = stage;
         xSpeed = 1;
@@ -50,7 +50,7 @@ public class LoadPage {
         newpane = pausemenu();
         addobjects(null);
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
-        this.chest = new Chest_Coin(mainPane,new Position(200,300-50),50,50);
+        this.chest = new Coin_Chest(mainPane,new Position(190,300-75),75,75);
 
         //hero = new Panda_Helmet();
 
@@ -90,13 +90,15 @@ public class LoadPage {
     }
 
     private void addobjects(MediaPlayer player){
-        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,300-50), 50, 50,0.75);
-        this.game_objects.add(green_orc1);
-        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50,1);
-        this.game_objects.add(red_orc1);
         Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,300), 200, 100,0);
 //        Island mediumIsland1 = new Island(islandMedium, mainPane, new Position(500,500), 200, 50);
         Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.4);
+        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,300-50), 50, 50,0.75, largeIsland1);
+        this.game_objects.add(green_orc1);
+        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50,1, largeIsland1);
+        TNT tnt1 = new TNT(mainPane, new Position(600,300-75),75,75, 0.4, largeIsland1);
+        this.game_objects.add(red_orc1);
+        this.game_objects.add(tnt1);
         islands.add(smallIsland1);
         islands.add(largeIsland1);
         this.pos = 250;
@@ -108,10 +110,12 @@ public class LoadPage {
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             moveHero(this.hero);
             moveIsland(islands.get(1));
-            this.chest.transition(mainPane);
             for (Game_Objects game_object: this.game_objects){
                 if (game_object instanceof Orc){
-                    moveOrc((Orc) game_object , islands.get(1));
+                    moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
+                }
+                else if (game_object instanceof gameObstacles){
+                    moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
                 }
             }
 
@@ -155,6 +159,14 @@ public class LoadPage {
         }
         if(orc.getOrc().getY()>=island.getPosition().getY()-50){
             orc.setinitpos(island.getPosition().getY()-50);
+        }
+    }
+
+    private void moveTNT(TNT tnt , Island island){
+        tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-70);
+        if(tnt.getPosition().getY()>=300 || tnt.getPosition().getY()<=250){
+            double speed = tnt.getSpeed();
+            tnt.setSpeed(-speed);
         }
     }
 

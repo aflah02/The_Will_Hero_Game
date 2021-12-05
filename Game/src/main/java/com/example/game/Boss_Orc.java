@@ -4,7 +4,11 @@ import javafx.scene.image.ImageView;
 
 public class Boss_Orc extends Orc{
     private double speed,initpos;
+    private Island islandofResidence;
 
+    public Island getIslandofResidence() {
+        return islandofResidence;
+    }
     @Override
     public void collide(Player player) {
 

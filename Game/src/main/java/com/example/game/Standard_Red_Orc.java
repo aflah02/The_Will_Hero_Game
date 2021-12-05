@@ -10,7 +10,13 @@ public class Standard_Red_Orc extends Orc{
     private ImageView standardRedOrc;
     private double speed;
     private double initpos;
-    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height,double speed){
+    private Island islandofResidence;
+
+    public Island getIslandofResidence() {
+        return islandofResidence;
+    }
+
+    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
         createImage();
         this.speed = speed;
         standardRedOrc.setX(position.getX());
@@ -19,6 +25,7 @@ public class Standard_Red_Orc extends Orc{
         standardRedOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardRedOrc);
         this.initpos = position.getY();
+        this.islandofResidence = islandofResidence;
     }
 
     public ImageView getOrc() {
