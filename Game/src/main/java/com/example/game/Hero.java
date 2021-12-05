@@ -9,7 +9,7 @@ public class Hero {
     private pandaHelmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;
-    private int speed;
+    private double speed;
     private Boolean isRevived;
     private ImageView Hero;
 
@@ -21,10 +21,11 @@ public class Hero {
         Hero = hero;
     }
 
-    Hero(AnchorPane anchorPane, Position position, int width, int height){
+    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed){
         helmet = new pandaHelmet(anchorPane, position, width, height);
         Hero = helmet.getPandaHelmet();
         anchorPane.getChildren().add(Hero);
+        this.speed = speed;
     }
     public void setPosition(Position position) {
         this.position = position;
@@ -34,7 +35,7 @@ public class Hero {
         this.currCoins.add(coins);
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
@@ -46,7 +47,7 @@ public class Hero {
         return currCoins;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
@@ -57,4 +58,6 @@ public class Hero {
     public Position getPosition() {
         return new Position(2,2);
     }
+
+
 }

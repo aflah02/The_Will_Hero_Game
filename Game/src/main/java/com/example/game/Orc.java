@@ -24,4 +24,8 @@ public abstract class Orc extends Game_Objects{
     }
     public abstract ImageView getOrc();
     public abstract void setOrc(ImageView Orc);
+    public abstract void setSpeed(double speed);
+
+    public abstract double getinitpos();
+    public abstract void setinitpos(double pos);
 }

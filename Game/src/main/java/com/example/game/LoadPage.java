@@ -36,6 +36,8 @@ public class LoadPage {
     private Stage stage;
     private final ArrayList<Game_Objects> game_objects = new ArrayList<>();
     private Hero hero;
+    private ArrayList<Island> islands;
+    private double pos;
     LoadPage(Stage stage) {
         this.stage = stage;
         xSpeed = 1;
@@ -43,9 +45,11 @@ public class LoadPage {
         newpane = null;
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
+        islands = new ArrayList<>();
         newpane = pausemenu();
         addobjects(null);
-        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50);
+        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
+
         //hero = new Panda_Helmet();
 
     }
@@ -76,68 +80,38 @@ public class LoadPage {
         home.setLayoutX(100);
         home.setLayoutY(100);
         menu.getChildren().add(home);
+        RestartButton restart = new RestartButton(stage);
+        restart.setLayoutX(200);
+        restart.setLayoutY(200);
+        menu.getChildren().add(restart);
         return menu;
     }
 
     private void addobjects(MediaPlayer player){
-        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,300-50), 50, 50);
+        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,300-50), 50, 50,0.75);
         this.game_objects.add(green_orc1);
-        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50);
+        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50,1);
         this.game_objects.add(red_orc1);
-        Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,300), 200, 100);
+        Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,300), 200, 100,0);
 //        Island mediumIsland1 = new Island(islandMedium, mainPane, new Position(500,500), 200, 50);
-        Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150);
-        /*
-        //Image of Gradient to stop video showing extra buttons
-        ImageView grad = new ImageView(new File(gradient).toURI().toString());
-        grad.setFitHeight(147);
-        grad.setFitWidth(65);
-        grad.setLayoutX(369);
-        grad.setLayoutY(390);
-        mainPane.getChildren().add(grad);
-        //Start button
-        StartButton button = new StartButton(this);
-        button.setLayoutX(340);
-        button.setLayoutY(260);
-        mainPane.getChildren().add(button);
-        //Load Button
-        LoadButton button1 = new LoadButton();
-        button1.setLayoutX(425);
-        button1.setLayoutY(380);
-        mainPane.getChildren().add(button1);
-        //Google Button
-        GoogleButton button2 = new GoogleButton();
-        button2.setLayoutX(270);
-        button2.setLayoutY(380);
-        mainPane.getChildren().add(button2);
-        //Music Button
-        MusicButton button3 = new MusicButton(player);
-        button3.setLayoutX(700);
-        button3.setLayoutY(50);
-        mainPane.getChildren().add(button3);
-        */
+        Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.4);
+        islands.add(smallIsland1);
+        islands.add(largeIsland1);
+        this.pos = 250;
     }
     public void start(){
-//        ball = new Circle(20);
-//        ball.setFill(Color.AQUA);
-//        ball.setCenterX(300);
-//        ball.setCenterY(400);
-//        mainPane.getChildren().add(ball);
-//        ball2 = new Circle(20);
-//        ball2.setFill(Color.AQUA);
-//        ball2.setCenterX(500);
-//        ball2.setCenterY(400);
-//        mainPane.getChildren().add(ball2);
         stage.setScene(this.mainScene);
         stage.show();
 
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             moveHero(this.hero);
+            moveIsland(islands.get(1));
             for (Game_Objects game_object: this.game_objects){
                 if (game_object instanceof Orc){
-                    moveOrc((Orc) game_object);
+                    moveOrc((Orc) game_object , islands.get(1));
                 }
             }
+
         }
         );
         this.time = new Timeline(frame);
@@ -145,30 +119,39 @@ public class LoadPage {
         time.play();
     }
 
-//    private void moveBall(){
-//
-//        ball.setCenterY(ball.getCenterY()-yspeed);
-//        if(ball.getCenterY()>=300 || ball.getCenterY()<=200){
-//            yspeed=-yspeed;
-//        }
-//
-//        ball2.setCenterY(ball2.getCenterY()-xSpeed);
-//        if(ball2.getCenterY()>=400 || ball2.getCenterY()<=200){
-//            xSpeed=-xSpeed;
-//        }
-//    }
+    private void moveIsland(Island island) {
+        //Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.5);
+        //hero.getHero().setY(hero.getHero().getY()-hero.getSpeed());
+        island.setPositionY(island.getPosition().getY()-island.getSpeed());
+        if(island.getPosition().getY()>=300 || island.getPosition().getY()<=250){
+            double speed = island.getSpeed();
+            island.setSpeed(-speed);
+        }
 
+    }
     private void moveHero(Hero hero){
-        hero.getHero().setY(hero.getHero().getY()-yspeed);
+        hero.getHero().setY(hero.getHero().getY()-hero.getSpeed());
         if(hero.getHero().getY()>=300-50 || hero.getHero().getY()<=200-50){
-            yspeed=-yspeed;
+            double speed = hero.getSpeed();
+            hero.setSpeed(-speed);
         }
     }
 
-    private void moveOrc(Orc orc){
-        orc.getOrc().setY(orc.getOrc().getY()-yspeed);
-        if(hero.getHero().getY()>=300-50 || hero.getHero().getY()<=200-50){
-            yspeed=-yspeed;
+    private void moveOrc(Orc orc , Island island){
+        //Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.4);
+        //Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50,2);
+        if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-50){
+            orc.getOrc().setY(island.getPosition().getY()-50);
+        }
+        else{
+            orc.getOrc().setY(orc.getOrc().getY()-orc.getSpeed());
+        }
+        if(orc.getOrc().getY()>=island.getPosition().getY()-50 || orc.getOrc().getY()<=orc.getinitpos()-150){
+            double speed = orc.getSpeed();
+            orc.setSpeed(-speed);
+        }
+        if(orc.getOrc().getY()>=island.getPosition().getY()-50){
+            orc.setinitpos(island.getPosition().getY()-50);
         }
     }
 

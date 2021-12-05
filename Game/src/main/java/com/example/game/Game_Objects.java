@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public abstract class Game_Objects implements Serializable {
     private Position position;
-    private int speed;
+    private double speed;
 
     public Position getPosition() {
         return position;
@@ -14,7 +14,7 @@ public abstract class Game_Objects implements Serializable {
         this.position = position;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 

@@ -7,21 +7,24 @@ import java.io.File;
 
 public class Standard_Green_Orc extends Orc{
     private String imagePath = "src/main/resources/com/example/game/images/StandardGreenOrc.png";
+    private double speed;
+    private double initpos;
 
 
 
     private ImageView standardGreenOrc;
-    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height){
+    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height,double speed){
         createImage();
+        this.speed = speed;
         standardGreenOrc.setX(position.getX());
         standardGreenOrc.setY(position.getY());
         standardGreenOrc.setFitWidth(width);
         standardGreenOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardGreenOrc);
+        this.initpos = position.getY();
     }
     @Override
     public void collide(Player player) {
-
     }
     public void createImage(){
         this.standardGreenOrc = new ImageView(new File(imagePath).toURI().toString());
@@ -34,6 +37,24 @@ public class Standard_Green_Orc extends Orc{
 
     @Override
     public void setOrc(ImageView Orc) {
+    }
 
+    @Override
+    public double getSpeed() {
+        return speed;
+    }
+
+    @Override
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+    @Override
+    public double getinitpos() {
+        return initpos;
+    }
+
+    @Override
+    public void setinitpos(double pos) {
+        this.initpos = initpos;
     }
 }

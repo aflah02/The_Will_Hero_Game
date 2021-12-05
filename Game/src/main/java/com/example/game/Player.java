@@ -30,7 +30,7 @@ public class Player implements Serializable {
 
     }
 
-    public int getSpeed(){
+    public double getSpeed(){
         return hero.getSpeed();
     }
 
