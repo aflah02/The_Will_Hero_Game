@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/ExitButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/RestartButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/SaveButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Chest_Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Chest_Coin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/retry.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/retry.jpeg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +126,7 @@
       <workItem from="1638632768669" duration="7010000" />
       <workItem from="1638644540220" duration="3120000" />
       <workItem from="1638690986963" duration="3974000" />
+      <workItem from="1638695125242" duration="2065000" />
     </task>
     <servers />
   </component>

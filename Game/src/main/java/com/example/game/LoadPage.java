@@ -38,6 +38,7 @@ public class LoadPage {
     private Hero hero;
     private ArrayList<Island> islands;
     private double pos;
+    private Chest_Coin chest;
     LoadPage(Stage stage) {
         this.stage = stage;
         xSpeed = 1;
@@ -49,6 +50,7 @@ public class LoadPage {
         newpane = pausemenu();
         addobjects(null);
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
+        this.chest = new Chest_Coin(mainPane,new Position(200,300-50),50,50);
 
         //hero = new Panda_Helmet();
 
@@ -106,6 +108,7 @@ public class LoadPage {
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             moveHero(this.hero);
             moveIsland(islands.get(1));
+            this.chest.transition(mainPane);
             for (Game_Objects game_object: this.game_objects){
                 if (game_object instanceof Orc){
                     moveOrc((Orc) game_object , islands.get(1));
