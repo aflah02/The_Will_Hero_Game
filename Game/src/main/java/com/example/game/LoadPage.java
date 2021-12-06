@@ -86,6 +86,10 @@ public class LoadPage {
         restart.setLayoutX(200);
         restart.setLayoutY(200);
         menu.getChildren().add(restart);
+        MusicButton music = new MusicButton(null);
+        music.setLayoutX(150);
+        music.setLayoutY(150);
+        menu.getChildren().add(music);
         return menu;
     }
 
@@ -150,10 +154,13 @@ public class LoadPage {
         if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-50){
             orc.getOrc().setY(island.getPosition().getY()-50);
         }
+        if(orc.getOrc().getY()-orc.getSpeed()<=island.getPosition().getY()-150){
+            orc.getOrc().setY(island.getPosition().getY()-150);
+        }
         else{
             orc.getOrc().setY(orc.getOrc().getY()-orc.getSpeed());
         }
-        if(orc.getOrc().getY()>=island.getPosition().getY()-50 || orc.getOrc().getY()<=orc.getinitpos()-150){
+        if(orc.getOrc().getY()>=island.getPosition().getY()-50 || orc.getOrc().getY()<=island.getPosition().getY()-150){
             double speed = orc.getSpeed();
             orc.setSpeed(-speed);
         }

@@ -88,6 +88,10 @@ public class MusicButton extends Button {
     }
 
     private void handler() {
+        if(player==null){
+            System.out.println("No media to stop");
+            return;
+        }
         if(flag == 0){
             flag =1;
             ImageView img = new ImageView(new File(path2).toURI().toString());
