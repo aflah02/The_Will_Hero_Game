@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class LoadPage {
     private AnchorPane mainPane;
     private Scene mainScene;
-    private String image = "src/main/resources/com/example/game/images/bg.gif";
+    private String image = "src/main/resources/com/example/game/images/gamebg.jpg";
     private String bg = "src/main/resources/com/example/game/images/background.png";
     private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
     private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
