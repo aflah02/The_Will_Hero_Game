@@ -13,7 +13,7 @@ import java.io.File;
 public class SaveButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
-    private String path = "src/main/resources/com/example/game/images/home.png";
+    private String path = "src/main/resources/com/example/game/images/upload.png";
     private Stage stage;
 
     SaveButton(Stage stage){
@@ -81,7 +81,7 @@ public class SaveButton extends Button {
     }
 
     private void handler() {
-        System.out.println("Lod State");
+        System.out.println("No save State");
         stage.close();
     }
 

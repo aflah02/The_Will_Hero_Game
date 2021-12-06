@@ -10,13 +10,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class ExitButton extends Button {
+public class Exit_Button extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
-    private String path = "src/main/resources/com/example/game/images/home.png";
+    private String path = "src/main/resources/com/example/game/images/exit.png";
     private Stage stage;
 
-    ExitButton(Stage stage){
+    Exit_Button(Stage stage){
         this.stage = stage;
         setText("");
         setPrefHeight(50);
@@ -81,7 +81,6 @@ public class ExitButton extends Button {
     }
 
     private void handler() {
-        System.out.println("Exit Game");
         stage.close();
     }
 

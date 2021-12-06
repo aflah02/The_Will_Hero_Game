@@ -6,7 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.File;
 
 public class Standard_Green_Orc extends Orc{
-    private String imagePath = "src/main/resources/com/example/game/images/StandardGreenOrc.png";
+    private String imagePath = "src/main/resources/com/example/game/images/troll_1.png";
     private double speed;
     private double initpos;
     private Island islandofResidence;

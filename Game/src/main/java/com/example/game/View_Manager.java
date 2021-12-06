@@ -71,9 +71,13 @@ public class View_Manager {
         mainPane.getChildren().add(button2);
         //Music Button
         MusicButton button3 = new MusicButton(player);
-        button3.setLayoutX(700);
+        button3.setLayoutX(625);
         button3.setLayoutY(50);
         mainPane.getChildren().add(button3);
+        Exit_Button exit = new Exit_Button(this.mainStage);
+        exit.setLayoutX(700);
+        exit.setLayoutY(50);
+        mainPane.getChildren().add(exit);
     }
 
     public AnchorPane getMainPane() {
