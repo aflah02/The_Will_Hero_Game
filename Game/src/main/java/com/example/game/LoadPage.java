@@ -76,6 +76,7 @@ public class LoadPage {
         addobjects(null);
         newpane = pausemenu();
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
+        /*
         sword = new ImageView(new File(swbutton).toURI().toString());
         sword.setFitHeight(50);
         sword.setFitWidth(50);
@@ -88,9 +89,30 @@ public class LoadPage {
         lance.setLayoutX(85);
         lance.setLayoutY(525);
         mainPane.getChildren().add(lance);
+        */
+        WeaponButton sword = new WeaponButton(0,25,525);
+        WeaponButton lance = new WeaponButton(1,100,525);
+        mainPane.getChildren().add(sword);
+        mainPane.getChildren().add(lance);
+        Text lancet = new Text();
+        String score = Integer.toString(sword.getLevel());
+        lancet.setText(score);
+        lancet.setFont(Font.font ("Verdana", 10));
+        lancet.setFill(Color.YELLOW);
+        lancet.setX(60);
+        lancet.setY(570);
+        mainPane.getChildren().add(lancet);
+        Text swordt = new Text();
+        score = Integer.toString(lance.getLevel());
+        swordt.setText(score);
+        swordt.setFont(Font.font ("Verdana", 10));
+        swordt.setFill(Color.YELLOW);
+        swordt.setX(135);
+        swordt.setY(570);
+        mainPane.getChildren().add(swordt);
         this.score = 0;
         Text t = new Text();
-        String score = Integer.toString(this.score);
+        score = Integer.toString(this.score);
         t.setText(score);
         t.setFont(Font.font ("Verdana", 70));
         t.setFill(Color.WHITE);
