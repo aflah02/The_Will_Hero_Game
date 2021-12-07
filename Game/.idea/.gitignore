@@ -1,2 +1,4 @@
 #custom
 ../target/classes/module-info.class
+#causing problems with the classpath
+/workspace.xml

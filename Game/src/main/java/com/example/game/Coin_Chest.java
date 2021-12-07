@@ -128,10 +128,10 @@ public class Coin_Chest extends Chest{
             for(int i=0;i<images.size();i++){
                 ImageView image = images.get(i);
                 SequentialTransition transitioni = new SequentialTransition();
-                FadeTransition fadeIn = getFadeTransition(image, 0.0, 1.0, 5);
+                FadeTransition fadeIn = getFadeTransition(image, 0.0, 1.0, 1);
                 PauseTransition stayOn = new PauseTransition(Duration.millis(150));
                 if(i!=images.size()-1){
-                    FadeTransition fadeOut = getFadeTransition(image, 1.0, 0.0, 5);
+                    FadeTransition fadeOut = getFadeTransition(image, 1.0, 0.0, 1);
                     transitioni.getChildren().addAll(fadeIn ,stayOn ,fadeOut);
                 }
                 else{
