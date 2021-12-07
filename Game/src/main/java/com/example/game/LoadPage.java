@@ -48,6 +48,7 @@ public class LoadPage {
     private String heroj = "src/main/resources/com/example/game/audios/orcjump.mp3";
     private String orcj = "src/main/resources/com/example/game/audios/herojump.wav";
     int score;
+    private TNT tnt;
 
 
 
@@ -68,8 +69,12 @@ public class LoadPage {
         mainPane.getChildren().add(herojumpview);
         mainPane.getChildren().add(orcjumpview);
         islands = new ArrayList<>();
-        newpane = pausemenu();
+        ImageView background = new ImageView(new File(image).toURI().toString());
+        background.setFitHeight(600);
+        background.setFitWidth(800);
+        mainPane.getChildren().add(background);
         addobjects(null);
+        newpane = pausemenu();
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
         sword = new ImageView(new File(swbutton).toURI().toString());
         sword.setFitHeight(50);
@@ -95,10 +100,7 @@ public class LoadPage {
 
     }
     private AnchorPane pausemenu(){
-        ImageView background = new ImageView(new File(image).toURI().toString());
-        background.setFitHeight(600);
-        background.setFitWidth(800);
-        mainPane.getChildren().add(background);
+
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
         pause.setLayoutY(20);
@@ -162,9 +164,9 @@ public class LoadPage {
         Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,350-50), 60, 50,0.8, largeIsland1);
         this.game_objects.add(green_orc1);
         Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,350-50), 50, 50,1, largeIsland1);
-        TNT tnt1 = new TNT(mainPane, new Position(650,300-50),50,50, 0.4, largeIsland1);
+        this.tnt = new TNT(mainPane, new Position(650,300-50),50,50, 0.4, largeIsland1);
         this.game_objects.add(red_orc1);
-        this.game_objects.add(tnt1);
+        this.game_objects.add(this.tnt);
         islands.add(smallIsland1);
         islands.add(largeIsland1);
         this.pos = 250;
@@ -250,6 +252,7 @@ public class LoadPage {
     public void pausegame(PauseButton pause){
         pause.setOnAction(e ->{
             chest.setFlag(1);
+            tnt.setFlag(1);
             time.pause();
             mainPane.getChildren().remove(pause);
             mainPane.getChildren().add(newpane);
@@ -258,6 +261,7 @@ public class LoadPage {
     public void startgame(Button button , PauseButton pause){
         button.setOnAction(e ->{
             chest.setFlag(0);
+            tnt.setFlag(0);
             time.play();
             mainPane.getChildren().add(pause);
             mainPane.getChildren().remove(newpane);
