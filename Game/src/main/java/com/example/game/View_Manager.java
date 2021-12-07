@@ -34,7 +34,11 @@ public class View_Manager {
             mainStage = stage;
         }
         mainStage.setScene(mainScene);
+        String pathforgifbg = "src/main/resources/com/example/game/videos/backgroundasgif.gif";
         String path = "src/main/resources/com/example/game/videos/openingBackground.mp4";
+        Image img = new Image(new File(pathforgifbg).toURI().toString());
+        ImageView backgroundasgif = new ImageView(img);
+        mainPane.getChildren().add(backgroundasgif);
         Media media = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);

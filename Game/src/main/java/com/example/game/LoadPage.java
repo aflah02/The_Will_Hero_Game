@@ -21,17 +21,14 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class LoadPage {
-    private AnchorPane mainPane;
-    private Scene mainScene;
+    private final AnchorPane mainPane;
+    private final Scene mainScene;
     private String image = "src/main/resources/com/example/game/images/bg2.jpg";
     private String bg = "src/main/resources/com/example/game/images/background.png";
     private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
     private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
     private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
     private Timeline time;
-    //private Panda_Helmet hero;
-    private Circle ball , ball2;
-    private int xSpeed,yspeed;
     private AnchorPane newpane;
     private Stage stage;
     private final ArrayList<Game_Objects> game_objects = new ArrayList<>();
@@ -41,8 +38,6 @@ public class LoadPage {
     private Coin_Chest chest;
     LoadPage(Stage stage) {
         this.stage = stage;
-        xSpeed = 1;
-        yspeed = 2;
         newpane = null;
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
@@ -50,10 +45,6 @@ public class LoadPage {
         newpane = pausemenu();
         addobjects(null);
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
-
-
-        //hero = new Panda_Helmet();
-
     }
     private AnchorPane pausemenu(){
         ImageView background = new ImageView(new File(image).toURI().toString());
