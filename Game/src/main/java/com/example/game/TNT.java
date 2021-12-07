@@ -20,7 +20,7 @@ public class TNT extends gameObstacles{
     private int Radius;
     private double initpos;
     private double speed;
-    String pathgif = "src/main/resources/com/example/game/images/tntgif.gif";
+    String pathgif = "src/main/resources/com/example/game/images/tntupdated.png";
 
     private ImageView tnt;
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){

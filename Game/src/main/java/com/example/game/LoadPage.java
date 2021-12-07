@@ -24,7 +24,7 @@ public class LoadPage {
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private String image = "src/main/resources/com/example/game/images/bg2.jpg";
-    private String bg = "src/main/resources/com/example/game/images/background.png";
+    private String bg = "src/main/resources/com/example/game/images/menuupdated.png";
     private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
     private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
     private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
