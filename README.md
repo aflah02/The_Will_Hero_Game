@@ -27,4 +27,6 @@ Use Case Diagram -
 ![UseCase](UseCase.png)
 
 Creators:
+
+<a href="https://github.com/aflah02/The_Will_Hero_Game/graphs/contributors"><img src="https://github.com/aflah02/The_Will_Hero_Game/contributors.svg?width=890&button=false" /></a>
 [Kushagra](https://github.com/Kushagra20075) & [Aflah](https://github.com/aflah02)
