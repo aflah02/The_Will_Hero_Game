@@ -50,9 +50,6 @@ public class LoadPage {
     int score;
     private TNT tnt;
 
-
-
-
     LoadPage(Stage stage) {
         Media herojum = new Media(new File(heroj).toURI().toString());
         herojump = new MediaPlayer(herojum);
