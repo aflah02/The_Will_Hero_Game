@@ -20,11 +20,11 @@ Game Play -
 
 UML Diagram -
 
-![UML](Code-Structure\UML_Diagram.png)
+![UML](UML_Diagram.png)
 
 Use Case Diagram - 
 
-![UseCase](Code-Structure\UseCase.png)
+![UseCase](UseCase.png)
 
 Creators:
 [Kushagra](https://github.com/Kushagra20075) & [Aflah](https://github.com/aflah02)
