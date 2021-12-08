@@ -12,10 +12,10 @@ import java.io.File;
 
 public class MusicButton extends Button {
     private int flag;
-    private MediaPlayer player;
+    private final MediaPlayer player;
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
-    private String path = "src/main/resources/com/example/game/images/musicbutton.jpeg";
+    private final String path = "src/main/resources/com/example/game/images/musicbutton.jpeg";
     private String path2 = "src/main/resources/com/example/game/images/musicstopped.png";
 
     MusicButton(MediaPlayer player){

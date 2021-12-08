@@ -16,11 +16,10 @@ import java.io.File;
 import java.util.Objects;
 
 public class View_Manager {
-    private AnchorPane mainPane;
-    private Scene mainScene;
-    private Stage mainStage;
-    private String gradient = "src/main/resources/com/example/game/images/GradientBackground.jpg";
-    private MediaPlayer player;
+    private final AnchorPane mainPane;
+    private final Scene mainScene;
+    private final Stage mainStage;
+    private final MediaPlayer player;
     private MediaView view;
 
     View_Manager(Stage stage) {
@@ -36,12 +35,13 @@ public class View_Manager {
         mainStage.setScene(mainScene);
         String pathforgifbg = "src/main/resources/com/example/game/videos/backgroundasgif.gif";
         String path = "src/main/resources/com/example/game/videos/openingBackground.mp4";
+        String pathforbgaudio = "src/main/resources/com/example/game/audios/mainscreenbackgroundaudio.mp3";
         Image img = new Image(new File(pathforgifbg).toURI().toString());
         ImageView backgroundasgif = new ImageView(img);
         backgroundasgif.setFitHeight(600);
         backgroundasgif.setFitWidth(800);
         mainPane.getChildren().add(backgroundasgif);
-        Media media = new Media(new File(path).toURI().toString());
+        Media media = new Media(new File(pathforbgaudio).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         MediaView mediaView = new MediaView(mediaPlayer);
@@ -49,11 +49,11 @@ public class View_Manager {
         mainPane.getChildren().add(mediaView);
         createButtons(mediaPlayer);
         this.player = mediaPlayer;
-        this.view = view;
     }
 
     private void createButtons(MediaPlayer player){
         //Image of Gradient to stop video showing extra buttons
+        String gradient = "src/main/resources/com/example/game/images/GradientBackground.jpg";
         ImageView grad = new ImageView(new File(gradient).toURI().toString());
         grad.setFitHeight(147);
         grad.setFitWidth(65);

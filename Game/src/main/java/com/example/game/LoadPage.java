@@ -25,39 +25,34 @@ import java.util.ArrayList;
 public class LoadPage {
     private final AnchorPane mainPane;
     private final Scene mainScene;
-    private String image = "src/main/resources/com/example/game/images/bg2.jpg";
-    private String bg = "src/main/resources/com/example/game/images/menuupdated.png";
-    private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
-    private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
-    private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
-    private String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
-    private String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
-    private String image1 = "src/main/resources/com/example/game/images/Spruce1.png";
-    private String image2 = "src/main/resources/com/example/game/images/ruins4.png";
-    private String image4 = "src/main/resources/com/example/game/images/Tree7.png";
+    private final String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
+    private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
+    private final String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
     private Timeline time;
     private AnchorPane newpane;
-    private Stage stage;
+    private final Stage stage;
     private final ArrayList<Game_Objects> game_objects = new ArrayList<>();
-    private Hero hero;
-    private ArrayList<Island> islands;
-    private double pos;
+    private final Hero hero;
+    private final ArrayList<Island> islands;
     private Coin_Chest chest;
     private ImageView sword,lance;
-    private MediaPlayer orcjump , herojump;
-    private String heroj = "src/main/resources/com/example/game/audios/orcjump.mp3";
-    private String orcj = "src/main/resources/com/example/game/audios/herojump.wav";
+    private final MediaPlayer orcjump;
+    private final MediaPlayer herojump;
     int score;
     private TNT tnt;
 
     LoadPage(Stage stage) {
-        Media herojum = new Media(new File(heroj).toURI().toString());
-        herojump = new MediaPlayer(herojum);
+        String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
+        Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
+        herojump = new MediaPlayer(heroJumpingAudio);
         MediaView herojumpview = new MediaView(herojump);
+        herojump.setVolume(0.4);
         herojump.setCycleCount(1);
-        Media orcjum = new Media(new File(orcj).toURI().toString());
-        orcjump = new MediaPlayer(orcjum);
+        String orcJumpingAudioPath = "src/main/resources/com/example/game/audios/orcjump.mp3";
+        Media orcJumpingAudio = new Media(new File(orcJumpingAudioPath).toURI().toString());
+        orcjump = new MediaPlayer(orcJumpingAudio);
         MediaView orcjumpview = new MediaView(orcjump);
+        orcjump.setVolume(0);
         orcjump.setCycleCount(1);
         this.stage = stage;
         newpane = null;
@@ -66,12 +61,13 @@ public class LoadPage {
         mainPane.getChildren().add(herojumpview);
         mainPane.getChildren().add(orcjumpview);
         islands = new ArrayList<>();
+        String image = "src/main/resources/com/example/game/images/bg2.jpg";
         ImageView background = new ImageView(new File(image).toURI().toString());
         background.setFitHeight(600);
         background.setFitWidth(800);
         mainPane.getChildren().add(background);
-        addobjects(null);
-        newpane = pausemenu();
+        addObjectsonScreen();
+        newpane = pauseMenu();
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
         /*
         sword = new ImageView(new File(swbutton).toURI().toString());
@@ -116,10 +112,8 @@ public class LoadPage {
         t.setX(410);
         t.setY(130);
         mainPane.getChildren().add(t);
-
     }
-    private AnchorPane pausemenu(){
-
+    private AnchorPane pauseMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
         pause.setLayoutY(20);
@@ -129,7 +123,8 @@ public class LoadPage {
         menu.setPrefWidth(200);
         menu.setLayoutX(300);
         menu.setLayoutY(150);
-        Image bg = new Image(new File(this.bg).toURI().toString(),200,200,false,true);
+        String bg1 = "src/main/resources/com/example/game/images/menuupdated.png";
+        Image bg = new Image(new File(bg1).toURI().toString(),200,200,false,true);
         BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
         menu.setBackground(new Background(image));
         ResumeButton resume = new ResumeButton();
@@ -157,28 +152,33 @@ public class LoadPage {
         return menu;
     }
 
-    private void addobjects(MediaPlayer player){
+    private void addObjectsonScreen(){
         ArrayList<ImageView> island1 = new ArrayList<>();
         ArrayList<ImageView> island2 = new ArrayList<>();
         //Imageviews for islands
+        String image4 = "src/main/resources/com/example/game/images/Tree7.png";
         ImageView first = new ImageView(new File(image4).toURI().toString());
         first.setX(725);
         first.setFitHeight(170);
         first.setFitWidth(50);
+        String image2 = "src/main/resources/com/example/game/images/ruins4.png";
         ImageView second = new ImageView(new File(image2).toURI().toString());
         second.setX(240);
         second.setFitHeight(100);
         second.setFitWidth(30);
         island2.add(first);
         island1.add(second);
+        String image1 = "src/main/resources/com/example/game/images/Spruce1.png";
         ImageView fourth = new ImageView(new File(image1).toURI().toString());
         fourth.setX(475);
         fourth.setFitHeight(200);
         fourth.setFitWidth(50);
         island2.add(fourth);
         //Imageview for islands
+        String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
         Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,350), 200, 100,0,island1);
 //        Island mediumIsland1 = new Island(islandMedium, mainPane, new Position(500,500), 200, 50);
+        String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
         Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,350), 450, 150 , 0.3,island2);
         Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,350-50), 60, 50,0.8, largeIsland1);
         this.game_objects.add(green_orc1);
@@ -188,7 +188,7 @@ public class LoadPage {
         this.game_objects.add(this.tnt);
         islands.add(smallIsland1);
         islands.add(largeIsland1);
-        this.pos = 250;
+        double pos = 250;
         this.chest = new Coin_Chest(mainPane,new Position(190,350-40),50,40);
     }
     public void start(){
@@ -245,12 +245,7 @@ public class LoadPage {
             orcjump.play();
             orcjump.seek(Duration.ZERO);
         }
-        if(orc.getOrc().getY()-orc.getSpeed()<=island.getPosition().getY()-100){
-            orc.getOrc().setY(island.getPosition().getY()-100);
-        }
-        else{
-            orc.getOrc().setY(orc.getOrc().getY()-orc.getSpeed());
-        }
+        orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - 100));
         if(orc.getOrc().getY()>=island.getPosition().getY()-50 || orc.getOrc().getY()<=island.getPosition().getY()-100){
             double speed = orc.getSpeed();
             orc.setSpeed(-speed);

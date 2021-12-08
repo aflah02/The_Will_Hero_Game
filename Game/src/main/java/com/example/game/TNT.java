@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class TNT extends gameObstacles{
-    private Position position;
+    private final Position position;
 
     @Override
     public Position getPosition() {
@@ -23,7 +23,7 @@ public class TNT extends gameObstacles{
 
     private int timeToBurst;
     int flag , flag1;
-    private Island islandofResidence;
+    private final Island islandofResidence;
     private Boolean isBurst;
     private int Radius;
     private double initpos;
@@ -38,7 +38,7 @@ public class TNT extends gameObstacles{
     String path7 = "src/main/resources/com/example/game/images/tnt7.png";
     String path8 = "src/main/resources/com/example/game/images/tnt8.png";
     String path9 = "src/main/resources/com/example/game/images/tnt9.png";
-    private ArrayList<ImageView> images;
+    private final ArrayList<ImageView> images;
 
     private ImageView tnt;
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
@@ -61,7 +61,7 @@ public class TNT extends gameObstacles{
             }
         });
         addimages();
-        this.flag =0;
+        this.flag = 0;
         anchorPane.getChildren().add(tnt);
     }
 
@@ -153,13 +153,12 @@ public class TNT extends gameObstacles{
             System.out.println("Called Transition");
             anchorPane.getChildren().remove(this.tnt);
             SequentialTransition show = new SequentialTransition();
-            for(int i=0;i<images.size();i++){
-                ImageView image = images.get(i);
+            for (ImageView image : images) {
                 SequentialTransition transitioni = new SequentialTransition();
                 FadeTransition fadeIn = getFadeTransition(image, 0.0, 1.0, 1);
                 PauseTransition stayOn = new PauseTransition(Duration.millis(150));
                 FadeTransition fadeOut = getFadeTransition(image, 1.0, 0.0, 1);
-                transitioni.getChildren().addAll(fadeIn ,stayOn ,fadeOut);
+                transitioni.getChildren().addAll(fadeIn, stayOn, fadeOut);
                 image.setOpacity(0);
                 anchorPane.getChildren().add(image);
                 show.getChildren().add(transitioni);
@@ -203,8 +202,6 @@ public class TNT extends gameObstacles{
     public void setinitpos(double pos) {
         this.initpos = initpos;
     }
-
-
 
     public ImageView getTnt() {
         return tnt;
