@@ -3,6 +3,7 @@ package com.example.game;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 public class LoadPage {
     private final AnchorPane mainPane;
     private final Scene mainScene;
-    private final String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
     private final String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
     private Timeline time;
@@ -39,7 +39,6 @@ public class LoadPage {
     private final MediaPlayer orcjump;
     private final MediaPlayer herojump;
     int score;
-    private TNT tnt;
 
     LoadPage(Stage stage) {
         String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
@@ -68,7 +67,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         addObjectsonScreen();
         newpane = pauseMenu();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2 );
+        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2);
         /*
         sword = new ImageView(new File(swbutton).toURI().toString());
         sword.setFitHeight(50);
@@ -153,63 +152,95 @@ public class LoadPage {
     }
 
     private void addObjectsonScreen(){
-        ArrayList<ImageView> island1 = new ArrayList<>();
-        ArrayList<ImageView> island2 = new ArrayList<>();
-        //Imageviews for islands
-        String image4 = "src/main/resources/com/example/game/images/Tree7.png";
-        ImageView first = new ImageView(new File(image4).toURI().toString());
-        first.setX(725);
-        first.setFitHeight(170);
-        first.setFitWidth(50);
-        String image2 = "src/main/resources/com/example/game/images/ruins4.png";
-        ImageView second = new ImageView(new File(image2).toURI().toString());
-        second.setX(240);
-        second.setFitHeight(100);
-        second.setFitWidth(30);
-        island2.add(first);
-        island1.add(second);
-        String image1 = "src/main/resources/com/example/game/images/Spruce1.png";
-        ImageView fourth = new ImageView(new File(image1).toURI().toString());
-        fourth.setX(475);
-        fourth.setFitHeight(200);
-        fourth.setFitWidth(50);
-        island2.add(fourth);
-        //Imageview for islands
-        String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
-        Island smallIsland1 = new Island(islandSmall, mainPane, new Position(75,350), 200, 100,0,island1);
-//        Island mediumIsland1 = new Island(islandMedium, mainPane, new Position(500,500), 200, 50);
-        String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
-        Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,350), 450, 150 , 0.3,island2);
-        Standard_Green_Orc green_orc1 = new Standard_Green_Orc(mainPane, new Position(350,350-50), 60, 50,0.8, largeIsland1);
-        this.game_objects.add(green_orc1);
-        Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,350-50), 50, 50,1, largeIsland1);
-        this.tnt = new TNT(mainPane, new Position(650,300-50),50,50, 0.4, largeIsland1);
-        this.game_objects.add(red_orc1);
-        this.game_objects.add(this.tnt);
-        islands.add(smallIsland1);
-        islands.add(largeIsland1);
-        double pos = 250;
-        this.chest = new Coin_Chest(mainPane,new Position(190,350-40),50,40);
+        System.out.println("Inside playt");
+        for (int i = 0; i < 3; i++){
+            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1225*i,350), 200, 100,0);
+            Island mediumIsland = new Island("Medium", mainPane, new Position(325+ 1225*i,350), 350, 125, 0);
+            Island largeIsland = new Island("Large", mainPane, new Position(725+ 1225*i,350), 450, 150 , 0.3);
+            islands.add(smallIsland);
+            islands.add(mediumIsland);
+            islands.add(largeIsland);
+        }
+        int count = 0;
+        for (Island island: islands){
+            if (count == 0){
+                count++;
+                continue;
+            }
+            Position islandPosition = island.getPosition();
+            if (island.getIslandType().equals("Small")){
+                generateIslandObjects(island, islandPosition, 1);
+            }
+            else if (island.getIslandType().equals("Medium")){
+                generateIslandObjects(island, islandPosition, 1);
+            }
+            else{
+                generateIslandObjects(island, islandPosition, 2);
+            }
+
+        }
+
     }
+
+    private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland) {
+        int max = maxQuantityObjectsOnIsland;
+        int min = 0;
+        int orcCount = (int) (Math.random() * (max - min + 1) + min);
+        maxQuantityObjectsOnIsland -= orcCount;
+        if (orcCount > 0){
+            int orcType = (int) (Math.random() * (max - min + 1) + min);
+            if (orcType == 0){
+                Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50,islandPosition.getY()-50), 60, 50,0.8, island);
+                this.game_objects.add(greenOrc);
+            }
+            else{
+                Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50,islandPosition.getY()-50), 50, 50,1, island);
+                this.game_objects.add(redOrc);
+            }
+        }
+        if (maxQuantityObjectsOnIsland == 0){
+            return;
+        }
+        int tntCount = (int) (Math.random() * (max - min + 1) + min);
+        if (tntCount > 0){
+            TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50,islandPosition.getY()-50),50,50, 0.4, island);
+            this.game_objects.add(tnt);
+        }
+        maxQuantityObjectsOnIsland -= tntCount;
+        if (maxQuantityObjectsOnIsland == 0){
+            return;
+        }
+        int chestCount = (int) (Math.random() * (max - min + 1) + min);
+        if (chestCount > 0){
+            this.chest = new Coin_Chest(mainPane,new Position(islandPosition.getX() + 50,islandPosition.getY()-40),50,40);
+            this.game_objects.add(chest);
+        }
+        maxQuantityObjectsOnIsland -= chestCount;
+        if (maxQuantityObjectsOnIsland > 0){
+            TNT tnt = new TNT(mainPane, new Position(650,300-50),50,50, 0.4, island);
+            this.game_objects.add(tnt);
+        }
+    }
+
     public void start(){
         stage.setScene(this.mainScene);
         stage.show();
-        KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
-            moveHero(this.hero);
-            moveIsland(islands.get(1));
-            for (Game_Objects game_object: this.game_objects){
-                if (game_object instanceof Orc){
-                    moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
-                }
-                else if (game_object instanceof gameObstacles){
-                    moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
-                }
-            }
-        }
-        );
-        this.time = new Timeline(frame);
-        time.setCycleCount(Timeline.INDEFINITE);
-        time.play();
+//        KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
+//            moveHero(this.hero);
+//            moveIsland(islands.get(1));
+//            for (Game_Objects game_object: this.game_objects){
+//                if (game_object instanceof Orc){
+//                    moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
+//                }
+//                else if (game_object instanceof gameObstacles){
+//                    moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
+//                }
+//            }
+//        }
+//        );
+//        this.time = new Timeline(frame);
+//        time.setCycleCount(Timeline.INDEFINITE);
+//        time.play();
     }
 
     private void moveIsland(Island island) {
@@ -264,22 +295,22 @@ public class LoadPage {
     }
 
     public void pausegame(PauseButton pause){
-        pause.setOnAction(e ->{
-            chest.setFlag(1);
-            tnt.setFlag(1);
-            time.pause();
-            mainPane.getChildren().remove(pause);
-            mainPane.getChildren().add(newpane);
-        });
+//        pause.setOnAction(e ->{
+//            chest.setFlag(1);
+//            tnt.setFlag(1);
+//            time.pause();
+//            mainPane.getChildren().remove(pause);
+//            mainPane.getChildren().add(newpane);
+//        });
     }
     public void startgame(Button button , PauseButton pause){
-        button.setOnAction(e ->{
-            chest.setFlag(0);
-            tnt.setFlag(0);
-            time.play();
-            mainPane.getChildren().add(pause);
-            mainPane.getChildren().remove(newpane);
-        });
+//        button.setOnAction(e ->{
+//            chest.setFlag(0);
+//            tnt.setFlag(0);
+//            time.play();
+//            mainPane.getChildren().add(pause);
+//            mainPane.getChildren().remove(newpane);
+//        });
     }
 
 

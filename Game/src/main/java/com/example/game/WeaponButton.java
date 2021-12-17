@@ -19,7 +19,7 @@ public class WeaponButton extends Button {
     private String path1 = "src/main/resources/com/example/game/images/smallsword.png";
     private String path2 = "src/main/resources/com/example/game/images/lance.png";
 
-    WeaponButton(int flag,double x , double y){
+    WeaponButton(int flag, double x , double y){
         this.level = 0;
         this.setLayoutX(x);
         this.setLayoutY(y);

@@ -9,7 +9,7 @@ public class Standard_Green_Orc extends Orc{
     private String imagePath = "src/main/resources/com/example/game/images/troll_1.png";
     private double speed;
     private double initpos;
-    private Island islandofResidence;
+    private final Island islandofResidence;
 
     public Island getIslandofResidence() {
         return islandofResidence;
