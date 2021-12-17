@@ -3,7 +3,7 @@ package com.example.game;
 import java.io.Serializable;
 
 public abstract class Game_Objects implements Serializable {
-    private Position position;
+    protected Position position;
     private double speed;
 
     public Position getPosition() {

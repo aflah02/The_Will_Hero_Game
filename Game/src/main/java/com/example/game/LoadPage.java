@@ -1,20 +1,15 @@
 package com.example.game;
 
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -41,6 +36,7 @@ public class LoadPage {
     int score;
 
     LoadPage(Stage stage) {
+
         String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
         Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
         herojump = new MediaPlayer(heroJumpingAudio);
@@ -110,6 +106,8 @@ public class LoadPage {
         t.setFill(Color.WHITE);
         t.setX(410);
         t.setY(130);
+        moveScreenButton moveScreenButton = new moveScreenButton(0, 500, 50, islands, game_objects);
+        mainPane.getChildren().add(moveScreenButton);
         mainPane.getChildren().add(t);
     }
     private AnchorPane pauseMenu(){
@@ -282,7 +280,7 @@ public class LoadPage {
             orc.setSpeed(-speed);
         }
         if(orc.getOrc().getY()>=island.getPosition().getY()-50){
-            orc.setinitpos(island.getPosition().getY()-50);
+            orc.setInitialPosition(island.getPosition().getY()-50);
         }
     }
 

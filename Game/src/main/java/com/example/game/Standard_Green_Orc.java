@@ -25,6 +25,7 @@ public class Standard_Green_Orc extends Orc{
         standardGreenOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardGreenOrc);
         this.initpos = position.getY();
+        this.position = position;
         this.islandofResidence = islandofResidence;
     }
     @Override
@@ -53,12 +54,12 @@ public class Standard_Green_Orc extends Orc{
         this.speed = speed;
     }
     @Override
-    public double getinitpos() {
+    public double getInitialPosition() {
         return initpos;
     }
 
     @Override
-    public void setinitpos(double pos) {
+    public void setInitialPosition(double pos) {
         this.initpos = initpos;
     }
 }

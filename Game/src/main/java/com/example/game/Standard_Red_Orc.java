@@ -6,7 +6,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.File;
 
 public class Standard_Red_Orc extends Orc{
-    private String imagePath = "src/main/resources/com/example/game/images/StandardRedOrc.png";
     private ImageView standardRedOrc;
     private double speed;
     private double initpos;
@@ -25,6 +24,7 @@ public class Standard_Red_Orc extends Orc{
         standardRedOrc.setFitHeight(height);
         anchorPane.getChildren().add(standardRedOrc);
         this.initpos = position.getY();
+        this.position = position;
         this.islandofResidence = islandofResidence;
     }
 
@@ -41,6 +41,7 @@ public class Standard_Red_Orc extends Orc{
 
     }
     public void createImage(){
+        String imagePath = "src/main/resources/com/example/game/images/StandardRedOrc.png";
         this.standardRedOrc = new ImageView(new File(imagePath).toURI().toString());
     }
 
@@ -55,12 +56,12 @@ public class Standard_Red_Orc extends Orc{
     }
 
     @Override
-    public double getinitpos() {
+    public double getInitialPosition() {
         return initpos;
     }
 
     @Override
-    public void setinitpos(double pos) {
+    public void setInitialPosition(double pos) {
         this.initpos = initpos;
     }
 }

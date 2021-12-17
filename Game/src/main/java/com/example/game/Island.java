@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Island implements Serializable {
-    private final Position position;
+    private Position position;
     private int size;
     private ImageView Island;
     private double speed;
@@ -74,6 +74,10 @@ public class Island implements Serializable {
             image.setY(Island.getY() - ih/2 -h/2);
             anchorPane.getChildren().add(image);
         }
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public void setSpeed(double speed) {

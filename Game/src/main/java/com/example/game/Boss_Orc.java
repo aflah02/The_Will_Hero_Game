@@ -37,12 +37,12 @@ public class Boss_Orc extends Orc{
         return speed;
     }
     @Override
-    public double getinitpos() {
+    public double getInitialPosition() {
         return initpos;
     }
 
     @Override
-    public void setinitpos(double pos) {
+    public void setInitialPosition(double pos) {
         this.initpos = initpos;
     }
 }

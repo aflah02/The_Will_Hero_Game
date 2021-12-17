@@ -48,7 +48,7 @@ public class Coin_Chest extends Chest{
         anchorPane.getChildren().add(chest);
         addimages();
         this.flag =0;
-
+        this.position = position;
     }
 
     private void addimages() {

@@ -6,83 +6,48 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class moveScreenButton extends Button {
-    private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
-    private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
-    private String path = "src/main/resources/com/example/game/images/retry.jpeg";
-    private Stage stage;
+    private int level;
+    private String path1 = "src/main/resources/com/example/game/images/smallsword.png";
+    private String path2 = "src/main/resources/com/example/game/images/lance.png";
+    ArrayList<Island> listOfIslands;
+    ArrayList<Game_Objects> listOfGameObjects;
 
-    moveScreenButton(Stage stage){
-        this.stage = stage;
+    moveScreenButton(int flag, double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects){
+        this.level = 0;
+        this.listOfIslands = listOfIslands;
+        this.listOfGameObjects = listOfGameObjects;
+        this.setLayoutX(x);
+        this.setLayoutY(y);
         setText("");
         setPrefHeight(50);
         setPrefWidth(50);
-        setStyle(STYLE);
         initialisebutton();
-        ImageView img = new ImageView(new File(path).toURI().toString());
-        img.setFitHeight(50);
-        img.setFitWidth(50);
-        this.setGraphic(img);
-    }
-    private void click(){
-        setStyle(STYLE_Closed);
-        //Here we can use Event Handler;
     }
 
-    private void againclick(){
-        setStyle(STYLE);
+    public int getLevel(){
+        return this.level;
     }
-
 
     private void initialisebutton(){
-
-        setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                handler();
-            }
-        });
-
-        setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
-                    againclick();
-                }
-            }
-        });
-
-        setOnMouseReleased(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
-                    click();
-                }
-            }
-        });
-
-        setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                setEffect(new DropShadow());
-            }
-        });
-
-        setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                setEffect(null);
-            }
-        });
+        setOnMouseClicked(mouseEvent -> handler());
     }
 
     private void handler() {
-        LoadPage page = new LoadPage(stage);
-        page.start();
+        System.out.println("Move Button Clicked");
+        for(Island island: listOfIslands){
+            island.setPosition(new Position(island.getPosition().getX()-100, island.getPosition().getY()));
+        }
+        for (Game_Objects game_objects: listOfGameObjects){
+            game_objects.setPosition(new Position(game_objects.getPosition().getX()-100, game_objects.getPosition().getY()));
+        }
     }
 
 
