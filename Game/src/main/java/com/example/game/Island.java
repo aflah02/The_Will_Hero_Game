@@ -32,24 +32,28 @@ public class Island implements Serializable {
         this.islandType = islandType;
         if (islandType.equals("Small")){
             createImage(islandSmall);
-            treeImageView.setX(725);
+            treeImageView.setX(position.getX()+50);
+            treeImageView.setY(position.getY()-170);
             treeImageView.setFitHeight(170);
             treeImageView.setFitWidth(50);
             islandObjects.add(treeImageView);
         }
         else if (islandType.equals("Medium")){
             createImage(islandMedium);
-            ruinImageView.setX(240);
+            ruinImageView.setX(position.getX()+50);
+            ruinImageView.setY(position.getY()-100);
             ruinImageView.setFitHeight(100);
             ruinImageView.setFitWidth(30);
             islandObjects.add(ruinImageView);
         }
         else{
             createImage(islandLarge);
-            spruceImageView.setX(475);
+            spruceImageView.setX(position.getX()+75);
+            spruceImageView.setY(position.getY()-200);
             spruceImageView.setFitHeight(200);
             spruceImageView.setFitWidth(50);
-            treeImageView.setX(725);
+            treeImageView.setX(position.getX()+100);
+            treeImageView.setY(position.getY()-170);
             treeImageView.setFitHeight(170);
             treeImageView.setFitWidth(50);
             islandObjects.add(treeImageView);

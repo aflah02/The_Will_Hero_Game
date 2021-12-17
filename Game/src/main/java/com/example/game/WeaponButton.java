@@ -19,7 +19,7 @@ public class WeaponButton extends Button {
     private String path1 = "src/main/resources/com/example/game/images/smallsword.png";
     private String path2 = "src/main/resources/com/example/game/images/lance.png";
 
-    WeaponButton(int flag, double x , double y){
+    WeaponButton(String weaponType, double x , double y){
         this.level = 0;
         this.setLayoutX(x);
         this.setLayoutY(y);
@@ -27,21 +27,19 @@ public class WeaponButton extends Button {
         setPrefHeight(50);
         setPrefWidth(50);
         setStyle(STYLE);
-        initialisebutton();
-        if(flag ==1){
-            ImageView img = new ImageView(new File(path1).toURI().toString());
+        initializeButton();
+        ImageView img;
+        if(weaponType.equals("Sword")){
+            img = new ImageView(new File(path1).toURI().toString());
             img.setFitHeight(35);
             img.setFitWidth(10);
-            this.setGraphic(img);
-
-
         }
         else{
-            ImageView img = new ImageView(new File(path2).toURI().toString());
+            img = new ImageView(new File(path2).toURI().toString());
             img.setFitHeight(35);
             img.setFitWidth(20);
-            this.setGraphic(img);
         }
+        this.setGraphic(img);
     }
 
     public int getLevel(){
@@ -49,7 +47,7 @@ public class WeaponButton extends Button {
     }
 
 
-    private void initialisebutton(){
+    private void initializeButton(){
         setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {

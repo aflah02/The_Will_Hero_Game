@@ -14,14 +14,10 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class moveScreenButton extends Button {
-    private int level;
-    private String path1 = "src/main/resources/com/example/game/images/smallsword.png";
-    private String path2 = "src/main/resources/com/example/game/images/lance.png";
     ArrayList<Island> listOfIslands;
     ArrayList<Game_Objects> listOfGameObjects;
 
-    moveScreenButton(int flag, double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects){
-        this.level = 0;
+    moveScreenButton(double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects){
         this.listOfIslands = listOfIslands;
         this.listOfGameObjects = listOfGameObjects;
         this.setLayoutX(x);
@@ -30,10 +26,6 @@ public class moveScreenButton extends Button {
         setPrefHeight(50);
         setPrefWidth(50);
         initialisebutton();
-    }
-
-    public int getLevel(){
-        return this.level;
     }
 
     private void initialisebutton(){
