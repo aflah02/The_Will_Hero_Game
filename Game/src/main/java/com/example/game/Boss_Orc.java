@@ -3,6 +3,7 @@ package com.example.game;
 import javafx.scene.image.ImageView;
 
 public class Boss_Orc extends Orc{
+
     private double speed,initpos;
     private Island islandofResidence;
 

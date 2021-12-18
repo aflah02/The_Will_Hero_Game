@@ -31,12 +31,13 @@ public class TNT extends gameObstacles{
     String path7 = "src/main/resources/com/example/game/images/tnt7.png";
     String path8 = "src/main/resources/com/example/game/images/tnt8.png";
     String path9 = "src/main/resources/com/example/game/images/tnt9.png";
+    String path10 = "src/main/resources/com/example/game/images/tntOver.png";
     public String[] imagePaths;
     public ArrayList<Image> tntAnimations;
     private final ImageView TNTImageView;
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
-        this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8, path9};
+        this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8, path9, path10};
         tntAnimations = new ArrayList<>();
         for (String path: imagePaths){
             tntAnimations.add(new Image(new File(path).toURI().toString()));

@@ -6,12 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Chest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/gameObstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/gameObstacles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Boss_Orc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Boss_Orc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Chest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/TNT$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/TNT$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/TNT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/TNT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/moveScreenButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/moveScreenButton.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +169,7 @@
       <workItem from="1639402022737" duration="2509000" />
       <workItem from="1639769755441" duration="9441000" />
       <workItem from="1639807672836" duration="163000" />
-      <workItem from="1639808363768" duration="9709000" />
+      <workItem from="1639808363768" duration="12339000" />
     </task>
     <servers />
   </component>

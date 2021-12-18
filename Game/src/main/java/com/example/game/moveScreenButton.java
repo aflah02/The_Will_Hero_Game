@@ -29,7 +29,9 @@ public class moveScreenButton extends Button {
     }
 
     private void initialisebutton(){
-        setOnMouseClicked(mouseEvent -> handler());
+        setOnMouseClicked(mouseEvent ->
+                handler()
+        );
     }
 
     private void handler() {
@@ -41,6 +43,5 @@ public class moveScreenButton extends Button {
             game_objects.setPosition(new Position(game_objects.getPosition().getX()-100, game_objects.getPosition().getY()));
         }
     }
-
 
 }

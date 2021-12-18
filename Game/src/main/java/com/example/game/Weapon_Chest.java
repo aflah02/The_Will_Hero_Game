@@ -24,7 +24,6 @@ public class Weapon_Chest extends Chest{
     private final ImageView chest;
     private Position position;
     public String[] imagePaths;
-    public ArrayList<Image> chestAnimations;
     private final Island islandOfResidence;
     private double speed;
 
@@ -57,20 +56,6 @@ public class Weapon_Chest extends Chest{
             this.weapon = new Lance();
         }
         this.speed = islandOfResidence.getSpeed();
-    }
-
-    public void animateChest() {
-        Weapon_Chest chest = this;
-        Transition animation = new Transition() {
-            {setCycleDuration(Duration.millis(500));}
-            @Override
-            protected void interpolate(double fraction) {
-                int index = (int) (fraction*(chestAnimations.size()-1));
-                chest.getImage().setImage(chestAnimations.get(index));
-            }
-        };
-        animation.play();
-        animation.setCycleCount(1);
     }
 
     @Override

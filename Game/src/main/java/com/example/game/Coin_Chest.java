@@ -27,7 +27,7 @@ public class Coin_Chest extends Chest{
     private final ImageView chest;
     private Position position;
     public String[] imagePaths;
-    public ArrayList<Image> chestAnimations;
+
     Island islandOfResidence;
     private double speed;
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence){
@@ -55,19 +55,6 @@ public class Coin_Chest extends Chest{
         this.speed = islandOfResidence.getSpeed();
     }
 
-    public void animateChest() {
-        Coin_Chest chest= this;
-        Transition animation = new Transition() {
-            {setCycleDuration(Duration.millis(500));}
-            @Override
-            protected void interpolate(double fraction) {
-                int index = (int) (fraction*(chestAnimations.size()-1));
-                chest.getImage().setImage(chestAnimations.get(index));
-            }
-        };
-        animation.play();
-        animation.setCycleCount(1);
-    }
     @Override
     public void collide(Player player) {
     }

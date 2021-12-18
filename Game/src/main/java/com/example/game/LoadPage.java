@@ -31,7 +31,6 @@ public class LoadPage {
     private final ArrayList<Game_Objects> gameObjects;
     private final Hero hero;
     private final ArrayList<Island> islands;
-//    private Coin_Chest chest;
     private ImageView sword,lance;
     private final MediaPlayer orcjump;
     private final MediaPlayer herojump;
@@ -273,8 +272,6 @@ public class LoadPage {
     }
 
     private void moveOrc(Orc orc , Island island){
-        //Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.4);
-        //Standard_Red_Orc red_orc1 = new Standard_Red_Orc(mainPane, new Position(550,300-50), 50, 50,2);
         if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-50){
             orc.getOrc().setY(island.getPosition().getY()-50);
             orcjump.play();
@@ -323,9 +320,5 @@ public class LoadPage {
     public Scene getMainScene() {
         return mainScene;
     }
-
-
-
-
 
 }
