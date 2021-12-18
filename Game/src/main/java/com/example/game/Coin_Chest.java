@@ -24,11 +24,7 @@ public class Coin_Chest extends Chest{
     String path5 = "src/main/resources/com/example/game/images/coinchest4.png";
     String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
     String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
-    String path8 = "src/main/resources/com/example/game/images/coinchest6.png";
     private final ImageView chest;
-    public ArrayList<Coins> getCoins() {
-        return coins;
-    }
     private Position position;
     public String[] imagePaths;
     public ArrayList<Image> chestAnimations;
@@ -86,5 +82,9 @@ public class Coin_Chest extends Chest{
     @Override
     public Position getPosition() {
         return position;
+    }
+
+    public ArrayList<Coins> getCoins() {
+        return coins;
     }
 }

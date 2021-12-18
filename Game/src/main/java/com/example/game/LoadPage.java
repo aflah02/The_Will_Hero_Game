@@ -172,30 +172,42 @@ public class LoadPage {
     }
 
     private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
-        String[] gameObjects = {"TNT", "CoinChest", "Standard_Green_Orc", "Standard_Red_Orc"};
+        String[] gameObjects = {"TNT", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
         int placedSoFar = 0;
         for (int i = 0; i < maxQuantityObjectsOnIsland; i++){
             Random rand = new Random();
             String objectChosen = gameObjects[rand.nextInt(gameObjects.length)];
-            if (objectChosen.equals("TNT")){
-                TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50),50,50, 0.4, island);
-                placedSoFar++;
-                this.gameObjects.add(tnt);
-            }
-            else if (objectChosen.equals("CoinChest")){
-                Coin_Chest chest = new Coin_Chest(mainPane,new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-40),50,40);
-                placedSoFar++;
-                this.gameObjects.add(chest);
-            }
-            else if (objectChosen.equals("Standard_Green_Orc")){
-                Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50), 60, 50,0.8, island);
-                placedSoFar++;
-                this.gameObjects.add(greenOrc);
-            }
-            else if (objectChosen.equals("Standard_Red_Orc")){
-                Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50), 50, 50,1, island);
-                placedSoFar++;
-                this.gameObjects.add(redOrc);
+            switch (objectChosen) {
+                case "TNT" -> {
+                    TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 50, 50, 0.4, island);
+                    placedSoFar++;
+                    this.gameObjects.add(tnt);
+                }
+                case "CoinChest" -> {
+                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40);
+                    placedSoFar++;
+                    this.gameObjects.add(chest);
+                }
+                case "Standard_Green_Orc" -> {
+                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 60, 50, 0.8, island);
+                    placedSoFar++;
+                    this.gameObjects.add(greenOrc);
+                }
+                case "Standard_Red_Orc" -> {
+                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 50, 50, 1, island);
+                    placedSoFar++;
+                    this.gameObjects.add(redOrc);
+                }
+                case "WeaponChestLance" -> {
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Sword");
+                    placedSoFar++;
+                    this.gameObjects.add(chest);
+                }
+                case "WeaponChestSword" -> {
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Lance");
+                    placedSoFar++;
+                    this.gameObjects.add(chest);
+                }
             }
             System.out.println(gameObjects[rand.nextInt(gameObjects.length)]);
         }
@@ -266,11 +278,11 @@ public class LoadPage {
     }
 
     private void moveTNT(TNT tnt , Island island){
-        tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
-        if(tnt.getPosition().getY()>=325 || tnt.getPosition().getY()<=275){
-            double speed = tnt.getSpeed();
-            tnt.setSpeed(-speed);
-        }
+//        tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
+//        if(tnt.getPosition().getY()>=325 || tnt.getPosition().getY()<=275){
+//            double speed = tnt.getSpeed();
+//            tnt.setSpeed(-speed);
+//        }
     }
 
     public void pausegame(PauseButton pause){
