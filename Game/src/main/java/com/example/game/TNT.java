@@ -33,7 +33,7 @@ public class TNT extends gameObstacles{
     String path9 = "src/main/resources/com/example/game/images/tnt9.png";
     public String[] imagePaths;
     public ArrayList<Image> tntAnimations;
-    private ImageView TNTImageView;
+    private final ImageView TNTImageView;
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8, path9};
@@ -48,12 +48,7 @@ public class TNT extends gameObstacles{
         TNTImageView.setY(position.getY());
         TNTImageView.setFitWidth(width);
         TNTImageView.setFitHeight(height);
-        TNTImageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                animateTNT();
-            }
-        });
+        TNTImageView.setOnMouseClicked(mouseEvent -> animateTNT());
         anchorPane.getChildren().add(TNTImageView);
         this.position = position;
         this.islandofResidence = islandofResidence;

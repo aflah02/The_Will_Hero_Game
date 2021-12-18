@@ -14,4 +14,6 @@ public abstract class Chest extends Game_Objects{
     }
 
     public abstract ImageView getImage();
+
+    public abstract Island getIslandofResidence();
 }

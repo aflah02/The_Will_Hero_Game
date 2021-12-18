@@ -25,10 +25,12 @@ public class Weapon_Chest extends Chest{
     private Position position;
     public String[] imagePaths;
     public ArrayList<Image> chestAnimations;
+    private final Island islandOfResidence;
 
-    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName){
+    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence){
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8};
         chestAnimations = new ArrayList<>();
+        this.islandOfResidence = islandOfResidence;
         for (String path: imagePaths){
             chestAnimations.add(new Image(new File(path).toURI().toString()));
         }
@@ -87,5 +89,10 @@ public class Weapon_Chest extends Chest{
     @Override
     public Position getPosition() {
         return position;
+    }
+
+    @Override
+    public Island getIslandofResidence() {
+        return this.islandOfResidence;
     }
 }

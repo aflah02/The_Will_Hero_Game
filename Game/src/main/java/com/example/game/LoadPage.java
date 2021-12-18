@@ -1,5 +1,6 @@
 package com.example.game;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,7 +38,6 @@ public class LoadPage {
     int score;
 
     LoadPage(Stage stage) {
-
         String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
         Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
         herojump = new MediaPlayer(heroJumpingAudio);
@@ -98,6 +98,7 @@ public class LoadPage {
         mainPane.getChildren().add(moveScreenButton);
         mainPane.getChildren().add(t);
     }
+
     private AnchorPane pauseMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
@@ -166,13 +167,12 @@ public class LoadPage {
             else{
                 generateIslandObjects(island, islandPosition, 2);
             }
-
         }
 
     }
 
     private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
-        String[] gameObjects = {"TNT", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
+        String[] gameObjects = {"TNT", "TNT", "CoinChest", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
         int placedSoFar = 0;
         for (int i = 0; i < maxQuantityObjectsOnIsland; i++){
             Random rand = new Random();
@@ -184,7 +184,7 @@ public class LoadPage {
                     this.gameObjects.add(tnt);
                 }
                 case "CoinChest" -> {
-                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40);
+                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, island);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
@@ -199,12 +199,12 @@ public class LoadPage {
                     this.gameObjects.add(redOrc);
                 }
                 case "WeaponChestLance" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Sword");
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Lance", island);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "WeaponChestSword" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Lance");
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 50, 40, "Sword", island);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
@@ -216,22 +216,29 @@ public class LoadPage {
     public void start(){
         stage.setScene(this.mainScene);
         stage.show();
-//        KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
-//            moveHero(this.hero);
-//            moveIsland(islands.get(1));
-//            for (gameObjects game_object: this.gameObjects){
-//                if (game_object instanceof Orc){
-//                    moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
-//                }
-//                else if (game_object instanceof gameObstacles){
-//                    moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
-//                }
-//            }
-//        }
-//        );
-//        this.time = new Timeline(frame);
-//        time.setCycleCount(Timeline.INDEFINITE);
-//        time.play();
+        KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
+            moveHero(this.hero);
+            moveIsland(islands.get(1));
+            for (Game_Objects game_object: this.gameObjects){
+                if (game_object instanceof Orc){
+                    moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
+                }
+                else if (game_object instanceof gameObstacles){
+                    moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
+                }
+                else if (game_object instanceof Chest){
+                    moveChest((Chest) game_object, ((Chest) game_object).getIslandofResidence());
+                }
+            }
+        }
+        );
+        this.time = new Timeline(frame);
+        time.setCycleCount(Timeline.INDEFINITE);
+        time.play();
+    }
+
+    private void moveChest(Chest game_object, Island islandofResidence) {
+
     }
 
     private void moveIsland(Island island) {
@@ -286,22 +293,18 @@ public class LoadPage {
     }
 
     public void pausegame(PauseButton pause){
-//        pause.setOnAction(e ->{
-//            chest.setFlag(1);
-//            tnt.setFlag(1);
-//            time.pause();
-//            mainPane.getChildren().remove(pause);
-//            mainPane.getChildren().add(newpane);
-//        });
+        pause.setOnAction(e ->{
+            time.pause();
+            mainPane.getChildren().remove(pause);
+            mainPane.getChildren().add(newpane);
+        });
     }
     public void startgame(Button button , PauseButton pause){
-//        button.setOnAction(e ->{
-//            chest.setFlag(0);
-//            tnt.setFlag(0);
-//            time.play();
-//            mainPane.getChildren().add(pause);
-//            mainPane.getChildren().remove(newpane);
-//        });
+        button.setOnAction(e ->{
+            time.play();
+            mainPane.getChildren().add(pause);
+            mainPane.getChildren().remove(newpane);
+        });
     }
 
 

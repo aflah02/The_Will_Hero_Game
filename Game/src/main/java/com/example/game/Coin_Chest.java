@@ -28,10 +28,11 @@ public class Coin_Chest extends Chest{
     private Position position;
     public String[] imagePaths;
     public ArrayList<Image> chestAnimations;
-
-    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height){
+    Island islandOfResidence;
+    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence){
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
         chestAnimations = new ArrayList<>();
+        this.islandOfResidence = islandOfResidence;
         for (String path: imagePaths){
             chestAnimations.add(new Image(new File(path).toURI().toString()));
         }
@@ -71,6 +72,11 @@ public class Coin_Chest extends Chest{
     @Override
     public ImageView getImage() {
         return this.chest;
+    }
+
+    @Override
+    public Island getIslandofResidence() {
+        return this.islandOfResidence;
     }
 
     @Override
