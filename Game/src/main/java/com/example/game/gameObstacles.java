@@ -11,4 +11,6 @@ public abstract class gameObstacles extends Game_Objects{
     public int getRadius() {
         return radius;
     }
+
+    public abstract void setPositionY(double v);
 }

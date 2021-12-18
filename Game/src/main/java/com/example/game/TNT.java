@@ -115,4 +115,10 @@ public class TNT extends gameObstacles{
     public double getinitpos() {
         return initpos;
     }
+
+    @Override
+    public void setPositionY(double v) {
+        this.position.setY(v);
+        this.TNTImageView.setY(v);
+    }
 }

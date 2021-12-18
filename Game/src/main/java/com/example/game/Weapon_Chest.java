@@ -26,6 +26,7 @@ public class Weapon_Chest extends Chest{
     public String[] imagePaths;
     public ArrayList<Image> chestAnimations;
     private final Island islandOfResidence;
+    private double speed;
 
     Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence){
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8};
@@ -55,6 +56,7 @@ public class Weapon_Chest extends Chest{
         else{
             this.weapon = new Lance();
         }
+        this.speed = islandOfResidence.getSpeed();
     }
 
     public void animateChest() {
@@ -94,5 +96,16 @@ public class Weapon_Chest extends Chest{
     @Override
     public Island getIslandofResidence() {
         return this.islandOfResidence;
+    }
+
+    @Override
+    public void setSpeed(double v) {
+        this.speed = v;
+    }
+
+    @Override
+    public void setPositionY(double v) {
+        this.position.setY(v);
+        this.chest.setY(v);
     }
 }

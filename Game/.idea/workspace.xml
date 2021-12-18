@@ -11,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/gameObstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/gameObstacles.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +156,7 @@
       <workItem from="1639402022737" duration="2509000" />
       <workItem from="1639769755441" duration="9441000" />
       <workItem from="1639807672836" duration="163000" />
-      <workItem from="1639808363768" duration="8498000" />
+      <workItem from="1639808363768" duration="9709000" />
     </task>
     <servers />
   </component>

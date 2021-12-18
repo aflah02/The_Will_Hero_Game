@@ -218,7 +218,9 @@ public class LoadPage {
         stage.show();
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             moveHero(this.hero);
-            moveIsland(islands.get(1));
+            for (Island island: this.islands){
+                moveIsland(island);
+            }
             for (Game_Objects game_object: this.gameObjects){
                 if (game_object instanceof Orc){
                     moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
@@ -237,13 +239,17 @@ public class LoadPage {
         time.play();
     }
 
-    private void moveChest(Chest game_object, Island islandofResidence) {
-
+    private void moveChest(Chest game_object, Island island) {
+        if (!(island.getSpeed() == 0)){
+            game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
+            if(game_object.getPosition().getY()>=325 || game_object.getPosition().getY()<=275){
+                double speed = game_object.getSpeed();
+                game_object.setSpeed(-speed);
+            }
+        }
     }
 
     private void moveIsland(Island island) {
-        //Island largeIsland1 = new Island(islandLarge, mainPane, new Position(325,300), 450, 150 , 0.5);
-        //hero.getHero().setY(hero.getHero().getY()-hero.getSpeed());
         island.setPositionY(island.getPosition().getY()-island.getSpeed());
         if(island.getPosition().getY()>=370 || island.getPosition().getY()<=270){
             double speed = island.getSpeed();
@@ -285,11 +291,13 @@ public class LoadPage {
     }
 
     private void moveTNT(TNT tnt , Island island){
-//        tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
-//        if(tnt.getPosition().getY()>=325 || tnt.getPosition().getY()<=275){
-//            double speed = tnt.getSpeed();
-//            tnt.setSpeed(-speed);
-//        }
+        if (!(island.getSpeed() == 0)){
+            tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
+            if(tnt.getPosition().getY()>=325 || tnt.getPosition().getY()<=275){
+                double speed = tnt.getSpeed();
+                tnt.setSpeed(-speed);
+            }
+        }
     }
 
     public void pausegame(PauseButton pause){

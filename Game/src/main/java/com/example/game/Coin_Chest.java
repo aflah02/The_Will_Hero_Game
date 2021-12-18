@@ -29,6 +29,7 @@ public class Coin_Chest extends Chest{
     public String[] imagePaths;
     public ArrayList<Image> chestAnimations;
     Island islandOfResidence;
+    private double speed;
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence){
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
         chestAnimations = new ArrayList<>();
@@ -51,6 +52,7 @@ public class Coin_Chest extends Chest{
         });
         anchorPane.getChildren().add(chest);
         this.position = position;
+        this.speed = islandOfResidence.getSpeed();
     }
 
     public void animateChest() {
@@ -77,6 +79,17 @@ public class Coin_Chest extends Chest{
     @Override
     public Island getIslandofResidence() {
         return this.islandOfResidence;
+    }
+
+    @Override
+    public void setSpeed(double v) {
+        this.speed = v;
+    }
+
+    @Override
+    public void setPositionY(double v) {
+        this.position.setY(v);
+        this.chest.setY(v);
     }
 
     @Override

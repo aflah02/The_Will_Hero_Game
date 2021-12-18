@@ -16,4 +16,8 @@ public abstract class Chest extends Game_Objects{
     public abstract ImageView getImage();
 
     public abstract Island getIslandofResidence();
+
+    public abstract void setSpeed(double v);
+
+    public abstract void setPositionY(double v);
 }
