@@ -17,18 +17,29 @@ public class Coin_Chest extends Chest{
     private int flag,flag1;
     private ArrayList<Coins> coins;
     private ArrayList<ImageView> images;
-    String pathgif = "src/main/resources/com/example/game/images/chest.gif";
-    String path1 = "src/main/resources/com/example/game/images/chest1.png";
-    String path2 = "src/main/resources/com/example/game/images/chest2.png";
-    String path3 = "src/main/resources/com/example/game/images/chest3.png";
-    String path4 = "src/main/resources/com/example/game/images/chest4.png";
-    String path5 = "src/main/resources/com/example/game/images/chest5.png";
-    String path6 = "src/main/resources/com/example/game/images/chest6.png";
-    String path7 = "src/main/resources/com/example/game/images/chest7.png";
-    String path8 = "src/main/resources/com/example/game/images/chest8.png";
+    String path1 = "src/main/resources/com/example/game/images/coinchest0.png";
+    String path2 = "src/main/resources/com/example/game/images/coinchest1.png";
+    String path3 = "src/main/resources/com/example/game/images/coinchest2.png";
+    String path4 = "src/main/resources/com/example/game/images/coinchest3.png";
+    String path5 = "src/main/resources/com/example/game/images/coinchest4.png";
+    String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
+    String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
+    String path8 = "src/main/resources/com/example/game/images/coinchest6.png";
     private ImageView chest;
     public ArrayList<Coins> getCoins() {
         return coins;
+    }
+    private Position position;
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+        chest.setX(position.getX());
+        chest.setY(position.getY());
+    }
+    @Override
+    public Position getPosition() {
+        return position;
     }
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height){
         images = new ArrayList<>();

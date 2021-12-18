@@ -14,8 +14,14 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class TNT extends gameObstacles{
-    private final Position position;
+    private Position position;
 
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+        tnt.setX(position.getX());
+        tnt.setY(position.getY());
+    }
     @Override
     public Position getPosition() {
         return position;

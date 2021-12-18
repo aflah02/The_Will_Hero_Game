@@ -33,6 +33,16 @@ public class Boss_Orc extends Orc{
     }
 
     @Override
+    void setPosition(Position position) {
+
+    }
+
+    @Override
+    Position getPosition() {
+        return null;
+    }
+
+    @Override
     public double getSpeed() {
         return speed;
     }

@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/WeaponButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/WeaponButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/coinchest7.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +159,8 @@
       <workItem from="1639066812177" duration="1938000" />
       <workItem from="1639402022737" duration="2509000" />
       <workItem from="1639769755441" duration="9441000" />
+      <workItem from="1639807672836" duration="163000" />
+      <workItem from="1639808363768" duration="2342000" />
     </task>
     <servers />
   </component>

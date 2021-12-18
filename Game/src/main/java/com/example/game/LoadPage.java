@@ -17,6 +17,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class LoadPage {
     private final AnchorPane mainPane;
@@ -29,7 +30,7 @@ public class LoadPage {
     private final ArrayList<Game_Objects> gameObjects;
     private final Hero hero;
     private final ArrayList<Island> islands;
-    private Coin_Chest chest;
+//    private Coin_Chest chest;
     private ImageView sword,lance;
     private final MediaPlayer orcjump;
     private final MediaPlayer herojump;
@@ -137,8 +138,8 @@ public class LoadPage {
     }
 
     private void addObjectsonScreen(){
-        System.out.println("Inside playt");
-        for (int i = 0; i < 3; i++){
+        System.out.println("Inside Add Objects");
+        for (int i = 0; i < 10; i++){
             Island smallIsland = new Island("Small", mainPane, new Position(75 + 1225*i,350), 200, 100,0);
             Island mediumIsland = new Island("Medium", mainPane, new Position(325+ 1225*i,350), 350, 125, 0);
             Island largeIsland = new Island("Large", mainPane, new Position(725+ 1225*i,350), 450, 150 , 0.3);
@@ -147,6 +148,9 @@ public class LoadPage {
             islands.add(largeIsland);
         }
         int count = 0;
+        for (Island island: islands){
+            System.out.println(island.getIslandType());
+        }
         for (Island island: islands){
             if (count == 0){
                 count++;
@@ -167,48 +171,33 @@ public class LoadPage {
 
     }
 
-    private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland) {
-        int max = maxQuantityObjectsOnIsland;
-        int min = 0;
-        int orcCount = (int) (Math.random() * (max - min + 1) + min);
-        int firstObstaclePlaced = 0;
-        maxQuantityObjectsOnIsland -= orcCount;
-        if (orcCount > 0){
-            int orcType = (int) (Math.random() * (max - min + 1) + min);
-            if (orcType == 0){
-                Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50,islandPosition.getY()-50), 60, 50,0.8, island);
-                firstObstaclePlaced++;
+    private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
+        String[] gameObjects = {"TNT", "CoinChest", "Standard_Green_Orc", "Standard_Red_Orc"};
+        int placedSoFar = 0;
+        for (int i = 0; i < maxQuantityObjectsOnIsland; i++){
+            Random rand = new Random();
+            String objectChosen = gameObjects[rand.nextInt(gameObjects.length)];
+            if (objectChosen.equals("TNT")){
+                TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50),50,50, 0.4, island);
+                placedSoFar++;
+                this.gameObjects.add(tnt);
+            }
+            else if (objectChosen.equals("CoinChest")){
+                Coin_Chest chest = new Coin_Chest(mainPane,new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-40),50,40);
+                placedSoFar++;
+                this.gameObjects.add(chest);
+            }
+            else if (objectChosen.equals("Standard_Green_Orc")){
+                Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50), 60, 50,0.8, island);
+                placedSoFar++;
                 this.gameObjects.add(greenOrc);
             }
-            else{
-                Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50,islandPosition.getY()-50), 50, 50,1, island);
-                firstObstaclePlaced++;
+            else if (objectChosen.equals("Standard_Red_Orc")){
+                Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar*150,islandPosition.getY()-50), 50, 50,1, island);
+                placedSoFar++;
                 this.gameObjects.add(redOrc);
             }
-        }
-        if (maxQuantityObjectsOnIsland == 0){
-            return;
-        }
-        int tntCount = (int) (Math.random() * (max - min + 1) + min);
-        if (tntCount > 0){
-            TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + firstObstaclePlaced*50,islandPosition.getY()-50),50,50, 0.4, island);
-            firstObstaclePlaced++;
-            this.gameObjects.add(tnt);
-        }
-        maxQuantityObjectsOnIsland -= tntCount;
-        if (maxQuantityObjectsOnIsland == 0){
-            return;
-        }
-        int chestCount = (int) (Math.random() * (max - min + 1) + min);
-        if (chestCount > 0){
-            this.chest = new Coin_Chest(mainPane,new Position(islandPosition.getX() + 50 + firstObstaclePlaced*50,islandPosition.getY()-40),50,40);
-            firstObstaclePlaced++;
-            this.gameObjects.add(chest);
-        }
-        maxQuantityObjectsOnIsland -= chestCount;
-        if (maxQuantityObjectsOnIsland > 0){
-            TNT tnt = new TNT(mainPane, new Position(650 + firstObstaclePlaced*50 ,300-50),50,50, 0.4, island);
-            this.gameObjects.add(tnt);
+            System.out.println(gameObjects[rand.nextInt(gameObjects.length)]);
         }
     }
 

@@ -10,7 +10,19 @@ public class Standard_Red_Orc extends Orc{
     private double speed;
     private double initpos;
     private Island islandofResidence;
+    private Position position;
 
+    @Override
+    public Position getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        this.position = position;
+        standardRedOrc.setX(position.getX());
+        standardRedOrc.setY(position.getY());
+    }
     public Island getIslandofResidence() {
         return islandofResidence;
     }

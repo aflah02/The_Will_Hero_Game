@@ -1,19 +1,13 @@
 package com.example.game;
 
+import javafx.geometry.Pos;
+
 import java.io.Serializable;
 
 public abstract class Game_Objects implements Serializable {
-    protected Position position;
     private double speed;
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
+    abstract void setPosition(Position position);
+    abstract Position getPosition();
     public double getSpeed() {
         return speed;
     }
