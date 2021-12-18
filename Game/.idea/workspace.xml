@@ -6,16 +6,1005 @@
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/1 #55467.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/1 #73099.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/10 #50996.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/11 #73127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/2 #38727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/2 #47582.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/2 #73078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/2ndPlaceIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/3 #52073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/3 #52808.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/3 #73117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/3ndPlaceIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/4 #26167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/4 #73098.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/4 mini-boss-pirate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/4 mini-boss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/5 #2911.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/5 #32629.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/5 #73138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/5.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/6 #45270.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/6 #73139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/6 #7602.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/7 #37629.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/7 #73152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/8 #50709.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/8 #73147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/9 #23212.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/9 #73119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Anchor #34672.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Anchor #37300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Anchor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AnchorChain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AnchorGold #39903.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AnchorGold #42612.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AnchorGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AncientBrick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Angel #12993.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Angel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AngelDecorativeSpear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AngelIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AngelWing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ArmageddonSphere.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Asgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Asgardian_sword_blade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Avenger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Axe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/AxeGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BackButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BalancingRocks2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BalancingRocks4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BalancingRocks5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BalancingRocks6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BargainBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BargainTip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Baseball Knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBat #50104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBat #54738.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBatGold #42712.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBatGold #55966.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BaseballBatGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BatInnerGlow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BigSword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BigYellowHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Birch6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterBodyBottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterBodyBottomFangs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterBodyForehead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterBodySide.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterBodyTop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BiterFace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BlackDragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BlackKitten.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Blunderbuss #50075.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Blunderbuss #54859.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Blunderbuss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BlunderbussGold #35760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BlunderbussGold #54940.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BlunderbussGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bomb #42026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGhost #34032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGhost #51548.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGold #36395.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGold #50160.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BombNew.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BossBlueHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BossHelm6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Box_NYGift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BridgeIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Buddy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Building1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Building2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Building3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingGreece_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingGreece_3_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingGreece_3_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingGreece_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingGreece_6_bl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingWallHole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingWindow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BuildingWindow2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BurntTree1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BurntTree1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BurntTree2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BurntTree3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BurntTree4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bush1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bush1_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bush1_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Bush1_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/BushLeg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ButterflyLightning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cannon #23344.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cannon #28906.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cannon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/CannonGold #13953.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/CannonGold #49965.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/CannonGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/CartoonLight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ChainTiled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ChampionLance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Chandelier.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ChaosKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Chicken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Chief.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ChineseDragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Crown #73114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Crown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/CrownWhite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Crown_flat_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Cypress1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DancingLion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkHammer #15109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkHammer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkKnight #12639.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkLance #55240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkLance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkThrowingSpears #35167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DarkThrowingSpears.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DavyJones.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DeathBall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DeerKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DefaultAvatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Dialogue8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Dog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillChest_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DownhillPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHammer #23725.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHammer #42755.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHammer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHammerHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHead3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonHorns.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonSword #28587.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/DragonSword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ElevatorFence.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Elf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ElfBow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ElfIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ElfSadExpression.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Exclam.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Eyes1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/EyesHappy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/EyesSad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Falcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FalconIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FalconWing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FallenWarrior.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FallenWarrior2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FallenWarrior3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FallenWarrior4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FancyBackgroundGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FancyBackgroundLilac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FancyBackgroundPurple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FayRoundEyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FireCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FireFlySatelite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FirePot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FirePotLights.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Flagshtock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Flail #49188.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Flail #51667.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Flail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailDark #37264.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailDark #55943.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailDark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailSunKnight #42456.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FlailSunKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FooterCharactersScreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FooterQuestsScreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FooterShopScreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Frank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FrankIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FrozenStarProjectile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FunicularCabNightWindow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/FunicularPillarBase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Funiculars chain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GameCenterIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Garland1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GarlandGlow2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GarlandHorizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostAxe #41209.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostBat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostDragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostFlail #37930.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostFlail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostHammer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostHammerHandle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostHammerHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostKnifes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostPaladin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostReaper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostRocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostRockets #55027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostRockets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostScythe #11800.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostScythe #52741.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostScythe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostShuriken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostShurikens #53108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostShurikens.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostThrowingKnives.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ghost_chest_openning_011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostlandBossCrown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostlandPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostlandSkeletonBlue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostlandSkeletonGreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GhostlandSkeletonOrange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GiftBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GiftBoxBig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GiftsIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Goaltender.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldFlail #34465.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldFlail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldHammer #259.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldHammer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldKatana #32881.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldKatana.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldKnifes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldLance #42576.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldLance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldShurikens #11349.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldShurikens.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldSword #11587.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldSword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldThrowingAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldThrowingKnives.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldThrowingSpears #23805.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldThrowingSpears.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldYari #46464.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GoldYari.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Gold_chest_preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GrassSingle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GreatAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GreatAxeGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GreatHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/GrimReaper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HairBig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer #27376.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer #3432.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer #6124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerGhost #37603.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerHandle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerHandleDark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerHandleGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerHeadAsgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HammerWaveFire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hammer_Asgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HapticIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hawk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hedgehog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Helmet5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Helmet6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HelmetBlue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HelmetYellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_ice_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_ice_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_ice_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_pagoda_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTower_pagoda_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HeroTrap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Highgrass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/HornHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Hyene.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceBrick2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceFlailHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceObstacle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceObstacleBroken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceRomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceThorn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceTowerCollectableItem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/IceTowerCollectableItemUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iceberg1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iceberg2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iceberg3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iceberg5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iceberg6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/InputFieldBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Iron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Ivor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Jack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Jason.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/JotunheimLeaderboardBack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/JotunheimPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KatanaBlade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KatanaBladeGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KatanaEfes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KatanaGoldSingle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KatanaSingle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Kensei.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Kitten.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Knifes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KnifesIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/KnightPurpleHire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Koala.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lamp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lamp2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lance #26607.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lance #54357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lance Ice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceHeadDark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceHeadIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceShaft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceShaftGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceShaftIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LanceSlash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lancel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lantern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LavaFlailHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LavaMonster.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lava_troll_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lava_troll_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Leaf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LeftColumn #37163.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LeftColumn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Line.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Lion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/LoaderIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Machete #12008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Machete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MacheteBladeGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MacheteGold #15198.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MacheteGold #50049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MacheteGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Mage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MagicStick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Magnet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Meteor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MillFanCenter #32903.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MillFanCenter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MonsterEyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/MonsterFatality.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/NestBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Nord #32929.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Nord.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Oblivion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/OpenBuildingEnterance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_Bulding_2_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_Bulding_2_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_Bulding_2_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_Bulding_2_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_tower_1_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_tower_1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Open_tower_1_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/OrksHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/OrksHornHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pagoda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PagodaCollectableItem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Paladin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PalmKrone3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PalmKrone4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PalmShaft1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PalmShaft2.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PalmShaft3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Parachute.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ParachuteGifts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateChestOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateHook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PiratePistol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PiratePistolGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateSaber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateSaberBlade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateSaberBladeGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PirateSaberGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest__openning_011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pirate_chest_gold_openning_06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pistol #22228.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pistol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PistolBullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PistolGold #12654.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PistolGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PlagueDoctor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Plum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PolarBear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PortaEnergyCrystal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PortaEnergyCrystalDisabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PortaEnergyCrystalEnabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PortaEnergyCrystalFrame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PortalToGhostville.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PrincessIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_happy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_happy_face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_head.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_inlove_face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_round_face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_sad_face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_star_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Princess_wide_eyes_face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PropellerHat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/PropellerHat_preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pumpkin1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pumpkin2n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Pumpkin3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Quarterback.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RaftBarrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RamHelm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Reaper #10602.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Reaper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReaperFollower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReaperFollowerScythe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReaperScythe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Reaper_jaw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReappyIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedBalloonBottomNight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedBalloonTop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedBalloonTopNight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedBaronIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedBeard_Captain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedEnvelopeUpdate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedLanternDay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RedLanternNight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReindeerGarlands.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReindeerKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ReindeerKnightPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Rhino.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RightColumn #37164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RightColumn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Rocket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RocketGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Rockets #39700.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Rockets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RocketsGold #50995.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RocketsGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/RoundEyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Saber #10601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Saber.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SaberGold #51972.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SaberGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Samurai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScrollItemBackgroundActive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScrollItemBackgroundActive1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScrollItemBackgroundPassive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScrollItemBackgroundPassive1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Scyth Great Ice Axe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Scythe #51525.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Scythe #55795.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Scythe Great Ice Axe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Scythe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheDark #24406.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheDark #49028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheGold #47051.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheGold #47501.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheGreatIceAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheHockeyStick #54769.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheHockeyStick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheHockeyStickGold #42416.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheHockeyStickGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ScytheHokeyStickGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShaftGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShareIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SharkBotJaws.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepBoxer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepHair1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepHair2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepHair2Heavy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepKamikaze.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SheepOneEye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shield #41317.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShieldFront.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shuriken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikenGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikenIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shurikens #25555.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shurikens.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikensIce #11588.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikensIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikensSunKnight #13285.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ShurikensSunKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Shurk_Helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Skull_Captain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SmallSword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SnowBall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SnowBalls #38558.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SnowBalls.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Soldier1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Soldier2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Soldier3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Soldier4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spartan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpearShaft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpikeLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpikeRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpikeUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpiralTree1_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SplashLogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spruce1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spruce2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spruce4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Spruce5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SpruceLights.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Staff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Stake.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/StakeGun #46833.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/StakeGunGold #42532.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Stakegun #54739.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Stakegun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/StakegunGold #33531.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/StakegunGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/StoneTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SunKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SunKnightFlail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SunKnightLanceHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SunKnightShuriken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SunKnightSpearShaft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sun_Knight_Flail_Chain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sun_Knight_Sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sun_Knight_Sword_Blade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sun_Knight_Sword_Efes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sword #3435.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sword Blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SwordGhost #47282.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SwordGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SwordSunKnight #13652.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/SwordSunKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/T_Islands_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/T_Islands_07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/T_Islands_09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/T_Islands_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/T_Islands_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Templar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeAsgardianLevel4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeAsgardianLevel5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeBlue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeGhost #51971.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeLevel4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeLevel4Ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeLevel5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingAxeNew.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnife2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnife3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifeAsgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifeGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifesAsgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifesGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnifesIceKnightEquip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnives.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingKnivesIce.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingSpears #42577.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingSpears.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingSpearsSunKnight #53021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ThrowingSpearsSunKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tombstone1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tombstone2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tombstone3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Top #37162.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TopFangs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TopHat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Torchlight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TorchlightHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TorchlightLight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TournamentScreenIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tower1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tower2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TowerGuardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree10 #50997.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree11 #50105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree1_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree1_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree2 #25289.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Tree9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TronDisc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Trophy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/TropicsPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UICheckMark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIElement8px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIFoldoutClosed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIFoldoutOpened.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIFrame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIFrameRoundCorners.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIMask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UITransparentButton.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UITransparentButtonWithShadow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIWhiteSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UIWideArrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Undead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UnknownHelmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/UpgradeArrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Vampire #23065.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Vampire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VanHelsing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VideoIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingFollower1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingFollower2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingFollower3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingFollowerEyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingFollowerSmile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VikingsButtonIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VolcanoMonster_Bot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VolcanoMonster_Eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VolcanoMonster_Mid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/VolcanoMonster_Top.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WH_Balloon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WH_Balloon_and_Redbaron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WH_Balloon_and_Redbaron_bomb_night.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WH_Kid_propeller.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/White1px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WhiteCircle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WhiteSquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WhiteSquareTilable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WhiteTriangle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WhiteWolf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Willuron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WindowGlow1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WindowGlow2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Wing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WitchDoctorHelmet2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WitchDoctorHelmet3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Wizard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WizardEpression4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WizardIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WodenTnTBarrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WoodenFlailHead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/WoodenFlailHeadGhost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/YariBladeGold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/YariSlash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/YellowGradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Yellow_Lantern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/Z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/bat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/bear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_closed_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_crimson_closed_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_crimson_ork.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_helm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_helm_horns.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_wide_eye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_wide_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_wide_eyes_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_wide_eyes_stone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/big_wide_fire.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/bird.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/bird2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/boulder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/boxer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/cat1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/cat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/cow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/crimson_ork_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/crimson_ork_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/dark_viking.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/default_artwork_big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/dragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/drakkar_helm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/eagle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain_dark.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain_ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain_ghost_blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain_gold.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/flail_chain_jotun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/fox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/gold_pig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/gold_pig_prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/grey_knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/hog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ice_skeleton_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ice_skeleton_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ice_skeleton_big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_arc_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_arc_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_big_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_big_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_castle_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_castle_lights_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_drakar_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_drakar_lights_01_new_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_drakar_lights_01_new_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_drakar_lights_01_new_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_drakar_lights_01_new_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/jotun_troll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/loki.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/lynx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/machete #37845.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/machete_blade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/machete_efes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/mill wing 1 #37267.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/mill wing 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/mill wing 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/mill wing 3 #37266.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/mouse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/owl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/pacman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/panda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/penguin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/pig2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/prince.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/prince_no_crown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/rabbit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/rabbit_dad.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/rabbit_mom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/rabbit_small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/racoon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/romantic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/romantic_no_heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ruins1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ruins3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/ruins4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/santa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/saw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/smoke.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/snail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/squirrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/stone_troll_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/stone_troll_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/stone_troll_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/stone_troll_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/stone_troll_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/strawberry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword 3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_asgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_blade.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_blade_ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_efes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_efes_asgardian.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_efes_ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/sword_ghost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tiger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tower_prev_pic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_1a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_1b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_2a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_2b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_3a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/tree_zontique_3b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_1_combat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_2_combat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_3_combat_helm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_3_helm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_boss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/troll_horn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/unicorn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_beard_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_beard_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_body.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_helmet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/viking_smile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #12727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #23777.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #30872.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #43214.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #49860.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #50076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000 #51930.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #18659.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #30792.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #32928.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #38556.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #46832.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #51988.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001 #55578.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #16508.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #18442.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #28613.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #3982.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #41984.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #51632.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002 #57623.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #23174.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #41208.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #46880.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #49031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #49039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #52988.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003 #56237.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #26021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #35763.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #36957.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #37844.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #42610.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #48531.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004 #53022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #13255.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #37946.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #40927.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #43802.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #49939.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #50050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005 #53111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #23586.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #25424.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #36393.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #42713.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #47069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #48041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006 #56893.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #20307.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #31871.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #34270.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #37947.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #42756.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #45764.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007 #51543.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #11721.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #24402.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #29634.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #30876.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #32756.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #50022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008 #53028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #12765.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #27370.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #45307.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #46066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #49158.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #50124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009 #57652.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #21871.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #31382.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #38035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #42074.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #47584.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010 #5420.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wep_0010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/wolf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprite/Sprite/zebra.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Boss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/StandardGreenOrc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/StandardRedOrc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/chestopened.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/cloud3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/coin.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/coinchest.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/gladiator.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/greenorc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/homebutton.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/island1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/island2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/island3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/musicbutton.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/redorc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/redorc2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/resume.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/retry.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/settings.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/spear.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/spearbutton.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/strange.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/sword.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/swordbutton.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/tnt.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/weaponchest.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/coinchest7.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +1149,7 @@
       <workItem from="1639402022737" duration="2509000" />
       <workItem from="1639769755441" duration="9441000" />
       <workItem from="1639807672836" duration="163000" />
-      <workItem from="1639808363768" duration="2342000" />
+      <workItem from="1639808363768" duration="5059000" />
     </task>
     <servers />
   </component>

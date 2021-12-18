@@ -12,6 +12,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.locks.LockSupport;
 
 public class Coin_Chest extends Chest{
     private int flag,flag1;
@@ -30,6 +31,7 @@ public class Coin_Chest extends Chest{
         return coins;
     }
     private Position position;
+    public String[] imagePaths;
 
     @Override
     public void setPosition(Position position) {
@@ -41,7 +43,9 @@ public class Coin_Chest extends Chest{
     public Position getPosition() {
         return position;
     }
+
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height){
+        this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
         images = new ArrayList<>();
         this.chest = new ImageView();
         Image img = new Image(new File(path1).toURI().toString());
@@ -57,7 +61,8 @@ public class Coin_Chest extends Chest{
             }
         });
         anchorPane.getChildren().add(chest);
-        addimages();
+//        addimages();
+        animateChest();
         this.flag =0;
         this.position = position;
     }
@@ -69,6 +74,9 @@ public class Coin_Chest extends Chest{
         double h = chest.getFitHeight();
         double w = chest.getFitWidth();
         this.chest = new ImageView();
+        for (int i = 0; i < 8; i++){
+
+        }
         Image img = new Image(new File(path2).toURI().toString());
         chest.setImage(img);
         chest.setX(x);
@@ -126,7 +134,21 @@ public class Coin_Chest extends Chest{
         images.add(this.chest);
         this.chest = original;
     }
-
+    public void animateChest() {
+        SequentialTransition show = new SequentialTransition();
+        for (String path: imagePaths){
+            System.out.println("Transitioning Chest");
+            chest.setImage(new Image(new File(path).toURI().toString()));
+            SequentialTransition transitioni = new SequentialTransition();
+            FadeTransition fadeIn = getFadeTransition(chest, 0.0, 1.0, 10000);
+            PauseTransition stayOn = new PauseTransition(Duration.millis(1500));
+            FadeTransition fadeOut = getFadeTransition(chest, 1.0, 0.0, 10000);
+            transitioni.getChildren().addAll(fadeIn ,stayOn ,fadeOut);
+            show.getChildren().add(transitioni);
+        }
+        show.play();
+        chest.setImage(new Image(new File(path1).toURI().toString()));
+    }
     @Override
     public void collide(Player player) {
 
