@@ -1,6 +1,7 @@
 package com.example.game;
 
 import javafx.geometry.Pos;
+import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 
@@ -11,6 +12,9 @@ public abstract class Game_Objects implements Serializable {
     public double getSpeed() {
         return speed;
     }
+    abstract ImageView getImage();
 
-    public abstract void collide(Player player);
+    public abstract void collide(Hero hero);
+
+    public abstract String getName();
 }

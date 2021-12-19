@@ -24,10 +24,12 @@ public class Weapon_Chest extends Chest{
     private final ImageView chest;
     private Position position;
     public String[] imagePaths;
+    private boolean isopen;
     private final Island islandOfResidence;
     private double speed;
 
     Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence){
+        this.isopen=false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8};
         chestAnimations = new ArrayList<>();
         this.islandOfResidence = islandOfResidence;
@@ -44,12 +46,15 @@ public class Weapon_Chest extends Chest{
         chest.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                animateChest();
+                if(!isopen){
+                    isopen = true;
+                    animateChest();
+                }
             }
         });
         anchorPane.getChildren().add(chest);
         this.position = position;
-        if (WeaponName == "Sword"){
+        if (WeaponName.equals("Sword")){
             this.weapon = new Sword();
         }
         else{
@@ -57,9 +62,17 @@ public class Weapon_Chest extends Chest{
         }
         this.speed = islandOfResidence.getSpeed();
     }
+    @Override
+    public String getName(){
+        return "Weapon Chest";
+    }
 
     @Override
-    public void collide(Player player) {
+    public void collide(Hero hero) {
+        if(!isopen){
+            isopen = true;
+            animateChest();
+        }
     }
 
     @Override

@@ -11,11 +11,20 @@ public class Boss_Orc extends Orc{
         return islandofResidence;
     }
     @Override
-    public void collide(Player player) {
+    public void collide(Hero hero) {
 
     }
     public void activate(){
 
+    }
+    @Override
+    public String getName(){
+        return "Boss Orc";
+    }
+
+    @Override
+    public ImageView getImage(){
+        return null;
     }
 
     @Override

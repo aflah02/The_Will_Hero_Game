@@ -37,6 +37,7 @@ public class TNT extends gameObstacles{
     private final ImageView TNTImageView;
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
+        this.isBurst = false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8, path9, path10};
         tntAnimations = new ArrayList<>();
         for (String path: imagePaths){
@@ -53,20 +54,34 @@ public class TNT extends gameObstacles{
         anchorPane.getChildren().add(TNTImageView);
         this.position = position;
         this.islandofResidence = islandofResidence;
+
+    }
+
+    @Override
+    public String getName(){
+        return "TNT";
     }
 
     public void animateTNT() {
-        TNT tnt = this;
-        Transition animation = new Transition() {
-            {setCycleDuration(Duration.millis(500));}
-            @Override
-            protected void interpolate(double fraction) {
-                int index = (int) (fraction*(tntAnimations.size()-1));
-                tnt.getTNTImageView().setImage(tntAnimations.get(index));
-            }
-        };
-        animation.play();
-        animation.setCycleCount(1);
+        if(!isBurst){
+            TNT tnt = this;
+            Transition animation = new Transition() {
+                {setCycleDuration(Duration.millis(500));}
+                @Override
+                protected void interpolate(double fraction) {
+                    int index = (int) (fraction*(tntAnimations.size()-1));
+                    tnt.getTNTImageView().setImage(tntAnimations.get(index));
+                }
+            };
+            animation.play();
+            animation.setCycleCount(1);
+            this.Burst();
+        }
+    }
+
+    @Override
+    public ImageView getImage(){
+        return this.TNTImageView;
     }
 
     @Override
@@ -98,7 +113,8 @@ public class TNT extends gameObstacles{
         isBurst = true;
     }
 
-    public void collide(Player player) {
+    public void collide(Hero hero) {
+        animateTNT();
     }
 
     @Override

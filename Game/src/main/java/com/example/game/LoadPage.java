@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.nio.file.attribute.PosixFileAttributes;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -85,17 +86,8 @@ public class LoadPage {
         swordt.setX(135);
         swordt.setY(570);
         mainPane.getChildren().add(swordt);
-        this.score = 0;
-        Text t = new Text();
-        score = Integer.toString(this.score);
-        t.setText(score);
-        t.setFont(Font.font ("Verdana", 70));
-        t.setFill(Color.WHITE);
-        t.setX(410);
-        t.setY(130);
-        moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects);
+        moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects,hero);
         mainPane.getChildren().add(moveScreenButton);
-        mainPane.getChildren().add(t);
     }
 
     private AnchorPane pauseMenu(){
@@ -216,10 +208,6 @@ public class LoadPage {
         stage.setScene(this.mainScene);
         stage.show();
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
-            moveHero(this.hero);
-            for (Island island: this.islands){
-                moveIsland(island);
-            }
             for (Game_Objects game_object: this.gameObjects){
                 if (game_object instanceof Orc){
                     moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
@@ -233,7 +221,15 @@ public class LoadPage {
             }
         }
         );
-        this.time = new Timeline(frame);
+        KeyFrame frame2 = new KeyFrame(Duration.millis(10), e->{
+            for (Island island: this.islands){
+                moveIsland(island);
+            }
+            moveHero(this.hero);
+
+        }
+        );
+        this.time = new Timeline(frame2,frame);
         time.setCycleCount(Timeline.INDEFINITE);
         time.play();
     }
@@ -248,27 +244,95 @@ public class LoadPage {
         }
     }
 
+    private Island getisland(Position pos ,ArrayList<Island> islands,double height,double width){
+        Island ansisland = null;
+        for(Island island :islands){
+            double h = island.getIsland().getFitHeight();
+            double w = island.getIsland().getFitWidth();
+            if((pos.getY()-height/2)<(island.getIsland().getY()-h/2)){
+                if((island.getIsland().getX()+w)>= (pos.getX() + width) && (island.getIsland().getX()-w)<= (pos.getX()-width)){
+                    ansisland = island;
+                    return ansisland;
+                }
+            }
+        }
+        return ansisland;
+    }
+
+
     private void moveIsland(Island island) {
         island.setPositionY(island.getPosition().getY()-island.getSpeed());
-        if(island.getPosition().getY()>=370 || island.getPosition().getY()<=270){
+        if(island.getPosition().getY()>=370 || island.getPosition().getY()<=320){
             double speed = island.getSpeed();
             island.setSpeed(-speed);
         }
 
     }
     private void moveHero(Hero hero){
-        if(hero.getHero().getY()-hero.getSpeed()>=350-50){
-            hero.getHero().setY(350-50);
-            herojump.play();
-            herojump.seek(Duration.ZERO);
+        double h = hero.getHero().getFitHeight();
+        double w = hero.getHero().getFitWidth();
+        Island residence = getisland(hero.getPosition(), islands, h,w);
+
+
+        if (residence == null){
+            double speed = Math.abs(hero.getSpeed());
+            hero.getHero().setY(hero.getHero().getY() + speed);
         }
-        else{
-            hero.getHero().setY(hero.getHero().getY()-hero.getSpeed());
+        else {
+            double x,y;
+            double island_height;
+            double island_width,jump;
+            x = residence.getIsland().getX();
+            y = residence.getIsland().getY();
+            island_height = residence.getIsland().getFitHeight();
+            island_width = residence.getIsland().getFitWidth();
+            jump = 100;
+            if (hero.getHero().getY() - hero.getSpeed() >= y - island_height/2 + 5) {
+                hero.getHero().setY(y - island_height / 2 );
+                double speed = hero.getSpeed();
+                hero.setSpeed(-speed);
+                herojump.play();
+                herojump.seek(Duration.ZERO);
+            }
+            else if (hero.getHero().getY() - hero.getSpeed() <= y - island_height / 2 - jump) {
+                hero.getHero().setY(y - island_height / 2 - jump);
+                double speed = hero.getSpeed();
+                hero.setSpeed(-speed);
+            }
+            else {
+                hero.getHero().setY(hero.getHero().getY() - hero.getSpeed());
+            }
+            for(Game_Objects gameobject : gameObjects){
+                if(check_collision(hero,gameobject)){
+                    gameobject.collide(hero);
+                }
+            }
+
         }
-        if(hero.getHero().getY()>=350-50 || hero.getHero().getY()<=275-50){
-            double speed = hero.getSpeed();
-            hero.setSpeed(-speed);
+    }
+
+    private boolean check_collision(Hero hero, Game_Objects game_objects) {
+        double hero_height = hero.getHero().getFitHeight();
+        double hero_width = hero.getHero().getFitWidth();
+        double obj_height = game_objects.getImage().getFitHeight();
+        double obj_width = game_objects.getImage().getFitWidth();
+        if(hero.getHero().getY() + hero_height/2 <= game_objects.getImage().getY()+obj_height/2 && hero.getHero().getY() + hero_height/2 >= game_objects.getImage().getY() - obj_height/2){
+            if(hero.getHero().getX()+hero_width/2 >= game_objects.getImage().getX()-obj_width/2 && hero.getHero().getX()+hero_width/2<=game_objects.getImage().getX()+obj_width/2) {
+                return true;
+            }
+            else if(hero.getHero().getX()-hero_width/2 >= game_objects.getImage().getX()-obj_width/2 && hero.getHero().getX()-hero_width/2<=game_objects.getImage().getX()+obj_width/2) {
+                return true;
+            }
         }
+        else if(hero.getHero().getY() - hero_height/2 <= game_objects.getImage().getY()+obj_height/2 && hero.getHero().getY() - hero_height/2 >= game_objects.getImage().getY() - obj_height/2 ){
+            if(hero.getHero().getX()+hero_width/2 >= game_objects.getImage().getX()-obj_width/2 && hero.getHero().getX()+hero_width/2<=game_objects.getImage().getX()+obj_width/2) {
+                return true;
+            }
+            else if(hero.getHero().getX()-hero_width/2 >= game_objects.getImage().getX()-obj_width/2 && hero.getHero().getX()-hero_width/2<=game_objects.getImage().getX()+obj_width/2) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void moveOrc(Orc orc , Island island){

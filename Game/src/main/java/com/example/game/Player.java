@@ -49,4 +49,8 @@ public class Player implements Serializable {
     public void interact(Game_Objects object){
 
     }
+
+    public void setScore(int score) {
+
+    }
 }

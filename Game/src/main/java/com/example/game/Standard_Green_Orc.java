@@ -41,13 +41,23 @@ public class Standard_Green_Orc extends Orc{
         this.position = position;
         this.islandofResidence = islandofResidence;
     }
+
     @Override
-    public void collide(Player player) {
+    public String getName(){
+        return "Green Orc";
+    }
+
+    @Override
+    public void collide(Hero hero){
     }
     public void createImage(){
         this.standardGreenOrc = new ImageView(new File(imagePath).toURI().toString());
     }
 
+    @Override
+    public ImageView getImage(){
+        return standardGreenOrc;
+    }
     @Override
     public ImageView getOrc() {
         return standardGreenOrc;

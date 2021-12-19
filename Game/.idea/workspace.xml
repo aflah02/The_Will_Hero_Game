@@ -6,25 +6,43 @@
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Boss_Orc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Chest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Coin_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Game_Objects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Island.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Green_Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Standard_Red_Orc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/TNT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Weapon_Chest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/moveScreenButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_07.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_09.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/T_Islands_09.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/game/images/panda.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/game/images/panda.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Boss_Orc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Boss_Orc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Chest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Coin_Chest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Game_Objects.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Game_Objects.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Island.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Island.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Orc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Orc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Green_Orc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Green_Orc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Red_Orc.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Standard_Red_Orc.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/TNT$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/TNT$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/TNT.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/TNT.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Weapon_Chest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_07.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_09.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/images/T_Islands_09.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/moveScreenButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/moveScreenButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +188,10 @@
       <workItem from="1639769755441" duration="9441000" />
       <workItem from="1639807672836" duration="163000" />
       <workItem from="1639808363768" duration="12339000" />
+      <workItem from="1639834437505" duration="6593000" />
+      <workItem from="1639900196440" duration="7482000" />
+      <workItem from="1639920583358" duration="945000" />
+      <workItem from="1639921825156" duration="3452000" />
     </task>
     <servers />
   </component>

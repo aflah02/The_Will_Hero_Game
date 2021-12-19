@@ -39,8 +39,17 @@ public class Standard_Red_Orc extends Orc{
         this.position = position;
         this.islandofResidence = islandofResidence;
     }
+    @Override
+    public String getName(){
+        return "Red Orc";
+    }
 
     public ImageView getOrc() {
+        return standardRedOrc;
+    }
+
+    @Override
+    public ImageView getImage(){
         return standardRedOrc;
     }
 
@@ -49,7 +58,7 @@ public class Standard_Red_Orc extends Orc{
     }
 
     @Override
-    public void collide(Player player) {
+    public void collide(Hero hero) {
 
     }
     public void createImage(){

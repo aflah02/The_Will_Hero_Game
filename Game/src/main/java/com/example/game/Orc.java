@@ -23,6 +23,7 @@ public abstract class Orc extends Game_Objects{
         Dead = true;
     }
     public abstract ImageView getOrc();
+    public abstract ImageView getImage();
     public abstract void setOrc(ImageView Orc);
     public abstract void setSpeed(double speed);
     public abstract Island getIslandofResidence();

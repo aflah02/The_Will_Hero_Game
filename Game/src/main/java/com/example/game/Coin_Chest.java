@@ -25,12 +25,23 @@ public class Coin_Chest extends Chest{
     String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
     String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
     private final ImageView chest;
+    private boolean  isopen;
     private Position position;
     public String[] imagePaths;
 
     Island islandOfResidence;
     private double speed;
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence){
+
+        coins = new ArrayList<>();
+        int max = 80;
+        int min = 10;
+        int randomcoins = (int) (Math.random()*(max - min + 1) + min);
+        for(int i=0;i<randomcoins;i++){
+            Coins coin = new Chest_Coin();
+            coins.add(coin);
+        }
+        this.isopen = false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
         chestAnimations = new ArrayList<>();
         this.islandOfResidence = islandOfResidence;
@@ -47,7 +58,10 @@ public class Coin_Chest extends Chest{
         chest.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                animateChest();
+                if(!isopen){
+                    isopen = true;
+                    animateChest();
+                }
             }
         });
         anchorPane.getChildren().add(chest);
@@ -56,7 +70,22 @@ public class Coin_Chest extends Chest{
     }
 
     @Override
-    public void collide(Player player) {
+    public void collide(Hero hero) {
+        if(!isopen){
+            isopen = true;
+            animateChest();
+            for(Coins coin: coins){
+                hero.addCoins(coin);
+            }
+            hero.updatecoins();
+
+        }
+
+    }
+
+    @Override
+    public String getName(){
+        return "Coin_Chest";
     }
     @Override
     public ImageView getImage() {
