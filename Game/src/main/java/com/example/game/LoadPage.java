@@ -132,9 +132,9 @@ public class LoadPage {
     private void addObjectsonScreen(){
         System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
-            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1225*i,350), 200, 100,0);
-            Island mediumIsland = new Island("Medium", mainPane, new Position(325+ 1225*i,350), 350, 125, 0);
-            Island largeIsland = new Island("Large", mainPane, new Position(725+ 1225*i,350), 450, 150 , 0.3);
+            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1375*i,350), 200, 100,0.3);
+            Island mediumIsland = new Island("Medium", mainPane, new Position(425 + 1375*i,350), 350, 125, 0.3);
+            Island largeIsland = new Island("Large", mainPane, new Position(925 + 1375*i,350), 450, 150 , 0.3);
             islands.add(smallIsland);
             islands.add(mediumIsland);
             islands.add(largeIsland);
@@ -153,10 +153,10 @@ public class LoadPage {
                 generateIslandObjects(island, islandPosition, 1);
             }
             else if (island.getIslandType().equals("Medium")){
-                generateIslandObjects(island, islandPosition, 1);
+                generateIslandObjects(island, islandPosition, 2);
             }
             else{
-                generateIslandObjects(island, islandPosition, 2);
+                generateIslandObjects(island, islandPosition, 3);
             }
         }
 
@@ -236,7 +236,7 @@ public class LoadPage {
 
     private void moveChest(Chest game_object, Island island) {
         if (!(island.getSpeed() == 0)){
-            game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
+            game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-game_object.getImageViewHeight());
             if(game_object.getPosition().getY()>=325 || game_object.getPosition().getY()<=275){
                 double speed = game_object.getSpeed();
                 game_object.setSpeed(-speed);
@@ -338,24 +338,24 @@ public class LoadPage {
     }
 
     private void moveOrc(Orc orc , Island island){
-        if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-50){
-            orc.getOrc().setY(island.getPosition().getY()-50);
+        if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-orc.getImageViewHeight()){
+            orc.getOrc().setY(island.getPosition().getY()-orc.getImageViewHeight());
             orcjump.play();
             orcjump.seek(Duration.ZERO);
         }
-        orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - 100));
-        if(orc.getOrc().getY()>=island.getPosition().getY()-50 || orc.getOrc().getY()<=island.getPosition().getY()-100){
+        orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - island.getIslandImageViewHeight()));
+        if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight() || orc.getOrc().getY()<=island.getPosition().getY()- island.getIslandImageViewHeight()){
             double speed = orc.getSpeed();
             orc.setSpeed(-speed);
         }
-        if(orc.getOrc().getY()>=island.getPosition().getY()-50){
-            orc.setInitialPosition(island.getPosition().getY()-50);
+        if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()){
+            orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
         }
     }
 
     private void moveTNT(TNT tnt , Island island){
         if (!(island.getSpeed() == 0)){
-            tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-45);
+            tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-tnt.getImageViewHeight());
             if(tnt.getPosition().getY()>=325 || tnt.getPosition().getY()<=275){
                 double speed = tnt.getSpeed();
                 tnt.setSpeed(-speed);

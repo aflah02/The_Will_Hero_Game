@@ -85,4 +85,14 @@ public class Standard_Red_Orc extends Orc{
     public void setInitialPosition(double pos) {
         this.initpos = initpos;
     }
+
+    @Override
+    public double getImageViewWidth() {
+        return standardRedOrc.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return standardRedOrc.getFitHeight();
+    }
 }

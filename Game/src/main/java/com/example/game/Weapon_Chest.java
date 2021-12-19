@@ -68,6 +68,16 @@ public class Weapon_Chest extends Chest{
     }
 
     @Override
+    public double getImageViewWidth() {
+        return chest.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return chest.getFitHeight();
+    }
+
+    @Override
     public void collide(Hero hero) {
         if(!isopen){
             isopen = true;
@@ -106,4 +116,6 @@ public class Weapon_Chest extends Chest{
         this.position.setY(v);
         this.chest.setY(v);
     }
+
+
 }

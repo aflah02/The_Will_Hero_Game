@@ -62,6 +62,16 @@ public class TNT extends gameObstacles{
         return "TNT";
     }
 
+    @Override
+    public double getImageViewWidth() {
+        return TNTImageView.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return TNTImageView.getFitHeight();
+    }
+
     public void animateTNT() {
         if(!isBurst){
             TNT tnt = this;
@@ -138,4 +148,6 @@ public class TNT extends gameObstacles{
         this.position.setY(v);
         this.TNTImageView.setY(v);
     }
+
+
 }

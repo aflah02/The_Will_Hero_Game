@@ -48,6 +48,16 @@ public class Standard_Green_Orc extends Orc{
     }
 
     @Override
+    public double getImageViewWidth() {
+        return standardGreenOrc.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return standardGreenOrc.getFitHeight();
+    }
+
+    @Override
     public void collide(Hero hero){
     }
     public void createImage(){

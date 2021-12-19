@@ -6,6 +6,7 @@ public class Boss_Orc extends Orc{
 
     private double speed,initpos;
     private Island islandofResidence;
+    private ImageView BossOrc;
 
     public Island getIslandofResidence() {
         return islandofResidence;
@@ -64,5 +65,15 @@ public class Boss_Orc extends Orc{
     @Override
     public void setInitialPosition(double pos) {
         this.initpos = initpos;
+    }
+
+    @Override
+    public double getImageViewWidth() {
+        return BossOrc.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return BossOrc.getFitHeight();
     }
 }

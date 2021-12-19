@@ -122,4 +122,14 @@ public class Coin_Chest extends Chest{
     public ArrayList<Coins> getCoins() {
         return coins;
     }
+
+    @Override
+    public double getImageViewWidth() {
+        return chest.getFitWidth();
+    }
+
+    @Override
+    public double getImageViewHeight() {
+        return chest.getFitHeight();
+    }
 }

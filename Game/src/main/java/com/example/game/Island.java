@@ -135,4 +135,12 @@ public class Island implements Serializable {
         this.Island = new ImageView(island_image);
         Island.setPreserveRatio(false);
     }
+
+    public double getIslandImageViewHeight(){
+        return this.Island.getFitHeight();
+    }
+
+    public double getIslandImageViewWidth(){
+        return this.Island.getFitWidth();
+    }
 }
