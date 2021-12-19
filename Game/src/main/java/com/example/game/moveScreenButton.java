@@ -42,6 +42,7 @@ public class moveScreenButton extends Button {
 
         score = score + 1;
         hero.setScore(score);
+        hero.animate();
         for(Island island: listOfIslands){
             island.setPosition(new Position(island.getPosition().getX()-100, island.getPosition().getY()));
         }

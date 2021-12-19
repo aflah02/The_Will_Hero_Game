@@ -249,7 +249,7 @@ public class LoadPage {
         for(Island island :islands){
             double h = island.getIsland().getFitHeight();
             double w = island.getIsland().getFitWidth();
-            if((pos.getY()-height/2)<(island.getIsland().getY()-h/2)){
+            if((pos.getY())<(island.getIsland().getY()-h/2)){
                 if((island.getIsland().getX()+w)>= (pos.getX() + width) && (island.getIsland().getX()-w)<= (pos.getX()-width)){
                     ansisland = island;
                     return ansisland;
@@ -277,6 +277,7 @@ public class LoadPage {
         if (residence == null){
             double speed = Math.abs(hero.getSpeed());
             hero.getHero().setY(hero.getHero().getY() + speed);
+            hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
         }
         else {
             double x,y;
@@ -302,6 +303,7 @@ public class LoadPage {
             else {
                 hero.getHero().setY(hero.getHero().getY() - hero.getSpeed());
             }
+            hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
             for(Game_Objects gameobject : gameObjects){
                 if(check_collision(hero,gameobject)){
                     gameobject.collide(hero);

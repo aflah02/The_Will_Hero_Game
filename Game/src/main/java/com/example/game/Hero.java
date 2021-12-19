@@ -1,17 +1,20 @@
 package com.example.game;
 
+import javafx.animation.Transition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
 
 public class Hero {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
+
     private pandaHelmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;
@@ -88,6 +91,10 @@ public class Hero {
 
     public Position getPosition() {
         return new Position(2,2);
+    }
+
+    public void animate(){
+        helmet.animate();
     }
 
 
