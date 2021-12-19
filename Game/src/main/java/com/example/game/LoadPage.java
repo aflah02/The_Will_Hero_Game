@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class LoadPage {
+    static final int islandLocationfromTopofScreen = 450;
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
@@ -132,9 +133,9 @@ public class LoadPage {
     private void addObjectsonScreen(){
         System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
-            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1375*i,350), 200, 100,0.3);
-            Island mediumIsland = new Island("Medium", mainPane, new Position(425 + 1375*i,350), 350, 125, 0.3);
-            Island largeIsland = new Island("Large", mainPane, new Position(925 + 1375*i,350), 450, 150 , 0.3);
+            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1375*i,islandLocationfromTopofScreen), 200, 100,0.3);
+            Island mediumIsland = new Island("Medium", mainPane, new Position(425 + 1375*i,islandLocationfromTopofScreen), 350, 125, 0.3);
+            Island largeIsland = new Island("Large", mainPane, new Position(925 + 1375*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
             islands.add(smallIsland);
             islands.add(mediumIsland);
             islands.add(largeIsland);
@@ -244,7 +245,7 @@ public class LoadPage {
         }
     }
 
-    private Island getisland(Position pos ,ArrayList<Island> islands,double height,double width){
+    private Island getisland(Position pos ,ArrayList<Island> islands,double height, double width){
         Island ansisland = null;
         for(Island island :islands){
             double h = island.getIsland().getFitHeight();
@@ -262,7 +263,7 @@ public class LoadPage {
 
     private void moveIsland(Island island) {
         island.setPositionY(island.getPosition().getY()-island.getSpeed());
-        if(island.getPosition().getY()>=370 || island.getPosition().getY()<=320){
+        if(island.getPosition().getY()>=islandLocationfromTopofScreen+20 || island.getPosition().getY()<=islandLocationfromTopofScreen-20){
             double speed = island.getSpeed();
             island.setSpeed(-speed);
         }
@@ -271,7 +272,7 @@ public class LoadPage {
     private void moveHero(Hero hero){
         double h = hero.getHero().getFitHeight();
         double w = hero.getHero().getFitWidth();
-        Island residence = getisland(hero.getPosition(), islands, h,w);
+        Island residence = getisland(hero.getPosition(), islands, h, w);
 
 
         if (residence == null){
@@ -288,7 +289,7 @@ public class LoadPage {
             island_height = residence.getIsland().getFitHeight();
             island_width = residence.getIsland().getFitWidth();
             jump = 100;
-            if (hero.getHero().getY() - hero.getSpeed() >= y - island_height/2 + 5) {
+            if (hero.getHero().getY() - hero.getSpeed() >= y - island_height/2) {
                 hero.getHero().setY(y - island_height / 2 );
                 double speed = hero.getSpeed();
                 hero.setSpeed(-speed);
