@@ -29,6 +29,7 @@ public class LoadPage {
     private final String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
     private Timeline time;
     private AnchorPane newpane;
+    private AnchorPane abyssPane;
     private final Stage stage;
     private final ArrayList<Game_Objects> gameObjects;
     private final Hero hero;
@@ -66,6 +67,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         addObjectsonScreen();
         newpane = pauseMenu();
+        abyssPane = reviveMenu();
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2);
         WeaponButton sword = new WeaponButton("Sword",25,525);
         WeaponButton lance = new WeaponButton("Lance",100,525);
@@ -130,20 +132,59 @@ public class LoadPage {
         return menu;
     }
 
+    private AnchorPane reviveMenu(){
+        PauseButton pause = new PauseButton();
+        pause.setLayoutX(400);
+        pause.setLayoutY(20);
+        mainPane.getChildren().add(pause);
+        AnchorPane menu = new AnchorPane();
+        menu.setPrefHeight(200);
+        menu.setPrefWidth(200);
+        menu.setLayoutX(300);
+        menu.setLayoutY(150);
+        String bg1 = "src/main/resources/com/example/game/images/menuupdated.png";
+        Image bg = new Image(new File(bg1).toURI().toString(),200,200,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
+        menu.setBackground(new Background(image));
+        ResumeButton resume = new ResumeButton();
+        resume.setLayoutX(65);
+        resume.setLayoutY(100);
+        menu.getChildren().add(resume);
+        pausegame(pause);
+        startgame(resume,pause);
+        Homebutton home = new Homebutton(stage);
+        home.setLayoutX(10);
+        home.setLayoutY(60);
+        menu.getChildren().add(home);
+        RestartButton restart = new RestartButton(stage);
+        restart.setLayoutX(120);
+        restart.setLayoutY(60);
+        menu.getChildren().add(restart);
+        MusicButton music = new MusicButton(null);
+        music.setLayoutX(10);
+        music.setLayoutY(135);
+        menu.getChildren().add(music);
+        SaveButton save = new SaveButton(this.stage);
+        save.setLayoutX(120);
+        save.setLayoutY(135);
+        menu.getChildren().add(save);
+        return menu;
+    }
+
     private void addObjectsonScreen(){
         System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
-            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1375*i,islandLocationfromTopofScreen), 200, 100,0.3);
-            Island mediumIsland = new Island("Medium", mainPane, new Position(425 + 1375*i,islandLocationfromTopofScreen), 350, 125, 0.3);
-            Island largeIsland = new Island("Large", mainPane, new Position(925 + 1375*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
+            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1600*i,islandLocationfromTopofScreen), 200, 100,0.3);
+            Island mediumIsland = new Island("Medium", mainPane, new Position(500 + 1600*i,islandLocationfromTopofScreen), 350, 125, 0.3);
+            Island largeIsland = new Island("Large", mainPane, new Position(1000 + 1600*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
             islands.add(smallIsland);
             islands.add(mediumIsland);
             islands.add(largeIsland);
         }
         int count = 0;
-        for (Island island: islands){
-            System.out.println(island.getIslandType());
-        }
+//        for (Island island: islands){
+//            System.out.println(island.getIslandType());
+//        }
         for (Island island: islands){
             if (count == 0){
                 count++;
@@ -201,7 +242,7 @@ public class LoadPage {
                     this.gameObjects.add(chest);
                 }
             }
-            System.out.println(gameObjects[rand.nextInt(gameObjects.length)]);
+//            System.out.println(gameObjects[rand.nextInt(gameObjects.length)]);
         }
     }
 
@@ -245,13 +286,20 @@ public class LoadPage {
         }
     }
 
-    private Island getisland(Position pos ,ArrayList<Island> islands,double height, double width){
+    private Island getisland(Position pos ,ArrayList<Island> islands, double height, double width){
         Island ansisland = null;
+        int count = 0;
         for(Island island :islands){
+            count++;
             double h = island.getIsland().getFitHeight();
             double w = island.getIsland().getFitWidth();
             if((pos.getY())<(island.getIsland().getY()-h/2)){
-                if((island.getIsland().getX()+w)>= (pos.getX() + width) && (island.getIsland().getX()-w)<= (pos.getX()-width)){
+                if (island.getIsland().getY() < pos.getY()){
+                    ansisland = null;
+                    return ansisland;
+                }
+                if((island.getIsland().getX()+w) >= (pos.getX() + width) && (island.getIsland().getX()-w)<= (pos.getX()-width)){
+                    System.out.println(count);
                     ansisland = island;
                     return ansisland;
                 }
@@ -274,11 +322,16 @@ public class LoadPage {
         double w = hero.getHero().getFitWidth();
         Island residence = getisland(hero.getPosition(), islands, h, w);
 
+//        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
+//            time.pause();
+//            mainPane.getChildren().add(abyssPane);
+//        }
 
         if (residence == null){
             double speed = Math.abs(hero.getSpeed());
             hero.getHero().setY(hero.getHero().getY() + speed);
             hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
+//            mainPane.getChildren().add(abyssPane);
         }
         else {
             double x,y;
