@@ -1,6 +1,14 @@
 package com.example.game;
 
 public class Lance extends Weapon{
+
+    Lance(){
+        super("Lance");
+    }
+    @Override
+    void animate(){
+
+    }
     @Override
     int getDamage() {
         return 0;
@@ -16,8 +24,4 @@ public class Lance extends Weapon{
         return 0;
     }
 
-    @Override
-    int increaseLevel() {
-        return 0;
-    }
 }

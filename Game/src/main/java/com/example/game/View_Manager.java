@@ -13,17 +13,18 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class View_Manager {
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private final Stage mainStage;
-    private final MediaPlayer player;
+    private final ArrayList<MediaPlayer> players;
     private MediaView view;
 
     View_Manager(Stage stage) {
-
+        players = new ArrayList<>();
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
         if(stage==null){
@@ -48,7 +49,7 @@ public class View_Manager {
         mediaPlayer.setAutoPlay(true);
         mainPane.getChildren().add(mediaView);
         createButtons(mediaPlayer);
-        this.player = mediaPlayer;
+        players.add(mediaPlayer);
     }
 
     private void createButtons(MediaPlayer player){
@@ -76,7 +77,7 @@ public class View_Manager {
         button2.setLayoutY(380);
         mainPane.getChildren().add(button2);
         //Music Button
-        MusicButton button3 = new MusicButton(player);
+        MusicButton button3 = new MusicButton(players);
         button3.setLayoutX(625);
         button3.setLayoutY(50);
         mainPane.getChildren().add(button3);
@@ -103,14 +104,20 @@ public class View_Manager {
     }
 
     public void changeScene(Scene scene){
-        mainPane.getChildren().remove(player);
-        player.setMute(true);
+        for(MediaPlayer player : players ){
+            mainPane.getChildren().remove(player);
+            player.setMute(true);
+        }
+
         mainStage.setScene(scene);
         mainStage.show();
     }
 
     public void removevideo() {
-        player.setMute(true);
+        for(MediaPlayer player : players ){
+            mainPane.getChildren().remove(player);
+            player.setMute(true);
+        }
         mainPane.getChildren().remove(view);
         mainStage.show();
     }

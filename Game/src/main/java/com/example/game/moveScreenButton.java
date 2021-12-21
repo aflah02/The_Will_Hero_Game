@@ -60,6 +60,7 @@ public class moveScreenButton extends Button {
 
     }
 
+    /*
     private boolean check_collision(Hero hero, Game_Objects game_objects) {
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
@@ -83,5 +84,6 @@ public class moveScreenButton extends Button {
         }
         return false;
     }
+    */
 
 }

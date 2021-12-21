@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Island implements Serializable {
-    private Position position;
+    private Position position , initial_position;
     private int size;
     private ImageView Island;
     private Image island_image;
@@ -31,6 +31,7 @@ public class Island implements Serializable {
     private final ArrayList<ImageView> islandObjects = new ArrayList<>();
 
     public Island(String islandType, AnchorPane anchorPane, Position position, int width, int height , double Speed){
+        this.initial_position = new Position(position.getX(), position.getY());
         this.islandType = islandType;
         if (islandType.equals("Small")){
             createImage(islandSmall);
@@ -69,6 +70,7 @@ public class Island implements Serializable {
         this.position = position;
         setimages(anchorPane);
         anchorPane.getChildren().add(Island);
+
     }
 
     private void setimages(AnchorPane anchorPane){
@@ -87,6 +89,7 @@ public class Island implements Serializable {
     }
 
     public void setPosition(Position position) {
+        this.initial_position.setX(position.getX());
         this.position = position;
         Island.setX(position.getX());
         Island.setY(position.getY());
@@ -117,6 +120,8 @@ public class Island implements Serializable {
             image.setY(position.getY() - ih/2 - h/2);
         }
     }
+
+    public Position getinitial(){ return this.initial_position;}
 
     public double getSpeed() {
         return speed;

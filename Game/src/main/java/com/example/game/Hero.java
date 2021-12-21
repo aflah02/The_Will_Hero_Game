@@ -23,6 +23,8 @@ public class Hero {
     private ImageView Hero;
     private String score;
     private Text scoreboard,coinboard;
+    private Weapon activeWeapon,sword,lance;
+    private Text swordt , lancet;
 
     public ImageView getHero() {
         return Hero;
@@ -32,7 +34,11 @@ public class Hero {
         Hero = hero;
     }
 
-    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed){
+    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt){
+        this.swordt = swordt;
+        this.lancet = lancet;
+        this.sword = null;
+        this.lance = null;
         this.currCoins = new ArrayList<>();
         helmet = new pandaHelmet(anchorPane, position, width, height);
         Hero = helmet.getPandaHelmet();
@@ -62,6 +68,14 @@ public class Hero {
         anchorPane.getChildren().add(coinboard);
         this.position = position;
     }
+
+    public Weapon getsword(){
+        return this.sword;
+    }
+    public Weapon getlance(){
+        return this.lance;
+    }
+
     public void setPosition(Position position) {
         this.position = position;
     }
@@ -106,5 +120,53 @@ public class Hero {
 
     public void updatecoins() {
         coinboard.setText(Integer.toString(currCoins.size()));
+    }
+
+    public void setWeapon(Weapon weapon) {
+        if(weapon.getName().equals("Sword")){
+            if(this.sword==null){
+                this.sword = weapon;
+                this.sword.increaseLevel();
+                this.swordt.setText(Integer.toString(this.sword.getLevel()));
+            }
+            else{
+                this.sword.increaseLevel();
+                this.swordt.setText(Integer.toString(this.sword.getLevel()));
+            }
+            this.activeWeapon = this.sword;
+        }
+        if(weapon.getName().equals("Lance")){
+            if(this.lance==null){
+                this.lance = weapon;
+                this.lance.increaseLevel();
+                this.lancet.setText(Integer.toString(this.lance.getLevel()));
+            }
+            else{
+                this.lance.increaseLevel();
+                this.lancet.setText(Integer.toString(this.lance.getLevel()));
+            }
+            this.activeWeapon = this.lance;
+        }
+        System.out.println("hero got" + this.activeWeapon.getName());
+        animate(this.activeWeapon);
+    }
+    public void setActiveWeapon(Weapon weapon){
+        if(weapon!=null){
+            this.activeWeapon=weapon;
+
+            System.out.println("hero changed weapon to" + this.activeWeapon.getName());
+            animate(this.activeWeapon);
+        }
+    }
+    public void animate(Weapon wp){
+        if(wp==null){
+            return;
+        }
+
+    }
+    public void strike(){
+        if(this.activeWeapon==null){
+            return;
+        }
     }
 }

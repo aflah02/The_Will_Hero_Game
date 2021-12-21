@@ -9,18 +9,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MusicButton extends Button {
     private int flag;
-    private final MediaPlayer player;
+    private final ArrayList<MediaPlayer> player;
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private final String path = "src/main/resources/com/example/game/images/musicbutton.jpeg";
     private String path2 = "src/main/resources/com/example/game/images/musicstopped.png";
 
-    MusicButton(MediaPlayer player){
+    MusicButton(ArrayList<MediaPlayer> players){
         flag = 0;
-        this.player = player;
+        this.player = players;
         setText("");
         setPrefHeight(50);
         setPrefWidth(50);
@@ -98,7 +99,9 @@ public class MusicButton extends Button {
             img.setFitHeight(50);
             img.setFitWidth(50);
             this.setGraphic(img);
-            player.setMute(true);
+            for(MediaPlayer players : this.player){
+                players.setMute(true);
+            }
         }
         else{
             flag =0;
@@ -106,7 +109,9 @@ public class MusicButton extends Button {
             img.setFitHeight(50);
             img.setFitWidth(50);
             this.setGraphic(img);
-            player.setMute(false);
+            for(MediaPlayer players : this.player){
+                players.setMute(false);
+            }
         }
     }
 

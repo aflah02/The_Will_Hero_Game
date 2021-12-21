@@ -16,10 +16,16 @@ public class WeaponButton extends Button {
     private int level;
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
     private final String STYLE_CLOSED = "-fx-background-color:transparent; -fx-background-size: cover;-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;";
+    private final String STYLE_ACTIVE = "-fx-background-color:black; -fx-background-size: cover;-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;";
     private String path1 = "src/main/resources/com/example/game/images/smallsword.png";
     private String path2 = "src/main/resources/com/example/game/images/lance.png";
+    private Hero hero;
+    private Weapon weapon;
+    private int type;
+    private boolean isactive;
 
-    WeaponButton(String weaponType, double x , double y){
+    WeaponButton(String weaponType, double x , double y,Hero hero){
+        this.hero = hero;
         this.level = 0;
         this.setLayoutX(x);
         this.setLayoutY(y);
@@ -31,13 +37,18 @@ public class WeaponButton extends Button {
         ImageView img;
         if(weaponType.equals("Sword")){
             img = new ImageView(new File(path1).toURI().toString());
-            img.setFitHeight(35);
-            img.setFitWidth(10);
+            img.setFitHeight(40);
+            img.setFitWidth(7);
+            img.setRotate(30);
+            this.weapon = hero.getsword();
+            type = 1;
         }
         else{
             img = new ImageView(new File(path2).toURI().toString());
-            img.setFitHeight(35);
+            img.setFitHeight(40);
             img.setFitWidth(20);
+            this.weapon = hero.getlance();
+            type = 2;
         }
         this.setGraphic(img);
     }
@@ -48,34 +59,50 @@ public class WeaponButton extends Button {
 
 
     private void initializeButton(){
-        setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                handler();
-            }
-        });
-
-
 
         setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                setEffect(new DropShadow());
-                setStyle(STYLE_CLOSED);
+                if(!isactive){
+                    setEffect(new DropShadow());
+                    setStyle(STYLE_CLOSED);
+                }
+
             }
         });
 
         setOnMouseExited(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                setEffect(null);
-                setStyle(STYLE);
+                if(!isactive){
+                    setEffect(null);
+                    setStyle(STYLE);
+                }
             }
         });
     }
 
-    private void handler() {
-        System.out.println("Weapon Button Clicked");
+    public void setactive(){
+        if(this.weapon!=null){
+            isactive = true;
+            setStyle(STYLE_ACTIVE);
+        }
+
+    }
+
+    public void setinactive(){
+        isactive = false;
+        setStyle(STYLE);
+    }
+
+    public void handler() {
+        if(type==1){
+            this.weapon = hero.getsword();
+        }
+        if(type==2){
+            this.weapon = hero.getlance();
+        }
+        hero.setActiveWeapon(this.weapon);
     }
 
 

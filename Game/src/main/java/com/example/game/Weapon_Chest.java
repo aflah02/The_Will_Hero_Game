@@ -82,6 +82,7 @@ public class Weapon_Chest extends Chest{
         if(!isopen){
             isopen = true;
             animateChest();
+            hero.setWeapon(this.weapon);
         }
     }
 
