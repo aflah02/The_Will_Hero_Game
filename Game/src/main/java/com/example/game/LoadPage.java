@@ -287,23 +287,31 @@ public class LoadPage {
     }
 
     private Island getisland(Position pos ,ArrayList<Island> islands, double height, double width){
+        double player_starting_x_coordinate = pos.getX();
+        double player_starting_y_coordinate = pos.getY();
+        double player_ending_x_coordinate = player_starting_x_coordinate + width;
+        double player_ending_y_coordinate = player_starting_y_coordinate + height;
         Island ansisland = null;
         int count = 0;
         for(Island island :islands){
             count++;
-            double h = island.getIsland().getFitHeight();
-            double w = island.getIsland().getFitWidth();
-            if((pos.getY())<(island.getIsland().getY()-h/2)){
-                if (island.getIsland().getY() < pos.getY()){
-                    ansisland = null;
-                    return ansisland;
-                }
-                if((island.getIsland().getX()+w) >= (pos.getX() + width) && (island.getIsland().getX()-w)<= (pos.getX()-width)){
-                    System.out.println(count);
-                    ansisland = island;
-                    return ansisland;
-                }
+            double island_h = island.getIsland().getFitHeight();
+            double island_w = island.getIsland().getFitWidth();
+            double island_starting_x_coordinate = island.getIsland().getX();
+            double island_starting_y_coordinate = island.getIsland().getY();
+            double island_ending_x_coordinate = island_starting_x_coordinate + island_w;
+            double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
+            if (island_ending_y_coordinate < player_starting_y_coordinate){
+                continue;
             }
+            if (island_starting_x_coordinate > player_ending_x_coordinate){
+                continue;
+            }
+            if (island_ending_x_coordinate < player_starting_x_coordinate){
+                continue;
+            }
+            System.out.println(count);
+            return island;
         }
         return ansisland;
     }

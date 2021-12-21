@@ -7,7 +7,6 @@
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +159,9 @@
       <workItem from="1639926496586" duration="1718000" />
       <workItem from="1639928687195" duration="798000" />
       <workItem from="1639934113593" duration="1857000" />
-      <workItem from="1639944427256" duration="3888000" />
+      <workItem from="1639944427256" duration="4508000" />
+      <workItem from="1640064442410" duration="1213000" />
+      <workItem from="1640078524571" duration="1923000" />
     </task>
     <servers />
   </component>
