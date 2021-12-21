@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="da6f0192-2c84-4f03-a76f-0ef693619f1e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/LoadPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/pandaHelmet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/pandaHelmet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/game/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +167,8 @@
       <workItem from="1639944427256" duration="4508000" />
       <workItem from="1640064442410" duration="1213000" />
       <workItem from="1640078524571" duration="1923000" />
+      <workItem from="1640093810198" duration="3083000" />
+      <workItem from="1640097819620" duration="282000" />
     </task>
     <servers />
   </component>

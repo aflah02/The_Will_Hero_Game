@@ -12,7 +12,7 @@ import java.io.File;
 public class pandaHelmet {
     private ImageView pandaHelmet;
     private String helmetImage = "src/main/resources/com/example/game/images/panda.png";
-    private String streakpath = "src/main/resources/com/example/game/images/pandastreak.png";
+    private String streakpath = "src/main/resources/com/example/game/images/panda_streak.png";
     private int height,width;
     private int flag =0;
     public pandaHelmet(AnchorPane anchorPane, Position position, int width, int height){
@@ -40,7 +40,8 @@ public class pandaHelmet {
             protected void interpolate(double fraction) {
                     Image streakimage = new Image(new File(streakpath).toURI().toString());
                     pandaHelmet.setImage(streakimage);
-                    pandaHelmet.setFitWidth(width*2.7);
+                    pandaHelmet.setFitWidth(width);
+                    pandaHelmet.setFitWidth(width*2);
             }
         };
         Transition animation2 = new Transition() {
@@ -49,6 +50,7 @@ public class pandaHelmet {
             protected void interpolate(double fraction) {
                 Image streakimage = new Image(new File(helmetImage).toURI().toString());
                 pandaHelmet.setImage(streakimage);
+                pandaHelmet.setFitWidth(height);
                 pandaHelmet.setFitWidth(width);
             }
         };

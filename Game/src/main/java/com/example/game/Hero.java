@@ -60,6 +60,7 @@ public class Hero {
         coinboard.setY(80);
         anchorPane.getChildren().add(coinimage);
         anchorPane.getChildren().add(coinboard);
+        this.position = position;
     }
     public void setPosition(Position position) {
         this.position = position;
@@ -90,7 +91,7 @@ public class Hero {
     }
 
     public Position getPosition() {
-        return new Position(2,2);
+        return this.position;
     }
 
     public void animate(){

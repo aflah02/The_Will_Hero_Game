@@ -67,7 +67,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         addObjectsonScreen();
         newpane = pauseMenu();
-        abyssPane = reviveMenu();
+        //abyssPane = reviveMenu();
         this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2);
         WeaponButton sword = new WeaponButton("Sword",25,525);
         WeaponButton lance = new WeaponButton("Lance",100,525);
@@ -131,7 +131,7 @@ public class LoadPage {
         menu.getChildren().add(save);
         return menu;
     }
-
+    /*
     private AnchorPane reviveMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
@@ -170,6 +170,8 @@ public class LoadPage {
         menu.getChildren().add(save);
         return menu;
     }
+    */
+
 
     private void addObjectsonScreen(){
         System.out.println("Inside Add Objects");
@@ -279,10 +281,12 @@ public class LoadPage {
     private void moveChest(Chest game_object, Island island) {
         if (!(island.getSpeed() == 0)){
             game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-game_object.getImageViewHeight());
+            /*
             if(game_object.getPosition().getY()>=325 || game_object.getPosition().getY()<=275){
                 double speed = game_object.getSpeed();
                 game_object.setSpeed(-speed);
             }
+            */
         }
     }
 
@@ -301,13 +305,16 @@ public class LoadPage {
             double island_starting_y_coordinate = island.getIsland().getY();
             double island_ending_x_coordinate = island_starting_x_coordinate + island_w;
             double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
-            if (island_ending_y_coordinate < player_starting_y_coordinate){
+            // The 10 over here is so that hero doesn't fall immediately
+            //Can change the value
+            if (island_starting_y_coordinate + 10 < player_ending_y_coordinate){
                 continue;
             }
-            if (island_starting_x_coordinate > player_ending_x_coordinate){
+            else if (island_starting_x_coordinate > player_ending_x_coordinate){
+                System.out.println(island_starting_x_coordinate + " " + player_ending_x_coordinate);
                 continue;
             }
-            if (island_ending_x_coordinate < player_starting_x_coordinate){
+            else if (island_ending_x_coordinate < player_starting_x_coordinate){
                 continue;
             }
             System.out.println(count);
@@ -319,16 +326,16 @@ public class LoadPage {
 
     private void moveIsland(Island island) {
         island.setPositionY(island.getPosition().getY()-island.getSpeed());
-        if(island.getPosition().getY()>=islandLocationfromTopofScreen+20 || island.getPosition().getY()<=islandLocationfromTopofScreen-20){
+        if(island.getPosition().getY()>= islandLocationfromTopofScreen + 20 || island.getPosition().getY()<= islandLocationfromTopofScreen - 20){
             double speed = island.getSpeed();
             island.setSpeed(-speed);
         }
 
     }
     private void moveHero(Hero hero){
-        double h = hero.getHero().getFitHeight();
-        double w = hero.getHero().getFitWidth();
-        Island residence = getisland(hero.getPosition(), islands, h, w);
+        double hero_height = hero.getHero().getFitHeight();
+        double hero_width = hero.getHero().getFitWidth();
+        Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
 
 //        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
 //            time.pause();
@@ -336,7 +343,7 @@ public class LoadPage {
 //        }
 
         if (residence == null){
-            double speed = Math.abs(hero.getSpeed());
+            double speed = Math.abs(hero.getSpeed())/2;
             hero.getHero().setY(hero.getHero().getY() + speed);
             hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
 //            mainPane.getChildren().add(abyssPane);
@@ -350,15 +357,15 @@ public class LoadPage {
             island_height = residence.getIsland().getFitHeight();
             island_width = residence.getIsland().getFitWidth();
             jump = 100;
-            if (hero.getHero().getY() - hero.getSpeed() >= y - island_height/2) {
-                hero.getHero().setY(y - island_height / 2 );
+            if (hero.getHero().getY() - hero.getSpeed() + hero_height  >= y) {
+                hero.getHero().setY(y - hero_height);
                 double speed = hero.getSpeed();
                 hero.setSpeed(-speed);
                 herojump.play();
                 herojump.seek(Duration.ZERO);
             }
-            else if (hero.getHero().getY() - hero.getSpeed() <= y - island_height / 2 - jump) {
-                hero.getHero().setY(y - island_height / 2 - jump);
+            else if (hero.getHero().getY() - hero.getSpeed() + hero_height <= y - jump) {
+                hero.getHero().setY(y - jump - hero_height);
                 double speed = hero.getSpeed();
                 hero.setSpeed(-speed);
             }
@@ -429,14 +436,14 @@ public class LoadPage {
         pause.setOnAction(e ->{
             time.pause();
             mainPane.getChildren().remove(pause);
-            mainPane.getChildren().add(newpane);
+            mainPane.getChildren().add(this.newpane);
         });
     }
     public void startgame(Button button , PauseButton pause){
         button.setOnAction(e ->{
             time.play();
             mainPane.getChildren().add(pause);
-            mainPane.getChildren().remove(newpane);
+            mainPane.getChildren().remove(this.newpane);
         });
     }
 
