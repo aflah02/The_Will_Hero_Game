@@ -421,11 +421,11 @@ public class LoadPage {
         double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
         hero_start_X = hero.getHero().getX();
         hero_end_X = hero_start_X + hero_width;
-        hero_start_Y = hero.getHero().getX();
+        hero_start_Y = hero.getHero().getY();
         hero_end_Y = hero_start_Y + hero_height;
         obj_start_X = game_objects.getImage().getX();
         obj_end_X = obj_start_X + obj_width;
-        obj_start_Y = game_objects.getImage().getX();
+        obj_start_Y = game_objects.getImage().getY();
         obj_end_Y = obj_start_Y + obj_height;
         if((hero_start_Y <= obj_end_Y && hero_start_Y  >= obj_start_Y) || (hero_end_Y <= obj_end_Y && hero_end_Y >=obj_start_Y)){
             if((hero_start_X <= obj_end_X && hero_start_X >=obj_start_X) || (hero_end_X <= obj_end_X && hero_end_X >=obj_start_X)){
