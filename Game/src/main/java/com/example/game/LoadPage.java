@@ -176,7 +176,7 @@ public class LoadPage {
     private void addObjectsonScreen(){
         System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
-            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1600*i,islandLocationfromTopofScreen), 200, 100,0.3);
+            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1600*i,islandLocationfromTopofScreen), 195, 100,0.3);
             Island mediumIsland = new Island("Medium", mainPane, new Position(500 + 1600*i,islandLocationfromTopofScreen), 350, 125, 0.3);
             Island largeIsland = new Island("Large", mainPane, new Position(1000 + 1600*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
             islands.add(smallIsland);
