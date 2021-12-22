@@ -1,6 +1,9 @@
 package com.example.game;
 
+import javafx.scene.image.ImageView;
+
 public abstract class Weapon {
+    private ImageView image;
     private String name;
     private int damage;
     private int radius;
@@ -8,6 +11,7 @@ public abstract class Weapon {
     private Boolean canPierce;
     private int level;
     Weapon(String name){
+        this.image = null;
         this.name = name;
         damage = 0;
         level = 0;
@@ -29,4 +33,6 @@ public abstract class Weapon {
     public int getLevel(){
         return this.level;
     }
+    public ImageView getimage(){ return this.image; }
+    public void setImage(ImageView image){ this.image = image;}
 }

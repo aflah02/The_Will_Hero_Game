@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class Hero {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
-
     private pandaHelmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;
@@ -25,20 +24,23 @@ public class Hero {
     private Text scoreboard,coinboard;
     private Weapon activeWeapon,sword,lance;
     private Text swordt , lancet;
-
+    private AnchorPane mainpane;
+    private int sflag , lflag;
     public ImageView getHero() {
         return Hero;
     }
+
 
     public void setHero(ImageView hero) {
         Hero = hero;
     }
 
     Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt){
+        this.mainpane = anchorPane;
         this.swordt = swordt;
         this.lancet = lancet;
-        this.sword = null;
-        this.lance = null;
+        this.sword = new Sword();
+        this.lance = new Lance();
         this.currCoins = new ArrayList<>();
         helmet = new pandaHelmet(anchorPane, position, width, height);
         Hero = helmet.getPandaHelmet();
@@ -77,7 +79,13 @@ public class Hero {
     }
 
     public void setPosition(Position position) {
+
         this.position = position;
+        if(this.activeWeapon!=null){
+            ImageView image = this.activeWeapon.getimage();
+            image.setX(position.getX());
+            image.setY(position.getY() + this.Hero.getFitHeight() - image.getFitHeight()/2);
+        }
     }
 
     public void addCoins(Coins coins) {
@@ -123,41 +131,62 @@ public class Hero {
     }
 
     public void setWeapon(Weapon weapon) {
+        if(weapon==null){
+            return;
+        }
         if(weapon.getName().equals("Sword")){
-            if(this.sword==null){
-                this.sword = weapon;
-                this.sword.increaseLevel();
-                this.swordt.setText(Integer.toString(this.sword.getLevel()));
-            }
-            else{
-                this.sword.increaseLevel();
-                this.swordt.setText(Integer.toString(this.sword.getLevel()));
-            }
+            this.sword.increaseLevel();
+            this.swordt.setText(Integer.toString(this.sword.getLevel()));
             this.activeWeapon = this.sword;
         }
         if(weapon.getName().equals("Lance")){
-            if(this.lance==null){
-                this.lance = weapon;
-                this.lance.increaseLevel();
-                this.lancet.setText(Integer.toString(this.lance.getLevel()));
-            }
-            else{
-                this.lance.increaseLevel();
-                this.lancet.setText(Integer.toString(this.lance.getLevel()));
-            }
+            this.lance.increaseLevel();
+            this.lancet.setText(Integer.toString(this.lance.getLevel()));
             this.activeWeapon = this.lance;
         }
         System.out.println("hero got" + this.activeWeapon.getName());
-        animate(this.activeWeapon);
     }
-    public void setActiveWeapon(Weapon weapon){
-        if(weapon!=null){
-            this.activeWeapon=weapon;
 
-            System.out.println("hero changed weapon to" + this.activeWeapon.getName());
-            animate(this.activeWeapon);
-        }
+    private void setweapon(Weapon weapon) {
+        ImageView image = weapon.getimage();
+        image.setX(this.Hero.getX());
+        image.setY(this.Hero.getY()+this.Hero.getFitHeight()-image.getFitHeight()/2);
     }
+
+    public void setActiveWeapon(Weapon weapon){
+        if(weapon==null){
+            return;
+        }
+        if(this.activeWeapon!=null){
+            mainpane.getChildren().remove(this.activeWeapon);
+            if(weapon.getName().equals("Sword")){
+                if(this.sword!=null){
+                    mainpane.getChildren().add(this.sword.getimage());
+                }
+            }
+            else{
+                if(this.lance!=null){
+                    mainpane.getChildren().add(this.lance.getimage());
+                }
+            }
+        }
+        if(this.activeWeapon==null){
+            if(weapon.getName().equals("Sword")){
+                if(this.sword!=null){
+                    mainpane.getChildren().add(this.sword.getimage());
+                }
+            }
+            else{
+                if(this.lance!=null){
+                    mainpane.getChildren().add(this.lance.getimage());
+                }
+            }
+        }
+        this.activeWeapon = weapon;
+    }
+
+
+
     public void animate(Weapon wp){
         if(wp==null){
             return;
@@ -168,5 +197,9 @@ public class Hero {
         if(this.activeWeapon==null){
             return;
         }
+    }
+
+    public void setinActiveWeapon(Weapon weapon) {
+        mainpane.getChildren().remove(weapon.getimage());
     }
 }

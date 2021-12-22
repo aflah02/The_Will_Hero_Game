@@ -27,8 +27,11 @@ public class Weapon_Chest extends Chest{
     private boolean isopen;
     private final Island islandOfResidence;
     private double speed;
+    private WeaponButton button1, button2;
 
-    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence){
+    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2){
+        this.button1 = button1;
+        this.button2 = button2;
         this.isopen=false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8};
         chestAnimations = new ArrayList<>();
@@ -83,6 +86,8 @@ public class Weapon_Chest extends Chest{
             isopen = true;
             animateChest();
             hero.setWeapon(this.weapon);
+            button1.setactive();
+            button2.setinactive();
         }
     }
 

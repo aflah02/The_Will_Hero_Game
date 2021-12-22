@@ -41,6 +41,7 @@ public class LoadPage {
     private final MediaPlayer orcjump;
     private final MediaPlayer herojump;
     int score;
+    private WeaponButton swordbutton,lancebutton;
 
     LoadPage(Stage stage) {
         players = new ArrayList<>();
@@ -69,46 +70,44 @@ public class LoadPage {
         background.setFitHeight(600);
         background.setFitWidth(800);
         mainPane.getChildren().add(background);
+        Text lancet = new Text();
+        Text swordt = new Text();
+        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2,swordt,lancet);
+        this.swordbutton = new WeaponButton("Sword",25,525,hero);
+        this.lancebutton = new WeaponButton("Lance",100,525,hero);
+        swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                swordbutton.setactive();
+                lancebutton.setinactive();
+
+            }
+        });
+
+        lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                lancebutton.setactive();
+                swordbutton.setinactive();
+
+            }
+        });
+
         addObjectsonScreen();
         players.add(herojump);
         players.add(orcjump);
         newpane = pauseMenu();
         //abyssPane = reviveMenu();
-        Text lancet = new Text();
-        Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2,swordt,lancet);
-        WeaponButton sword = new WeaponButton("Sword",25,525,hero);
-        WeaponButton lance = new WeaponButton("Lance",100,525,hero);
-        sword.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                sword.handler();
-                sword.setactive();
-                lance.setinactive();
-
-            }
-        });
-
-        lance.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                lance.handler();
-                lance.setactive();
-                sword.setinactive();
-
-            }
-        });
-
-        mainPane.getChildren().add(sword);
-        mainPane.getChildren().add(lance);
-        String score = Integer.toString(sword.getLevel());
+        mainPane.getChildren().add(swordbutton);
+        mainPane.getChildren().add(lancebutton);
+        String score = Integer.toString(0);
         lancet.setText(score);
         lancet.setFont(Font.font ("Verdana", 10));
         lancet.setFill(Color.YELLOW);
         lancet.setX(60);
         lancet.setY(570);
         mainPane.getChildren().add(lancet);
-        score = Integer.toString(lance.getLevel());
+        score = Integer.toString(0);
         swordt.setText(score);
         swordt.setFont(Font.font ("Verdana", 10));
         swordt.setFill(Color.YELLOW);
@@ -117,7 +116,9 @@ public class LoadPage {
         mainPane.getChildren().add(swordt);
         moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects,hero);
         mainPane.getChildren().add(moveScreenButton);
+        mainPane.getChildren().remove(hero.getHero());
 
+        mainPane.getChildren().add(hero.getHero());
 
     }
 
@@ -264,12 +265,12 @@ public class LoadPage {
                     this.gameObjects.add(redOrc);
                 }
                 case "WeaponChestLance" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Lance", island);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Lance", island,this.lancebutton,this.swordbutton);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "WeaponChestSword" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Sword", island);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Sword", island,this.swordbutton,this.lancebutton);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }

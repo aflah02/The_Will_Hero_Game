@@ -83,26 +83,32 @@ public class WeaponButton extends Button {
     }
 
     public void setactive(){
-        if(this.weapon!=null){
-            isactive = true;
-            setStyle(STYLE_ACTIVE);
-        }
-
-    }
-
-    public void setinactive(){
-        isactive = false;
-        setStyle(STYLE);
-    }
-
-    public void handler() {
         if(type==1){
             this.weapon = hero.getsword();
         }
         if(type==2){
             this.weapon = hero.getlance();
         }
-        hero.setActiveWeapon(this.weapon);
+        if(weapon!=null && weapon.getLevel()!=0&&!isactive){
+            isactive = true;
+            setStyle(STYLE_ACTIVE);
+            hero.setActiveWeapon(this.weapon);
+        }
+    }
+
+    public void setinactive(){
+        if(type==1){
+            this.weapon = hero.getsword();
+        }
+        if(type==2){
+            this.weapon = hero.getlance();
+        }
+        if(weapon!=null && weapon.getLevel()!=0 && isactive){
+            isactive = false;
+            hero.setinActiveWeapon(this.weapon);
+        }
+
+        setStyle(STYLE);
     }
 
 
