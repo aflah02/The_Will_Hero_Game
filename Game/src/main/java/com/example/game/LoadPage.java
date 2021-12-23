@@ -203,16 +203,18 @@ public class LoadPage {
 
 
     private void addObjectsonScreen(){
-        System.out.println("Inside Add Objects");
+//        System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
-            Island smallIsland = new Island("Small", mainPane, new Position(75 + 1600*i,islandLocationfromTopofScreen), 195, 100,0.3);
-            Island smallIsland1 = new Island("Small", mainPane, new Position(300 + 1600*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
-            Island mediumIsland = new Island("Medium", mainPane, new Position(500 + 1600*i,islandLocationfromTopofScreen), 350, 125, 0.3);
-            Island largeIsland = new Island("Large", mainPane, new Position(1000 + 1600*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
-            islands.add(smallIsland);
+            Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
+            Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
+            Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5);
+            Island largeIsland = new Island("Large", mainPane, new Position(1075 + 2050*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
+            Island mediumIsland2 = new Island("Medium", mainPane, new Position(1625 + 2050*i,islandLocationfromTopofScreen - 75), 350, 125, 0.2);
             islands.add(smallIsland1);
-            islands.add(mediumIsland);
+            islands.add(smallIsland2);
+            islands.add(mediumIsland1);
             islands.add(largeIsland);
+            islands.add(mediumIsland2);
         }
         int count = 0;
 //        for (Island island: islands){
@@ -342,7 +344,7 @@ public class LoadPage {
                 continue;
             }
             else if (island_starting_x_coordinate > player_ending_x_coordinate){
-                System.out.println(island_starting_x_coordinate + " " + player_ending_x_coordinate);
+//                System.out.println(island_starting_x_coordinate + " " + player_ending_x_coordinate);
                 continue;
             }
             else if (island_ending_x_coordinate < player_starting_x_coordinate){

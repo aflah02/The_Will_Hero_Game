@@ -39,10 +39,10 @@ public class moveScreenButton extends Button {
     }
 
     private void handler() {
-
         score = score + 1;
         hero.setScore(score);
         hero.animate();
+        hero.strike();
         for(Island island: listOfIslands){
             island.setPosition(new Position(island.getPosition().getX()-100, island.getPosition().getY()));
         }

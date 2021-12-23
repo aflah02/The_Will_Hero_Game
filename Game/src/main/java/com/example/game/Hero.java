@@ -1,12 +1,16 @@
 package com.example.game;
 
-import javafx.animation.Transition;
+import javafx.animation.*;
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -79,8 +83,6 @@ public class Hero {
     }
 
     public void setPosition(Position position) {
-
-        this.position = position;
         if(this.activeWeapon!=null){
             ImageView image = this.activeWeapon.getimage();
             image.setX(position.getX());
@@ -194,8 +196,46 @@ public class Hero {
 
     }
     public void strike(){
-        if(this.activeWeapon==null){
-            return;
+        System.out.println("In Strike");
+        if (this.activeWeapon != null){
+            if (this.activeWeapon.getName().equals("Lance")){
+                Path path = new Path();
+                path.getElements().add(new MoveTo(activeWeapon.getimage().getX()+60, activeWeapon.getimage().getY()));
+//                path.getElements().add(new MoveTo(activeWeapon.getimage().getX(), activeWeapon.getimage().getY()));
+                PathTransition pathTransition = new PathTransition();
+                pathTransition.setDuration(Duration.millis(1000));
+                pathTransition.setNode(activeWeapon.getimage());
+                pathTransition.setPath(path);
+//                pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+                pathTransition.setCycleCount(1);
+//                pathTransition.setAutoReverse(true);
+                pathTransition.play();
+//                TranslateTransition translateTransition1 = new TranslateTransition();
+//                translateTransition1.setDuration(Duration.millis(1000));
+//                translateTransition1.setNode(this.activeWeapon.getimage());
+//                translateTransition1.setToX(120);
+//                translateTransition1.setCycleCount(1);
+//                translateTransition1.setAutoReverse(false);
+////                translateTransition1.play();
+//                TranslateTransition translateTransition2 = new TranslateTransition();
+//                translateTransition2.setDuration(Duration.millis(1000));
+//                translateTransition2.setNode(this.activeWeapon.getimage());
+//                translateTransition2.setToX(75);
+//                translateTransition2.setCycleCount(1);
+//                translateTransition2.setAutoReverse(false);
+////                translateTransition2.play();
+//                SequentialTransition seqT = new SequentialTransition(translateTransition1, translateTransition2);
+//                seqT.play();
+            }
+            else if (this.activeWeapon.getName().equals("Sword")){
+                RotateTransition rotate = new RotateTransition();
+                rotate.setAxis(Rotate.Z_AXIS);
+                rotate.setByAngle(360);
+                rotate.setCycleCount(1);
+                rotate.setDuration(Duration.millis(500));
+                rotate.setNode(this.activeWeapon.getimage());
+                rotate.play();
+            }
         }
     }
 

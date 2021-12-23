@@ -123,8 +123,13 @@ public class TNT extends gameObstacles{
         isBurst = true;
     }
 
+    @Override
     public void collide(Hero hero) {
-        animateTNT();
+        if(!isBurst){
+            animateTNT();
+            System.out.println("in TNT");
+            isBurst = true;
+        }
     }
 
     @Override
