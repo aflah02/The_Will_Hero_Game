@@ -103,7 +103,7 @@ public class LoadPage {
         players.add(herojump);
         players.add(orcjump);
         newpane = pauseMenu();
-        //abyssPane = reviveMenu();
+        abyssPane = reviveMenu();
         mainPane.getChildren().add(swordbutton);
         mainPane.getChildren().add(lancebutton);
         String score = Integer.toString(0);
@@ -165,7 +165,7 @@ public class LoadPage {
         menu.getChildren().add(save);
         return menu;
     }
-    /*
+
     private AnchorPane reviveMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
@@ -204,7 +204,7 @@ public class LoadPage {
         menu.getChildren().add(save);
         return menu;
     }
-    */
+
 
 
     private void addObjectsonScreen(){
