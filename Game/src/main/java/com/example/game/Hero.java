@@ -119,7 +119,7 @@ public class Hero {
     }
 
     public void animate(){
-        helmet.animate();
+        helmet.animate(this.activeWeapon);
     }
 
 
@@ -199,31 +199,18 @@ public class Hero {
         System.out.println("In Strike");
         if (this.activeWeapon != null){
             if (this.activeWeapon.getName().equals("Lance")){
-                Path path = new Path();
-                path.getElements().add(new MoveTo(activeWeapon.getimage().getX()+60, activeWeapon.getimage().getY()));
-//                path.getElements().add(new MoveTo(activeWeapon.getimage().getX(), activeWeapon.getimage().getY()));
-                PathTransition pathTransition = new PathTransition();
-                pathTransition.setDuration(Duration.millis(1000));
-                pathTransition.setNode(activeWeapon.getimage());
-                pathTransition.setPath(path);
-//                pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-                pathTransition.setCycleCount(1);
-//                pathTransition.setAutoReverse(true);
-                pathTransition.play();
 //                TranslateTransition translateTransition1 = new TranslateTransition();
-//                translateTransition1.setDuration(Duration.millis(1000));
+//                translateTransition1.setDuration(Duration.millis(250));
 //                translateTransition1.setNode(this.activeWeapon.getimage());
-//                translateTransition1.setToX(120);
+//                translateTransition1.setByX(40);
 //                translateTransition1.setCycleCount(1);
 //                translateTransition1.setAutoReverse(false);
-////                translateTransition1.play();
 //                TranslateTransition translateTransition2 = new TranslateTransition();
-//                translateTransition2.setDuration(Duration.millis(1000));
+//                translateTransition2.setDuration(Duration.millis(250));
 //                translateTransition2.setNode(this.activeWeapon.getimage());
-//                translateTransition2.setToX(75);
+//                translateTransition2.setByX(-40);
 //                translateTransition2.setCycleCount(1);
 //                translateTransition2.setAutoReverse(false);
-////                translateTransition2.play();
 //                SequentialTransition seqT = new SequentialTransition(translateTransition1, translateTransition2);
 //                seqT.play();
             }

@@ -33,7 +33,7 @@ public class pandaHelmet {
         this.pandaHelmet = new ImageView(new File(path).toURI().toString());
     }
 
-    public void animate() {
+    public void animate(Weapon weapon) {
         Transition animation = new Transition() {
             {setCycleDuration(Duration.millis(100));}
             @Override
@@ -42,6 +42,15 @@ public class pandaHelmet {
                     pandaHelmet.setImage(streakimage);
                     pandaHelmet.setFitWidth(width);
                     pandaHelmet.setFitWidth(width*2);
+                    if (weapon != null){
+                        if (weapon.getName().equals("Lance")){
+                            weapon.getimage().setX(weapon.getimage().getX()+40);
+                        }
+                        else{
+                            weapon.getimage().setX(weapon.getimage().getX()+40);
+                            weapon.getimage().setRotate(weapon.getimage().getRotate()+90);
+                        }
+                    }
             }
         };
         Transition animation2 = new Transition() {
@@ -52,6 +61,15 @@ public class pandaHelmet {
                 pandaHelmet.setImage(streakimage);
                 pandaHelmet.setFitWidth(height);
                 pandaHelmet.setFitWidth(width);
+                if (weapon != null){
+                    if (weapon.getName().equals("Lance")){
+                        weapon.getimage().setX(75);
+                    }
+                    else{
+                        weapon.getimage().setX(75);
+                        weapon.getimage().setRotate(160);
+                    }
+                }
             }
         };
         animation.setCycleCount(1);
