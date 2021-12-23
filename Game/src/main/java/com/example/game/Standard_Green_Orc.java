@@ -59,7 +59,17 @@ public class Standard_Green_Orc extends Orc{
 
     @Override
     public void collide(Hero hero){
+        if (hero.getActiveWeapon()!=null){
+            if (hero.getHero().getX() == standardGreenOrc.getX() &&
+                    !(hero.getHero().getY() - standardGreenOrc.getY() <= 10)){
+
+            }
+        }
+        else{
+            this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
+        }
     }
+
     public void createImage(){
         this.standardGreenOrc = new ImageView(new File(imagePath).toURI().toString());
     }

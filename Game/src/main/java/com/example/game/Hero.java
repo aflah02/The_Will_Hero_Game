@@ -229,4 +229,8 @@ public class Hero {
     public void setinActiveWeapon(Weapon weapon) {
         mainpane.getChildren().remove(weapon.getimage());
     }
+
+    public Weapon getActiveWeapon() {
+        return activeWeapon;
+    }
 }

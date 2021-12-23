@@ -78,7 +78,6 @@ public class Coin_Chest extends Chest{
                 hero.addCoins(coin);
             }
             hero.updatecoins();
-
         }
 
     }

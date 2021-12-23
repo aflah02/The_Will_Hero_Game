@@ -59,8 +59,9 @@ public class Standard_Red_Orc extends Orc{
 
     @Override
     public void collide(Hero hero) {
-
+        this.standardRedOrc.setX(this.standardRedOrc.getX()+100);
     }
+
     public void createImage(){
         String imagePath = "src/main/resources/com/example/game/images/StandardRedOrc.png";
         this.standardRedOrc = new ImageView(new File(imagePath).toURI().toString());
