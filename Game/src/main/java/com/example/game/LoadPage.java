@@ -18,7 +18,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.PosixFileAttributes;
 import java.util.ArrayList;
 import java.util.Random;
@@ -42,8 +44,12 @@ public class LoadPage {
     private final MediaPlayer herojump;
     int score;
     private WeaponButton swordbutton,lancebutton;
-
-    LoadPage(Stage stage) {
+    Long startTime;
+    LoadPage(Stage stage) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter("heroLocations.txt");
+        writer.print("");
+        writer.close();
+        this.startTime = java.time.Instant.now().getEpochSecond();
         players = new ArrayList<>();
         String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
         Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
@@ -114,10 +120,9 @@ public class LoadPage {
         swordt.setX(135);
         swordt.setY(570);
         mainPane.getChildren().add(swordt);
-        moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects,hero);
+        moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects, hero, startTime);
         mainPane.getChildren().add(moveScreenButton);
         mainPane.getChildren().remove(hero.getHero());
-
         mainPane.getChildren().add(hero.getHero());
 
     }

@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class StartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
@@ -40,7 +41,7 @@ public class StartButton extends Button {
     }
 
 
-    private void handler() {
+    private void handler() throws FileNotFoundException {
         LoadPage page = new LoadPage(manager.getMainStage());
         manager.removevideo();
         page.start();
@@ -51,7 +52,11 @@ public class StartButton extends Button {
         setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                handler();
+                try {
+                    handler();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

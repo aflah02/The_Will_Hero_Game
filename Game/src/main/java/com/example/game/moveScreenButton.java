@@ -11,6 +11,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class moveScreenButton extends Button {
@@ -18,8 +20,9 @@ public class moveScreenButton extends Button {
     ArrayList<Game_Objects> listOfGameObjects;
     Hero hero;
     int score;
-
-    moveScreenButton(double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects,Hero player){
+    long startTime;
+    moveScreenButton(double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects, Hero player, long startTime){
+        this.startTime = startTime;
         this.listOfIslands = listOfIslands;
         this.listOfGameObjects = listOfGameObjects;
         this.setLayoutX(x);
@@ -34,15 +37,24 @@ public class moveScreenButton extends Button {
 
     private void initialisebutton(){
         setOnMouseClicked(mouseEvent ->
-                handler()
+                        handler()
         );
     }
-
+    void appendToFile(String filePath, String content) {
+        try (FileWriter fw = new FileWriter(filePath, true)) {
+            fw.write(content + System.lineSeparator());
+        } catch (IOException e) {
+            System.out.println("Error in Logging Player High Score");
+        }
+    }
     private void handler() {
+        System.out.println("Score " + score + " PositionX " + hero.getPosition().getX()*score*100 +
+                " PositionY " + hero.getPosition().getY());
+        appendToFile("heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond()-this.startTime) + " Score " + score + " PositionX " + (int)(hero.getPosition().getX()+score*100) +
+                " PositionY " + (int)hero.getPosition().getY());
         score = score + 1;
         hero.setScore(score);
         hero.animate();
-//        hero.strike();
         for(Island island: listOfIslands){
             island.setPosition(new Position(island.getPosition().getX()-100, island.getPosition().getY()));
         }

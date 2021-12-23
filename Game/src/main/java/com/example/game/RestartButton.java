@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class RestartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
@@ -43,7 +44,11 @@ public class RestartButton extends Button {
         setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                handler();
+                try {
+                    handler();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -80,7 +85,7 @@ public class RestartButton extends Button {
         });
     }
 
-    private void handler() {
+    private void handler() throws FileNotFoundException {
         LoadPage page = new LoadPage(stage);
         page.start();
     }

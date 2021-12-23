@@ -3,6 +3,8 @@ module com.example.game {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.media;
+    requires java.desktop;
+    requires javafx.swing;
 
 
     opens com.example.game to javafx.fxml;
