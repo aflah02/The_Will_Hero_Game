@@ -10,9 +10,10 @@ w = GetSystemMetrics(0)
 h =  GetSystemMetrics(1)
 SCREEN_SIZE = (w,h)
 fourcc = cv2.VideoWriter_fourcc(*"XVID")
-out = cv2.VideoWriter("recording.mp4", fourcc, 20.0, (SCREEN_SIZE))
+out = cv2.VideoWriter("C:/Users/ASUS/Desktop/The_Will_Hero_Game/Game/src/main/java/com/example/game/recording.mp4", fourcc, 20.0, (SCREEN_SIZE))
 tim = time.time()
 tp = int(sys.argv[1])
+
 # tp = int(input("Tyoe"))
 tp = tp+tp
 f = tim+tp

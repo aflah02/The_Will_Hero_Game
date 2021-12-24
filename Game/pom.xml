@@ -19,7 +19,11 @@
       <artifactId>javafx-controls</artifactId>
       <version>16</version>
     </dependency>
-
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>20030203.000550</version>
+    </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
@@ -46,7 +50,7 @@
       <dependency>
           <groupId>org.jetbrains</groupId>
           <artifactId>annotations</artifactId>
-          <version>RELEASE</version>
+          <version>22.0.0</version>
           <scope>compile</scope>
       </dependency>
   </dependencies>

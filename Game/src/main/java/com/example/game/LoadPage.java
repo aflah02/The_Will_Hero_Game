@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.PosixFileAttributes;
@@ -46,15 +47,17 @@ public class LoadPage {
     private final MediaPlayer herojump;
     int score;
     private WeaponButton swordbutton,lancebutton;
+    static int RecordingLength;
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
-//        String[] cmd = new String[]{"./exec.sh 6"};
-//        Process pr = Runtime.getRuntime().exec(cmd);
-        String command = "cmd ./exec.sh 6";
-        Process child = Runtime.getRuntime().exec(command);
-        PrintWriter writer = new PrintWriter("heroLocations.txt");
-        writer.print("");
-        writer.close();
+        RecordingLength = 5;
+//        String homeDir = System.getenv("HOME");
+//        System.out.println(homeDir);
+//        String[] arr = new String[]{"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "5"};
+        String[] cmd = {"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "20"};
+        Process p = Runtime.getRuntime().exec(cmd);
+        System.out.println(p);
+        System.out.println("hello");
         this.startTime = java.time.Instant.now().getEpochSecond();
         players = new ArrayList<>();
         String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
@@ -132,7 +135,22 @@ public class LoadPage {
         mainPane.getChildren().add(hero.getHero());
 
     }
-
+//    public static String cmd(File dir, String command) {
+//        System.out.println("> " + command);   // better to use e.g. Slf4j
+//        System.out.println();
+//        try {
+//            Process p = Runtime.getRuntime().exec(command, null, dir);
+//            String result = org.apache.commons.io.IOUtils.toString(p.getInputStream(), Charset.defaultCharset());
+//            String error = org.apache.commons.io.IOUtils.toString(p.getErrorStream(), Charset.defaultCharset());
+//            if (error != null && !error.isEmpty()) {  // throw exception if error stream
+//                throw new RuntimeException(error);
+//            }
+//            System.out.println(result);   // better to use e.g. Slf4j
+//            return result;                // return result for optional additional processing
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
     private AnchorPane pauseMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
