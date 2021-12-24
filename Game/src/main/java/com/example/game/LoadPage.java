@@ -48,16 +48,10 @@ public class LoadPage {
     private WeaponButton swordbutton,lancebutton;
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
-        String pathPython = "\"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\record.py\"";
-//        String[] cmd = {
-//                "python",
-//                pathPython,
-//                "10",
-//        };
-//        System.out.println(Arrays.toString(cmd));
-        Runtime.getRuntime().exec(
-                " & \"C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.9_3.9.2544.0_x64__qbz5n2kfra8p0/python3.9.exe\" c:/Users/ASUS/Desktop/The_Will_Hero_Game/Game/src/main/java/com/example/game/record.py 5"
-        );
+//        String[] cmd = new String[]{"./exec.sh 6"};
+//        Process pr = Runtime.getRuntime().exec(cmd);
+        String command = "cmd ./exec.sh 6";
+        Process child = Runtime.getRuntime().exec(command);
         PrintWriter writer = new PrintWriter("heroLocations.txt");
         writer.print("");
         writer.close();

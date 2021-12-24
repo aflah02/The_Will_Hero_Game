@@ -13,7 +13,7 @@ fourcc = cv2.VideoWriter_fourcc(*"XVID")
 out = cv2.VideoWriter("recording.mp4", fourcc, 20.0, (SCREEN_SIZE))
 tim = time.time()
 tp = int(sys.argv[1])
-# tp = int(input())
+# tp = int(input("Tyoe"))
 tp = tp+tp
 f = tim+tp
 while True:
