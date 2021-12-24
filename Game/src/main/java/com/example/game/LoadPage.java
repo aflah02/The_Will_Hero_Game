@@ -54,7 +54,7 @@ public class LoadPage {
 //        String homeDir = System.getenv("HOME");
 //        System.out.println(homeDir);
 //        String[] arr = new String[]{"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "5"};
-        String[] cmd = {"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "20"};
+        String[] cmd = {"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "10"};
         Process p = Runtime.getRuntime().exec(cmd);
         System.out.println(p);
         System.out.println("hello");
