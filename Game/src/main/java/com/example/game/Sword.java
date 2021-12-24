@@ -11,7 +11,6 @@ public class Sword extends Weapon{
         super("Sword");
         ImageView image = new ImageView(new File(path).toURI().toString());
         super.setImage(image);
-        image.setRotate(160);
         image.setFitWidth(80);
         image.setFitHeight(20);
     }

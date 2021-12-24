@@ -83,11 +83,16 @@ public class Hero {
     }
 
     public void setPosition(Position position) {
+        this.position = position;
         if(this.activeWeapon!=null){
             ImageView image = this.activeWeapon.getimage();
             image.setX(position.getX());
             image.setY(position.getY() + this.Hero.getFitHeight() - image.getFitHeight()/2);
+            if(this.activeWeapon.getName().equals("Sword")){
+                image.setX(position.getX()-image.getFitWidth()/2);
+            }
         }
+        this.position = position;
     }
 
     public void addCoins(Coins coins) {
@@ -120,6 +125,10 @@ public class Hero {
 
     public void animate(){
         helmet.animate(this.activeWeapon);
+    }
+
+    public String getscore(){
+        return this.score;
     }
 
 
@@ -187,14 +196,19 @@ public class Hero {
         this.activeWeapon = weapon;
     }
 
+    public boolean die(AnchorPane mainpane,AnchorPane abyssmenu){
+        mainpane.getChildren().add(abyssmenu);
+        return false;
+    }
+
 
 
     public void animate(Weapon wp){
         if(wp==null){
             return;
         }
-
     }
+
     public void strike(){
         System.out.println("In Strike");
         if (this.activeWeapon != null){
@@ -217,7 +231,7 @@ public class Hero {
             else if (this.activeWeapon.getName().equals("Sword")){
                 RotateTransition rotate = new RotateTransition();
                 rotate.setAxis(Rotate.Z_AXIS);
-                rotate.setByAngle(360);
+                rotate.setByAngle(30);
                 rotate.setCycleCount(1);
                 rotate.setDuration(Duration.millis(500));
                 rotate.setNode(this.activeWeapon.getimage());

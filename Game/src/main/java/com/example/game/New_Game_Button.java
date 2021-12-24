@@ -1,35 +1,33 @@
 package com.example.game;
 
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class StartButton extends Button {
+public class New_Game_Button extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
-    private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover";
+    private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private String path = "src/main/resources/com/example/game/images/resume.png";
-    private View_Manager manager;
+    private Stage stage;
 
-    StartButton(View_Manager manager){
-        this.manager = manager;
+    New_Game_Button(Stage stage){
+        this.stage = stage;
         setText("");
-        setPrefHeight(110);
-        setPrefWidth(110);
+        setPrefHeight(100);
+        setPrefWidth(100);
         setStyle(STYLE);
         initialisebutton();
         ImageView img = new ImageView(new File(path).toURI().toString());
-        img.setFitHeight(110);
-        img.setFitWidth(110);
+        img.setFitHeight(100);
+        img.setFitWidth(100);
         this.setGraphic(img);
     }
     private void click(){
@@ -42,16 +40,8 @@ public class StartButton extends Button {
     }
 
 
-    private void handler() throws IOException, InterruptedException {
-        LoadPage page = new LoadPage(manager.getMainStage());
-        if(manager!=null){
-            manager.removevideo();
-        }
-        page.start();
-    }
-
-
     private void initialisebutton(){
+
         setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -100,7 +90,10 @@ public class StartButton extends Button {
         });
     }
 
-
+    private void handler() throws IOException, InterruptedException {
+        LoadPage page = new LoadPage(stage);
+        page.start();
+    }
 
 
 }

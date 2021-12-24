@@ -54,9 +54,9 @@ public class LoadPage {
 //        String homeDir = System.getenv("HOME");
 //        System.out.println(homeDir);
 //        String[] arr = new String[]{"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "5"};
-        String[] cmd = {"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "10"};
-        Process p = Runtime.getRuntime().exec(cmd);
-        System.out.println(p);
+        String[] cmd = {"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "20"};
+        //Process p = Runtime.getRuntime().exec(cmd);
+        //System.out.println(p);
         System.out.println("hello");
         this.startTime = java.time.Instant.now().getEpochSecond();
         players = new ArrayList<>();
@@ -191,42 +191,122 @@ public class LoadPage {
     }
 
     private AnchorPane reviveMenu(){
-        PauseButton pause = new PauseButton();
-        pause.setLayoutX(400);
-        pause.setLayoutY(20);
-        mainPane.getChildren().add(pause);
-        AnchorPane menu = new AnchorPane();
-        menu.setPrefHeight(200);
-        menu.setPrefWidth(200);
-        menu.setLayoutX(300);
-        menu.setLayoutY(150);
-        String bg1 = "src/main/resources/com/example/game/images/menuupdated.png";
-        Image bg = new Image(new File(bg1).toURI().toString(),200,200,false,true);
+        AnchorPane Menu = new AnchorPane();
+        Menu.setPrefHeight(50);
+        Menu.setPrefWidth(100);
+        Menu.setLayoutX(300);
+        Menu.setLayoutY(350);
+        String bg1 = "src/main/resources/com/example/game/images/GradientBackground.jpg";
+        Image bg = new Image(new File(bg1).toURI().toString(),100,50,false,true);
         BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
-        menu.setBackground(new Background(image));
-        ResumeButton resume = new ResumeButton();
-        resume.setLayoutX(65);
-        resume.setLayoutY(100);
-        menu.getChildren().add(resume);
-        pausegame(pause);
-        startgame(resume,pause);
+        Menu.setBackground(new Background(image));
+        Button end_button = new Button();
+        end_button.setText("Finish");
+        end_button.setMinHeight(25);
+        end_button.setMinWidth(50);
+        String Styleend = "-fx-background-color:RED; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
+        end_button.setStyle(Styleend);
+        end_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                mainPane.getChildren().remove(Menu);
+                mainPane.getChildren().add(resultmenu());
+            }
+        });
+        end_button.setLayoutX(0);
+        end_button.setLayoutY(12.5);
+        //New Button Revive_Button to be made TT_TT;
+        Button revive_button = new Button();
+        revive_button.setText("Revive Button");
+        revive_button.setMinHeight(25);
+        revive_button.setMinWidth(50);
+        String Stylerevive = "-fx-background-color:GREEN; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
+        revive_button.setStyle(Stylerevive);
+        revive_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                System.out.println("Player Revive");
+                mainPane.getChildren().remove(Menu);
+                Position heroposition = new Position(75,hero.getHero().getY());
+                Island safeIsland = getsafeisland(heroposition,islands,hero.getHero().getFitHeight(), hero.getHero().getFitWidth());
+                if(safeIsland==null){
+                    mainPane.getChildren().add(resultmenu());
+                }
+                else{
+                    revive(safeIsland);
+                    time.play();
+                }
+            }
+        });
+        revive_button.setLayoutX(50);
+        revive_button.setLayoutY(12.5);
+        Menu.getChildren().add(end_button);
+        Menu.getChildren().add(revive_button);
+        return Menu;
+    }
+
+
+
+
+    private AnchorPane resultmenu() {
+        AnchorPane Result_Menu = new AnchorPane();
+        Result_Menu.setPrefHeight(600);
+        Result_Menu.setPrefWidth(600);
+        Result_Menu.setLayoutX(100);
+        Result_Menu.setLayoutY(0);
+        String bg1 = "src/main/resources/com/example/game/images/resultmenu.png";
+        Image bg = new Image(new File(bg1).toURI().toString(),600,600,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
+        Result_Menu.setBackground(new Background(image));
+        //.................................................
+        Text sometext = new Text();
+        sometext.setText("Your Score");
+        sometext.setFont(Font.font ("Verdana", 50));
+        sometext.setFill(Color.WHITE);
+        sometext.setX(175);
+        sometext.setY(180);
+        Text scoreboard = new Text();
+        String heroscore = hero.getscore();
+        scoreboard.setText(heroscore);
+        scoreboard.setFont(Font.font ("Verdana", 60));
+        scoreboard.setFill(Color.WHITE);
+        scoreboard.setX(250);
+        scoreboard.setY(250);
+        Result_Menu.getChildren().add(sometext);
+        Result_Menu.getChildren().add(scoreboard);
+        //........................................
+        sometext = new Text();
+        sometext.setText("Coins Won");
+        sometext.setFont(Font.font ("Verdana", 50));
+        sometext.setFill(Color.GOLD);
+        sometext.setX(175);
+        sometext.setY(325);
+        scoreboard = new Text();
+        heroscore = Integer.toString(hero.getCurrCoins().size());
+        scoreboard.setText(heroscore);
+        scoreboard.setFont(Font.font ("Verdana", 60));
+        scoreboard.setFill(Color.GOLD);
+        scoreboard.setX(250);
+        scoreboard.setY(400);
+        Result_Menu.getChildren().add(sometext);
+        Result_Menu.getChildren().add(scoreboard);
+        //................................................
+        Exit_Button end_button = new Exit_Button(this.stage);
+        end_button.setLayoutX(400);
+        end_button.setLayoutY(475);
+        //...................................
         Homebutton home = new Homebutton(stage);
-        home.setLayoutX(10);
-        home.setLayoutY(60);
-        menu.getChildren().add(home);
-        RestartButton restart = new RestartButton(stage);
-        restart.setLayoutX(120);
-        restart.setLayoutY(60);
-        menu.getChildren().add(restart);
-        MusicButton music = new MusicButton(null);
-        music.setLayoutX(10);
-        music.setLayoutY(135);
-        menu.getChildren().add(music);
-        SaveButton save = new SaveButton(this.stage);
-        save.setLayoutX(120);
-        save.setLayoutY(135);
-        menu.getChildren().add(save);
-        return menu;
+        home.setLayoutX(150);
+        home.setLayoutY(475);
+        Result_Menu.getChildren().add(home);
+
+        //////////////////////////
+        Result_Menu.getChildren().add(end_button);
+        New_Game_Button New_Game = new New_Game_Button(this.stage);
+        New_Game.setLayoutX(250);
+        New_Game.setLayoutY(450);
+        Result_Menu.getChildren().add(New_Game);
+        return Result_Menu;
     }
 
 
@@ -340,6 +420,7 @@ public class LoadPage {
         time.play();
     }
 
+
     private void moveChest(Chest game_object, Island island) {
         if (!(island.getSpeed() == 0)){
             game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-game_object.getImageViewHeight());
@@ -369,20 +450,66 @@ public class LoadPage {
             double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
             // The 10 over here is so that hero doesn't fall immediately
             //Can change the value
-            if (island_starting_y_coordinate + 10 < player_ending_y_coordinate){
-                continue;
+            if(island_starting_y_coordinate +10 > player_ending_y_coordinate){
+                if(island_starting_x_coordinate <=player_ending_x_coordinate-10 && island_ending_x_coordinate>=player_starting_x_coordinate+10){
+                    /*
+                    System.out.println(hero.getHero().getX() + " " + hero.getHero().getY());
+                    System.out.println("compare with: " + player_ending_x_coordinate + " " + player_starting_y_coordinate);
+                    System.out.println(island.getIsland().getX() + " " + island.getIsland().getY());
+                    System.out.println("compare with: " + island_starting_x_coordinate + " " + island_starting_y_coordinate);
+                    System.out.println("Setting this island" + island.getIslandType());
+                    */
+                    ansisland = island;
+                }
             }
-            else if (island_starting_x_coordinate > player_ending_x_coordinate){
-//                System.out.println(island_starting_x_coordinate + " " + player_ending_x_coordinate);
-                continue;
-            }
-            else if (island_ending_x_coordinate < player_starting_x_coordinate){
-                continue;
-            }
-            //System.out.println(count);
-            return island;
+        }
+        if(ansisland==null){
+            System.out.println("Setting this island null");
         }
         return ansisland;
+    }
+
+
+    private Island getsafeisland(Position pos ,ArrayList<Island> islands, double height, double width){
+        double player_starting_x_coordinate = pos.getX();
+        double player_starting_y_coordinate = pos.getY();
+        double player_ending_x_coordinate = player_starting_x_coordinate + width;
+        double player_ending_y_coordinate = player_starting_y_coordinate + height;
+        Island ansisland = null;
+        int count = 0;
+        for(Island island :islands){
+            count++;
+            double island_h = island.getIsland().getFitHeight();
+            double island_w = island.getIsland().getFitWidth();
+            double island_starting_x_coordinate = island.getIsland().getX();
+            double island_starting_y_coordinate = island.getIsland().getY();
+            double island_ending_x_coordinate = island_starting_x_coordinate + island_w;
+            double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
+            // The 10 over here is so that hero doesn't fall immediately
+            //Can change the value
+            if(island_ending_x_coordinate < player_starting_x_coordinate){
+                ansisland = island;
+            }
+            else{
+                break;
+            }
+        }
+        if(ansisland==null){
+            System.out.println("This shouldn't be possible");
+        }
+        return ansisland;
+    }
+
+    private void revive(Island safeIsland) {
+        double xdiff = 75 - safeIsland.getIsland().getX();
+        for(Island island: islands){
+            island.setPosition(new Position(island.getPosition().getX()+xdiff, island.getPosition().getY()));
+        }
+        for (Game_Objects game_objects: gameObjects) {
+            game_objects.setPosition(new Position(game_objects.getPosition().getX() + xdiff, game_objects.getPosition().getY()));
+        }
+        hero.getHero().setY(safeIsland.getIsland().getY() - hero.getHero().getFitHeight());
+        hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
     }
 
 
@@ -392,18 +519,24 @@ public class LoadPage {
             double speed = island.getSpeed();
             island.setSpeed(-speed);
         }
-
     }
+
     private void moveHero(Hero hero){
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
-        Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
+        hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
+        if(hero.getHero().getY()>500){
+            time.pause();
+            boolean didrevive = hero.die(mainPane,abyssPane);
+            if(didrevive){
 
-//        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
+            }
+        }
+        Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
+        //        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
 //            time.pause();
 //            mainPane.getChildren().add(abyssPane);
 //        }
-
         if (residence == null){
             double speed = Math.abs(hero.getSpeed())/2;
             hero.getHero().setY(hero.getHero().getY() + speed);
@@ -411,6 +544,7 @@ public class LoadPage {
 //            mainPane.getChildren().add(abyssPane);
         }
         else {
+
             double x,y;
             double island_height;
             double island_width,jump;
@@ -440,9 +574,10 @@ public class LoadPage {
                     gameobject.collide(hero);
                 }
             }
-
         }
     }
+
+
 
     private boolean check_collision(Hero hero, Game_Objects game_objects) {
         double hero_height = hero.getHero().getFitHeight();
