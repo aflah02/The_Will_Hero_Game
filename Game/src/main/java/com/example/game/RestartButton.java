@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class RestartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
@@ -48,6 +49,10 @@ public class RestartButton extends Button {
                     handler();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -85,7 +90,7 @@ public class RestartButton extends Button {
         });
     }
 
-    private void handler() throws FileNotFoundException {
+    private void handler() throws IOException, InterruptedException {
         LoadPage page = new LoadPage(stage);
         page.start();
     }

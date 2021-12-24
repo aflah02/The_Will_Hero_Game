@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class StartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
@@ -41,7 +42,7 @@ public class StartButton extends Button {
     }
 
 
-    private void handler() throws FileNotFoundException {
+    private void handler() throws IOException, InterruptedException {
         LoadPage page = new LoadPage(manager.getMainStage());
         manager.removevideo();
         page.start();
@@ -55,6 +56,10 @@ public class StartButton extends Button {
                 try {
                     handler();
                 } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }

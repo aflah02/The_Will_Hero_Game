@@ -48,8 +48,8 @@ public class moveScreenButton extends Button {
         }
     }
     private void handler() {
-        System.out.println("Score " + score + " PositionX " + hero.getPosition().getX()*score*100 +
-                " PositionY " + hero.getPosition().getY());
+//        System.out.println("Score " + score + " PositionX " + hero.getPosition().getX()*score*100 +
+//                " PositionY " + hero.getPosition().getY());
         appendToFile("heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond()-this.startTime) + " Score " + score + " PositionX " + (int)(hero.getPosition().getX()+score*100) +
                 " PositionY " + (int)hero.getPosition().getY());
         score = score + 1;

@@ -23,6 +23,8 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.PosixFileAttributes;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class LoadPage {
@@ -45,7 +47,17 @@ public class LoadPage {
     int score;
     private WeaponButton swordbutton,lancebutton;
     Long startTime;
-    LoadPage(Stage stage) throws FileNotFoundException {
+    LoadPage(Stage stage) throws IOException, InterruptedException {
+        String pathPython = "\"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\record.py\"";
+//        String[] cmd = {
+//                "python",
+//                pathPython,
+//                "10",
+//        };
+//        System.out.println(Arrays.toString(cmd));
+        Runtime.getRuntime().exec(
+                " & \"C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.9_3.9.2544.0_x64__qbz5n2kfra8p0/python3.9.exe\" c:/Users/ASUS/Desktop/The_Will_Hero_Game/Game/src/main/java/com/example/game/record.py 5"
+        );
         PrintWriter writer = new PrintWriter("heroLocations.txt");
         writer.print("");
         writer.close();
