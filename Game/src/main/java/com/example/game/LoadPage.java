@@ -209,6 +209,7 @@ public class LoadPage {
         end_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                hero.revivehero();
                 mainPane.getChildren().remove(Menu);
                 mainPane.getChildren().add(resultmenu());
             }
@@ -233,6 +234,8 @@ public class LoadPage {
                     mainPane.getChildren().add(resultmenu());
                 }
                 else{
+                    hero.setRevived(true);
+                    hero.revivehero();
                     revive(safeIsland);
                     time.play();
                 }
@@ -412,12 +415,53 @@ public class LoadPage {
                 moveIsland(island);
             }
             moveHero(this.hero);
+            tntkill();
 
         }
         );
         this.time = new Timeline(frame2,frame);
         time.setCycleCount(Timeline.INDEFINITE);
         time.play();
+    }
+
+    private void tntbursting(TNT game_object){
+        double TNT_start_X_range = game_object.getPosition().getX()- 50;
+        double TNT_start_Y_range = game_object.getPosition().getY()- 50;
+        double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight() + 50;
+        double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth() + 50;
+        if(hero.getHero().getX() + hero.getHero().getFitWidth() > TNT_start_X_range && hero.getHero().getX() + hero.getHero().getFitWidth() < TNT_end_X_range){
+            if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
+                hero.die(mainPane,abyssPane,resultmenu(),time);
+            }
+            else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
+                hero.die(mainPane,abyssPane,resultmenu(),time);
+            }
+        }
+        else if(hero.getHero().getX() > TNT_start_X_range && hero.getHero().getX()  < TNT_end_X_range){
+            if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
+                hero.die(mainPane,abyssPane,resultmenu(),time);
+            }
+            else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
+                hero.die(mainPane,abyssPane,resultmenu(),time);
+            }
+        }
+        for(Game_Objects object : this.gameObjects){
+            if(object instanceof Orc){
+                //check Orc positions and kill it in similar fashion to Hero
+            }
+        }
+    }
+    private void tntkill() {
+        for (Game_Objects game_object: this.gameObjects){
+            if(game_object instanceof TNT){
+                if(((TNT) game_object).getBurst()){
+                    gameObjects.remove(game_object);
+                    tntbursting((TNT) game_object);
+                    tntkill();
+                    break;
+                }
+            }
+        }
     }
 
 
@@ -525,12 +569,8 @@ public class LoadPage {
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
         hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
-        if(hero.getHero().getY()>500){
-            time.pause();
-            boolean didrevive = hero.die(mainPane,abyssPane);
-            if(didrevive){
-
-            }
+        if(hero.getHero().getY()>600){
+            boolean isrevived = hero.die(mainPane,abyssPane,resultmenu(),time);
         }
         Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
         //        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
@@ -572,6 +612,10 @@ public class LoadPage {
             for(Game_Objects gameobject : gameObjects){
                 if(check_collision(hero,gameobject)){
                     gameobject.collide(hero);
+                    if(gameobject instanceof TNT){
+                        Island residenceTNT = getisland(gameobject.getPosition(), islands, gameobject.getImageViewHeight(), gameobject.getImageViewWidth());
+                        ((TNT) gameobject).setIslandofResidence(residenceTNT);
+                    }
                 }
             }
         }
@@ -603,25 +647,38 @@ public class LoadPage {
     }
 
     private void moveOrc(Orc orc , Island island){
-        if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-orc.getImageViewHeight()){
-            orc.getOrc().setY(island.getPosition().getY()-orc.getImageViewHeight());
-            orcjump.play();
-            orcjump.seek(Duration.ZERO);
+        if(island==null){
+            double speed = Math.abs(orc.getSpeed());
+            orc.getOrc().setY(orc.getOrc().getY() + speed);
         }
-        orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - island.getIslandImageViewHeight()));
-        if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight() || orc.getOrc().getY()<=island.getPosition().getY()- island.getIslandImageViewHeight()){
-            double speed = orc.getSpeed();
-            orc.setSpeed(-speed);
+        else{
+            if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-orc.getImageViewHeight()){
+                orc.getOrc().setY(island.getPosition().getY()-orc.getImageViewHeight());
+                orcjump.play();
+                orcjump.seek(Duration.ZERO);
+            }
+            orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - island.getIslandImageViewHeight()));
+            if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight() || orc.getOrc().getY()<=island.getPosition().getY()- island.getIslandImageViewHeight()){
+                double speed = orc.getSpeed();
+                orc.setSpeed(-speed);
+            }
+            if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()){
+                orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
+            }
         }
-        if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()){
-            orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
-        }
+
     }
 
     private void moveTNT(TNT tnt , Island island){
-        if (!(island.getSpeed() == 0)){
-            tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-tnt.getImageViewHeight());
+        if(island==null){
+            tnt.setPositionY(island.getPosition().getY()+2);
         }
+        else{
+            if (!(island.getSpeed() == 0)){
+                tnt.setPositionY(island.getPosition().getY()-island.getSpeed()-tnt.getImageViewHeight());
+            }
+        }
+
     }
 
     public void pausegame(PauseButton pause){

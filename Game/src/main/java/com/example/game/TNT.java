@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class TNT extends gameObstacles{
     private Position position;
     private int timeToBurst;
-    private final Island islandofResidence;
+    private Island islandofResidence;
     private Boolean isBurst;
     private int Radius;
     private double initpos;
@@ -50,7 +50,7 @@ public class TNT extends gameObstacles{
         TNTImageView.setY(position.getY());
         TNTImageView.setFitWidth(width);
         TNTImageView.setFitHeight(height);
-        TNTImageView.setOnMouseClicked(mouseEvent -> animateTNT());
+        TNTImageView.setOnMouseClicked(mouseEvent -> animateTNT(0));
         anchorPane.getChildren().add(TNTImageView);
         this.position = position;
         this.islandofResidence = islandofResidence;
@@ -72,7 +72,7 @@ public class TNT extends gameObstacles{
         return TNTImageView.getFitHeight();
     }
 
-    public void animateTNT() {
+    public void animateTNT(double a) {
         if(!isBurst){
             TNT tnt = this;
             Transition animation = new Transition() {
@@ -81,6 +81,11 @@ public class TNT extends gameObstacles{
                 protected void interpolate(double fraction) {
                     int index = (int) (fraction*(tntAnimations.size()-1));
                     tnt.getTNTImageView().setImage(tntAnimations.get(index));
+                    double X = tnt.getTNTImageView().getX();
+                    tnt.getTNTImageView().setX(X + a/10);
+                    if(index==9){
+                        isBurst = true;
+                    }
                 }
             };
             animation.play();
@@ -123,12 +128,19 @@ public class TNT extends gameObstacles{
         isBurst = true;
     }
 
+    public void setIslandofResidence(Island island) {
+        this.islandofResidence = island;
+    }
+
     @Override
     public void collide(Hero hero) {
         if(!isBurst){
-            animateTNT();
-            System.out.println("in TNT");
-            isBurst = true;
+            if(hero.getHero().getY() + hero.getHero().getFitHeight()/4 <= this.getTNTImageView().getY()){
+                animateTNT(0);
+            }
+            else{
+                animateTNT(100);
+            }
         }
     }
 
@@ -154,5 +166,7 @@ public class TNT extends gameObstacles{
         this.TNTImageView.setY(v);
     }
 
-
+    public Boolean getBurst() {
+        return isBurst;
+    }
 }

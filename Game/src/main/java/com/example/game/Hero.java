@@ -18,12 +18,13 @@ import java.util.ArrayList;
 
 public class Hero {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
+    private String deathpath = "src/main/resources/com/example/game/images/death.png";
     private pandaHelmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;
     private double speed;
     private Boolean isRevived;
-    private ImageView Hero;
+    private ImageView Hero,deathview;
     private String score;
     private Text scoreboard,coinboard;
     private Weapon activeWeapon,sword,lance;
@@ -40,6 +41,11 @@ public class Hero {
     }
 
     Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt){
+        this.deathview = new ImageView(new Image(new File(deathpath).toURI().toString()));
+        deathview.setFitHeight(600);
+        deathview.setFitWidth(800);
+        deathview.setX(0);
+        deathview.setY(0);
         this.mainpane = anchorPane;
         this.swordt = swordt;
         this.lancet = lancet;
@@ -73,6 +79,7 @@ public class Hero {
         anchorPane.getChildren().add(coinimage);
         anchorPane.getChildren().add(coinboard);
         this.position = position;
+        this.isRevived = false;
     }
 
     public Weapon getsword(){
@@ -196,9 +203,20 @@ public class Hero {
         this.activeWeapon = weapon;
     }
 
-    public boolean die(AnchorPane mainpane,AnchorPane abyssmenu){
-        mainpane.getChildren().add(abyssmenu);
-        return false;
+    public boolean die(AnchorPane mainpane,AnchorPane abyssmenu,AnchorPane resultmenu,Timeline time){
+        time.pause();
+        if(this.isRevived==false){
+            mainpane.getChildren().add(deathview);
+            mainpane.getChildren().add(abyssmenu);
+        }
+        else{
+            mainpane.getChildren().add(resultmenu);
+        }
+        return isRevived;
+    }
+
+    public void revivehero(){
+        mainpane.getChildren().remove(deathview);
     }
 
 
