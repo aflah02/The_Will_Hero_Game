@@ -28,6 +28,7 @@ public class LoadPage {
     private static final double MAX_FALLING_HEIGHT = 800;
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
+    private PauseButton pauseButton;
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
@@ -49,6 +50,7 @@ public class LoadPage {
     static int RecordingLength;
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
+
         RecordingLength = 5;
         String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "40"};
         Process p = Runtime.getRuntime().exec(cmd);
@@ -131,12 +133,13 @@ public class LoadPage {
         mainPane.getChildren().add(moveScreenButton);
         mainPane.getChildren().remove(hero.getHero());
         mainPane.getChildren().add(hero.getHero());
+        saveGameDataToFile(new File("SaveFiles/save.ser"));
     }
     private AnchorPane pauseMenu(){
-        PauseButton pause = new PauseButton();
-        pause.setLayoutX(400);
-        pause.setLayoutY(20);
-        mainPane.getChildren().add(pause);
+        pauseButton = new PauseButton();
+        pauseButton.setLayoutX(400);
+        pauseButton.setLayoutY(20);
+        mainPane.getChildren().add(pauseButton);
         AnchorPane menu = new AnchorPane();
         menu.setPrefHeight(200);
         menu.setPrefWidth(200);
@@ -150,8 +153,8 @@ public class LoadPage {
         resume.setLayoutX(65);
         resume.setLayoutY(100);
         menu.getChildren().add(resume);
-        pausegame(pause);
-        startgame(resume,pause);
+        pausegame(pauseButton);
+        startgame(resume,pauseButton);
         Homebutton home = new Homebutton(stage);
         home.setLayoutX(10);
         home.setLayoutY(60);
@@ -231,61 +234,61 @@ public class LoadPage {
 
     private AnchorPane resultmenu() {
         AnchorPane Result_Menu = new AnchorPane();
-        Result_Menu.setPrefHeight(600);
-        Result_Menu.setPrefWidth(600);
-        Result_Menu.setLayoutX(100);
-        Result_Menu.setLayoutY(0);
+        Result_Menu.setPrefHeight(400);
+        Result_Menu.setPrefWidth(400);
+        Result_Menu.setLayoutX(250);
+        Result_Menu.setLayoutY(150);
         String bg1 = "src/main/resources/com/example/game/images/resultmenu.png";
-        Image bg = new Image(new File(bg1).toURI().toString(),600,600,false,true);
-        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
+        Image bg = new Image(new File(bg1).toURI().toString(),300,300,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
         Result_Menu.setBackground(new Background(image));
         //.................................................
         Text sometext = new Text();
         sometext.setText("Your Score");
-        sometext.setFont(Font.font ("Verdana", 50));
+        sometext.setFont(Font.font ("Verdana", 20));
         sometext.setFill(Color.WHITE);
-        sometext.setX(175);
-        sometext.setY(180);
+        sometext.setX(100);
+        sometext.setY(100);
         Text scoreboard = new Text();
         String heroscore = hero.getscore();
         scoreboard.setText(heroscore);
-        scoreboard.setFont(Font.font ("Verdana", 60));
+        scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.WHITE);
-        scoreboard.setX(250);
-        scoreboard.setY(250);
+        scoreboard.setX(140);
+        scoreboard.setY(130);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);
         //........................................
         sometext = new Text();
         sometext.setText("Coins Won");
-        sometext.setFont(Font.font ("Verdana", 50));
+        sometext.setFont(Font.font ("Verdana", 20));
         sometext.setFill(Color.GOLD);
-        sometext.setX(175);
-        sometext.setY(325);
+        sometext.setX(100);
+        sometext.setY(160);
         scoreboard = new Text();
         heroscore = Integer.toString(hero.getCurrCoins().size());
         scoreboard.setText(heroscore);
-        scoreboard.setFont(Font.font ("Verdana", 60));
+        scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.GOLD);
-        scoreboard.setX(250);
-        scoreboard.setY(400);
+        scoreboard.setX(140);
+        scoreboard.setY(190);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);
         //................................................
         Exit_Button end_button = new Exit_Button(this.stage);
-        end_button.setLayoutX(400);
-        end_button.setLayoutY(475);
+        end_button.setLayoutX(40);
+        end_button.setLayoutY(210);
         //...................................
         Homebutton home = new Homebutton(stage);
-        home.setLayoutX(150);
-        home.setLayoutY(475);
+        home.setLayoutX(210);
+        home.setLayoutY(210);
         Result_Menu.getChildren().add(home);
 
         //////////////////////////
         Result_Menu.getChildren().add(end_button);
         New_Game_Button New_Game = new New_Game_Button(this.stage);
-        New_Game.setLayoutX(250);
-        New_Game.setLayoutY(450);
+        New_Game.setLayoutX(100);
+        New_Game.setLayoutY(190);
         Result_Menu.getChildren().add(New_Game);
         return Result_Menu;
     }
@@ -722,6 +725,7 @@ public class LoadPage {
         try {
             FileOutputStream fileStream = new FileOutputStream(file);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            objectStream.writeObject(this.player);
             for (Island island: islands){
                 objectStream.writeObject(island);
             }

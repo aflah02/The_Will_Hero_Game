@@ -11,7 +11,7 @@ public class Standard_Green_Orc extends Orc{
     private double initpos;
     private Island islandofResidence;
     private Position position;
-
+    private AnchorPane anchorPane;
     @Override
     public Position getPosition() {
         return position;
@@ -46,6 +46,7 @@ public class Standard_Green_Orc extends Orc{
         this.position = position;
         this.islandofResidence = islandofResidence;
         this.isAboveIsland = true;
+        this.anchorPane = anchorPane;
     }
 
     @Override
@@ -65,7 +66,15 @@ public class Standard_Green_Orc extends Orc{
 
     @Override
     public void collide(Hero hero){
-        this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
+//        if (this.standardGreenOrc.getX() == hero.getHero().getX()){
+//            if (hero.getActiveWeapon() != null){
+//                this.anchorPane.getChildren().remove(this);
+//            }
+//        }
+        if (hero.getActiveWeapon() != null){
+            this.anchorPane.getChildren().remove(this);
+        }
+//        this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
     }
 
     public void createImage(){

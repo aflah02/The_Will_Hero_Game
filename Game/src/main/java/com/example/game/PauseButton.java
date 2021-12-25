@@ -28,6 +28,11 @@ public class PauseButton extends Button {
         this.setGraphic(img);
         initialisebutton();
     }
+
+    public void setDisable() {
+        this.setDisable(true);
+    }
+
     private void initialisebutton(){
         setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
