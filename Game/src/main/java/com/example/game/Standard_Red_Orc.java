@@ -38,6 +38,7 @@ public class Standard_Red_Orc extends Orc{
         this.initpos = position.getY();
         this.position = position;
         this.islandofResidence = islandofResidence;
+        this.isAboveIsland = true;
     }
     @Override
     public String getName(){

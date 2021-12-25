@@ -7,6 +7,16 @@ public abstract class Orc extends Game_Objects{
     private int Damage;
     private int Coins;
     private Boolean Dead;
+    protected Boolean isAboveIsland;
+
+    public Boolean getAboveIsland() {
+        return isAboveIsland;
+    }
+
+    public void setAboveIsland(Boolean aboveIsland) {
+        isAboveIsland = aboveIsland;
+    }
+
     public int getHitPoints(){
         return this.HitPoints;
     }

@@ -40,6 +40,7 @@ public class Standard_Green_Orc extends Orc{
         this.initpos = position.getY();
         this.position = position;
         this.islandofResidence = islandofResidence;
+        this.isAboveIsland = true;
     }
 
     @Override
@@ -59,15 +60,7 @@ public class Standard_Green_Orc extends Orc{
 
     @Override
     public void collide(Hero hero){
-        if (hero.getActiveWeapon()!=null){
-            if (hero.getHero().getX() == standardGreenOrc.getX() &&
-                    !(hero.getHero().getY() - standardGreenOrc.getY() <= 10)){
-
-            }
-        }
-        else{
-            this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
-        }
+        this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
     }
 
     public void createImage(){

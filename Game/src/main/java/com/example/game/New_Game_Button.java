@@ -47,11 +47,7 @@ public class New_Game_Button extends Button {
             public void handle(MouseEvent mouseEvent) {
                 try {
                     handler();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
+                } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }
