@@ -76,4 +76,9 @@ public class Boss_Orc extends Orc{
     public double getImageViewHeight() {
         return BossOrc.getFitHeight();
     }
+
+    @Override
+    public void setIslandofResidence(Island island) {
+        this.islandofResidence = island;
+    }
 }

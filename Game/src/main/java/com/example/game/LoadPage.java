@@ -19,17 +19,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
-import java.nio.file.attribute.PosixFileAttributes;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LoadPage {
     static final int islandLocationfromTopofScreen = 450;
+    private static final double MAX_FALLING_HEIGHT = 800;
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
@@ -39,6 +35,7 @@ public class LoadPage {
     private AnchorPane abyssPane;
     private final Stage stage;
     private final ArrayList<Game_Objects> gameObjects;
+    private final Player player;
     private final Hero hero;
     private final ArrayList<Island> islands;
     private ImageView sword,lance;
@@ -51,9 +48,6 @@ public class LoadPage {
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
         RecordingLength = 5;
-//        String homeDir = System.getenv("HOME");
-//        System.out.println(homeDir);
-//        String[] arr = new String[]{"C:\\Users\\ASUS\\Desktop\\The_Will_Hero_Game\\Game\\src\\main\\java\\com\\example\\game\\exec.bat", "5"};
         String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "5"};
         Process p = Runtime.getRuntime().exec(cmd);
         System.out.println(p);
@@ -88,8 +82,10 @@ public class LoadPage {
         Text lancet = new Text();
         Text swordt = new Text();
         this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2,swordt,lancet);
+        this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
+
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -133,24 +129,7 @@ public class LoadPage {
         mainPane.getChildren().add(moveScreenButton);
         mainPane.getChildren().remove(hero.getHero());
         mainPane.getChildren().add(hero.getHero());
-
     }
-//    public static String cmd(File dir, String command) {
-//        System.out.println("> " + command);   // better to use e.g. Slf4j
-//        System.out.println();
-//        try {
-//            Process p = Runtime.getRuntime().exec(command, null, dir);
-//            String result = org.apache.commons.io.IOUtils.toString(p.getInputStream(), Charset.defaultCharset());
-//            String error = org.apache.commons.io.IOUtils.toString(p.getErrorStream(), Charset.defaultCharset());
-//            if (error != null && !error.isEmpty()) {  // throw exception if error stream
-//                throw new RuntimeException(error);
-//            }
-//            System.out.println(result);   // better to use e.g. Slf4j
-//            return result;                // return result for optional additional processing
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
     private AnchorPane pauseMenu(){
         PauseButton pause = new PauseButton();
         pause.setLayoutX(400);
@@ -248,9 +227,6 @@ public class LoadPage {
         return Menu;
     }
 
-
-
-
     private AnchorPane resultmenu() {
         AnchorPane Result_Menu = new AnchorPane();
         Result_Menu.setPrefHeight(600);
@@ -312,10 +288,7 @@ public class LoadPage {
         return Result_Menu;
     }
 
-
-
     private void addObjectsonScreen(){
-//        System.out.println("Inside Add Objects");
         for (int i = 0; i < 10; i++){
             Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
             Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
@@ -329,9 +302,6 @@ public class LoadPage {
             islands.add(mediumIsland2);
         }
         int count = 0;
-//        for (Island island: islands){
-//            System.out.println(island.getIslandType());
-//        }
         for (Island island: islands){
             if (count == 0){
                 count++;
@@ -389,7 +359,6 @@ public class LoadPage {
                     this.gameObjects.add(chest);
                 }
             }
-//            System.out.println(gameObjects[rand.nextInt(gameObjects.length)]);
         }
     }
 
@@ -399,7 +368,11 @@ public class LoadPage {
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             for (Game_Objects game_object: this.gameObjects){
                 if (game_object instanceof Orc){
+//                    ((Orc) game_object).setIslandofResidence(getIslandforOrc(((Orc) game_object), this.islands,
+//                            game_object.getImageViewHeight(), game_object.getImageViewWidth()));
+//                    System.out.println(((Orc) game_object).getIslandofResidence());
                     moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
+//                    System.out.println();
                 }
                 else if (game_object instanceof gameObstacles){
                     moveTNT((TNT)game_object, ((TNT)game_object).getIslandofResidence());
@@ -467,12 +440,6 @@ public class LoadPage {
     private void moveChest(Chest game_object, Island island) {
         if (!(island.getSpeed() == 0)){
             game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-game_object.getImageViewHeight());
-            /*
-            if(game_object.getPosition().getY()>=325 || game_object.getPosition().getY()<=275){
-                double speed = game_object.getSpeed();
-                game_object.setSpeed(-speed);
-            }
-            */
         }
     }
 
@@ -493,15 +460,8 @@ public class LoadPage {
             double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
             // The 10 over here is so that hero doesn't fall immediately
             //Can change the value
-            if(island_starting_y_coordinate +10 > player_ending_y_coordinate){
+            if(island_starting_y_coordinate + 10 > player_ending_y_coordinate){
                 if(island_starting_x_coordinate <=player_ending_x_coordinate-10 && island_ending_x_coordinate>=player_starting_x_coordinate+10){
-                    /*
-                    System.out.println(hero.getHero().getX() + " " + hero.getHero().getY());
-                    System.out.println("compare with: " + player_ending_x_coordinate + " " + player_starting_y_coordinate);
-                    System.out.println(island.getIsland().getX() + " " + island.getIsland().getY());
-                    System.out.println("compare with: " + island_starting_x_coordinate + " " + island_starting_y_coordinate);
-                    System.out.println("Setting this island" + island.getIslandType());
-                    */
                     ansisland = island;
                 }
             }
@@ -514,6 +474,37 @@ public class LoadPage {
         return ansisland;
     }
 
+    private Island getIslandforOrc(Orc orc ,ArrayList<Island> islands, double height, double width){
+        double orc_starting_x_coordinate = orc.getOrc().getX();
+        double orc_starting_y_coordinate = orc.getOrc().getY();
+        double orc_ending_x_coordinate = orc_starting_x_coordinate + width;
+        double orc_ending_y_coordinate = orc_starting_y_coordinate + height;
+        Island ansisland = null;
+        int count = 0;
+        for(Island island :islands){
+            count++;
+            double island_h = island.getIsland().getFitHeight();
+            double island_w = island.getIsland().getFitWidth();
+            double island_starting_x_coordinate = island.getIsland().getX();
+            double island_starting_y_coordinate = island.getIsland().getY();
+            double island_ending_x_coordinate = island_starting_x_coordinate + island_w;
+            double island_ending_y_coordinate = island_starting_y_coordinate + island_h;
+            // The 10 over here is so that hero doesn't fall immediately
+            //Can change the value
+            if(island_starting_y_coordinate + 10 > orc_ending_y_coordinate){
+                if(island_starting_x_coordinate <=  orc_ending_x_coordinate-10 && island_ending_x_coordinate>=orc_starting_x_coordinate+10){
+                    ansisland = island;
+                }
+            }
+        }
+        /*
+        if(ansisland==null){
+            System.out.println("Setting this island null");
+        }
+        */
+        return ansisland;
+
+    }
 
     private Island getsafeisland(Position pos ,ArrayList<Island> islands, double height, double width){
         double player_starting_x_coordinate = pos.getX();
@@ -654,10 +645,12 @@ public class LoadPage {
     }
 
     private void moveOrc(Orc orc , Island island){
-        if (orc.isAboveIsland){
             if(island==null){
                 double speed = Math.abs(orc.getSpeed());
                 orc.getOrc().setY(orc.getOrc().getY() + speed);
+                if (orc.getOrc().getY()>=MAX_FALLING_HEIGHT){
+                    mainPane.getChildren().remove(orc.getImage());
+                }
             }
             else{
                 if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-orc.getImageViewHeight()){
@@ -674,11 +667,13 @@ public class LoadPage {
                     orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
                 }
             }
-        }
-        else{
-            double speed = Math.abs(orc.getSpeed());
-            orc.getOrc().setY(orc.getOrc().getY() + speed);
-        }
+//        else{
+//            double speed = Math.abs(orc.getSpeed());
+//            orc.getOrc().setY(orc.getOrc().getY() + speed);
+//            if (orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()+50){
+//                mainPane.getChildren().remove(orc.getImage());
+//            }
+//        }
     }
 
     private void moveTNT(TNT tnt , Island island){
@@ -717,4 +712,35 @@ public class LoadPage {
         return mainScene;
     }
 
+    public void saveGameDataToFile(File file) {
+        try {
+            FileOutputStream fileStream = new FileOutputStream(file);
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            for (Island island: islands){
+                objectStream.writeObject(island);
+            }
+            for (Game_Objects game_objects: gameObjects){
+                objectStream.writeObject(game_objects);
+            }
+            objectStream.close();
+            fileStream.close();
+            System.out.println();
+        } catch (Exception e) {
+            System.out.println();
+        }
+    }
+    public void loadGameDataFromFile(File file) throws ClassNotFoundException, IOException {
+
+        FileInputStream fileStream = new FileInputStream(file);
+        ObjectInputStream objectStream = new ObjectInputStream(fileStream);
+
+//        svaedFlag = (int[][]) objectStream.readObject();
+//        savedColor = (Color[][]) objectStream.readObject();
+//        savedSnake = (Snake) objectStream.readObject();
+//        savedFood = (Grid) objectStream.readObject();
+//        savedScore = (Integer) objectStream.readObject();
+//        savedBarriers =(Barriers) objectStream.readObject();
+//        savedNeedToGenerateFood = (Boolean)objectStream.readObject();
+//        savedNeedToGenerateBarrie = (Boolean)objectStream.readObject();
+    }
 }

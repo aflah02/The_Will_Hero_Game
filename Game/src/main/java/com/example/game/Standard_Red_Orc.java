@@ -27,6 +27,11 @@ public class Standard_Red_Orc extends Orc{
         return islandofResidence;
     }
 
+    @Override
+    public void setIslandofResidence(Island island) {
+        this.islandofResidence = island;
+    }
+
     public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
         createImage();
         this.speed = speed;

@@ -25,6 +25,27 @@ public class Weapon_Chest extends Chest{
     private Position position;
     public String[] imagePaths;
     private boolean isopen;
+    private String weaponName;
+    public Island getIslandOfResidence() {
+        return islandOfResidence;
+    }
+
+    public WeaponButton getButton1() {
+        return button1;
+    }
+
+    public void setButton1(WeaponButton button1) {
+        this.button1 = button1;
+    }
+
+    public WeaponButton getButton2() {
+        return button2;
+    }
+
+    public void setButton2(WeaponButton button2) {
+        this.button2 = button2;
+    }
+
     private final Island islandOfResidence;
     private double speed;
     private WeaponButton button1, button2;
@@ -64,10 +85,17 @@ public class Weapon_Chest extends Chest{
             this.weapon = new Lance();
         }
         this.speed = islandOfResidence.getSpeed();
+        this.weaponName = WeaponName;
     }
     @Override
     public String getName(){
-        return "Weapon Chest";
+        if (this.weaponName.equals("Sword")){
+            return "Weapon Chest Sword";
+        }
+        else{
+            return "Weapon Chest Lance";
+        }
+
     }
 
     @Override

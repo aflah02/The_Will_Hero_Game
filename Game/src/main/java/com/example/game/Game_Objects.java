@@ -17,7 +17,7 @@ public abstract class Game_Objects implements Serializable {
     public abstract void collide(Hero hero);
 
     public abstract String getName();
-
+    public abstract Island getIslandofResidence();
     public abstract double getImageViewWidth();
     public abstract double getImageViewHeight();
 }

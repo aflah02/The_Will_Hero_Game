@@ -9,7 +9,7 @@ public class Standard_Green_Orc extends Orc{
     private String imagePath = "src/main/resources/com/example/game/images/troll_1.png";
     private double speed;
     private double initpos;
-    private final Island islandofResidence;
+    private Island islandofResidence;
     private Position position;
 
     @Override
@@ -26,6 +26,11 @@ public class Standard_Green_Orc extends Orc{
 
     public Island getIslandofResidence() {
         return islandofResidence;
+    }
+
+    @Override
+    public void setIslandofResidence(Island island) {
+        this.islandofResidence = island;
     }
 
     private ImageView standardGreenOrc;

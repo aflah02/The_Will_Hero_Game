@@ -6,8 +6,8 @@ public class Player implements Serializable {
     private int currentScore;
     private Hero hero;
 
-    Player(){
-
+    Player(Hero hero){
+        this.hero = hero;
     }
 
     public int getCurrentScore() {
