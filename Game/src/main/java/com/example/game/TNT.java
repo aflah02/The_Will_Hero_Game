@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.Transition;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,7 +39,7 @@ public class TNT extends gameObstacles{
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
         this.isBurst = false;
-        this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8, path9, path10};
+        this.imagePaths = new String[]{path2, path3, path4, path5, path6, path7, path8, path9, path10};
         tntAnimations = new ArrayList<>();
         for (String path: imagePaths){
             tntAnimations.add(new Image(new File(path).toURI().toString()));
@@ -82,15 +83,17 @@ public class TNT extends gameObstacles{
                     int index = (int) (fraction*(tntAnimations.size()-1));
                     tnt.getTNTImageView().setImage(tntAnimations.get(index));
                     double X = tnt.getTNTImageView().getX();
-                    tnt.getTNTImageView().setX(X + a/10);
-                    if(index==9){
-                        isBurst = true;
-                    }
+                    tnt.getTNTImageView().setX(X + a/9);
                 }
             };
-            animation.play();
+            animation.setOnFinished(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    Burst();
+                }
+            });
             animation.setCycleCount(1);
-            this.Burst();
+            animation.play();
         }
     }
 
@@ -125,7 +128,11 @@ public class TNT extends gameObstacles{
     }
 
     public void Burst() {
-        isBurst = true;
+        if(!isBurst){
+            System.out.println("burst");
+            isBurst = true;
+        }
+
     }
 
     public void setIslandofResidence(Island island) {
@@ -135,11 +142,11 @@ public class TNT extends gameObstacles{
     @Override
     public void collide(Hero hero) {
         if(!isBurst){
-            if(hero.getHero().getY() + hero.getHero().getFitHeight()/4 <= this.getTNTImageView().getY()){
+            if(hero.getHero().getY() + hero.getHero().getFitHeight()*3/4 <= this.getTNTImageView().getY()){
                 animateTNT(0);
             }
             else{
-                animateTNT(100);
+                animateTNT(1);
             }
         }
     }

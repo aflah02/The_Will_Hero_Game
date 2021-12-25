@@ -42,6 +42,7 @@ public class pandaHelmet {
                     pandaHelmet.setImage(streakimage);
                     pandaHelmet.setFitWidth(width);
                     pandaHelmet.setFitWidth(width*2);
+                    pandaHelmet.setX(75-width);
                     if (weapon != null){
                         if (weapon.getName().equals("Lance")){
                             weapon.getimage().setX(weapon.getimage().getX()+60);
@@ -56,13 +57,14 @@ public class pandaHelmet {
             }
         };
         Transition animation2 = new Transition() {
-            {setCycleDuration(Duration.millis(200));}
+            {setCycleDuration(Duration.millis(300));}
             @Override
             protected void interpolate(double fraction) {
                 Image streakimage = new Image(new File(helmetImage).toURI().toString());
                 pandaHelmet.setImage(streakimage);
                 pandaHelmet.setFitWidth(height);
                 pandaHelmet.setFitWidth(width);
+                pandaHelmet.setX(75);
                 if (weapon != null){
                     if (weapon.getName().equals("Lance")){
                         weapon.getimage().setX(75);

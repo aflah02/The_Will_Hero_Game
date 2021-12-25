@@ -90,7 +90,6 @@ public class Hero {
     }
 
     public void setPosition(Position position) {
-        this.position = position;
         if(this.activeWeapon!=null){
             ImageView image = this.activeWeapon.getimage();
             image.setX(position.getX());
@@ -99,7 +98,7 @@ public class Hero {
                 image.setX(position.getX()-image.getFitWidth()/2);
             }
         }
-        this.position = position;
+        this.position = new Position(75, position.getY());
     }
 
     public void addCoins(Coins coins) {

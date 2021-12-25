@@ -87,7 +87,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         Text lancet = new Text();
         Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 50, 50 ,1.2,swordt,lancet);
+        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2,swordt,lancet);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -359,32 +359,32 @@ public class LoadPage {
             String objectChosen = gameObjects[rand.nextInt(gameObjects.length)];
             switch (objectChosen) {
                 case "TNT" -> {
-                    TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 50, 50, 0.4, island);
+                    TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 70, 70, 0.4, island);
                     placedSoFar++;
                     this.gameObjects.add(tnt);
                 }
                 case "CoinChest" -> {
-                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, island);
+                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, island);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "Standard_Green_Orc" -> {
-                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 60, 50, ((Math.random()*(0.5)) + 0.7), island);
+                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 70, 60, ((Math.random()*(0.5)) + 0.7), island);
                     placedSoFar++;
                     this.gameObjects.add(greenOrc);
                 }
                 case "Standard_Red_Orc" -> {
-                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 50, 50, ((Math.random()*(0.5)) + 0.7), island);
+                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 60, 60, ((Math.random()*(0.5)) + 0.7), island);
                     placedSoFar++;
                     this.gameObjects.add(redOrc);
                 }
                 case "WeaponChestLance" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Lance", island,this.lancebutton,this.swordbutton);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Lance", island,this.lancebutton,this.swordbutton);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "WeaponChestSword" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 70, 50, "Sword", island,this.swordbutton,this.lancebutton);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Sword", island,this.swordbutton,this.lancebutton);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
@@ -425,10 +425,10 @@ public class LoadPage {
     }
 
     private void tntbursting(TNT game_object){
-        double TNT_start_X_range = game_object.getPosition().getX()- 50;
-        double TNT_start_Y_range = game_object.getPosition().getY()- 50;
-        double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight() + 50;
-        double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth() + 50;
+        double TNT_start_X_range = game_object.getPosition().getX()-20;
+        double TNT_start_Y_range = game_object.getPosition().getY()-20;
+        double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight() + 20;
+        double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth() + 20;
         if(hero.getHero().getX() + hero.getHero().getFitWidth() > TNT_start_X_range && hero.getHero().getX() + hero.getHero().getFitWidth() < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
                 hero.die(mainPane,abyssPane,resultmenu(),time);
@@ -457,7 +457,6 @@ public class LoadPage {
                 if(((TNT) game_object).getBurst()){
                     gameObjects.remove(game_object);
                     tntbursting((TNT) game_object);
-                    tntkill();
                     break;
                 }
             }
@@ -507,9 +506,11 @@ public class LoadPage {
                 }
             }
         }
+        /*
         if(ansisland==null){
             System.out.println("Setting this island null");
         }
+        */
         return ansisland;
     }
 
@@ -671,7 +672,7 @@ public class LoadPage {
 
     private void moveTNT(TNT tnt , Island island){
         if(island==null){
-            tnt.setPositionY(island.getPosition().getY()+2);
+            tnt.setPositionY(tnt.getImage().getY());
         }
         else{
             if (!(island.getSpeed() == 0)){
