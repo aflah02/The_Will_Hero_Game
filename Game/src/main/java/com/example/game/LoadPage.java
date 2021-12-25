@@ -26,6 +26,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LoadPage {
     static final int islandLocationfromTopofScreen = 450;
     private static final double MAX_FALLING_HEIGHT = 800;
+    private int ISLAND_COUNT;
+    private int GAME_OBJECT_COUNT;
     private final AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
@@ -48,7 +50,7 @@ public class LoadPage {
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
         RecordingLength = 5;
-        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "5"};
+        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "40"};
         Process p = Runtime.getRuntime().exec(cmd);
         System.out.println(p);
         System.out.println("hello");
@@ -290,6 +292,7 @@ public class LoadPage {
 
     private void addObjectsonScreen(){
         for (int i = 0; i < 10; i++){
+            this.ISLAND_COUNT+=5;
             Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
             Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
             Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5);
@@ -309,12 +312,15 @@ public class LoadPage {
             }
             Position islandPosition = island.getPosition();
             if (island.getIslandType().equals("Small")){
+                this.GAME_OBJECT_COUNT+=1;
                 generateIslandObjects(island, islandPosition, 1);
             }
             else if (island.getIslandType().equals("Medium")){
+                this.GAME_OBJECT_COUNT+=2;
                 generateIslandObjects(island, islandPosition, 2);
             }
             else{
+                this.GAME_OBJECT_COUNT+=3;
                 generateIslandObjects(island, islandPosition, 3);
             }
         }
@@ -728,19 +734,5 @@ public class LoadPage {
         } catch (Exception e) {
             System.out.println();
         }
-    }
-    public void loadGameDataFromFile(File file) throws ClassNotFoundException, IOException {
-
-        FileInputStream fileStream = new FileInputStream(file);
-        ObjectInputStream objectStream = new ObjectInputStream(fileStream);
-
-//        svaedFlag = (int[][]) objectStream.readObject();
-//        savedColor = (Color[][]) objectStream.readObject();
-//        savedSnake = (Snake) objectStream.readObject();
-//        savedFood = (Grid) objectStream.readObject();
-//        savedScore = (Integer) objectStream.readObject();
-//        savedBarriers =(Barriers) objectStream.readObject();
-//        savedNeedToGenerateFood = (Boolean)objectStream.readObject();
-//        savedNeedToGenerateBarrie = (Boolean)objectStream.readObject();
     }
 }
