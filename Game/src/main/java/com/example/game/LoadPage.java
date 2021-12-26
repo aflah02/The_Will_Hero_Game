@@ -144,7 +144,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         Text lancet = new Text();
         Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, "Jotun");
+        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, HelmetName);
         this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);

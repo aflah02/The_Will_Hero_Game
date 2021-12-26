@@ -84,5 +84,4 @@ public class Exit_Button extends Button {
         stage.close();
     }
 
-
 }

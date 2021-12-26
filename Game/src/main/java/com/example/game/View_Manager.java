@@ -167,33 +167,40 @@ public class View_Manager {
         HelmetChoices.getChildren().add(Panda);
         HelmetChoices.getChildren().add(Jotun);
         Loki.setOnMouseClicked(mouseEvent -> {
-            helmetChosen = "Loki";
+            this.helmetChosen = "Loki";
             Loki.setactive();
             Angel.setinactive();
             Panda.setinactive();
             Jotun.setinactive();
         });
         Angel.setOnMouseClicked(mouseEvent -> {
-            helmetChosen = "Angel";
+            this.helmetChosen = "Angel";
             Angel.setactive();
             Loki.setinactive();
             Panda.setinactive();
             Jotun.setinactive();
         });
         Panda.setOnMouseClicked(mouseEvent -> {
-            helmetChosen = "Panda";
+            this.helmetChosen = "Panda";
             Panda.setactive();
             Loki.setinactive();
             Angel.setinactive();
             Jotun.setinactive();
         });
         Jotun.setOnMouseClicked(mouseEvent -> {
-            helmetChosen = "Jotun";
+            this.helmetChosen = "Jotun";
             Jotun.setactive();
             Loki.setinactive();
             Panda.setinactive();
             Angel.setinactive();
         });
+        CloseMenuButton closeMenuButton = new CloseMenuButton();
+        closeMenuButton.setLayoutX(150);
+        closeMenuButton.setLayoutY(50);
+        closeMenuButton.setOnMouseClicked(mouseEvent -> {
+            mainPane.getChildren().remove(helmetChooseMenu);
+        });
+        HelmetChoices.getChildren().add(closeMenuButton);
         return HelmetChoices;
 
     }
