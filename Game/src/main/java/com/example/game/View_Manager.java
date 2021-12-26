@@ -69,7 +69,7 @@ public class View_Manager {
         grad.setLayoutY(390);
         mainPane.getChildren().add(grad);
         //Start button
-        StartButton button = new StartButton(this);
+        StartButton button = new StartButton(this, helmetChosen);
         button.setLayoutX(340);
         button.setLayoutY(260);
         mainPane.getChildren().add(button);
@@ -167,24 +167,28 @@ public class View_Manager {
         HelmetChoices.getChildren().add(Panda);
         HelmetChoices.getChildren().add(Jotun);
         Loki.setOnMouseClicked(mouseEvent -> {
+            helmetChosen = "Loki";
             Loki.setactive();
             Angel.setinactive();
             Panda.setinactive();
             Jotun.setinactive();
         });
         Angel.setOnMouseClicked(mouseEvent -> {
+            helmetChosen = "Angel";
             Angel.setactive();
             Loki.setinactive();
             Panda.setinactive();
             Jotun.setinactive();
         });
         Panda.setOnMouseClicked(mouseEvent -> {
+            helmetChosen = "Panda";
             Panda.setactive();
             Loki.setinactive();
             Angel.setinactive();
             Jotun.setinactive();
         });
         Jotun.setOnMouseClicked(mouseEvent -> {
+            helmetChosen = "Jotun";
             Jotun.setactive();
             Loki.setinactive();
             Panda.setinactive();

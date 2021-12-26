@@ -19,8 +19,9 @@ public class StartButton extends Button {
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover";
     private String path = "src/main/resources/com/example/game/images/resume.png";
     private View_Manager manager;
-
-    StartButton(View_Manager manager){
+    String ChosenHelmet;
+    StartButton(View_Manager manager, String ChosenHelmet){
+        this.ChosenHelmet = ChosenHelmet;
         this.manager = manager;
         setText("");
         setPrefHeight(110);
@@ -42,8 +43,8 @@ public class StartButton extends Button {
     }
 
 
-    private void handler() throws IOException, InterruptedException {
-        LoadPage page = new LoadPage(manager.getMainStage());
+    private void handler(String ChosenHelmet) throws IOException, InterruptedException {
+        LoadPage page = new LoadPage(manager.getMainStage(), ChosenHelmet);
         if(manager!=null){
             manager.removevideo();
         }
@@ -56,7 +57,7 @@ public class StartButton extends Button {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    handler();
+                    handler(ChosenHelmet);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

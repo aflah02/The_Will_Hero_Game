@@ -51,7 +51,9 @@ public class LoadPage {
     private WeaponButton swordbutton,lancebutton;
     static int RecordingLength;
     Long startTime;
-    LoadPage(Stage stage) throws IOException, InterruptedException {
+    String HelmetName;
+    LoadPage(Stage stage, String HelmetName) throws IOException, InterruptedException {
+        this.HelmetName = HelmetName;
         RecordingLength = 5;
         String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
         Process p = Runtime.getRuntime().exec(cmd);
@@ -219,7 +221,7 @@ public class LoadPage {
         home.setLayoutX(10);
         home.setLayoutY(60);
         menu.getChildren().add(home);
-        RestartButton restart = new RestartButton(stage);
+        RestartButton restart = new RestartButton(stage, HelmetName);
         restart.setLayoutX(120);
         restart.setLayoutY(60);
         menu.getChildren().add(restart);
@@ -365,7 +367,7 @@ public class LoadPage {
 
         //////////////////////////
         Result_Menu.getChildren().add(end_button);
-        New_Game_Button New_Game = new New_Game_Button(this.stage);
+        New_Game_Button New_Game = new New_Game_Button(this.stage, this.HelmetName);
         New_Game.setLayoutX(115);
         New_Game.setLayoutY(220);
         Result_Menu.getChildren().add(New_Game);

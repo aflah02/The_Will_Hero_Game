@@ -17,9 +17,10 @@ public class RestartButton extends Button {
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private String path = "src/main/resources/com/example/game/images/retry.jpeg";
     private Stage stage;
-
-    RestartButton(Stage stage){
+    String chosenHelmet;
+    RestartButton(Stage stage, String chosenHelmet){
         this.stage = stage;
+        this.chosenHelmet = chosenHelmet;
         setText("");
         setPrefHeight(50);
         setPrefWidth(50);
@@ -46,7 +47,7 @@ public class RestartButton extends Button {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    handler();
+                    handler(chosenHelmet);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -90,8 +91,8 @@ public class RestartButton extends Button {
         });
     }
 
-    private void handler() throws IOException, InterruptedException {
-        LoadPage page = new LoadPage(stage);
+    private void handler(String chosenHelmet) throws IOException, InterruptedException {
+        LoadPage page = new LoadPage(stage, chosenHelmet);
         page.start();
     }
 

@@ -17,9 +17,10 @@ public class New_Game_Button extends Button {
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private String path = "src/main/resources/com/example/game/images/resume.png";
     private Stage stage;
-
-    New_Game_Button(Stage stage){
+    String ChosenHelmet;
+    New_Game_Button(Stage stage, String ChosenHelmet){
         this.stage = stage;
+        this.ChosenHelmet = ChosenHelmet;
         setText("");
         setPrefHeight(60);
         setPrefWidth(60);
@@ -46,7 +47,7 @@ public class New_Game_Button extends Button {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 try {
-                    handler();
+                    handler(ChosenHelmet);
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -86,8 +87,8 @@ public class New_Game_Button extends Button {
         });
     }
 
-    private void handler() throws IOException, InterruptedException {
-        LoadPage page = new LoadPage(stage);
+    private void handler(String ChosenHelmet) throws IOException, InterruptedException {
+        LoadPage page = new LoadPage(stage, ChosenHelmet);
         page.start();
     }
 
