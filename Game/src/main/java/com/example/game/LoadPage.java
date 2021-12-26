@@ -142,7 +142,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         Text lancet = new Text();
         Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2,swordt,lancet);
+        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, "Jotun");
         this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
@@ -852,13 +852,6 @@ public class LoadPage {
                     orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
                 }
             }
-//        else{
-//            double speed = Math.abs(orc.getSpeed());
-//            orc.getOrc().setY(orc.getOrc().getY() + speed);
-//            if (orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()+50){
-//                mainPane.getChildren().remove(orc.getImage());
-//            }
-//        }
     }
 
     private void moveTNT(TNT tnt , Island island){
@@ -880,6 +873,7 @@ public class LoadPage {
             mainPane.getChildren().add(this.newpane);
         });
     }
+
     public void startgame(Button button , PauseButton pause){
         button.setOnAction(e ->{
             time.play();

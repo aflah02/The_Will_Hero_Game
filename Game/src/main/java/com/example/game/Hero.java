@@ -1,13 +1,10 @@
 package com.example.game;
 
 import javafx.animation.*;
-import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
@@ -19,7 +16,7 @@ import java.util.ArrayList;
 public class Hero {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
     private String deathpath = "src/main/resources/com/example/game/images/death.png";
-    private pandaHelmet helmet;
+    private Helmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;
     private double speed;
@@ -34,13 +31,14 @@ public class Hero {
     public ImageView getHero() {
         return Hero;
     }
-
+    String chosenHelmet;
 
     public void setHero(ImageView hero) {
         Hero = hero;
     }
 
-    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt){
+    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet){
+        this.chosenHelmet = chosenHelmet;
         this.deathview = new ImageView(new Image(new File(deathpath).toURI().toString()));
         deathview.setFitHeight(600);
         deathview.setFitWidth(800);
@@ -52,8 +50,8 @@ public class Hero {
         this.sword = new Sword();
         this.lance = new Lance();
         this.currCoins = new ArrayList<>();
-        helmet = new pandaHelmet(anchorPane, position, width, height);
-        Hero = helmet.getPandaHelmet();
+        helmet = new Helmet(anchorPane, position, width, height, chosenHelmet);
+        Hero = helmet.getHelmet();
         anchorPane.getChildren().add(Hero);
         this.speed = speed;
         scoreboard = new Text();

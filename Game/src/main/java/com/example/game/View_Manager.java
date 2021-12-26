@@ -1,15 +1,19 @@
 package com.example.game;
 
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -22,8 +26,11 @@ public class View_Manager {
     private final Stage mainStage;
     private final ArrayList<MediaPlayer> players;
     private MediaView view;
-
+    private final AnchorPane helmetChooseMenu;
+    private String helmetChosen;
     View_Manager(Stage stage) {
+        this.helmetChosen = "Panda";
+        helmetChooseMenu = HelmetChoices();
         players = new ArrayList<>();
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane,800,600);
@@ -85,6 +92,12 @@ public class View_Manager {
         exit.setLayoutX(700);
         exit.setLayoutY(50);
         mainPane.getChildren().add(exit);
+        button2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                mainPane.getChildren().add(helmetChooseMenu);
+            }
+        });
     }
 
     public AnchorPane getMainPane() {
@@ -120,5 +133,64 @@ public class View_Manager {
         }
         mainPane.getChildren().remove(view);
         mainStage.show();
+    }
+
+    public void openMenu(GoogleButton googleButton){
+
+    }
+
+    private AnchorPane HelmetChoices() {
+        AnchorPane HelmetChoices = new AnchorPane();
+        HelmetChoices.setPrefHeight(400);
+        HelmetChoices.setPrefWidth(400);
+        HelmetChoices.setLayoutX(250);
+        HelmetChoices.setLayoutY(150);
+        String bg1 = "src/main/resources/com/example/game/images/resultmenu.png";
+        Image bg = new Image(new File(bg1).toURI().toString(),300,300,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
+        HelmetChoices.setBackground(new Background(image));
+        //.................................................
+        Text sometext = new Text();
+        sometext.setText("Choose Your Helmet");
+        sometext.setFont(Font.font ("Verdana", 20));
+        sometext.setFill(Color.WHITE);
+        sometext.setX(75);
+        sometext.setY(100);
+        HelmetChoices.getChildren().add(sometext);
+        //
+        HelmetButton Loki = new HelmetButton("Loki", 85, 100);
+        HelmetButton Angel = new HelmetButton("Angel", 175, 100);
+        HelmetButton Panda = new HelmetButton("Panda", 85, 170);
+        HelmetButton Jotun = new HelmetButton("Jotun", 175, 170);
+        HelmetChoices.getChildren().add(Loki);
+        HelmetChoices.getChildren().add(Angel);
+        HelmetChoices.getChildren().add(Panda);
+        HelmetChoices.getChildren().add(Jotun);
+        Loki.setOnMouseClicked(mouseEvent -> {
+            Loki.setactive();
+            Angel.setinactive();
+            Panda.setinactive();
+            Jotun.setinactive();
+        });
+        Angel.setOnMouseClicked(mouseEvent -> {
+            Angel.setactive();
+            Loki.setinactive();
+            Panda.setinactive();
+            Jotun.setinactive();
+        });
+        Panda.setOnMouseClicked(mouseEvent -> {
+            Panda.setactive();
+            Loki.setinactive();
+            Angel.setinactive();
+            Jotun.setinactive();
+        });
+        Jotun.setOnMouseClicked(mouseEvent -> {
+            Jotun.setactive();
+            Loki.setinactive();
+            Panda.setinactive();
+            Angel.setinactive();
+        });
+        return HelmetChoices;
+
     }
 }
