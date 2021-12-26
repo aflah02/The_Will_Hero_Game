@@ -1,29 +1,40 @@
 import cv2
 import numpy as np
 import pyautogui
-from win32api import GetSystemMetrics
-import time
+import pygetwindow as gw
 import sys
-#Take resolution from system automatically
-print("In Python Script")
-w = GetSystemMetrics(0)
-h =  GetSystemMetrics(1)
-SCREEN_SIZE = (w,h)
-fourcc = cv2.VideoWriter_fourcc(*"XVID")
-out = cv2.VideoWriter("C:/Users/ASUS/Desktop/The_Will_Hero_Game/Game/src/main/java/com/example/game/recording.mp4", fourcc, 20.0, (SCREEN_SIZE))
-tim = time.time()
-tp = int(sys.argv[1])
 
-# tp = int(input("Tyoe"))
-tp = tp+tp
-f = tim+tp
-while True:
-    img = pyautogui.screenshot()
+# the window name, e.g "notepad", "Chrome", etc.
+window_name = sys.argv[1]
+
+# define the codec
+fourcc = cv2.VideoWriter_fourcc(*"XVID")
+# frames per second
+fps = 50.0
+# the time you want to record in seconds
+record_seconds = 10
+# search for the window, getting the first matched window with the title
+w = gw.getWindowsWithTitle(window_name)[0]
+# activate the window
+w.activate()
+# create the video write object
+out = cv2.VideoWriter("src/main/java/com/example/game/output.avi", fourcc, fps, tuple(w.size))
+
+for i in range(int(record_seconds * fps)):
+    # make a screenshot
+    img = pyautogui.screenshot(region=(w.left, w.top, w.width, w.height))
+    # convert these pixels to a proper numpy array to work with OpenCV
     frame = np.array(img)
+    # convert colors from BGR to RGB
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # write the frame
     out.write(frame)
-    tu = time.time()
-    if tu>f:
+    # show the frame
+    # cv2.imshow("screenshot", frame)
+    # if the user clicks q, it exits
+    if cv2.waitKey(1) == ord("q"):
         break
+
+# make sure everything is closed when exited
 cv2.destroyAllWindows()
 out.release()

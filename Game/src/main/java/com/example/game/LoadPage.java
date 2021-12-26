@@ -52,9 +52,8 @@ public class LoadPage {
     static int RecordingLength;
     Long startTime;
     LoadPage(Stage stage) throws IOException, InterruptedException {
-
         RecordingLength = 5;
-        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "40"};
+        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
         Process p = Runtime.getRuntime().exec(cmd);
         System.out.println(p);
         System.out.println("hello");
