@@ -39,5 +39,6 @@ public abstract class Chest extends Game_Objects{
         };
         animation.play();
         animation.setCycleCount(1);
+
     }
 }

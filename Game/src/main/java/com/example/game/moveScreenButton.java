@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class moveScreenButton extends Button {
+    private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     ArrayList<Island> listOfIslands;
     ArrayList<Game_Objects> listOfGameObjects;
     Hero hero;
@@ -28,11 +29,12 @@ public class moveScreenButton extends Button {
         this.setLayoutX(x);
         this.setLayoutY(y);
         setText("");
-        setPrefHeight(50);
-        setPrefWidth(50);
+        setPrefHeight(600);
+        setPrefWidth(800);
         initialisebutton();
         this.hero = player;
         this.score = 0;
+        this.setStyle(STYLE);
     }
 
     private void initialisebutton(){

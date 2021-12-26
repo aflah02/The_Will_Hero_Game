@@ -4,6 +4,10 @@ import javafx.scene.image.ImageView;
 
 public class Boss_Orc extends Orc{
 
+    Boss_Orc(){
+        super(null);
+    }
+
     private double speed,initpos;
     private Island islandofResidence;
     private ImageView BossOrc;

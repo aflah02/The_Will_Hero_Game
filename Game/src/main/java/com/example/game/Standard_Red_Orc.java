@@ -2,6 +2,7 @@ package com.example.game;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 
@@ -32,7 +33,8 @@ public class Standard_Red_Orc extends Orc{
         this.islandofResidence = island;
     }
 
-    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
+    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound){
+        super(diesound);
         createImage();
         this.speed = speed;
         standardRedOrc.setX(position.getX());

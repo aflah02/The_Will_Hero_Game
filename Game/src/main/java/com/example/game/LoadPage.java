@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class LoadPage {
     static final int islandLocationfromTopofScreen = 450;
-    private static final double MAX_FALLING_HEIGHT = 800;
+    private static final double MAX_FALLING_HEIGHT = 600;
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
     private PauseButton pauseButton;
@@ -43,9 +43,11 @@ public class LoadPage {
     private final ArrayList<Island> islands;
     private ImageView sword,lance;
     private final ArrayList<MediaPlayer> players;
-    private final MediaPlayer orcjump;
-    private final MediaPlayer herojump;
+    private final MediaPlayer orcjump,orcdie;
+    private final MediaPlayer herojump,herodie,herorevive;
+    private final MediaPlayer tntburst , weaponchestsound , coincchestsound;
     int score;
+    private Button pause,start,move;
     private WeaponButton swordbutton,lancebutton;
     static int RecordingLength;
     Long startTime;
@@ -58,7 +60,7 @@ public class LoadPage {
         System.out.println("hello");
         this.startTime = java.time.Instant.now().getEpochSecond();
         players = new ArrayList<>();
-        String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/herojump.wav";
+        String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/jump.mp3";
         Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
         herojump = new MediaPlayer(heroJumpingAudio);
         MediaView herojumpview = new MediaView(herojump);
@@ -73,6 +75,62 @@ public class LoadPage {
         this.stage = stage;
         newpane = null;
         mainPane = new AnchorPane();
+        //............................
+        String audiopath1 = "src/main/resources/com/example/game/audios/chestcollect.mp3";
+        Media  media1= new Media(new File(audiopath1).toURI().toString());
+        MediaPlayer player1 = new MediaPlayer(media1);
+        MediaView coinchestsound = new MediaView(player1);
+        player1.setVolume(0.4);
+        player1.setCycleCount(1);
+        this.coincchestsound = player1;
+        mainPane.getChildren().add(coinchestsound);
+        String audiopath2 = "src/main/resources/com/example/game/audios/chestopen.mp3";
+        Media  media2= new Media(new File(audiopath2).toURI().toString());
+        MediaPlayer player2 = new MediaPlayer(media2);
+        this.weaponchestsound = player2;
+        MediaView weaponchestsound = new MediaView(player2);
+        player2.setVolume(0.4);
+        player2.setCycleCount(1);
+        mainPane.getChildren().add(weaponchestsound);
+        String audiopath3 = "src/main/resources/com/example/game/audios/herodie.mp3";
+        Media  media3= new Media(new File(audiopath3).toURI().toString());
+        MediaPlayer player3 = new MediaPlayer(media3);
+        this.herodie = player3;
+        MediaView herodiesound = new MediaView(player3);
+        player3.setVolume(0.4);
+        player3.setCycleCount(1);
+        mainPane.getChildren().add(herodiesound);
+        String audiopath4 = "src/main/resources/com/example/game/audios/herorevive.mp3";
+        Media  media4= new Media(new File(audiopath4).toURI().toString());
+        MediaPlayer player4 = new MediaPlayer(media4);
+        this.herorevive = player4;
+        MediaView herorevivesound = new MediaView(player4);
+        player4.setVolume(0.4);
+        player4.setCycleCount(1);
+        mainPane.getChildren().add(herorevivesound);
+        String audiopath5 = "src/main/resources/com/example/game/audios/orcdie.mp3";
+        Media  media5= new Media(new File(audiopath5).toURI().toString());
+        MediaPlayer player5 = new MediaPlayer(media5);
+        this.orcdie = player5;
+        MediaView orcdiesound = new MediaView(player5);
+        player5.setVolume(0.4);
+        player5.setCycleCount(1);
+        mainPane.getChildren().add(orcdiesound);
+        String audiopath6 = "src/main/resources/com/example/game/audios/tntburst.mp3";
+        Media  media6= new Media(new File(audiopath6).toURI().toString());
+        MediaPlayer player6 = new MediaPlayer(media6);
+        MediaView tntburstsound = new MediaView(player6);
+        player6.setVolume(0.4);
+        player6.setCycleCount(1);
+        this.tntburst = player6;
+        mainPane.getChildren().add(tntburstsound);
+        players.add(tntburst);
+        players.add(herodie);
+        players.add(herorevive);
+        players.add(orcdie);
+        players.add(this.weaponchestsound);
+        players.add(coincchestsound);
+        //............................
         mainScene = new Scene(mainPane,800,600);
         mainPane.getChildren().add(herojumpview);
         mainPane.getChildren().add(orcjumpview);
@@ -98,7 +156,6 @@ public class LoadPage {
 
             }
         });
-
         lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -113,33 +170,36 @@ public class LoadPage {
         players.add(orcjump);
         newpane = pauseMenu();
         abyssPane = reviveMenu();
-        mainPane.getChildren().add(swordbutton);
-        mainPane.getChildren().add(lancebutton);
         String score = Integer.toString(0);
         lancet.setText(score);
         lancet.setFont(Font.font ("Verdana", 10));
         lancet.setFill(Color.YELLOW);
         lancet.setX(60);
         lancet.setY(570);
-        mainPane.getChildren().add(lancet);
+
         score = Integer.toString(0);
         swordt.setText(score);
         swordt.setFont(Font.font ("Verdana", 10));
         swordt.setFill(Color.YELLOW);
         swordt.setX(135);
         swordt.setY(570);
-        mainPane.getChildren().add(swordt);
-        moveScreenButton moveScreenButton = new moveScreenButton(500, 50, islands, gameObjects, hero, startTime);
-        mainPane.getChildren().add(moveScreenButton);
+        moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
+        this.move = moveScreenButton;
         mainPane.getChildren().remove(hero.getHero());
         mainPane.getChildren().add(hero.getHero());
         saveGameDataToFile(new File("SaveFiles/save.ser"));
+        mainPane.getChildren().add(move);
+        mainPane.getChildren().add(pause);
+        mainPane.getChildren().add(swordbutton);
+        mainPane.getChildren().add(lancebutton);
+        mainPane.getChildren().add(lancet);
+        mainPane.getChildren().add(swordt);
     }
     private AnchorPane pauseMenu(){
         pauseButton = new PauseButton();
+        this.pause = pauseButton;
         pauseButton.setLayoutX(400);
         pauseButton.setLayoutY(20);
-        mainPane.getChildren().add(pauseButton);
         AnchorPane menu = new AnchorPane();
         menu.setPrefHeight(200);
         menu.setPrefWidth(200);
@@ -150,6 +210,7 @@ public class LoadPage {
         BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
         menu.setBackground(new Background(image));
         ResumeButton resume = new ResumeButton();
+        this.start = resume;
         resume.setLayoutX(65);
         resume.setLayoutY(100);
         menu.getChildren().add(resume);
@@ -176,20 +237,28 @@ public class LoadPage {
 
     private AnchorPane reviveMenu(){
         AnchorPane Menu = new AnchorPane();
-        Menu.setPrefHeight(50);
-        Menu.setPrefWidth(100);
+        Menu.setPrefHeight(100);
+        Menu.setPrefWidth(200);
         Menu.setLayoutX(300);
-        Menu.setLayoutY(350);
-        String bg1 = "src/main/resources/com/example/game/images/GradientBackground.jpg";
-        Image bg = new Image(new File(bg1).toURI().toString(),100,50,false,true);
-        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,null);
-        Menu.setBackground(new Background(image));
+        Menu.setLayoutY(200);
+        String bg1 = "src/main/resources/com/example/game/images/saveme.png";
+        Image bg = new Image(new File(bg1).toURI().toString());
+        ImageView background = new ImageView(bg);
+        background.setFitHeight(100);
+        background.setFitWidth(200);
+        background.setX(0);
+        background.setY(0);
+        Menu.getChildren().add(background);
         Button end_button = new Button();
-        end_button.setText("Finish");
-        end_button.setMinHeight(25);
+        end_button.setMinHeight(30);
         end_button.setMinWidth(50);
-        String Styleend = "-fx-background-color:RED; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
+        String Styleend = "-fx-background-color:RED; -fx-background-size: cover;-fx-border-color: white; -fx-border-style: solid; -fx-border-width: 3;";
+        String buttonimg = "src/main/resources/com/example/game/images/danger.png";
         end_button.setStyle(Styleend);
+        ImageView buttonimage = new ImageView(new File(buttonimg).toURI().toString());
+        buttonimage.setFitWidth(50);
+        buttonimage.setFitHeight(30);
+        end_button.setGraphic(buttonimage);
         end_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -198,19 +267,29 @@ public class LoadPage {
                 mainPane.getChildren().add(resultmenu());
             }
         });
-        end_button.setLayoutX(0);
-        end_button.setLayoutY(12.5);
+        end_button.setLayoutX(20);
+        end_button.setLayoutY(50);
         //New Button Revive_Button to be made TT_TT;
         Button revive_button = new Button();
-        revive_button.setText("Revive Button");
-        revive_button.setMinHeight(25);
+        revive_button.setMinHeight(30);
         revive_button.setMinWidth(50);
-        String Stylerevive = "-fx-background-color:GREEN; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
+        String Stylerevive = "-fx-background-color:#9396FF; -fx-background-size: cover;-fx-border-color: white; -fx-border-style: solid; -fx-border-width: 3;";
+        String buttonimg2 = "src/main/resources/com/example/game/images/revivebutton.png";
         revive_button.setStyle(Stylerevive);
+        ImageView buttonimage2 = new ImageView(new File(buttonimg2).toURI().toString());
+        buttonimage2.setFitWidth(50);
+        buttonimage2.setFitHeight(30);
+        revive_button.setGraphic(buttonimage2);
+        revive_button.setLayoutX(110);
+        revive_button.setLayoutY(50);
         revive_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                System.out.println("Player Revive");
+                pause.setDisable(false);
+                start.setDisable(false);
+                move.setDisable(false);
+                lancebutton.setDisable(false);
+                swordbutton.setDisable(false);
                 mainPane.getChildren().remove(Menu);
                 Position heroposition = new Position(75,hero.getHero().getY());
                 Island safeIsland = getsafeisland(heroposition,islands,hero.getHero().getFitHeight(), hero.getHero().getFitWidth());
@@ -218,6 +297,8 @@ public class LoadPage {
                     mainPane.getChildren().add(resultmenu());
                 }
                 else{
+
+                    hero.removecoins(10);
                     hero.setRevived(true);
                     hero.revivehero();
                     revive(safeIsland);
@@ -225,8 +306,7 @@ public class LoadPage {
                 }
             }
         });
-        revive_button.setLayoutX(50);
-        revive_button.setLayoutY(12.5);
+
         Menu.getChildren().add(end_button);
         Menu.getChildren().add(revive_button);
         return Menu;
@@ -276,19 +356,19 @@ public class LoadPage {
         Result_Menu.getChildren().add(scoreboard);
         //................................................
         Exit_Button end_button = new Exit_Button(this.stage);
-        end_button.setLayoutX(40);
-        end_button.setLayoutY(210);
+        end_button.setLayoutX(50);
+        end_button.setLayoutY(225);
         //...................................
         Homebutton home = new Homebutton(stage);
-        home.setLayoutX(210);
-        home.setLayoutY(210);
+        home.setLayoutX(190);
+        home.setLayoutY(225);
         Result_Menu.getChildren().add(home);
 
         //////////////////////////
         Result_Menu.getChildren().add(end_button);
         New_Game_Button New_Game = new New_Game_Button(this.stage);
-        New_Game.setLayoutX(100);
-        New_Game.setLayoutY(190);
+        New_Game.setLayoutX(115);
+        New_Game.setLayoutY(220);
         Result_Menu.getChildren().add(New_Game);
         return Result_Menu;
     }
@@ -327,7 +407,6 @@ public class LoadPage {
                 generateIslandObjects(island, islandPosition, 3);
             }
         }
-
     }
 
     private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
@@ -338,32 +417,32 @@ public class LoadPage {
             String objectChosen = gameObjects[rand.nextInt(gameObjects.length)];
             switch (objectChosen) {
                 case "TNT" -> {
-                    TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 70, 70, 0.4, island);
+                    TNT tnt = new TNT(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 70, 70, 0.4, island,tntburst);
                     placedSoFar++;
                     this.gameObjects.add(tnt);
                 }
                 case "CoinChest" -> {
-                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, island);
+                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, island,coincchestsound);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "Standard_Green_Orc" -> {
-                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 70, 60, ((Math.random()*(0.5)) + 0.7), island);
+                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 100), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
                     placedSoFar++;
                     this.gameObjects.add(greenOrc);
                 }
                 case "Standard_Red_Orc" -> {
-                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 50), 60, 60, ((Math.random()*(0.5)) + 0.7), island);
+                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() -100), 60, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
                     placedSoFar++;
                     this.gameObjects.add(redOrc);
                 }
                 case "WeaponChestLance" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Lance", island,this.lancebutton,this.swordbutton);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Lance", island,this.lancebutton,this.swordbutton,weaponchestsound);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "WeaponChestSword" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Sword", island,this.swordbutton,this.lancebutton);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Sword", island,this.swordbutton,this.lancebutton,weaponchestsound);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
@@ -377,9 +456,9 @@ public class LoadPage {
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             for (Game_Objects game_object: this.gameObjects){
                 if (game_object instanceof Orc){
-//                    ((Orc) game_object).setIslandofResidence(getIslandforOrc(((Orc) game_object), this.islands,
-//                            game_object.getImageViewHeight(), game_object.getImageViewWidth()));
-//                    System.out.println(((Orc) game_object).getIslandofResidence());
+                    ((Orc) game_object).setIslandofResidence(getIslandforOrc(((Orc) game_object), this.islands,
+                            game_object.getImageViewHeight(), game_object.getImageViewWidth()));
+                    //System.out.println(((Orc) game_object).getIslandofResidence());
                     moveOrc((Orc) game_object , ((Orc) game_object).getIslandofResidence());
 //                    System.out.println();
                 }
@@ -407,30 +486,46 @@ public class LoadPage {
     }
 
     private void tntbursting(TNT game_object){
-        double TNT_start_X_range = game_object.getPosition().getX();
-        double TNT_start_Y_range = game_object.getPosition().getY();
+        double TNT_start_X_range = game_object.getImage().getX();
+        double TNT_start_Y_range = game_object.getImage().getY();
         double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight();
         double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth();
         if(hero.getHero().getX() + hero.getHero().getFitWidth() > TNT_start_X_range && hero.getHero().getX() + hero.getHero().getFitWidth() < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
-                hero.die(mainPane,abyssPane,resultmenu(),time);
+                killhero();
             }
             else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
-                hero.die(mainPane,abyssPane,resultmenu(),time);
+                killhero();
             }
         }
         else if(hero.getHero().getX() > TNT_start_X_range && hero.getHero().getX()  < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
-                hero.die(mainPane,abyssPane,resultmenu(),time);
+                killhero();
             }
             else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
-                hero.die(mainPane,abyssPane,resultmenu(),time);
+                killhero();
             }
         }
         for(Game_Objects object : this.gameObjects){
             if(object instanceof Orc){
-                //check Orc positions and kill it in similar fashion to Hero
+                Orc orc = (Orc) object;
+                if(orc.getOrc().getX() + orc.getOrc().getFitWidth() > TNT_start_X_range && orc.getOrc().getX() + orc.getOrc().getFitWidth() < TNT_end_X_range) {
+                    if (orc.getOrc().getY() + orc.getOrc().getFitHeight() > TNT_start_Y_range && orc.getOrc().getY() + orc.getOrc().getFitHeight() < TNT_end_Y_range) {
+                        orc.animate(0);
+                    } else if (orc.getOrc().getY() > TNT_start_Y_range && orc.getOrc().getY() < TNT_end_Y_range) {
+                        orc.animate(0);
+                    }
+                }
+                else if(orc.getOrc().getX() > TNT_start_X_range && orc.getOrc().getX()  < TNT_end_X_range){
+                    if(orc.getOrc().getY() + orc.getOrc().getFitHeight() > TNT_start_Y_range && orc.getOrc().getY() + orc.getOrc().getFitHeight() < TNT_end_Y_range){
+                        orc.animate(0);
+                    }
+                    else if(orc.getOrc().getY() > TNT_start_Y_range && orc.getOrc().getY() < TNT_end_Y_range){
+                        orc.animate(0);
+                    }
+                }
             }
+
         }
     }
     private void tntkill() {
@@ -439,6 +534,17 @@ public class LoadPage {
                 if(((TNT) game_object).getBurst()){
                     gameObjects.remove(game_object);
                     tntbursting((TNT) game_object);
+                    break;
+                }
+            }
+        }
+    }
+    private void orkkill(){
+        for (Game_Objects game_object: this.gameObjects){
+            if(game_object instanceof Orc){
+                if(((Orc) game_object).isDead()){
+                    mainPane.getChildren().remove(((Orc) game_object).getOrc());
+                    gameObjects.remove(game_object);
                     break;
                 }
             }
@@ -483,6 +589,37 @@ public class LoadPage {
         return ansisland;
     }
 
+    private Game_Objects getobject(Position pos , ArrayList<Game_Objects> gameObjects, double height, double width){
+        double player_starting_x_coordinate = pos.getX();
+        double player_starting_y_coordinate = pos.getY();
+        double player_ending_x_coordinate = player_starting_x_coordinate + width;
+        double player_ending_y_coordinate = player_starting_y_coordinate + height;
+        Game_Objects ansobject = null;
+        for(Game_Objects object : gameObjects){
+            if(object instanceof Orc){
+                Orc orcobj = (Orc) object;
+                double Orc_h = orcobj.getOrc().getFitHeight();
+                double Orc_w = orcobj.getOrc().getFitWidth();
+                double Orc_starting_x_coordinate = orcobj.getOrc().getX();
+                double Orc_starting_y_coordinate = orcobj.getOrc().getY();
+                double Orc_ending_x_coordinate = Orc_starting_x_coordinate + Orc_w;
+                double Orc_ending_y_coordinate = Orc_starting_y_coordinate + Orc_h;
+                if(Orc_starting_y_coordinate + 10 > player_ending_y_coordinate){
+                    if(Orc_starting_x_coordinate <=player_ending_x_coordinate-10 && Orc_ending_x_coordinate>=player_starting_x_coordinate+10){
+                        ansobject = orcobj;
+                    }
+                }
+            }
+
+        }
+        /*
+        if(ansisland==null){
+            System.out.println("Setting this island null");
+        }
+        */
+        return ansobject;
+    }
+
     private Island getIslandforOrc(Orc orc ,ArrayList<Island> islands, double height, double width){
         double orc_starting_x_coordinate = orc.getOrc().getX();
         double orc_starting_y_coordinate = orc.getOrc().getY();
@@ -512,6 +649,17 @@ public class LoadPage {
         }
         */
         return ansisland;
+    }
+
+    public void killhero(){
+        pause.setDisable(true);
+        start.setDisable(true);
+        move.setDisable(true);
+        lancebutton.setDisable(true);
+        swordbutton.setDisable(true);
+        herodie.play();
+        herodie.seek(Duration.ZERO);
+        hero.die(mainPane,abyssPane,resultmenu(),time);
 
     }
 
@@ -546,6 +694,8 @@ public class LoadPage {
     }
 
     private void revive(Island safeIsland) {
+        herorevive.play();
+        herorevive.seek(Duration.ZERO);
         double xdiff = 75 - safeIsland.getIsland().getX();
         for(Island island: islands){
             island.setPosition(new Position(island.getPosition().getX()+xdiff, island.getPosition().getY()));
@@ -571,7 +721,7 @@ public class LoadPage {
         double hero_width = hero.getHero().getFitWidth();
         hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
         if(hero.getHero().getY()>600){
-            boolean isrevived = hero.die(mainPane,abyssPane,resultmenu(),time);
+             killhero();
         }
         Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
         //        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
@@ -585,30 +735,56 @@ public class LoadPage {
 //            mainPane.getChildren().add(abyssPane);
         }
         else {
+            Game_Objects orcbelow = getobject(hero.getPosition(), gameObjects, hero_height, hero_width);
+            if(orcbelow ==null){
+                double x,y;
+                double island_height;
+                double island_width,jump;
+                x = residence.getIsland().getX();
+                y = residence.getIsland().getY();
+                island_height = residence.getIsland().getFitHeight();
+                island_width = residence.getIsland().getFitWidth();
+                jump = 125;
+                if (hero.getHero().getY() - hero.getSpeed() + hero_height  >= y) {
+                    hero.getHero().setY(y - hero_height);
+                    double speed = hero.getSpeed();
+                    hero.setSpeed(-speed);
+                    herojump.play();
+                    herojump.seek(Duration.ZERO);
+                }
+                else if (hero.getHero().getY() - hero.getSpeed() + hero_height <= y - jump) {
+                    hero.getHero().setY(y - jump - hero_height);
+                    double speed = hero.getSpeed();
+                    hero.setSpeed(-speed);
+                }
+                else {
+                    hero.getHero().setY(hero.getHero().getY() - hero.getSpeed());
+                }
+            }
+            else{
+                double x,y;
+                double island_height;
+                double island_width,jump;
+                x = orcbelow.getImage().getX();
+                y = orcbelow.getImage().getY();
+                jump = 70;
+                if (hero.getHero().getY() - hero.getSpeed() + hero_height  >= y) {
+                    hero.getHero().setY(y - hero_height);
+                    double speed = hero.getSpeed();
+                    hero.setSpeed(-speed);
+                    herojump.play();
+                    herojump.seek(Duration.ZERO);
+                }
+                else if (hero.getHero().getY() - hero.getSpeed() + hero_height <= y - jump) {
+                    hero.getHero().setY(y - jump - hero_height);
+                    double speed = hero.getSpeed();
+                    hero.setSpeed(-speed);
+                }
+                else {
+                    hero.getHero().setY(hero.getHero().getY() - hero.getSpeed());
+                }
+            }
 
-            double x,y;
-            double island_height;
-            double island_width,jump;
-            x = residence.getIsland().getX();
-            y = residence.getIsland().getY();
-            island_height = residence.getIsland().getFitHeight();
-            island_width = residence.getIsland().getFitWidth();
-            jump = 125;
-            if (hero.getHero().getY() - hero.getSpeed() + hero_height  >= y) {
-                hero.getHero().setY(y - hero_height);
-                double speed = hero.getSpeed();
-                hero.setSpeed(-speed);
-                herojump.play();
-                herojump.seek(Duration.ZERO);
-            }
-            else if (hero.getHero().getY() - hero.getSpeed() + hero_height <= y - jump) {
-                hero.getHero().setY(y - jump - hero_height);
-                double speed = hero.getSpeed();
-                hero.setSpeed(-speed);
-            }
-            else {
-                hero.getHero().setY(hero.getHero().getY() - hero.getSpeed());
-            }
             hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
             for(Game_Objects gameobject : gameObjects){
                 if(check_collision(hero,gameobject)){
@@ -658,7 +834,8 @@ public class LoadPage {
                 double speed = Math.abs(orc.getSpeed());
                 orc.getOrc().setY(orc.getOrc().getY() + speed);
                 if (orc.getOrc().getY()>=MAX_FALLING_HEIGHT){
-                    mainPane.getChildren().remove(orc.getImage());
+                    //orc.animate(0);
+                    orc.setIsDead();
                 }
             }
             else{

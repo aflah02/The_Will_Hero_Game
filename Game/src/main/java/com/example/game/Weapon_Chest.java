@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -21,6 +22,7 @@ public class Weapon_Chest extends Chest{
     String path6 = "src/main/resources/com/example/game/images/chest6.png";
     String path7 = "src/main/resources/com/example/game/images/chest7.png";
     String path8 = "src/main/resources/com/example/game/images/chest8.png";
+    private MediaPlayer opensound;
     private final ImageView chest;
     private Position position;
     public String[] imagePaths;
@@ -50,7 +52,8 @@ public class Weapon_Chest extends Chest{
     private double speed;
     private WeaponButton button1, button2;
 
-    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2){
+    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2,MediaPlayer opensound){
+        this.opensound = opensound;
         this.button1 = button1;
         this.button2 = button2;
         this.isopen=false;
@@ -111,6 +114,8 @@ public class Weapon_Chest extends Chest{
     @Override
     public void collide(Hero hero) {
         if(!isopen){
+            opensound.play();
+            opensound.seek(Duration.ZERO);
             isopen = true;
             animateChest();
             hero.setWeapon(this.weapon);

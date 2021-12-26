@@ -21,13 +21,13 @@ public class New_Game_Button extends Button {
     New_Game_Button(Stage stage){
         this.stage = stage;
         setText("");
-        setPrefHeight(100);
-        setPrefWidth(100);
+        setPrefHeight(60);
+        setPrefWidth(60);
         setStyle(STYLE);
         initialisebutton();
         ImageView img = new ImageView(new File(path).toURI().toString());
-        img.setFitHeight(100);
-        img.setFitWidth(100);
+        img.setFitHeight(60);
+        img.setFitWidth(60);
         this.setGraphic(img);
     }
     private void click(){

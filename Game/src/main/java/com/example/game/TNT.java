@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -36,8 +37,10 @@ public class TNT extends gameObstacles{
     public String[] imagePaths;
     public ArrayList<Image> tntAnimations;
     private final ImageView TNTImageView;
+    private MediaPlayer burstsound;
 
-    TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence){
+    TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence,MediaPlayer burstsound){
+        this.burstsound = burstsound;
         this.isBurst = false;
         this.imagePaths = new String[]{path2, path3, path4, path5, path6, path7, path8, path9, path10};
         tntAnimations = new ArrayList<>();
@@ -55,7 +58,6 @@ public class TNT extends gameObstacles{
         anchorPane.getChildren().add(TNTImageView);
         this.position = position;
         this.islandofResidence = islandofResidence;
-
     }
 
     @Override
@@ -92,6 +94,8 @@ public class TNT extends gameObstacles{
                     Burst();
                 }
             });
+            burstsound.play();
+            burstsound.seek(Duration.ZERO);
             animation.setCycleCount(1);
             animation.play();
         }
@@ -146,7 +150,7 @@ public class TNT extends gameObstacles{
                 animateTNT(0);
             }
             else{
-                animateTNT(1);
+                animateTNT(2);
             }
         }
     }

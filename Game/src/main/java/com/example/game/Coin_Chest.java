@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -24,6 +25,7 @@ public class Coin_Chest extends Chest{
     String path5 = "src/main/resources/com/example/game/images/coinchest4.png";
     String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
     String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
+    private MediaPlayer chestopen;
     private final ImageView chest;
     private boolean  isopen;
     private Position position;
@@ -31,8 +33,8 @@ public class Coin_Chest extends Chest{
 
     Island islandOfResidence;
     private double speed;
-    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence){
-
+    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence,MediaPlayer chestopen){
+        this.chestopen = chestopen;
         coins = new ArrayList<>();
         int max = 80;
         int min = 10;
@@ -72,6 +74,8 @@ public class Coin_Chest extends Chest{
     @Override
     public void collide(Hero hero) {
         if(!isopen){
+            chestopen.play();
+            chestopen.seek(Duration.ZERO);
             isopen = true;
             animateChest();
             for(Coins coin: coins){

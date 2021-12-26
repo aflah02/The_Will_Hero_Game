@@ -204,11 +204,12 @@ public class Hero {
 
     public boolean die(AnchorPane mainpane,AnchorPane abyssmenu,AnchorPane resultmenu,Timeline time){
         time.pause();
-        if(this.isRevived==false){
+        if(!this.isRevived && this.currCoins.size()> 10 ){
             mainpane.getChildren().add(deathview);
             mainpane.getChildren().add(abyssmenu);
         }
         else{
+            isRevived=true;
             mainpane.getChildren().add(resultmenu);
         }
         return isRevived;
@@ -263,5 +264,15 @@ public class Hero {
 
     public Weapon getActiveWeapon() {
         return activeWeapon;
+    }
+
+    public void removecoins(int i) {
+        if(currCoins.size()<i){
+            return;
+        }
+        for(int x=i-1;x>=0;x--){
+            currCoins.remove(x);
+        }
+        updatecoins();
     }
 }
