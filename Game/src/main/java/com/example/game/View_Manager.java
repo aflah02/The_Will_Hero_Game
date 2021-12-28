@@ -94,6 +94,7 @@ public class View_Manager {
         mainPane.getChildren().add(exit);
         button2.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
+
             public void handle(MouseEvent mouseEvent) {
                 mainPane.getChildren().add(helmetChooseMenu);
             }
@@ -141,31 +142,33 @@ public class View_Manager {
 
     private AnchorPane HelmetChoices() {
         AnchorPane HelmetChoices = new AnchorPane();
-        HelmetChoices.setPrefHeight(400);
-        HelmetChoices.setPrefWidth(400);
-        HelmetChoices.setLayoutX(250);
-        HelmetChoices.setLayoutY(150);
-        String bg1 = "src/main/resources/com/example/game/images/resultmenu.png";
-        Image bg = new Image(new File(bg1).toURI().toString(),300,300,false,true);
+        HelmetChoices.setPrefHeight(600);
+        HelmetChoices.setPrefWidth(800);
+        HelmetChoices.setLayoutX(0);
+        HelmetChoices.setLayoutY(0);
+        String bg1 = "src/main/resources/com/example/game/images/helmetwindow.png";
+        Image bg = new Image(new File(bg1).toURI().toString(),800,600,false,true);
         BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
         HelmetChoices.setBackground(new Background(image));
         //.................................................
         Text sometext = new Text();
         sometext.setText("Choose Your Helmet");
-        sometext.setFont(Font.font ("Verdana", 20));
+        sometext.setFont(Font.font ("Verdana", 50));
         sometext.setFill(Color.WHITE);
-        sometext.setX(75);
-        sometext.setY(100);
+        sometext.setX(160);
+        sometext.setY(170);
         HelmetChoices.getChildren().add(sometext);
         //
-        HelmetButton Loki = new HelmetButton("Loki", 85, 100);
-        HelmetButton Angel = new HelmetButton("Angel", 175, 100);
-        HelmetButton Panda = new HelmetButton("Panda", 85, 170);
-        HelmetButton Jotun = new HelmetButton("Jotun", 175, 170);
+        HelmetButton Panda = new HelmetButton("Panda", 40, 200);
+        HelmetButton Angel = new HelmetButton("Angel", 230, 200);
+        HelmetButton Loki = new HelmetButton("Loki", 420, 200);
+        HelmetButton Jotun = new HelmetButton("Jotun", 610, 200);
         HelmetChoices.getChildren().add(Loki);
         HelmetChoices.getChildren().add(Angel);
         HelmetChoices.getChildren().add(Panda);
         HelmetChoices.getChildren().add(Jotun);
+        this.helmetChosen = "Panda";
+        Panda.setactive();
         Loki.setOnMouseClicked(mouseEvent -> {
             this.helmetChosen = "Loki";
             Loki.setactive();
@@ -195,12 +198,16 @@ public class View_Manager {
             Angel.setinactive();
         });
         CloseMenuButton closeMenuButton = new CloseMenuButton();
-        closeMenuButton.setLayoutX(150);
-        closeMenuButton.setLayoutY(50);
+        closeMenuButton.setLayoutX(725);
+        closeMenuButton.setLayoutY(10);
         closeMenuButton.setOnMouseClicked(mouseEvent -> {
             mainPane.getChildren().remove(helmetChooseMenu);
         });
         HelmetChoices.getChildren().add(closeMenuButton);
+        StartButton button = new StartButton(this, helmetChosen);
+        button.setLayoutX(345);
+        button.setLayoutY(435);
+        HelmetChoices.getChildren().add(button);
         return HelmetChoices;
     }
 }

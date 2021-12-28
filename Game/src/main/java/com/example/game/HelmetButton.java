@@ -28,35 +28,34 @@ public class HelmetButton extends Button {
         this.setLayoutX(x);
         this.setLayoutY(y);
         setText("");
-        setPrefHeight(50);
-        setPrefWidth(50);
+        setPrefHeight(200);
+        setPrefWidth(150);
         setStyle(STYLE);
         initializeButton();
         ImageView img;
         switch (HelmetName) {
             case "Jotun" -> {
                 img = new ImageView(new File(jotunHelmetImage).toURI().toString());
-                img.setFitHeight(40);
-                img.setFitWidth(7);
-                img.setRotate(30);
+                img.setFitHeight(100);
+                img.setFitWidth(100);
                 type = 1;
             }
             case "Angel" -> {
                 img = new ImageView(new File(angelHelmetImage).toURI().toString());
-                img.setFitHeight(40);
-                img.setFitWidth(20);
+                img.setFitHeight(100);
+                img.setFitWidth(100);
                 type = 2;
             }
             case "Panda" -> {
                 img = new ImageView(new File(pandaHelmetImage).toURI().toString());
-                img.setFitHeight(40);
-                img.setFitWidth(20);
+                img.setFitHeight(100);
+                img.setFitWidth(100);
                 type = 3;
             }
             default -> {
                 img = new ImageView(new File(lokiHelmetImage).toURI().toString());
-                img.setFitHeight(40);
-                img.setFitWidth(20);
+                img.setFitHeight(100);
+                img.setFitWidth(100);
                 type = 4;
             }
         }
