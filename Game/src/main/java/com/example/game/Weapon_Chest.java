@@ -156,5 +156,10 @@ public class Weapon_Chest extends Chest{
         this.chest.setY(v);
     }
 
+    @Override
+    public Boolean getOpen(){
+        return this.isopen;
+    }
+
 
 }

@@ -135,4 +135,8 @@ public class Coin_Chest extends Chest{
     public double getImageViewHeight() {
         return chest.getFitHeight();
     }
+    @Override
+    public Boolean getOpen(){
+        return this.isopen;
+    }
 }
