@@ -202,6 +202,5 @@ public class View_Manager {
         });
         HelmetChoices.getChildren().add(closeMenuButton);
         return HelmetChoices;
-
     }
 }
