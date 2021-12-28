@@ -92,19 +92,22 @@ public class Island implements Serializable {
         this.initial_position.setX(position.getX());
         this.position = position;
         Island.setX(position.getX());
-        Island.setY(position.getY());
+        this.setPositionY(position.getY());
         treeImageView.setX(position.getX()+70);
+        ruinImageView.setX(position.getX()+250);
+        spruceImageView.setX(position.getX()+275);
+        /*
+        Island.setY(position.getY());
         treeImageView.setY(position.getY()-250);
         treeImageView.setFitHeight(200);
         treeImageView.setFitWidth(70);
-        ruinImageView.setX(position.getX()+250);
         ruinImageView.setY(position.getY()-100);
         ruinImageView.setFitHeight(150);
         ruinImageView.setFitWidth(30);
-        spruceImageView.setX(position.getX()+275);
         spruceImageView.setY(position.getY()-200);
         spruceImageView.setFitHeight(200);
         spruceImageView.setFitWidth(50);
+        */
     }
 
     public void setSpeed(double speed) {

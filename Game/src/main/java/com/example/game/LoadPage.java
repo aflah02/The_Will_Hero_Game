@@ -334,7 +334,7 @@ public class LoadPage {
         scoreboard.setText(heroscore);
         scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.WHITE);
-        scoreboard.setX(140);
+        scoreboard.setX(130);
         scoreboard.setY(130);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);
@@ -350,7 +350,7 @@ public class LoadPage {
         scoreboard.setText(heroscore);
         scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.GOLD);
-        scoreboard.setX(140);
+        scoreboard.setX(130);
         scoreboard.setY(190);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);

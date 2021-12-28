@@ -108,7 +108,7 @@ public class moveScreenButton extends Button {
         obj_end_X = obj_start_X + obj_width;
         obj_start_Y = game_objects.getImage().getY();
         obj_end_Y = obj_start_Y + obj_height;
-        if((hero_start_Y <= obj_end_Y && hero_start_Y  >= obj_start_Y) || (hero_end_Y <= obj_end_Y && hero_end_Y >=obj_start_Y)){
+        if((hero_start_Y <= obj_end_Y) && (hero_end_Y <= obj_end_Y && hero_end_Y >=obj_start_Y)){
             if((hero_start_X <= obj_end_X && hero_start_X >=obj_start_X) || (hero_end_X <= obj_end_X && hero_end_X >=obj_start_X)){
                 if(game_objects instanceof Chest){
                     if(!((Chest) game_objects).getOpen()){
