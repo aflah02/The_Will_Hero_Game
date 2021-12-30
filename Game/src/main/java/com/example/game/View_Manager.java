@@ -99,6 +99,11 @@ public class View_Manager {
                 mainPane.getChildren().add(helmetChooseMenu);
             }
         });
+        //Record Button
+        RecordButton recordButton = new RecordButton();
+        recordButton.setLayoutX(550);
+        recordButton.setLayoutY(50);
+        mainPane.getChildren().add(recordButton);
     }
 
     public AnchorPane getMainPane() {
