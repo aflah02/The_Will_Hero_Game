@@ -148,7 +148,6 @@ public class LoadPage {
         this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
-
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -335,7 +334,7 @@ public class LoadPage {
         scoreboard.setText(heroscore);
         scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.WHITE);
-        scoreboard.setX(140);
+        scoreboard.setX(130);
         scoreboard.setY(130);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);
@@ -351,7 +350,7 @@ public class LoadPage {
         scoreboard.setText(heroscore);
         scoreboard.setFont(Font.font ("Verdana", 20));
         scoreboard.setFill(Color.GOLD);
-        scoreboard.setX(140);
+        scoreboard.setX(130);
         scoreboard.setY(190);
         Result_Menu.getChildren().add(sometext);
         Result_Menu.getChildren().add(scoreboard);

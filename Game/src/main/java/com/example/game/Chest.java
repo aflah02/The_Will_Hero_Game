@@ -11,9 +11,7 @@ public abstract class Chest extends Game_Objects{
     private Boolean isOpen;
     public ArrayList<Image> chestAnimations;
 
-    public Boolean getOpen() {
-        return isOpen;
-    }
+
 
     public void setOpen(Boolean open) {
         isOpen = open;
@@ -39,6 +37,6 @@ public abstract class Chest extends Game_Objects{
         };
         animation.play();
         animation.setCycleCount(1);
-
     }
+    public abstract Boolean getOpen();
 }
