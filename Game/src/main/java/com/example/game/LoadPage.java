@@ -58,6 +58,151 @@ public class LoadPage {
     static int RecordingLength;
     Long startTime;
     String HelmetName;
+    LoadPage(Stage stage, SaveFileReturn saveFileReturn, AnchorPane anchorPane) throws IOException {
+        PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
+        writer.print("");
+        writer.close();
+        this.player = saveFileReturn.player;
+        RecordingLength = 5;
+        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
+        Process p = Runtime.getRuntime().exec(cmd);
+        System.out.println(p);
+        System.out.println("hello");
+        this.startTime = java.time.Instant.now().getEpochSecond();
+        players = new ArrayList<>();
+        String heroJumpingAudioPath = "src/main/resources/com/example/game/audios/jump.mp3";
+        Media heroJumpingAudio = new Media(new File(heroJumpingAudioPath).toURI().toString());
+        herojump = new MediaPlayer(heroJumpingAudio);
+        MediaView herojumpview = new MediaView(herojump);
+        herojump.setVolume(0.4);
+        herojump.setCycleCount(1);
+        String orcJumpingAudioPath = "src/main/resources/com/example/game/audios/orcjump.mp3";
+        Media orcJumpingAudio = new Media(new File(orcJumpingAudioPath).toURI().toString());
+        orcjump = new MediaPlayer(orcJumpingAudio);
+        MediaView orcjumpview = new MediaView(orcjump);
+        orcjump.setVolume(0);
+        orcjump.setCycleCount(1);
+        this.stage = stage;
+        newpane = null;
+        mainPane = anchorPane;
+        //............................
+        String audiopath1 = "src/main/resources/com/example/game/audios/chestcollect.mp3";
+        Media  media1= new Media(new File(audiopath1).toURI().toString());
+        MediaPlayer player1 = new MediaPlayer(media1);
+        MediaView coinchestsound = new MediaView(player1);
+        player1.setVolume(0.4);
+        player1.setCycleCount(1);
+        this.coincchestsound = player1;
+        mainPane.getChildren().add(coinchestsound);
+        String audiopath2 = "src/main/resources/com/example/game/audios/chestopen.mp3";
+        Media  media2= new Media(new File(audiopath2).toURI().toString());
+        MediaPlayer player2 = new MediaPlayer(media2);
+        this.weaponchestsound = player2;
+        MediaView weaponchestsound = new MediaView(player2);
+        player2.setVolume(0.4);
+        player2.setCycleCount(1);
+        mainPane.getChildren().add(weaponchestsound);
+        String audiopath3 = "src/main/resources/com/example/game/audios/herodie.mp3";
+        Media  media3= new Media(new File(audiopath3).toURI().toString());
+        MediaPlayer player3 = new MediaPlayer(media3);
+        this.herodie = player3;
+        MediaView herodiesound = new MediaView(player3);
+        player3.setVolume(0.4);
+        player3.setCycleCount(1);
+        mainPane.getChildren().add(herodiesound);
+        String audiopath4 = "src/main/resources/com/example/game/audios/herorevive.mp3";
+        Media  media4= new Media(new File(audiopath4).toURI().toString());
+        MediaPlayer player4 = new MediaPlayer(media4);
+        this.herorevive = player4;
+        MediaView herorevivesound = new MediaView(player4);
+        player4.setVolume(0.4);
+        player4.setCycleCount(1);
+        mainPane.getChildren().add(herorevivesound);
+        String audiopath5 = "src/main/resources/com/example/game/audios/orcdie.mp3";
+        Media  media5= new Media(new File(audiopath5).toURI().toString());
+        MediaPlayer player5 = new MediaPlayer(media5);
+        this.orcdie = player5;
+        MediaView orcdiesound = new MediaView(player5);
+        player5.setVolume(0.4);
+        player5.setCycleCount(1);
+        mainPane.getChildren().add(orcdiesound);
+        String audiopath6 = "src/main/resources/com/example/game/audios/tntburst.mp3";
+        Media  media6= new Media(new File(audiopath6).toURI().toString());
+        MediaPlayer player6 = new MediaPlayer(media6);
+        MediaView tntburstsound = new MediaView(player6);
+        player6.setVolume(0.4);
+        player6.setCycleCount(1);
+        this.tntburst = player6;
+        mainPane.getChildren().add(tntburstsound);
+        players.add(tntburst);
+        players.add(herodie);
+        players.add(herorevive);
+        players.add(orcdie);
+        players.add(this.weaponchestsound);
+        players.add(coincchestsound);
+        //............................
+        mainScene = new Scene(mainPane,800,600);
+        mainPane.getChildren().add(herojumpview);
+        mainPane.getChildren().add(orcjumpview);
+        islands = saveFileReturn.islandArrayList;
+        gameObjects = saveFileReturn.gameObjectsArrayList;
+        String image = "src/main/resources/com/example/game/images/bg2.jpg";
+        ImageView background = new ImageView(new File(image).toURI().toString());
+        background.setFitHeight(600);
+        background.setFitWidth(800);
+        mainPane.getChildren().add(background);
+        Text lancet = new Text();
+        Text swordt = new Text();
+        this.hero = this.player.getHero();
+        this.swordbutton = new WeaponButton("Sword",25,525,hero);
+        this.lancebutton = new WeaponButton("Lance",100,525,hero);
+        swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                swordbutton.setactive();
+                lancebutton.setinactive();
+
+            }
+        });
+        lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                lancebutton.setactive();
+                swordbutton.setinactive();
+
+            }
+        });
+
+
+        players.add(herojump);
+        players.add(orcjump);
+        newpane = pauseMenu();
+        abyssPane = reviveMenu();
+        String score = Integer.toString(0);
+        lancet.setText(score);
+        lancet.setFont(Font.font ("Verdana", 10));
+        lancet.setFill(Color.YELLOW);
+        lancet.setX(60);
+        lancet.setY(570);
+
+        score = Integer.toString(0);
+        swordt.setText(score);
+        swordt.setFont(Font.font ("Verdana", 10));
+        swordt.setFill(Color.YELLOW);
+        swordt.setX(135);
+        swordt.setY(570);
+        moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
+        this.move = moveScreenButton;
+        mainPane.getChildren().remove(hero.getHero());
+        mainPane.getChildren().add(hero.getHero());
+        saveGameDataToFile(new File("SaveFiles/save.ser"));
+        mainPane.getChildren().add(move);
+        mainPane.getChildren().add(pause);
+        mainPane.getChildren().add(swordbutton);
+        mainPane.getChildren().add(lancebutton);
+        mainPane.getChildren().add(lancet);
+        mainPane.getChildren().add(swordt);
+    }
     LoadPage(Stage stage, String HelmetName) throws IOException, InterruptedException {
         PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
         writer.print("");

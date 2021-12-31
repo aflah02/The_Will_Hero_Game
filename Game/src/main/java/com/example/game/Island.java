@@ -151,4 +151,12 @@ public class Island implements Serializable {
     public double getIslandImageViewWidth(){
         return this.Island.getFitWidth();
     }
+
+    public String getName(){
+        return this.islandType;
+    }
+    @Override
+    public String toString() {
+        return "Island";
+    }
 }

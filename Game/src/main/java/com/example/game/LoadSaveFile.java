@@ -11,44 +11,30 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class LoadSaveFile {
-    private ArrayList<Game_Objects> tempGameObjectsStore;
-    private ArrayList<Island> tempIslandStore;
+    private final ArrayList<Object> store = new ArrayList<>();
     private final Game_Objects deserializedObj = null;
     private Player player;
     private Hero hero;
-    private MediaPlayer orcjump,orcdie;
-    private MediaPlayer herojump,herodie,herorevive;
-    private MediaPlayer tntburstsound , weaponchestsound , coinchestsound;
+    private MediaPlayer orcjump;
+    private MediaPlayer herojump;
     private WeaponButton swordbutton;
     private WeaponButton lancebutton;
 
-    private void deserialize(String fileName, int islandCount, int gameObjectCount) throws IOException, ClassNotFoundException {
+    public LoadSaveFile() {
+
+    }
+
+    private void deserialize(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream in = null;
-        tempGameObjectsStore = new ArrayList<>();
         in = new ObjectInputStream(new FileInputStream(fileName));
         try {
             Player deserializePlayer = (Player) in.readObject();
             player = new Player(deserializePlayer.getHero());
             hero = player.getHero();
-            int i = 0;
-
-            while (i < islandCount){
+            while(true) {
                 try{
-                    Island tmp = (Island) in.readObject();
-                    i++;
-                    this.tempIslandStore.add(tmp);
-                }catch (EOFException e) {
-                    break;
-                }catch (ClassCastException e) {
-                    System.out.println("Invalid Class Cast Exception");
-                }
-            }
-            int j = 0;
-            while(j < gameObjectCount) {
-                j++;
-                try{
-                    Game_Objects tmp = (Game_Objects) in.readObject();
-                    tempGameObjectsStore.add(tmp);
+                    Object tmp = in.readObject();
+                    store.add(tmp);
                 }catch (EOFException e) {
                     break;
                 }catch (ClassCastException e) {
@@ -61,7 +47,7 @@ public class LoadSaveFile {
         }
     }
 
-    public SaveFileReturn loadGameState(String fileName, AnchorPane mainPane, int islandCount, int gameObjectCount) throws IOException, ClassNotFoundException {
+    public SaveFileReturn loadGameState(String fileName, AnchorPane mainPane) throws IOException, ClassNotFoundException {
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -87,12 +73,10 @@ public class LoadSaveFile {
         MediaView coinchestsound = new MediaView(player1);
         player1.setVolume(0.4);
         player1.setCycleCount(1);
-        this.coinchestsound = player1;
         mainPane.getChildren().add(coinchestsound);
         String audiopath2 = "src/main/resources/com/example/game/audios/chestopen.mp3";
         Media  media2= new Media(new File(audiopath2).toURI().toString());
         MediaPlayer player2 = new MediaPlayer(media2);
-        this.weaponchestsound = player2;
         MediaView weaponchestsound = new MediaView(player2);
         player2.setVolume(0.4);
         player2.setCycleCount(1);
@@ -100,7 +84,6 @@ public class LoadSaveFile {
         String audiopath3 = "src/main/resources/com/example/game/audios/herodie.mp3";
         Media  media3= new Media(new File(audiopath3).toURI().toString());
         MediaPlayer player3 = new MediaPlayer(media3);
-        this.herodie = player3;
         MediaView herodiesound = new MediaView(player3);
         player3.setVolume(0.4);
         player3.setCycleCount(1);
@@ -108,7 +91,6 @@ public class LoadSaveFile {
         String audiopath4 = "src/main/resources/com/example/game/audios/herorevive.mp3";
         Media  media4= new Media(new File(audiopath4).toURI().toString());
         MediaPlayer player4 = new MediaPlayer(media4);
-        this.herorevive = player4;
         MediaView herorevivesound = new MediaView(player4);
         player4.setVolume(0.4);
         player4.setCycleCount(1);
@@ -116,7 +98,6 @@ public class LoadSaveFile {
         String audiopath5 = "src/main/resources/com/example/game/audios/orcdie.mp3";
         Media  media5= new Media(new File(audiopath5).toURI().toString());
         MediaPlayer player5 = new MediaPlayer(media5);
-        this.orcdie = player5;
         MediaView orcdiesound = new MediaView(player5);
         player5.setVolume(0.4);
         player5.setCycleCount(1);
@@ -127,37 +108,44 @@ public class LoadSaveFile {
         MediaView tntburstsound = new MediaView(player6);
         player6.setVolume(0.4);
         player6.setCycleCount(1);
-        this.tntburstsound = player6;
         mainPane.getChildren().add(tntburstsound);
         //.................
-        deserialize(fileName, islandCount, gameObjectCount);
+        deserialize(fileName);
         System.out.println(fileName);
         ArrayList<Game_Objects> gameObjectsList = new ArrayList<>();
         ArrayList<Island> islandList = new ArrayList<>();
-        for (Island island : tempIslandStore) {
-            islandList.add(new Island(island.getIslandType(), mainPane, island.getPosition(), (int) island.getIslandImageViewWidth(), (int) island.getIslandImageViewHeight(), island.getSpeed()));
-        }
-        for (Game_Objects obj : tempGameObjectsStore) {
-            if (obj.getName().equals("Green Orc")) {
-                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), obj.getSpeed(), obj.getIslandofResidence(),this.orcdie);
+        for (Object obj: store){
+            if (obj.toString().equals("Island")){
+                Island island = (Island)obj;
+                islandList.add(new Island(island.getIslandType(), mainPane, island.getPosition(), (int) island.getIslandImageViewWidth(), (int) island.getIslandImageViewHeight(), island.getSpeed()));
+            }
+            else if (obj.toString().equals("Green Orc")) {
+                Standard_Green_Orc standard_green_orc = (Standard_Green_Orc)obj;
+                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, standard_green_orc.getPosition(), (int) standard_green_orc.getImageViewWidth(), (int) standard_green_orc.getImageViewHeight(), standard_green_orc.getSpeed(), standard_green_orc.getIslandofResidence(), player5);
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("Red Orc")) {
-                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), obj.getSpeed(), obj.getIslandofResidence(),this.orcdie);
+            } else if (obj.toString().equals("Red Orc")) {
+                Standard_Red_Orc standard_red_orc = (Standard_Red_Orc)obj;
+                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, standard_red_orc.getPosition(), (int) standard_red_orc.getImageViewWidth(), (int) standard_red_orc.getImageViewHeight(), standard_red_orc.getSpeed(), standard_red_orc.getIslandofResidence(), player5);
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("TNT")) {
-                TNT s = new TNT(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), obj.getSpeed(), obj.getIslandofResidence(),this.tntburstsound);
+            } else if (obj.toString().equals("TNT")) {
+                TNT tnt = (TNT)obj;
+                TNT s = new TNT(mainPane, tnt.getPosition(), (int) tnt.getImageViewWidth(), (int) tnt.getImageViewHeight(), tnt.getSpeed(), tnt.getIslandofResidence(), player6);
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("Boss Orc")) {
+            } else if (obj.toString().equals("Boss Orc")) {
+                Boss_Orc Boss_Orc = (Boss_Orc)obj;
                 Boss_Orc s = new Boss_Orc();
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("Weapon Chest Sword")) {
-                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Sword", obj.getIslandofResidence(), swordbutton, lancebutton,this.weaponchestsound);
+            } else if (obj.toString().equals("Weapon Chest Sword")) {
+                Weapon_Chest weapon_chest = (Weapon_Chest)obj;
+                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), (int) weapon_chest.getImageViewWidth(), (int) weapon_chest.getImageViewHeight(), "Sword", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("Weapon Chest Lance")) {
-                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Lance", obj.getIslandofResidence(), swordbutton, lancebutton,this.weaponchestsound);
+            } else if (obj.toString().equals("Weapon Chest Lance")) {
+                Weapon_Chest weapon_chest = (Weapon_Chest)obj;
+                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), (int) weapon_chest.getImageViewWidth(), (int) weapon_chest.getImageViewHeight(), "Lance", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
                 gameObjectsList.add(s);
-            } else if (obj.getName().equals("Coin Chest")) {
-                Coin_Chest s = new Coin_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), obj.getIslandofResidence(),this.coinchestsound);
+            } else if (obj.toString().equals("Coin Chest")) {
+                Coin_Chest coin_chest = (Coin_Chest)obj;
+                Coin_Chest s = new Coin_Chest(mainPane, coin_chest.getPosition(), (int) coin_chest.getImageViewWidth(), (int) coin_chest.getImageViewHeight(), coin_chest.getIslandofResidence(), player1);
                 gameObjectsList.add(s);
             }
         }

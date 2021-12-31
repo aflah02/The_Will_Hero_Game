@@ -20,4 +20,9 @@ public abstract class Game_Objects implements Serializable {
     public abstract Island getIslandofResidence();
     public abstract double getImageViewWidth();
     public abstract double getImageViewHeight();
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -78,6 +79,17 @@ public class View_Manager {
         button1.setLayoutX(425);
         button1.setLayoutY(380);
         mainPane.getChildren().add(button1);
+        button1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    LoadGame();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         //Google Button
         GoogleButton button2 = new GoogleButton();
         button2.setLayoutX(270);
@@ -111,6 +123,19 @@ public class View_Manager {
                 start();
             }
         });
+    }
+
+    public void LoadGame() throws IOException {
+        AnchorPane anchorPane = new AnchorPane();
+        LoadSaveFile loadSaveFile = new LoadSaveFile();
+        try {
+            SaveFileReturn saveFileReturn = loadSaveFile.loadGameState("SaveFiles/save.ser", anchorPane);
+            LoadPage loadPage  = new LoadPage(this.getMainStage(), saveFileReturn, anchorPane);
+            loadPage.start();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public AnchorPane getMainPane() {
