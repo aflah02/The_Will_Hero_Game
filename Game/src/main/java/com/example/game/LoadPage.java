@@ -386,6 +386,15 @@ public class LoadPage {
         save.setLayoutX(120);
         save.setLayoutY(135);
         menu.getChildren().add(save);
+        save.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+
+            public void handle(MouseEvent mouseEvent) {
+                System.out.println("Saved");
+                File saveFile = new File("SaveFiles/save.ser");
+                saveGameDataToFile(saveFile);
+            }
+        });
         return menu;
     }
 
