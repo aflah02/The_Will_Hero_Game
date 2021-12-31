@@ -33,8 +33,8 @@ public class Standard_Red_Orc extends Orc{
         this.islandofResidence = island;
     }
 
-    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound){
-        super(diesound);
+    public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
+        super(diesound,id);
         createImage();
         this.speed = speed;
         standardRedOrc.setX(position.getX());
@@ -46,6 +46,7 @@ public class Standard_Red_Orc extends Orc{
         this.position = position;
         this.islandofResidence = islandofResidence;
         this.isAboveIsland = true;
+        this.setHitPoints(50);
     }
     @Override
     public String getName(){
@@ -67,7 +68,13 @@ public class Standard_Red_Orc extends Orc{
 
     @Override
     public void collide(Hero hero) {
-        this.standardRedOrc.setX(this.standardRedOrc.getX()+100);
+        if (hero.getActiveWeapon() != null){
+            System.out.println("not null");
+            this.setHitPoints(this.getHitPoints() - hero.getActiveWeapon().getDamage());
+            if(this.getHitPoints()<=0){
+                this.animate();
+            }
+        }
     }
 
     public void createImage(){

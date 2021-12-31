@@ -17,16 +17,22 @@ public abstract class Orc extends Game_Objects{
     String path3 = "src/main/resources/com/example/game/images/d3.png";
     String path4 = "src/main/resources/com/example/game/images/d4.png";
     String path5 = "src/main/resources/com/example/game/images/d5.png";
+    int id;
     MediaPlayer diesound;
     public String[] imagePaths;
     public ArrayList<Image> OrcAnimations;
     private int HitPoints;
     private int Damage;
     private int Coins;
-    private Boolean Dead;
+    private Boolean Dead,iscolliding;
     protected Boolean isAboveIsland;
+    private Orc orcbelow;
 
-    Orc(MediaPlayer diesound){
+    Orc(MediaPlayer diesound,int id){
+        this.id = id;
+        this.iscolliding = false;
+        this.orcbelow = null;
+        this.HitPoints = 0;
         this.diesound = diesound;
         Dead = false;
         this.imagePaths = new String[]{path1,path2, path3, path4, path5};
@@ -60,8 +66,12 @@ public abstract class Orc extends Game_Objects{
         if(diesound!=null){
             diesound.play();
             diesound.seek(Duration.ZERO);
+            System.out.println("diesound");
         }
         Dead = true;
+    }
+    public void setHitPoints(int points){
+        this.HitPoints = points;
     }
     public abstract ImageView getOrc();
     public abstract ImageView getImage();
@@ -72,8 +82,7 @@ public abstract class Orc extends Game_Objects{
     public abstract double getInitialPosition();
     public abstract void setInitialPosition(double pos);
 
-
-    public void animate(double a) {
+    public void animate() {
         if(!isDead()){
             Orc orc = this;
             Transition animation = new Transition() {
@@ -82,8 +91,6 @@ public abstract class Orc extends Game_Objects{
                 protected void interpolate(double fraction) {
                     int index = (int) (fraction*(OrcAnimations.size()-1));
                     orc.getOrc().setImage(OrcAnimations.get(index));
-                    double X = orc.getOrc().getX();
-                    orc.getOrc().setX(X + a/9);
                 }
             };
             animation.setOnFinished(new EventHandler<ActionEvent>() {
@@ -95,5 +102,24 @@ public abstract class Orc extends Game_Objects{
             animation.setCycleCount(1);
             animation.play();
         }
+    }
+    public void setOrcbelow(Orc orcbelow) {
+        this.orcbelow = orcbelow;
+    }
+
+    public Orc getOrcbelow() {
+        return orcbelow;
+    }
+
+    public void setIscolliding(Boolean iscolliding) {
+        this.iscolliding = iscolliding;
+    }
+
+    public Boolean getIscolliding() {
+        return iscolliding;
+    }
+
+    public int getId(){
+        return this.id;
     }
 }

@@ -19,10 +19,6 @@ public class Lance extends Weapon{
     void animate(){
 
     }
-    @Override
-    int getDamage() {
-        return 0;
-    }
 
     @Override
     int setDamage() {

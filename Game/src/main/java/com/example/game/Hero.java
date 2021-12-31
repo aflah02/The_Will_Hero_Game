@@ -170,6 +170,7 @@ public class Hero {
 
     public void setActiveWeapon(Weapon weapon){
         if(weapon==null){
+            this.activeWeapon = null;
             return;
         }
         if(this.activeWeapon!=null){

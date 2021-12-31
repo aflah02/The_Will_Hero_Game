@@ -89,14 +89,18 @@ public class moveScreenButton extends Button {
     private boolean check_collision(Hero hero, Game_Objects game_objects) {
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
+
         double obj_height = game_objects.getImage().getFitHeight();
         double obj_width = game_objects.getImage().getFitWidth();
+
         double hero_start_X , hero_end_X , hero_start_Y, hero_end_Y;
         double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
+
         hero_start_X = hero.getHero().getX();
         hero_end_X = hero_start_X + hero_width;
         hero_start_Y = hero.getHero().getY();
         hero_end_Y = hero_start_Y + hero_height;
+
         obj_start_X = game_objects.getImage().getX();
         obj_end_X = obj_start_X + obj_width;
         obj_start_Y = game_objects.getImage().getY();

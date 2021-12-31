@@ -114,6 +114,7 @@ public class LoadSaveFile {
         System.out.println(fileName);
         ArrayList<Game_Objects> gameObjectsList = new ArrayList<>();
         ArrayList<Island> islandList = new ArrayList<>();
+        int orcid =0;
         for (Object obj: store){
             if (obj.toString().equals("Island")){
                 Island island = (Island)obj;
@@ -121,11 +122,13 @@ public class LoadSaveFile {
             }
             else if (obj.toString().equals("Green Orc")) {
                 Standard_Green_Orc standard_green_orc = (Standard_Green_Orc)obj;
-                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, standard_green_orc.getPosition(), (int) standard_green_orc.getImageViewWidth(), (int) standard_green_orc.getImageViewHeight(), standard_green_orc.getSpeed(), standard_green_orc.getIslandofResidence(), player5);
+                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, standard_green_orc.getPosition(), (int) standard_green_orc.getImageViewWidth(), (int) standard_green_orc.getImageViewHeight(), standard_green_orc.getSpeed(), standard_green_orc.getIslandofResidence(), player5,orcid);
+                orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Red Orc")) {
                 Standard_Red_Orc standard_red_orc = (Standard_Red_Orc)obj;
-                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, standard_red_orc.getPosition(), (int) standard_red_orc.getImageViewWidth(), (int) standard_red_orc.getImageViewHeight(), standard_red_orc.getSpeed(), standard_red_orc.getIslandofResidence(), player5);
+                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, standard_red_orc.getPosition(), (int) standard_red_orc.getImageViewWidth(), (int) standard_red_orc.getImageViewHeight(), standard_red_orc.getSpeed(), standard_red_orc.getIslandofResidence(), player5,orcid);
+                orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("TNT")) {
                 TNT tnt = (TNT)obj;
@@ -133,7 +136,8 @@ public class LoadSaveFile {
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Boss Orc")) {
                 Boss_Orc Boss_Orc = (Boss_Orc)obj;
-                Boss_Orc s = new Boss_Orc(mainPane, Boss_Orc.getPosition(), (int) Boss_Orc.getImageViewWidth(), (int) Boss_Orc.getImageViewHeight(), Boss_Orc.getSpeed(), Boss_Orc.getIslandofResidence(), player5);
+                Boss_Orc s = new Boss_Orc(mainPane, Boss_Orc.getPosition(), (int) Boss_Orc.getImageViewWidth(), (int) Boss_Orc.getImageViewHeight(), Boss_Orc.getSpeed(), Boss_Orc.getIslandofResidence(), player5,orcid);
+                orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Weapon Chest Sword")) {
                 Weapon_Chest weapon_chest = (Weapon_Chest)obj;

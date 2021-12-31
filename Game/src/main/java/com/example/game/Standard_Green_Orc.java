@@ -35,8 +35,8 @@ public class Standard_Green_Orc extends Orc{
     }
 
     private ImageView standardGreenOrc;
-    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound){
-        super(diesound);
+    public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
+        super(diesound,id);
         createImage();
         this.speed = speed;
         standardGreenOrc.setX(position.getX());
@@ -49,6 +49,7 @@ public class Standard_Green_Orc extends Orc{
         this.islandofResidence = islandofResidence;
         this.isAboveIsland = true;
         this.anchorPane = anchorPane;
+        this.setHitPoints(50);
     }
 
     @Override
@@ -74,7 +75,10 @@ public class Standard_Green_Orc extends Orc{
 //            }
 //        }
         if (hero.getActiveWeapon() != null){
-            this.anchorPane.getChildren().remove(this);
+            this.setHitPoints(this.getHitPoints() - hero.getActiveWeapon().getDamage());
+            if(this.getHitPoints()<=0){
+                this.animate();
+            }
         }
 //        this.standardGreenOrc.setX(this.standardGreenOrc.getX()+100);
     }

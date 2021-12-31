@@ -35,8 +35,8 @@ public class Boss_Orc extends Orc{
     }
 
     private ImageView BossOrc;
-    public Boss_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound){
-        super(diesound);
+    public Boss_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
+        super(diesound,id);
         System.out.println("Boss Orc Built");
         createImage();
         this.speed = speed;

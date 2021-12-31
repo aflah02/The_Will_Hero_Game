@@ -94,6 +94,9 @@ public class WeaponButton extends Button {
             setStyle(STYLE_ACTIVE);
             hero.setActiveWeapon(this.weapon);
         }
+        if(weapon==null || weapon.getLevel()==0){
+            hero.setActiveWeapon(null);
+        }
     }
 
     public void setinactive(){

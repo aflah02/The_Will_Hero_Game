@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -70,7 +71,21 @@ public class View_Manager {
         grad.setLayoutY(390);
         mainPane.getChildren().add(grad);
         //Start button
-        StartButton button = new StartButton(this, helmetChosen);
+        StartButton button = new StartButton(this);
+        button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    button.handler(helmetChosen);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         button.setLayoutX(340);
         button.setLayoutY(260);
         mainPane.getChildren().add(button);
@@ -241,9 +256,23 @@ public class View_Manager {
             mainPane.getChildren().remove(helmetChooseMenu);
         });
         HelmetChoices.getChildren().add(closeMenuButton);
-        StartButton button = new StartButton(this, helmetChosen);
+        StartButton button = new StartButton(this);
         button.setLayoutX(345);
         button.setLayoutY(435);
+        button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    button.handler(helmetChosen);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         HelmetChoices.getChildren().add(button);
         return HelmetChoices;
     }

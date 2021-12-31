@@ -150,7 +150,7 @@ public class TNT extends gameObstacles{
                 animateTNT(0);
             }
             else{
-                animateTNT(2);
+                animateTNT(0.8);
             }
         }
     }

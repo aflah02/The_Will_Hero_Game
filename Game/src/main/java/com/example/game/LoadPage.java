@@ -1,5 +1,6 @@
 package com.example.game;
 
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
@@ -58,7 +59,11 @@ public class LoadPage {
     static int RecordingLength;
     Long startTime;
     String HelmetName;
+    private int orcflag,orccounter;
+
     LoadPage(Stage stage, SaveFileReturn saveFileReturn, AnchorPane anchorPane) throws IOException {
+        orccounter = 0;
+        orcflag = 0;
         PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
         writer.print("");
         writer.close();
@@ -567,11 +572,15 @@ public class LoadPage {
                 continue;
             }
             if (count == islands.size()-1){
+                /*
                 this.GAME_OBJECT_COUNT+=1;
                 Position islandPosition = island.getPosition();
                 Boss_Orc boss_orc = new Boss_Orc(mainPane, new Position(islandPosition.getX() + 100, islandPosition.getY()), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
+                //take id also for boss orc :)
                 this.gameObjects.add(boss_orc);
+                */
                 continue;
+
             }
             Position islandPosition = island.getPosition();
             if (island.getIslandType().equals("Small")){
@@ -591,8 +600,9 @@ public class LoadPage {
     }
 
     private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
-        String[] gameObjects = {"TNT", "TNT", "CoinChest", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
+        String[] gameObjects = {"TNT", "CoinChest", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
         int placedSoFar = 0;
+        int orcid =0;
         for (int i = 0; i < maxQuantityObjectsOnIsland; i++){
             Random rand = new Random();
             String objectChosen = gameObjects[rand.nextInt(gameObjects.length)];
@@ -608,12 +618,14 @@ public class LoadPage {
                     this.gameObjects.add(chest);
                 }
                 case "Standard_Green_Orc" -> {
-                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 100), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
+                    Standard_Green_Orc greenOrc = new Standard_Green_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 100), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie,orcid);
                     placedSoFar++;
+                    orcid++;
                     this.gameObjects.add(greenOrc);
                 }
                 case "Standard_Red_Orc" -> {
-                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() -100), 60, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
+                    Standard_Red_Orc redOrc = new Standard_Red_Orc(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() -100), 60, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie,orcid);
+                    orcid++;
                     placedSoFar++;
                     this.gameObjects.add(redOrc);
                 }
@@ -658,7 +670,7 @@ public class LoadPage {
             }
             moveHero(this.hero);
             tntkill();
-
+            orkkill();
         }
         );
         this.time = new Timeline(frame2,frame);
@@ -692,21 +704,20 @@ public class LoadPage {
                 Orc orc = (Orc) object;
                 if(orc.getOrc().getX() + orc.getOrc().getFitWidth() > TNT_start_X_range && orc.getOrc().getX() + orc.getOrc().getFitWidth() < TNT_end_X_range) {
                     if (orc.getOrc().getY() + orc.getOrc().getFitHeight() > TNT_start_Y_range && orc.getOrc().getY() + orc.getOrc().getFitHeight() < TNT_end_Y_range) {
-                        orc.animate(0);
+                        orc.animate();
                     } else if (orc.getOrc().getY() > TNT_start_Y_range && orc.getOrc().getY() < TNT_end_Y_range) {
-                        orc.animate(0);
+                        orc.animate();
                     }
                 }
                 else if(orc.getOrc().getX() > TNT_start_X_range && orc.getOrc().getX()  < TNT_end_X_range){
                     if(orc.getOrc().getY() + orc.getOrc().getFitHeight() > TNT_start_Y_range && orc.getOrc().getY() + orc.getOrc().getFitHeight() < TNT_end_Y_range){
-                        orc.animate(0);
+                        orc.animate();
                     }
                     else if(orc.getOrc().getY() > TNT_start_Y_range && orc.getOrc().getY() < TNT_end_Y_range){
-                        orc.animate(0);
+                        orc.animate();
                     }
                 }
             }
-
         }
     }
     private void tntkill() {
@@ -973,23 +984,28 @@ public class LoadPage {
             hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
             for(Game_Objects gameobject : gameObjects){
                 if(check_collision(hero,gameobject)){
-                    gameobject.collide(hero);
                     if (gameobject instanceof Orc){
-                        if (getisland(((Orc) gameobject).getPosition(), this.islands,
-                                ((Orc) gameobject).getImageViewHeight(), ((Orc) gameobject).getImageViewWidth()) == null){
+                        orcollision(hero,(Orc)gameobject);
+                        Island orcisland = getisland(((Orc) gameobject).getPosition(), this.islands,
+                                ((Orc) gameobject).getImageViewHeight(), ((Orc) gameobject).getImageViewWidth());
+                        ((Orc) gameobject).setIslandofResidence(orcisland);
+                        if (orcisland == null){
                             ((Orc) gameobject).setAboveIsland(false);
                         }
                         OrcEncounterCount++;
                     }
                     if(gameobject instanceof TNT){
+                        gameobject.collide(hero);
                         Island residenceTNT = getisland(gameobject.getPosition(), islands, gameobject.getImageViewHeight(), gameobject.getImageViewWidth());
                         ((TNT) gameobject).setIslandofResidence(residenceTNT);
                         TNTBurstCount++;
                     }
                     if (gameobject instanceof Coin_Chest){
+                        gameobject.collide(hero);
                         CoinChestsOpened++;
                     }
                     if (gameobject instanceof Weapon_Chest){
+                        gameobject.collide(hero);
                         if (((Weapon_Chest)gameobject).getName().equals("Weapon Chest Sword")){
                             SwordsCollected++;
                         }
@@ -1002,6 +1018,109 @@ public class LoadPage {
         }
     }
 
+    private void orcollision(Hero hero, Orc gameobject) {
+        double hero_height = hero.getHero().getFitHeight();
+        double hero_width = hero.getHero().getFitWidth();
+        double obj_height = gameobject.getImage().getFitHeight();
+        double obj_width = gameobject.getImage().getFitWidth();
+        double hero_start_X , hero_end_X , hero_start_Y, hero_end_Y;
+        double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
+        hero_start_X = 75;
+        hero_end_X = hero_start_X + hero_width;
+        hero_start_Y = hero.getHero().getY();
+        hero_end_Y = hero_start_Y + hero_height;
+        obj_start_X = gameobject.getImage().getX();
+        obj_end_X = obj_start_X + obj_width;
+        obj_start_Y = gameobject.getImage().getY();
+        obj_end_Y = obj_start_Y + obj_height;
+        if(!gameobject.isDead() && ((obj_start_Y + (obj_height/2) <= hero_start_Y) && (obj_end_Y >= hero_start_Y))){
+            killhero();
+        }
+        else if(!gameobject.isDead() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){
+            gameobject.collide(hero);
+            collidingorc(gameobject,100);
+        }
+
+    }
+
+    private void collidingorc(Orc gameobject,int run) {
+        if(!gameobject.getIscolliding()){
+            gameobject.setIscolliding(true);
+            AnimationTimer timer = new AnimationTimer() {
+                int orccounter = 0;
+                int orcflag = 0;
+                @Override
+                public void handle(long l) {
+                    orccounter = orccounter + 1;
+                    gameobject.setPosition(new Position(gameobject.getOrc().getX() + 1, gameobject.getOrc().getY()));
+                    gameobject.getOrc().setX(gameobject.getOrc().getX() + 1);
+                    for(Game_Objects object : gameObjects){
+                        if(object instanceof Orc && gameobject.getId()!=((Orc) object).getId()){
+                            if(!gameobject.isDead() && checkorccollision(gameobject,(Orc)object)){
+                                collidingorc((Orc) object,run/5);
+                                orcflag = 1;
+                            }
+                        }
+                    }
+                    if (gameobject.isDead() || orccounter >= run || orcflag==1) {
+                        gameobject.setIscolliding(false);
+                        stop();
+                    }
+                }
+            };
+            timer.start();
+        }
+    }
+
+    private boolean checkorccollision(Orc Orc1, Orc Orc2) {
+        /*
+        double hero_height = hero.getHero().getFitHeight();
+        double hero_width = hero.getHero().getFitWidth();
+        double obj_height = game_objects.getImage().getFitHeight();
+        double obj_width = game_objects.getImage().getFitWidth();
+        double hero_start_X , hero_end_X , hero_start_Y, hero_end_Y;
+        double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
+        hero_start_X = hero.getHero().getX();
+        hero_end_X = hero_start_X + hero_width;
+        hero_start_Y = hero.getHero().getY();
+        hero_end_Y = hero_start_Y + hero_height;
+        obj_start_X = game_objects.getImage().getX();
+        obj_end_X = obj_start_X + obj_width;
+        obj_start_Y = game_objects.getImage().getY();
+        obj_end_Y = obj_start_Y + obj_height;
+        if((hero_start_Y <= obj_end_Y && hero_start_Y  >= obj_start_Y) || (hero_end_Y <= obj_end_Y && hero_end_Y >=obj_start_Y)){
+            if((hero_start_X <= obj_end_X && hero_start_X >=obj_start_X) || (hero_end_X <= obj_end_X && hero_end_X >=obj_start_X)){
+                return true;
+            }
+        }
+        */
+        double Orc1_height = Orc1.getOrc().getFitHeight();
+        double Orc1_width = Orc1.getOrc().getFitWidth();
+
+        double Orc2_height = Orc2.getOrc().getFitHeight();
+        double Orc2_width = Orc2.getOrc().getFitWidth();
+
+        double Orc1_start_X , Orc1_start_Y, Orc2_start_X , Orc2_start_Y;
+        double Orc1_end_X , Orc1_end_Y, Orc2_end_X , Orc2_end_Y;
+
+        Orc1_start_X = Orc1.getOrc().getX();
+        Orc1_start_Y = Orc1.getOrc().getY();
+        Orc1_end_X = Orc1_start_X + Orc1_width;
+        Orc1_end_Y = Orc1_start_Y + Orc1_height;
+
+        Orc2_start_X = Orc2.getOrc().getX();
+        Orc2_start_Y = Orc2.getOrc().getY();
+        Orc2_end_X = Orc2_start_X + Orc2_width;
+        Orc2_end_Y = Orc2_start_Y + Orc2_height;
+
+        if(Orc1_start_Y >= Orc2_end_Y -10 ){
+            // here the 3 is to avoid just on edge contact and the 10 above is also to give a bit of margin
+            if(Orc1_end_X <= Orc2_end_X - 3 && Orc1_end_X >= Orc2_start_X + 3){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     private boolean check_collision(Hero hero, Game_Objects game_objects) {
@@ -1031,25 +1150,63 @@ public class LoadPage {
             if(island==null){
                 double speed = Math.abs(orc.getSpeed());
                 orc.getOrc().setY(orc.getOrc().getY() + speed);
-                if (orc.getOrc().getY()>=MAX_FALLING_HEIGHT){
-                    //orc.animate(0);
-                    orc.setIsDead();
+                orc.setPosition(new Position(orc.getOrc().getX(), orc.getOrc().getY()));
+                if (orc.getOrc().getY()>=MAX_FALLING_HEIGHT-100){
+                    orc.animate();
                 }
             }
             else{
-                if(orc.getOrc().getY()-orc.getSpeed()>=island.getPosition().getY()-orc.getImageViewHeight()){
-                    orc.getOrc().setY(island.getPosition().getY()-orc.getImageViewHeight());
-                    orcjump.play();
-                    orcjump.seek(Duration.ZERO);
+                Game_Objects orcb = getobject(new Position(orc.getOrc().getX(), orc.getOrc().getY()), gameObjects, orc.getImageViewHeight(), orc.getImageViewWidth());
+                Orc orcbelow = (Orc) orcb;
+                if(orcbelow==null){
+                    double jump = 150;
+                    double x = island.getIsland().getX();
+                    double y = island.getIsland().getY();
+                    double orc_height = orc.getImageViewHeight();
+                    if (orc.getOrc().getY() - orc.getSpeed() + orc_height  >= y) {
+                        orc.getOrc().setY(y - orc_height);
+                        double speed = orc.getSpeed();
+                        orc.setSpeed(-speed);
+                        orcjump.play();
+                        orcjump.seek(Duration.ZERO);
+                    }
+                    else if (orc.getOrc().getY() - orc.getSpeed() + orc_height <= y - jump) {
+                        orc.getOrc().setY(y - jump - orc_height);
+                        double speed = orc.getSpeed();
+                        orc.setSpeed(-speed);
+                    }
+                    else {
+                        orc.getOrc().setY(orc.getOrc().getY() - orc.getSpeed());
+                    }
                 }
-                orc.getOrc().setY(Math.max(orc.getOrc().getY() - orc.getSpeed(), island.getPosition().getY() - island.getIslandImageViewHeight()));
-                if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight() || orc.getOrc().getY()<=island.getPosition().getY()- island.getIslandImageViewHeight()){
-                    double speed = orc.getSpeed();
-                    orc.setSpeed(-speed);
+                else{
+                    double jump = 50;
+                    double x = orcbelow.getImage().getX();
+                    double y = orcbelow.getImage().getY();
+                    double orc_height = orc.getImageViewHeight();
+                    if (orc.getOrc().getY() - orc.getSpeed() + orc_height  >= y) {
+                        orc.getOrc().setY(y - orc_height);
+                        double speed = orc.getSpeed();
+                        orc.setSpeed(-speed);
+                        orcjump.play();
+                        orcjump.seek(Duration.ZERO);
+                    }
+                    else if (orc.getOrc().getY() - orc.getSpeed() + orc_height <= y - jump) {
+                        orc.getOrc().setY(y - jump - orc_height);
+                        double speed = orc.getSpeed();
+                        orc.setSpeed(-speed);
+                    }
+                    else {
+                        orc.getOrc().setY(orc.getOrc().getY() - orc.getSpeed());
+                    }
                 }
+
+                orc.setPosition(new Position(orc.getOrc().getX(), orc.getOrc().getY()));
+                /*
                 if(orc.getOrc().getY()>=island.getPosition().getY()-orc.getImageViewHeight()){
                     orc.setInitialPosition(island.getPosition().getY()-orc.getImageViewHeight());
                 }
+                */
             }
     }
 
@@ -1068,6 +1225,9 @@ public class LoadPage {
     public void pausegame(PauseButton pause){
         pause.setOnAction(e ->{
             time.pause();
+            move.setDisable(true);
+            lancebutton.setDisable(true);
+            swordbutton.setDisable(true);
             mainPane.getChildren().remove(pause);
             mainPane.getChildren().add(this.newpane);
         });
@@ -1076,6 +1236,9 @@ public class LoadPage {
     public void startgame(Button button , PauseButton pause){
         button.setOnAction(e ->{
             time.play();
+            move.setDisable(false);
+            lancebutton.setDisable(false);
+            swordbutton.setDisable(false);
             mainPane.getChildren().add(pause);
             mainPane.getChildren().remove(this.newpane);
         });

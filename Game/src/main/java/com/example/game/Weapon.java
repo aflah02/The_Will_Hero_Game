@@ -23,7 +23,9 @@ public abstract class Weapon {
         return this.name;
     }
     abstract void animate();
-    abstract int getDamage();
+    public int getDamage(){
+        return this.damage;
+    }
     abstract int setDamage();
     abstract int getRadius();
     public void increaseLevel(){
