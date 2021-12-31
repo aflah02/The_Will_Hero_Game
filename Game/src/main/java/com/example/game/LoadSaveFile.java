@@ -1,6 +1,7 @@
 package com.example.game;
 
-import javafx.scene.Group;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -18,9 +19,10 @@ public class LoadSaveFile {
     private MediaPlayer orcjump,orcdie;
     private MediaPlayer herojump,herodie,herorevive;
     private MediaPlayer tntburstsound , weaponchestsound , coinchestsound;
+    private WeaponButton swordbutton;
+    private WeaponButton lancebutton;
 
     private void deserialize(String fileName, int islandCount, int gameObjectCount) throws IOException, ClassNotFoundException {
-
         ObjectInputStream in = null;
         tempGameObjectsStore = new ArrayList<>();
         in = new ObjectInputStream(new FileInputStream(fileName));
@@ -29,6 +31,7 @@ public class LoadSaveFile {
             player = new Player(deserializePlayer.getHero());
             hero = player.getHero();
             int i = 0;
+
             while (i < islandCount){
                 try{
                     Island tmp = (Island) in.readObject();
@@ -58,7 +61,25 @@ public class LoadSaveFile {
         }
     }
 
-    public ArrayListPairStore loadGameState(String fileName, AnchorPane mainPane, WeaponButton button1 , WeaponButton button2, int islandCount, int gameObjectCount) throws IOException, ClassNotFoundException {
+    public SaveFileReturn loadGameState(String fileName, AnchorPane mainPane, int islandCount, int gameObjectCount) throws IOException, ClassNotFoundException {
+        this.swordbutton = new WeaponButton("Sword",25,525,hero);
+        this.lancebutton = new WeaponButton("Lance",100,525,hero);
+        swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                swordbutton.setactive();
+                lancebutton.setinactive();
+
+            }
+        });
+        lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                lancebutton.setactive();
+                swordbutton.setinactive();
+
+            }
+        });
         //.................
         String audiopath1 = "src/main/resources/com/example/game/audios/chestcollect.mp3";
         Media media1= new Media(new File(audiopath1).toURI().toString());
@@ -130,16 +151,16 @@ public class LoadSaveFile {
                 Boss_Orc s = new Boss_Orc();
                 gameObjectsList.add(s);
             } else if (obj.getName().equals("Weapon Chest Sword")) {
-                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Sword", obj.getIslandofResidence(), button1, button2,this.weaponchestsound);
+                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Sword", obj.getIslandofResidence(), swordbutton, lancebutton,this.weaponchestsound);
                 gameObjectsList.add(s);
             } else if (obj.getName().equals("Weapon Chest Lance")) {
-                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Lance", obj.getIslandofResidence(), button1, button2,this.weaponchestsound);
+                Weapon_Chest s = new Weapon_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), "Lance", obj.getIslandofResidence(), swordbutton, lancebutton,this.weaponchestsound);
                 gameObjectsList.add(s);
             } else if (obj.getName().equals("Coin Chest")) {
                 Coin_Chest s = new Coin_Chest(mainPane, obj.getPosition(), (int) obj.getImageViewWidth(), (int) obj.getImageViewHeight(), obj.getIslandofResidence(),this.coinchestsound);
                 gameObjectsList.add(s);
             }
         }
-        return new ArrayListPairStore(gameObjectsList, islandList);
+        return new SaveFileReturn(gameObjectsList, islandList, player);
     }
 }

@@ -24,8 +24,14 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LoadPage {
-    static final int islandLocationfromTopofScreen = 450;
-    private static final double MAX_FALLING_HEIGHT = 600;
+    private int OrcEncounterCount = 0;
+    private int OrcKillCount = 0;
+    private int TNTBurstCount = 0;
+    private int SwordsCollected = 0;
+    private int SpearsCollected = 0;
+    private int CoinChestsOpened = 0;
+    final int islandLocationfromTopofScreen = 450;
+    private final double MAX_FALLING_HEIGHT = 600;
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
     private PauseButton pauseButton;
@@ -53,6 +59,9 @@ public class LoadPage {
     Long startTime;
     String HelmetName;
     LoadPage(Stage stage, String HelmetName) throws IOException, InterruptedException {
+        PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
+        writer.print("");
+        writer.close();
         this.HelmetName = HelmetName;
         RecordingLength = 5;
         String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
@@ -144,7 +153,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         Text lancet = new Text();
         Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, HelmetName);
+        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, HelmetName, 0);
         this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
@@ -659,7 +668,9 @@ public class LoadPage {
         swordbutton.setDisable(true);
         herodie.play();
         herodie.seek(Duration.ZERO);
-        hero.die(mainPane,abyssPane,resultmenu(),time);
+        hero.die(mainPane,abyssPane,resultmenu(),time,OrcKillCount,
+                TNTBurstCount,startTime,
+                OrcEncounterCount, SwordsCollected, SpearsCollected, CoinChestsOpened);
 
     }
 
@@ -717,6 +728,8 @@ public class LoadPage {
     }
 
     private void moveHero(Hero hero){
+        appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond() - this.startTime) + " Score " + Integer.parseInt(hero.getscore()) + " PositionX " + (int) (hero.getPosition().getX() + Integer.parseInt(hero.getscore()) * 100) +
+                " PositionY " + (int) hero.getPosition().getY());
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
         hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
@@ -794,10 +807,23 @@ public class LoadPage {
                                 ((Orc) gameobject).getImageViewHeight(), ((Orc) gameobject).getImageViewWidth()) == null){
                             ((Orc) gameobject).setAboveIsland(false);
                         }
+                        OrcEncounterCount++;
                     }
                     if(gameobject instanceof TNT){
                         Island residenceTNT = getisland(gameobject.getPosition(), islands, gameobject.getImageViewHeight(), gameobject.getImageViewWidth());
                         ((TNT) gameobject).setIslandofResidence(residenceTNT);
+                        TNTBurstCount++;
+                    }
+                    if (gameobject instanceof Coin_Chest){
+                        CoinChestsOpened++;
+                    }
+                    if (gameobject instanceof Weapon_Chest){
+                        if (((Weapon_Chest)gameobject).getName().equals("Weapon Chest Sword")){
+                            SwordsCollected++;
+                        }
+                        else{
+                            SpearsCollected++;
+                        }
                     }
                 }
             }
@@ -908,6 +934,13 @@ public class LoadPage {
             System.out.println();
         } catch (Exception e) {
             System.out.println();
+        }
+    }
+    static void appendToFile(String filePath, String content) {
+        try (FileWriter fw = new FileWriter(filePath, true)) {
+            fw.write(content + System.lineSeparator());
+        } catch (IOException e) {
+            System.out.println("Error in Logging Player High Score");
         }
     }
 }

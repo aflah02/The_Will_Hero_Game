@@ -100,10 +100,17 @@ public class View_Manager {
             }
         });
         //Record Button
-        RecordButton recordButton = new RecordButton();
+        RecordButton recordButton = new RecordButton(this.mainPane, this.mainStage);
         recordButton.setLayoutX(550);
         recordButton.setLayoutY(50);
         mainPane.getChildren().add(recordButton);
+        recordButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+
+            public void handle(MouseEvent mouseEvent) {
+                start();
+            }
+        });
     }
 
     public AnchorPane getMainPane() {
@@ -214,5 +221,17 @@ public class View_Manager {
         button.setLayoutY(435);
         HelmetChoices.getChildren().add(button);
         return HelmetChoices;
+    }
+
+    public void start() {
+        String path = "src/main/java/com/example/game/output.mp4";
+        Media media = new Media(new File(path).toURI().toString());
+        System.out.println(new File(path).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setVolume(0.3);
+        MediaView mediaView = new MediaView(mediaPlayer);
+        mainPane.getChildren().add(mediaView);
     }
 }

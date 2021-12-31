@@ -37,7 +37,7 @@ public class Hero {
         Hero = hero;
     }
 
-    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet){
+    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet, int Score){
         this.chosenHelmet = chosenHelmet;
         this.deathview = new ImageView(new Image(new File(deathpath).toURI().toString()));
         deathview.setFitHeight(600);
@@ -55,7 +55,7 @@ public class Hero {
         anchorPane.getChildren().add(Hero);
         this.speed = speed;
         scoreboard = new Text();
-        score = Integer.toString(0);
+        score = Integer.toString(Score);
         scoreboard.setText(score);
         scoreboard.setFont(Font.font ("Verdana", 70));
         scoreboard.setFill(Color.WHITE);
@@ -200,19 +200,6 @@ public class Hero {
         this.activeWeapon = weapon;
     }
 
-    public boolean die(AnchorPane mainpane,AnchorPane abyssmenu,AnchorPane resultmenu,Timeline time){
-        time.pause();
-        if(!this.isRevived && this.currCoins.size()> 10 ){
-            mainpane.getChildren().add(deathview);
-            mainpane.getChildren().add(abyssmenu);
-        }
-        else{
-            isRevived=true;
-            mainpane.getChildren().add(resultmenu);
-        }
-        return isRevived;
-    }
-
     public void revivehero(){
         mainpane.getChildren().remove(deathview);
     }
@@ -272,5 +259,20 @@ public class Hero {
             currCoins.remove(x);
         }
         updatecoins();
+    }
+
+    public Boolean die(AnchorPane mainPane, AnchorPane abyssPane, AnchorPane resultmenu, Timeline time, int orcKillCount, int tntBurstCount, Long startTime, int orcEncounterCount, int swordsCollected, int spearsCollected, int coinChestsOpened) {
+        time.pause();
+        if(!this.isRevived && this.currCoins.size()> 10 ){
+            mainpane.getChildren().add(deathview);
+            mainpane.getChildren().add(abyssPane);
+        }
+        else{
+            isRevived=true;
+            mainpane.getChildren().add(resultmenu);
+            LoadPage.appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", orcKillCount + " " + tntBurstCount + " " + this.getscore() +
+                    " " + (java.time.Instant.now().getEpochSecond()-startTime) + " " + orcEncounterCount + " " + swordsCollected + " " + spearsCollected + " " + coinChestsOpened);
+        }
+        return isRevived;
     }
 }

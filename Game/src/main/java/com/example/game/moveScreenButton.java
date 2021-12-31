@@ -47,18 +47,11 @@ public class moveScreenButton extends Button {
                         handler()
         );
     }
-    void appendToFile(String filePath, String content) {
-        try (FileWriter fw = new FileWriter(filePath, true)) {
-            fw.write(content + System.lineSeparator());
-        } catch (IOException e) {
-            System.out.println("Error in Logging Player High Score");
-        }
-    }
+
     private void handler() {
 //        System.out.println("Score " + score + " PositionX " + hero.getPosition().getX()*score*100 +
 //                " PositionY " + hero.getPosition().getY());
-        appendToFile("heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond() - this.startTime) + " Score " + score + " PositionX " + (int) (hero.getPosition().getX() + score * 100) +
-                " PositionY " + (int) hero.getPosition().getY());
+
         score = score + 1;
         hero.setScore(score);
         hero.animate();
