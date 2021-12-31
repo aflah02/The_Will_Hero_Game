@@ -133,7 +133,7 @@ public class LoadSaveFile {
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Boss Orc")) {
                 Boss_Orc Boss_Orc = (Boss_Orc)obj;
-                Boss_Orc s = new Boss_Orc();
+                Boss_Orc s = new Boss_Orc(mainPane, Boss_Orc.getPosition(), (int) Boss_Orc.getImageViewWidth(), (int) Boss_Orc.getImageViewHeight(), Boss_Orc.getSpeed(), Boss_Orc.getIslandofResidence(), player5);
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Weapon Chest Sword")) {
                 Weapon_Chest weapon_chest = (Weapon_Chest)obj;

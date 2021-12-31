@@ -537,23 +537,40 @@ public class LoadPage {
     }
 
     private void addObjectsonScreen(){
-        for (int i = 0; i < 10; i++){
-            this.ISLAND_COUNT+=5;
-            Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
-            Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
-            Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5);
-            Island largeIsland = new Island("Large", mainPane, new Position(1075 + 2050*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
-            Island mediumIsland2 = new Island("Medium", mainPane, new Position(1625 + 2050*i,islandLocationfromTopofScreen - 75), 350, 125, 0.2);
-            islands.add(smallIsland1);
-            islands.add(smallIsland2);
-            islands.add(mediumIsland1);
-            islands.add(largeIsland);
-            islands.add(mediumIsland2);
+        for (int i = 0; i < 5; i++){
+            if (i ==  4){
+                Island largeIsland = new Island("Large", mainPane, new Position(10275,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                islands.add(largeIsland);
+                Island largeIsland1 = new Island("Large", mainPane, new Position(10275+550,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                islands.add(largeIsland1);
+                Island largeIsland2 = new Island("Large", mainPane, new Position(10275+1100,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                islands.add(largeIsland2);
+            }
+            else{
+                this.ISLAND_COUNT+=5;
+                Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
+                Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
+                Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5);
+                Island largeIsland = new Island("Large", mainPane, new Position(1075 + 2050*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                Island mediumIsland2 = new Island("Medium", mainPane, new Position(1625 + 2050*i,islandLocationfromTopofScreen - 75), 350, 125, 0.2);
+                islands.add(smallIsland1);
+                islands.add(smallIsland2);
+                islands.add(mediumIsland1);
+                islands.add(largeIsland);
+                islands.add(mediumIsland2);
+            }
         }
         int count = 0;
         for (Island island: islands){
             if (count == 0){
                 count++;
+                continue;
+            }
+            if (count == islands.size()-1){
+                this.GAME_OBJECT_COUNT+=1;
+                Position islandPosition = island.getPosition();
+                Boss_Orc boss_orc = new Boss_Orc(mainPane, new Position(islandPosition.getX() + 100, islandPosition.getY()), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
+                this.gameObjects.add(boss_orc);
                 continue;
             }
             Position islandPosition = island.getPosition();
@@ -569,6 +586,7 @@ public class LoadPage {
                 this.GAME_OBJECT_COUNT+=3;
                 generateIslandObjects(island, islandPosition, 3);
             }
+            count++;
         }
     }
 
