@@ -34,7 +34,7 @@ public class Standard_Green_Orc extends Orc{
         this.islandofResidence = island;
     }
 
-    private ImageView standardGreenOrc;
+    private transient ImageView standardGreenOrc;
     public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
         super(diesound,id);
         createImage();

@@ -10,9 +10,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Weapon_Chest extends Chest{
+public class Weapon_Chest extends Chest implements Serializable {
     Weapon weapon;
     String path1 = "src/main/resources/com/example/game/images/chest1.png";
     String path2 = "src/main/resources/com/example/game/images/chest2.png";
@@ -23,7 +24,7 @@ public class Weapon_Chest extends Chest{
     String path7 = "src/main/resources/com/example/game/images/chest7.png";
     String path8 = "src/main/resources/com/example/game/images/chest8.png";
     private MediaPlayer opensound;
-    private final ImageView chest;
+    private final transient ImageView chest;
     private Position position;
     public String[] imagePaths;
     private boolean isopen;

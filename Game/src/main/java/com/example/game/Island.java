@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Island implements Serializable {
     private Position position , initial_position;
     private int size;
-    private ImageView Island;
+    private transient ImageView Island;
     private Image island_image;
     private double speed;
     private String islandType;

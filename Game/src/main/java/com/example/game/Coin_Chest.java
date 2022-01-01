@@ -26,7 +26,7 @@ public class Coin_Chest extends Chest{
     String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
     String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
     private MediaPlayer chestopen;
-    private final ImageView chest;
+    private final transient ImageView chest;
     private boolean  isopen;
     private Position position;
     public String[] imagePaths;

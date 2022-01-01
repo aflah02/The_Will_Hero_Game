@@ -3,8 +3,9 @@ package com.example.game;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Lance extends Weapon{
+public class Lance extends Weapon implements Serializable {
     private String path = "src/main/resources/com/example/game/images/lance.png";
 
     Lance(){

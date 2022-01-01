@@ -48,6 +48,7 @@ public class LoadSaveFile {
     }
 
     public SaveFileReturn loadGameState(String fileName, AnchorPane mainPane) throws IOException, ClassNotFoundException {
+        deserialize(fileName);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -110,7 +111,7 @@ public class LoadSaveFile {
         player6.setCycleCount(1);
         mainPane.getChildren().add(tntburstsound);
         //.................
-        deserialize(fileName);
+
         System.out.println(fileName);
         ArrayList<Game_Objects> gameObjectsList = new ArrayList<>();
         ArrayList<Island> islandList = new ArrayList<>();

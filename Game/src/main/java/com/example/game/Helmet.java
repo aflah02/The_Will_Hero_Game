@@ -10,7 +10,7 @@ import javafx.util.Duration;
 import java.io.File;
 
 public class Helmet {
-    private ImageView Helmet;
+    private transient ImageView Helmet;
     private final String pandaHelmetImage = "src/main/resources/com/example/game/images/panda.png";
     private final String pandaStreakPath = "src/main/resources/com/example/game/images/panda_streak.png";
     private final String angelHelmetImage = "src/main/resources/com/example/game/images/angel.png";

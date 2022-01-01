@@ -2,7 +2,9 @@ package com.example.game;
 
 import javafx.scene.image.ImageView;
 
-public abstract class Weapon {
+import java.io.Serializable;
+
+public abstract class Weapon implements Serializable {
     private ImageView image;
     private String name;
     private int damage;

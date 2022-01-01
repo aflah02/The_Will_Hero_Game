@@ -9,9 +9,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Orc extends Game_Objects{
+public abstract class Orc extends Game_Objects implements Serializable {
     String path1 = "src/main/resources/com/example/game/images/d1.png";
     String path2 = "src/main/resources/com/example/game/images/d2.png";
     String path3 = "src/main/resources/com/example/game/images/d3.png";

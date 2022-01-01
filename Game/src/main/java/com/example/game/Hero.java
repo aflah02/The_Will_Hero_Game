@@ -11,9 +11,10 @@ import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Hero {
+public class Hero implements Serializable {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
     private String deathpath = "src/main/resources/com/example/game/images/death.png";
     private Helmet helmet;
@@ -21,7 +22,8 @@ public class Hero {
     private ArrayList<Coins> currCoins;
     private double speed;
     private Boolean isRevived;
-    private ImageView Hero,deathview;
+    private transient ImageView Hero;
+    private final transient ImageView deathview;
     private String score;
     private Text scoreboard,coinboard;
     private Weapon activeWeapon,sword,lance;

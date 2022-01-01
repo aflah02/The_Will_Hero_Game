@@ -5,8 +5,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Boss_Orc extends Orc{
+public class Boss_Orc extends Orc implements Serializable {
     private String imagePath = "src/main/resources/com/example/game/images/Boss.png";
     private double speed;
     private double initpos;
@@ -34,7 +35,7 @@ public class Boss_Orc extends Orc{
         this.islandofResidence = island;
     }
 
-    private ImageView BossOrc;
+    private transient ImageView BossOrc;
     public Boss_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
         super(diesound,id);
         System.out.println("Boss Orc Built");

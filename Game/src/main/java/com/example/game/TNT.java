@@ -14,9 +14,10 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TNT extends gameObstacles{
+public class TNT extends gameObstacles implements Serializable {
     private Position position;
     private int timeToBurst;
     private Island islandofResidence;
@@ -36,7 +37,7 @@ public class TNT extends gameObstacles{
     String path10 = "src/main/resources/com/example/game/images/tntOver.png";
     public String[] imagePaths;
     public ArrayList<Image> tntAnimations;
-    private final ImageView TNTImageView;
+    private final transient ImageView TNTImageView;
     private MediaPlayer burstsound;
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence,MediaPlayer burstsound){
