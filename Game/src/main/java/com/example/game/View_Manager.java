@@ -343,9 +343,9 @@ public class View_Manager {
     }
 
     public void start() {
-        String path = "src/main/resources/com/example/game/videos/output.mp4";
+        String path = "src/main/java/com/example/game/output.mp4";
         Media media = new Media(new File(path).toURI().toString());
-        System.out.println(new File(path).toURI().toString());
+        System.out.println(new File(path).toURI());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setCycleCount(1);
         mediaPlayer.setAutoPlay(true);
