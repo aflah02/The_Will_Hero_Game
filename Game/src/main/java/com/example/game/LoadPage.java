@@ -22,7 +22,6 @@ import javafx.util.Duration;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class LoadPage {
     private int OrcEncounterCount = 0;
