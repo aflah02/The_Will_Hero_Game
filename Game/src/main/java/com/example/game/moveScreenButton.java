@@ -52,7 +52,7 @@ public class moveScreenButton extends Button {
 //        System.out.println("Score " + score + " PositionX " + hero.getPosition().getX()*score*100 +
 //                " PositionY " + hero.getPosition().getY());
 
-        score = score + 1;
+        score = Integer.parseInt(hero.getscore()) + 1;
         hero.setScore(score);
         hero.animate();
         this.counter = 0;
@@ -60,17 +60,18 @@ public class moveScreenButton extends Button {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                counter = counter + 10;
+                counter = counter + 5;
                 for (Island island : listOfIslands) {
-                    island.setPosition(new Position(island.getPosition().getX() - 10, island.getPosition().getY()));
+                    island.setPosition(new Position(island.getPosition().getX() - 5, island.getPosition().getY()));
                 }
                 for (Game_Objects game_objects : listOfGameObjects) {
-                    game_objects.setPosition(new Position(game_objects.getPosition().getX() - 10, game_objects.getPosition().getY()));
+                    game_objects.setPosition(new Position(game_objects.getPosition().getX() - 5, game_objects.getPosition().getY()));
                     if(check_collision(hero,game_objects)){
                         flag=true;
                     }
                 }
                 if (counter >= 100 || flag) {
+                    hero.setCounter(hero.getCounter() + counter);
                     stop();
                 }
             }

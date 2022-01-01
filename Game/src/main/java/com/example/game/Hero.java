@@ -10,9 +10,9 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Hero implements Serializable {
     private String coinpath = "src/main/resources/com/example/game/images/coin.png";
@@ -32,6 +32,7 @@ public class Hero implements Serializable {
     private int sflag , lflag;
     private String chosenHelmet;
     private int width, height;
+    private int counter;
 
     public void setHero(ImageView hero) {
         Hero = hero;
@@ -41,6 +42,7 @@ public class Hero implements Serializable {
     }
 
     Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet, int Score){
+        counter =0;
         this.chosenHelmet = chosenHelmet;
         this.width = width;
         this.height = height;
@@ -64,7 +66,7 @@ public class Hero implements Serializable {
         scoreboard.setText(score);
         scoreboard.setFont(Font.font ("Verdana", 70));
         scoreboard.setFill(Color.WHITE);
-        scoreboard.setX(410);
+        scoreboard.setX(400);
         scoreboard.setY(130);
         anchorPane.getChildren().add(scoreboard);
         ImageView coinimage = new ImageView(new Image(new File(coinpath).toURI().toString()));
@@ -83,6 +85,13 @@ public class Hero implements Serializable {
         anchorPane.getChildren().add(coinboard);
         this.position = position;
         this.isRevived = false;
+    }
+
+    public void setCounter(int counter){
+        this.counter = counter;
+    }
+    public int getCounter(){
+        return this.counter;
     }
 
     public int getWidth() {
@@ -236,11 +245,7 @@ public class Hero implements Serializable {
 
 
 
-    public void animate(Weapon wp){
-        if(wp==null){
-            return;
-        }
-    }
+
 
     public void strike(){
         System.out.println("In Strike");
@@ -291,7 +296,7 @@ public class Hero implements Serializable {
         updatecoins();
     }
 
-    public Boolean die(AnchorPane mainPane, AnchorPane abyssPane, AnchorPane resultmenu, Timeline time, int orcKillCount, int tntBurstCount, Long startTime, int orcEncounterCount, int swordsCollected, int spearsCollected, int coinChestsOpened) {
+    public Boolean die (AnchorPane mainPane, AnchorPane abyssPane, AnchorPane resultmenu, Timeline time, int orcKillCount, int tntBurstCount, Long startTime, int orcEncounterCount, int swordsCollected, int spearsCollected, int coinChestsOpened) throws Exception {
         time.pause();
         if(!this.isRevived && this.currCoins.size()> 10 ){
             mainpane.getChildren().add(deathview);
@@ -302,7 +307,32 @@ public class Hero implements Serializable {
                     " " + (java.time.Instant.now().getEpochSecond()-startTime) + " " + orcEncounterCount + " " + swordsCollected + " " + spearsCollected + " " + coinChestsOpened);
             isRevived=true;
             mainpane.getChildren().add(resultmenu);
+            File file1 = new File("src\\main\\java\\com\\example\\game\\heroLocations.txt");
+            File file2 = new File("src\\main\\java\\com\\example\\game\\previousheroLocations.txt");
+            PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\previousheroLocations.txt");
+            writer.print("");
+            writer.close();
+            writefile(file1,file2);
             }
         return isRevived;
+    }
+    public void writefile(File a,File b) throws Exception{
+        FileInputStream in = new FileInputStream(a);
+        FileOutputStream out = new FileOutputStream(b);
+        try {
+            int n;
+            while ((n = in.read()) != -1) {
+                out.write(n);
+            }
+        }
+        finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
+        System.out.println("File Copied");
     }
 }

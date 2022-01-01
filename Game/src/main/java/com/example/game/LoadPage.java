@@ -22,6 +22,7 @@ import javafx.util.Duration;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class LoadPage {
     private int OrcEncounterCount = 0;
@@ -541,6 +542,11 @@ public class LoadPage {
     }
 
     private void addObjectsonScreen(){
+//        for(int i=0;i<5;i++){
+//            Floor_Loot_Coin coinx = new Floor_Loot_Coin(new Position(75+2000*i , 350));
+//            this.gameObjects.add(coinx);
+//            mainPane.getChildren().add(coinx.getImage());
+//        }
         for (int i = 0; i < 5; i++){
             if (i ==  4){
                 Island largeIsland = new Island("Large", mainPane, new Position(10275,islandLocationfromTopofScreen), 450, 150 , 0.3);
@@ -642,9 +648,10 @@ public class LoadPage {
         }
     }
 
-    public void start(){
+    public void start() throws FileNotFoundException {
         stage.setScene(this.mainScene);
         stage.show();
+
         KeyFrame frame = new KeyFrame(Duration.millis(10), e->{
             for (Game_Objects game_object: this.gameObjects){
                 if (game_object instanceof Orc){
@@ -663,13 +670,22 @@ public class LoadPage {
             }
         }
         );
+        File file = new File("src\\main\\java\\com\\example\\game\\previousheroLocations.txt");
+        Scanner sc = new Scanner(file);
         KeyFrame frame2 = new KeyFrame(Duration.millis(10), e->{
             for (Island island: this.islands){
                 moveIsland(island);
             }
-            moveHero(this.hero);
-            tntkill();
-            orkkill();
+            try {
+                moveHero(this.hero);
+                tntkill();
+                orkkill();
+                removecoin();
+                moveshadow(sc);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
         }
         );
         this.time = new Timeline(frame2,frame);
@@ -677,7 +693,7 @@ public class LoadPage {
         time.play();
     }
 
-    private void tntbursting(TNT game_object){
+    private void tntbursting(TNT game_object) throws Exception {
         double TNT_start_X_range = game_object.getImage().getX();
         double TNT_start_Y_range = game_object.getImage().getY();
         double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight();
@@ -719,7 +735,7 @@ public class LoadPage {
             }
         }
     }
-    private void tntkill() {
+    private void tntkill() throws Exception {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof TNT){
                 if(((TNT) game_object).getBurst()){
@@ -735,6 +751,18 @@ public class LoadPage {
             if(game_object instanceof Orc){
                 if(((Orc) game_object).isDead()){
                     mainPane.getChildren().remove(((Orc) game_object).getOrc());
+                    gameObjects.remove(game_object);
+                    break;
+                }
+            }
+        }
+    }
+
+    private void removecoin(){
+        for (Game_Objects game_object: this.gameObjects){
+            if(game_object instanceof Floor_Loot_Coin){
+                if(((Floor_Loot_Coin) game_object).getIsCollected()){
+                    mainPane.getChildren().remove(game_object.getImage());
                     gameObjects.remove(game_object);
                     break;
                 }
@@ -842,7 +870,7 @@ public class LoadPage {
         return ansisland;
     }
 
-    public void killhero(){
+    public void killhero() throws Exception {
         pause.setDisable(true);
         start.setDisable(true);
         move.setDisable(true);
@@ -890,6 +918,7 @@ public class LoadPage {
         herorevive.play();
         herorevive.seek(Duration.ZERO);
         double xdiff = 75 - safeIsland.getIsland().getX();
+        hero.setCounter(hero.getCounter() +(int) xdiff);
         for(Island island: islands){
             island.setPosition(new Position(island.getPosition().getX()+xdiff, island.getPosition().getY()));
         }
@@ -909,8 +938,8 @@ public class LoadPage {
         }
     }
 
-    private void moveHero(Hero hero){
-        appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond() - this.startTime) + " Score " + Integer.parseInt(hero.getscore()) + " PositionX " + (int) (hero.getPosition().getX() + Integer.parseInt(hero.getscore()) * 100) +
+    private void moveHero(Hero hero) throws Exception {
+        appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", "Time " + (java.time.Instant.now().getEpochSecond() - this.startTime) + " Score " + Integer.parseInt(hero.getscore()) + " PositionX " + (int) (75 + hero.getCounter()) +
                 " PositionY " + (int) hero.getPosition().getY());
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
@@ -993,17 +1022,20 @@ public class LoadPage {
                         }
                         OrcEncounterCount++;
                     }
-                    if(gameobject instanceof TNT){
+                    else if(gameobject instanceof Floor_Loot_Coin){
+                        gameobject.collide(hero);
+                    }
+                    else if(gameobject instanceof TNT){
                         gameobject.collide(hero);
                         Island residenceTNT = getisland(gameobject.getPosition(), islands, gameobject.getImageViewHeight(), gameobject.getImageViewWidth());
                         ((TNT) gameobject).setIslandofResidence(residenceTNT);
                         TNTBurstCount++;
                     }
-                    if (gameobject instanceof Coin_Chest){
+                    else if (gameobject instanceof Coin_Chest){
                         gameobject.collide(hero);
                         CoinChestsOpened++;
                     }
-                    if (gameobject instanceof Weapon_Chest){
+                    else if (gameobject instanceof Weapon_Chest){
                         gameobject.collide(hero);
                         if (((Weapon_Chest)gameobject).getName().equals("Weapon Chest Sword")){
                             SwordsCollected++;
@@ -1017,7 +1049,21 @@ public class LoadPage {
         }
     }
 
-    private void orcollision(Hero hero, Orc gameobject) {
+    private void moveshadow(Scanner sc) throws Exception {
+        if(sc.hasNextLine()){
+            String line = sc.nextLine();
+            String[] buffers = line.split(" ");
+            String score = buffers[3];
+            String xpos = buffers[5];
+            String ypos = buffers[7];
+            System.out.println(score + " " + xpos + " " + ypos);
+        }
+    }
+
+
+
+
+    private void orcollision(Hero hero, Orc gameobject) throws Exception {
         double hero_height = hero.getHero().getFitHeight();
         double hero_width = hero.getHero().getFitWidth();
         double obj_height = gameobject.getImage().getFitHeight();

@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -138,6 +139,39 @@ public class View_Manager {
                 start();
             }
         });
+        //..................................
+        Button Statsbutton = new Button();
+        Statsbutton.setLayoutX(475);
+        Statsbutton.setLayoutY(50);
+        ImageView img;
+        String imagePath = "src/main/resources/com/example/game/images/statbutton.png";
+        img = new ImageView(new File(imagePath).toURI().toString());
+        img.setFitHeight(50);
+        img.setFitWidth(50);
+        Statsbutton.setGraphic(img);
+        String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
+        Statsbutton.setStyle(STYLE);
+        Statsbutton.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Statsbutton.setEffect(new DropShadow());
+            }
+        });
+        Statsbutton.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Statsbutton.setEffect(null);
+            }
+        });
+
+        Statsbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                mainPane.getChildren().add(StatsButton());
+            }
+        });
+        //.............................
+        mainPane.getChildren().add(Statsbutton);
     }
 
     public void LoadGame() throws IOException {
@@ -192,8 +226,35 @@ public class View_Manager {
         mainStage.show();
     }
 
-    public void openMenu(GoogleButton googleButton){
+    private AnchorPane StatsButton() {
+        AnchorPane Statspane = new AnchorPane();
+        Statspane.setPrefHeight(600);
+        Statspane.setPrefWidth(800);
+        Statspane.setLayoutX(0);
+        Statspane.setLayoutY(0);
+        String bg1 = "src/main/resources/com/example/game/images/cloud2.jpeg";
+        Image bg = new Image(new File(bg1).toURI().toString(),800,600,false,true);
+        BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
+        Statspane.setBackground(new Background(image));
+        //.................................................
+        String graphpath = "src/main/java/com/example/game/point.png";
+        ImageView statsimg = new ImageView(new File(graphpath).toURI().toString());
+        statsimg.setFitWidth(450);
+        statsimg.setFitHeight(450);
+        statsimg.setX(150);
+        statsimg.setY(100);
+        Statspane.getChildren().add(statsimg);
 
+        //.................................................
+        CloseMenuButton closeMenuButton = new CloseMenuButton();
+        closeMenuButton.setLayoutX(725);
+        closeMenuButton.setLayoutY(10);
+        closeMenuButton.setOnMouseClicked(mouseEvent -> {
+            mainPane.getChildren().remove(Statspane);
+        });
+        Statspane.getChildren().add(closeMenuButton);
+
+        return Statspane;
     }
 
     private AnchorPane HelmetChoices() {
@@ -282,14 +343,15 @@ public class View_Manager {
     }
 
     public void start() {
-        String path = "src/main/java/com/example/game/output.mp4";
+        String path = "src/main/resources/com/example/game/videos/output.mp4";
         Media media = new Media(new File(path).toURI().toString());
         System.out.println(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setCycleCount(1);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setVolume(0.3);
         MediaView mediaView = new MediaView(mediaPlayer);
         mainPane.getChildren().add(mediaView);
+        mediaPlayer.play();
     }
 }
