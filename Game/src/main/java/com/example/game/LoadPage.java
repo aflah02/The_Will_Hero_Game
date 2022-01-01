@@ -150,7 +150,6 @@ public class LoadPage {
         mainPane.getChildren().add(orcjumpview);
         islands = saveFileReturn.islandArrayList;
         gameObjects = saveFileReturn.gameObjectsArrayList;
-
         Text lancet = new Text();
         Text swordt = new Text();
         this.hero = this.player.getHero();
