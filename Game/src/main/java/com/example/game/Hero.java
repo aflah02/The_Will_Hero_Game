@@ -313,6 +313,9 @@ public class Hero implements Serializable {
             writer.print("");
             writer.close();
             writefile(file1,file2);
+            String[] cmd = {"src\\main\\java\\com\\example\\game\\analyze.bat"};
+            Process p = Runtime.getRuntime().exec(cmd);
+            System.out.println(p);
             }
         return isRevived;
     }

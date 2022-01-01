@@ -73,9 +73,9 @@ public class LoadPage {
         writer.close();
         this.player = saveFileReturn.getPlayer();
         RecordingLength = 5;
-        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
-        Process p = Runtime.getRuntime().exec(cmd);
-        System.out.println(p);
+//        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
+//        Process p = Runtime.getRuntime().exec(cmd);
+//        System.out.println(p);
         System.out.println("hello");
         this.startTime = java.time.Instant.now().getEpochSecond();
         players = new ArrayList<>();
@@ -1097,7 +1097,13 @@ public class LoadPage {
         }
         else if(!gameobject.getDying() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){
             gameobject.collide(hero);
-            collidingorc(gameobject,100);
+            if (gameobject instanceof Boss_Orc){
+                collidingorc(gameobject,10);
+            }
+            else{
+                collidingorc(gameobject,100);
+            }
+
         }
     }
 
