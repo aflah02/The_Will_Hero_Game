@@ -18,8 +18,8 @@ public class StartButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover";
     private String path = "src/main/resources/com/example/game/images/resume.png";
-    private View_Manager manager;
-    String ChosenHelmet;
+    private transient View_Manager manager;
+    private String ChosenHelmet;
     StartButton(View_Manager manager){
         //this.ChosenHelmet = ChosenHelmet;
         this.manager = manager;

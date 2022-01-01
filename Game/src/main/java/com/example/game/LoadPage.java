@@ -34,12 +34,12 @@ public class LoadPage {
     private final double MAX_FALLING_HEIGHT = 600;
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
-    private PauseButton pauseButton;
+    private transient PauseButton pauseButton;
     private final transient AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
     private final String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
-    private Timeline time;
+    private transient Timeline time;
     private transient AnchorPane newpane;
     private transient AnchorPane abyssPane;
     private final Stage stage;
@@ -48,16 +48,16 @@ public class LoadPage {
     private final Hero hero;
     private final ArrayList<Island> islands;
     private transient ImageView sword,lance;
-    private final ArrayList<MediaPlayer> players;
-    private final MediaPlayer orcjump,orcdie;
-    private final MediaPlayer herojump,herodie,herorevive;
-    private final MediaPlayer tntburst , weaponchestsound , coincchestsound;
-    int score;
+    private transient final ArrayList<MediaPlayer> players;
+    private transient final MediaPlayer orcjump,orcdie;
+    private transient final MediaPlayer herojump,herodie,herorevive;
+    private transient final MediaPlayer tntburst , weaponchestsound , coincchestsound;
+    private int score;
     private Button pause,start,move;
-    private WeaponButton swordbutton,lancebutton;
+    private transient WeaponButton swordbutton,lancebutton;
     static int RecordingLength;
-    Long startTime;
-    String HelmetName;
+    private Long startTime;
+    private String HelmetName;
     private int orcflag,orccounter;
 
     LoadPage(Stage stage, SaveFileReturn saveFileReturn, AnchorPane anchorPane) throws IOException {
@@ -66,7 +66,7 @@ public class LoadPage {
         PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
         writer.print("");
         writer.close();
-        this.player = saveFileReturn.player;
+        this.player = saveFileReturn.getPlayer();
         RecordingLength = 5;
         String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
         Process p = Runtime.getRuntime().exec(cmd);
@@ -197,8 +197,8 @@ public class LoadPage {
         swordt.setY(570);
         moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
         this.move = moveScreenButton;
-        mainPane.getChildren().remove(hero.getHero());
-        mainPane.getChildren().add(hero.getHero());
+        mainPane.getChildren().remove(this.hero.getHero());
+        mainPane.getChildren().add(this.hero.getHero());
         saveGameDataToFile(new File("SaveFiles/save.ser"));
         mainPane.getChildren().add(move);
         mainPane.getChildren().add(pause);

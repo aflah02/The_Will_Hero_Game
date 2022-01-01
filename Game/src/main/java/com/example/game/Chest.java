@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public abstract class Chest extends Game_Objects{
     private Boolean isOpen;
-    public ArrayList<Image> chestAnimations;
+    public transient ArrayList<Image> chestAnimations;
 
 
 

@@ -1,9 +1,5 @@
 package com.example.game;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
-import javafx.animation.SequentialTransition;
-import javafx.animation.Transition;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,10 +10,9 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.concurrent.locks.LockSupport;
 
 public class Coin_Chest extends Chest{
-    private ArrayList<Coins> coins;
+    private ArrayList<Chest_Coin> coins;
     String path1 = "src/main/resources/com/example/game/images/coinchest0.png";
     String path2 = "src/main/resources/com/example/game/images/coinchest1.png";
     String path3 = "src/main/resources/com/example/game/images/coinchest2.png";
@@ -25,7 +20,7 @@ public class Coin_Chest extends Chest{
     String path5 = "src/main/resources/com/example/game/images/coinchest4.png";
     String path6 = "src/main/resources/com/example/game/images/coinchest5.png";
     String path7 = "src/main/resources/com/example/game/images/coinchest6.png";
-    private MediaPlayer chestopen;
+    private transient MediaPlayer chestopen;
     private final transient ImageView chest;
     private boolean  isopen;
     private Position position;
@@ -41,7 +36,7 @@ public class Coin_Chest extends Chest{
         int randomcoins = (int) (Math.random()*(max - min + 1) + min);
         for(int i=0;i<randomcoins;i++){
             Coins coin = new Chest_Coin();
-            coins.add(coin);
+            coins.add((Chest_Coin) coin);
         }
         this.isopen = false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
@@ -122,7 +117,7 @@ public class Coin_Chest extends Chest{
         return position;
     }
 
-    public ArrayList<Coins> getCoins() {
+    public ArrayList<Chest_Coin> getCoins() {
         return coins;
     }
 

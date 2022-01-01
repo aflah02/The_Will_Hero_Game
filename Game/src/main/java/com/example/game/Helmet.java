@@ -41,6 +41,14 @@ public class Helmet implements Serializable {
         this.width = width;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
     public ImageView getHelmet() {
         return Helmet;
     }

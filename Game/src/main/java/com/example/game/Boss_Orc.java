@@ -13,7 +13,7 @@ public class Boss_Orc extends Orc implements Serializable {
     private double initpos;
     private Island islandofResidence;
     private Position position;
-    private AnchorPane anchorPane;
+    private transient AnchorPane anchorPane;
     @Override
     public Position getPosition() {
         return position;
@@ -38,6 +38,8 @@ public class Boss_Orc extends Orc implements Serializable {
     private transient ImageView BossOrc;
     public Boss_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
         super(diesound,id);
+        this.width = width;
+        this.height = height;
         System.out.println("Boss Orc Built");
         createImage();
         this.speed = speed;

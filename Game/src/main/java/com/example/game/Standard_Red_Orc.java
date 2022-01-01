@@ -36,6 +36,8 @@ public class Standard_Red_Orc extends Orc{
     public Standard_Red_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
         super(diesound,id);
         createImage();
+        this.width = width;
+        this.height = height;
         this.speed = speed;
         standardRedOrc.setX(position.getX());
         standardRedOrc.setY(position.getY());

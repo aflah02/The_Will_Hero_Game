@@ -24,10 +24,10 @@ import java.util.Objects;
 
 public class View_Manager {
     private final transient AnchorPane mainPane;
-    private final Scene mainScene;
-    private final Stage mainStage;
-    private final ArrayList<MediaPlayer> players;
-    private MediaView view;
+    private final transient Scene mainScene;
+    private final transient Stage mainStage;
+    private final transient ArrayList<MediaPlayer> players;
+    private transient MediaView view;
     private final transient AnchorPane helmetChooseMenu;
     private String helmetChosen;
     View_Manager(Stage stage) {

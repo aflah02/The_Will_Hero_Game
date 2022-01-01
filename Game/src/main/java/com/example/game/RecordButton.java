@@ -24,8 +24,8 @@ import java.util.Objects;
 
 public class RecordButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
-    private AnchorPane pane;
-    private Stage stage;
+    private transient AnchorPane pane;
+    private transient Stage stage;
     RecordButton(AnchorPane anchorPane, Stage stage){
         setText("");
         this.stage = stage;

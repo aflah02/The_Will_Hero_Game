@@ -16,8 +16,8 @@ public class New_Game_Button extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private String path = "src/main/resources/com/example/game/images/resume.png";
-    private Stage stage;
-    String ChosenHelmet;
+    private transient Stage stage;
+    private String ChosenHelmet;
     New_Game_Button(Stage stage, String ChosenHelmet){
         this.stage = stage;
         this.ChosenHelmet = ChosenHelmet;

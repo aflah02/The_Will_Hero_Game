@@ -15,8 +15,8 @@ public class LoadSaveFile {
     private final Game_Objects deserializedObj = null;
     private Player player;
     private Hero hero;
-    private MediaPlayer orcjump;
-    private MediaPlayer herojump;
+    private transient MediaPlayer orcjump;
+    private transient MediaPlayer herojump;
     private WeaponButton swordbutton;
     private WeaponButton lancebutton;
 
@@ -119,38 +119,38 @@ public class LoadSaveFile {
         for (Object obj: store){
             if (obj.toString().equals("Island")){
                 Island island = (Island)obj;
-                islandList.add(new Island(island.getIslandType(), mainPane, island.getPosition(), (int) island.getIslandImageViewWidth(), (int) island.getIslandImageViewHeight(), island.getSpeed()));
+                islandList.add(new Island(island.getIslandType(), mainPane, island.getPosition(), island.getWidth(), island.getHeight(), island.getSpeed()));
             }
             else if (obj.toString().equals("Green Orc")) {
                 Standard_Green_Orc standard_green_orc = (Standard_Green_Orc)obj;
-                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, standard_green_orc.getPosition(), (int) standard_green_orc.getImageViewWidth(), (int) standard_green_orc.getImageViewHeight(), standard_green_orc.getSpeed(), standard_green_orc.getIslandofResidence(), player5,orcid);
+                Standard_Green_Orc s = new Standard_Green_Orc(mainPane, standard_green_orc.getPosition(), standard_green_orc.getWidth(), standard_green_orc.getHeight(), standard_green_orc.getSpeed(), standard_green_orc.getIslandofResidence(), player5,orcid);
                 orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Red Orc")) {
                 Standard_Red_Orc standard_red_orc = (Standard_Red_Orc)obj;
-                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, standard_red_orc.getPosition(), (int) standard_red_orc.getImageViewWidth(), (int) standard_red_orc.getImageViewHeight(), standard_red_orc.getSpeed(), standard_red_orc.getIslandofResidence(), player5,orcid);
+                Standard_Red_Orc s = new Standard_Red_Orc(mainPane, standard_red_orc.getPosition(),standard_red_orc.getWidth(), standard_red_orc.getHeight(), standard_red_orc.getSpeed(), standard_red_orc.getIslandofResidence(), player5,orcid);
                 orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("TNT")) {
                 TNT tnt = (TNT)obj;
-                TNT s = new TNT(mainPane, tnt.getPosition(), (int) tnt.getImageViewWidth(), (int) tnt.getImageViewHeight(), tnt.getSpeed(), tnt.getIslandofResidence(), player6);
+                TNT s = new TNT(mainPane, tnt.getPosition(), tnt.getWidth(), tnt.getHeight(), tnt.getSpeed(), tnt.getIslandofResidence(), player6);
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Boss Orc")) {
                 Boss_Orc Boss_Orc = (Boss_Orc)obj;
-                Boss_Orc s = new Boss_Orc(mainPane, Boss_Orc.getPosition(), (int) Boss_Orc.getImageViewWidth(), (int) Boss_Orc.getImageViewHeight(), Boss_Orc.getSpeed(), Boss_Orc.getIslandofResidence(), player5,orcid);
+                Boss_Orc s = new Boss_Orc(mainPane, Boss_Orc.getPosition(), Boss_Orc.getWidth(), Boss_Orc.getHeight(), Boss_Orc.getSpeed(), Boss_Orc.getIslandofResidence(), player5,orcid);
                 orcid++;
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Weapon Chest Sword")) {
                 Weapon_Chest weapon_chest = (Weapon_Chest)obj;
-                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), (int) weapon_chest.getImageViewWidth(), (int) weapon_chest.getImageViewHeight(), "Sword", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
+                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), weapon_chest.getWidth(), weapon_chest.getHeight(), "Sword", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Weapon Chest Lance")) {
                 Weapon_Chest weapon_chest = (Weapon_Chest)obj;
-                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), (int) weapon_chest.getImageViewWidth(), (int) weapon_chest.getImageViewHeight(), "Lance", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
+                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), weapon_chest.getWidth(), weapon_chest.getHeight(), "Lance", weapon_chest.getIslandofResidence(), swordbutton, lancebutton, player2);
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Coin Chest")) {
                 Coin_Chest coin_chest = (Coin_Chest)obj;
-                Coin_Chest s = new Coin_Chest(mainPane, coin_chest.getPosition(), (int) coin_chest.getImageViewWidth(), (int) coin_chest.getImageViewHeight(), coin_chest.getIslandofResidence(), player1);
+                Coin_Chest s = new Coin_Chest(mainPane, coin_chest.getPosition(), coin_chest.getWidth(), coin_chest.getHeight(), coin_chest.getIslandofResidence(), player1);
                 gameObjectsList.add(s);
             }
         }

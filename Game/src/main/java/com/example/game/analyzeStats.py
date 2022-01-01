@@ -64,7 +64,7 @@ fig = plt.figure(figsize = (10, 7))
 # ax = plt.axes(projection ="3d")
 # Creating plot
 # ax.scatter3D(lsx, lsy, lsp, color = "green")
-plt.title("Location of Player wrt Points")
+plt.title("Location of Player Over Time")
 plt.xlabel("X-Coordinate")
 plt.ylabel("Y-Coordinate")
 plt.plot(lsx, lsy)

@@ -25,24 +25,26 @@ public class TNT extends gameObstacles implements Serializable {
     private int Radius;
     private double initpos;
     private double speed;
-    String path1 = "src/main/resources/com/example/game/images/tnt1.png";
-    String path2 = "src/main/resources/com/example/game/images/tnt2.png";
-    String path3 = "src/main/resources/com/example/game/images/tnt3.png";
-    String path4 = "src/main/resources/com/example/game/images/tnt4.png";
-    String path5 = "src/main/resources/com/example/game/images/tnt5.png";
-    String path6 = "src/main/resources/com/example/game/images/tnt6.png";
-    String path7 = "src/main/resources/com/example/game/images/tnt7.png";
-    String path8 = "src/main/resources/com/example/game/images/tnt8.png";
-    String path9 = "src/main/resources/com/example/game/images/tnt9.png";
-    String path10 = "src/main/resources/com/example/game/images/tntOver.png";
+    private String path1 = "src/main/resources/com/example/game/images/tnt1.png";
+    private String path2 = "src/main/resources/com/example/game/images/tnt2.png";
+    private String path3 = "src/main/resources/com/example/game/images/tnt3.png";
+    private String path4 = "src/main/resources/com/example/game/images/tnt4.png";
+    private String path5 = "src/main/resources/com/example/game/images/tnt5.png";
+    private String path6 = "src/main/resources/com/example/game/images/tnt6.png";
+    private String path7 = "src/main/resources/com/example/game/images/tnt7.png";
+    private String path8 = "src/main/resources/com/example/game/images/tnt8.png";
+    private String path9 = "src/main/resources/com/example/game/images/tnt9.png";
+    private String path10 = "src/main/resources/com/example/game/images/tntOver.png";
     public String[] imagePaths;
-    public ArrayList<Image> tntAnimations;
+    public transient ArrayList<Image> tntAnimations;
     private final transient ImageView TNTImageView;
-    private MediaPlayer burstsound;
+    private transient MediaPlayer burstsound;
 
     TNT(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence,MediaPlayer burstsound){
         this.burstsound = burstsound;
         this.isBurst = false;
+        this.width = width;
+        this.height = height;
         this.imagePaths = new String[]{path2, path3, path4, path5, path6, path7, path8, path9, path10};
         tntAnimations = new ArrayList<>();
         for (String path: imagePaths){

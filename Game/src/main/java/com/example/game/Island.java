@@ -10,8 +10,9 @@ import java.util.ArrayList;
 public class Island implements Serializable {
     private Position position , initial_position;
     private int size;
+    private int width, height;
     private transient ImageView Island;
-    private Image island_image;
+    private transient Image island_image;
     private double speed;
     private String islandType;
     private String treeImage = "src/main/resources/com/example/game/images/Tree7.png";
@@ -31,6 +32,8 @@ public class Island implements Serializable {
     private final transient ArrayList<ImageView> islandObjects = new ArrayList<>();
 
     public Island(String islandType, AnchorPane anchorPane, Position position, int width, int height , double Speed){
+        this.width = width;
+        this.height = height;
         this.initial_position = new Position(position.getX(), position.getY());
         this.islandType = islandType;
         if (islandType.equals("Small")){
@@ -71,6 +74,22 @@ public class Island implements Serializable {
         setimages(anchorPane);
         anchorPane.getChildren().add(Island);
 
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     private void setimages(AnchorPane anchorPane){

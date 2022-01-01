@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 import java.io.Serializable;
 
 public abstract class Game_Objects implements Serializable {
+    protected int width, height;
     private double speed;
     abstract void setPosition(Position position);
     abstract Position getPosition();
@@ -24,5 +25,21 @@ public abstract class Game_Objects implements Serializable {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

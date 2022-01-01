@@ -13,15 +13,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public abstract class Orc extends Game_Objects implements Serializable {
-    String path1 = "src/main/resources/com/example/game/images/d1.png";
-    String path2 = "src/main/resources/com/example/game/images/d2.png";
-    String path3 = "src/main/resources/com/example/game/images/d3.png";
-    String path4 = "src/main/resources/com/example/game/images/d4.png";
-    String path5 = "src/main/resources/com/example/game/images/d5.png";
-    int id;
-    MediaPlayer diesound;
+    private String path1 = "src/main/resources/com/example/game/images/d1.png";
+    private String path2 = "src/main/resources/com/example/game/images/d2.png";
+    private String path3 = "src/main/resources/com/example/game/images/d3.png";
+    private String path4 = "src/main/resources/com/example/game/images/d4.png";
+    private String path5 = "src/main/resources/com/example/game/images/d5.png";
+    private int id;
+    private transient MediaPlayer diesound;
     public String[] imagePaths;
-    public ArrayList<Image> OrcAnimations;
+    public transient ArrayList<Image> OrcAnimations;
     private int HitPoints;
     private int Damage;
     private int Coins;

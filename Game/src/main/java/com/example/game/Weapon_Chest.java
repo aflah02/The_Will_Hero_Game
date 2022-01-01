@@ -14,21 +14,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Weapon_Chest extends Chest implements Serializable {
-    Weapon weapon;
-    String path1 = "src/main/resources/com/example/game/images/chest1.png";
-    String path2 = "src/main/resources/com/example/game/images/chest2.png";
-    String path3 = "src/main/resources/com/example/game/images/chest3.png";
-    String path4 = "src/main/resources/com/example/game/images/chest4.png";
-    String path5 = "src/main/resources/com/example/game/images/chest5.png";
-    String path6 = "src/main/resources/com/example/game/images/chest6.png";
-    String path7 = "src/main/resources/com/example/game/images/chest7.png";
-    String path8 = "src/main/resources/com/example/game/images/chest8.png";
-    private MediaPlayer opensound;
+    private Weapon weapon;
+    private String path1 = "src/main/resources/com/example/game/images/chest1.png";
+    private String path2 = "src/main/resources/com/example/game/images/chest2.png";
+    private String path3 = "src/main/resources/com/example/game/images/chest3.png";
+    private String path4 = "src/main/resources/com/example/game/images/chest4.png";
+    private String path5 = "src/main/resources/com/example/game/images/chest5.png";
+    private String path6 = "src/main/resources/com/example/game/images/chest6.png";
+    private String path7 = "src/main/resources/com/example/game/images/chest7.png";
+    private String path8 = "src/main/resources/com/example/game/images/chest8.png";
+    private transient MediaPlayer opensound;
     private final transient ImageView chest;
     private Position position;
     public String[] imagePaths;
     private boolean isopen;
     private String weaponName;
+    private final Island islandOfResidence;
+    private double speed;
+    private transient WeaponButton button1, button2;
+
     public Island getIslandOfResidence() {
         return islandOfResidence;
     }
@@ -49,12 +53,12 @@ public class Weapon_Chest extends Chest implements Serializable {
         this.button2 = button2;
     }
 
-    private final Island islandOfResidence;
-    private double speed;
-    private WeaponButton button1, button2;
+
 
     Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2,MediaPlayer opensound){
         this.opensound = opensound;
+        this.width = width;
+        this.height = height;
         this.button1 = button1;
         this.button2 = button2;
         this.isopen=false;

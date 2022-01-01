@@ -12,7 +12,7 @@ public class Standard_Green_Orc extends Orc{
     private double initpos;
     private Island islandofResidence;
     private Position position;
-    private AnchorPane anchorPane;
+    private transient AnchorPane anchorPane;
     @Override
     public Position getPosition() {
         return position;
@@ -37,6 +37,8 @@ public class Standard_Green_Orc extends Orc{
     private transient ImageView standardGreenOrc;
     public Standard_Green_Orc(AnchorPane anchorPane, Position position, int width, int height, double speed, Island islandofResidence, MediaPlayer diesound,int id){
         super(diesound,id);
+        this.width = width;
+        this.height = height;
         createImage();
         this.speed = speed;
         standardGreenOrc.setX(position.getX());

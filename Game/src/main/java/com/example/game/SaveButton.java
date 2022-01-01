@@ -14,7 +14,7 @@ public class SaveButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
     private final String STYLE_Closed = "-fx-background-color:transparent; -fx-background-size: cover;";
     private String path = "src/main/resources/com/example/game/images/upload.png";
-    private Stage stage;
+    private transient Stage stage;
 
     SaveButton(Stage stage){
         this.stage = stage;

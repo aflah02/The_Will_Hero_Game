@@ -28,7 +28,7 @@ public class Hero implements Serializable {
     private transient Text scoreboard,coinboard;
     private Weapon activeWeapon,sword,lance;
     private transient Text swordt , lancet;
-    private AnchorPane mainpane;
+    private transient AnchorPane mainpane;
     private int sflag , lflag;
     public ImageView getHero() {
         return Hero;

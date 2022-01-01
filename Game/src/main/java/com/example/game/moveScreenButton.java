@@ -18,11 +18,11 @@ import java.util.ArrayList;
 
 public class moveScreenButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover";
-    ArrayList<Island> listOfIslands;
-    ArrayList<Game_Objects> listOfGameObjects;
-    Hero hero;
-    int score;
-    long startTime;
+    private ArrayList<Island> listOfIslands;
+    private ArrayList<Game_Objects> listOfGameObjects;
+    private Hero hero;
+    private int score;
+    private long startTime;
     private int counter;
     private boolean flag;
     moveScreenButton(double x , double y, ArrayList<Island> listOfIslands, ArrayList<Game_Objects> listOfGameObjects, Hero player, long startTime){
