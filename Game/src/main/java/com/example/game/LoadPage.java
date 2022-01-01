@@ -60,10 +60,14 @@ public class LoadPage {
     private Long startTime;
     private String HelmetName;
     private int orcflag,orccounter;
+    private int shadowflag;
+    private Shadow shadow;
 
     LoadPage(Stage stage, SaveFileReturn saveFileReturn, AnchorPane anchorPane) throws IOException {
         orccounter = 0;
+        this.shadow = null;
         orcflag = 0;
+        shadowflag =0;
         PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
         writer.print("");
         writer.close();
@@ -209,6 +213,7 @@ public class LoadPage {
         mainPane.getChildren().add(swordt);
     }
     LoadPage(Stage stage, String HelmetName) throws IOException, InterruptedException {
+        shadowflag = 1;
         PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\heroLocations.txt");
         writer.print("");
         writer.close();
@@ -344,6 +349,9 @@ public class LoadPage {
         swordt.setY(570);
         moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
         this.move = moveScreenButton;
+        Shadow shadow = new Shadow(new Position(0,hero.getHero().getY()), hero.getWidth(), hero.getHeight());
+        mainPane.getChildren().add(shadow.getshadow());
+        this.shadow = shadow;
         mainPane.getChildren().remove(hero.getHero());
         mainPane.getChildren().add(hero.getHero());
         saveGameDataToFile(new File("SaveFiles/save.ser"));
@@ -1050,13 +1058,19 @@ public class LoadPage {
     }
 
     private void moveshadow(Scanner sc) throws Exception {
-        if(sc.hasNextLine()){
-            String line = sc.nextLine();
-            String[] buffers = line.split(" ");
-            String score = buffers[3];
-            String xpos = buffers[5];
-            String ypos = buffers[7];
-            System.out.println(score + " " + xpos + " " + ypos);
+        if(shadowflag==1){
+            if(sc.hasNextLine()){
+                String line = sc.nextLine();
+                String[] buffers = line.split(" ");
+                String score = buffers[3];
+                String xpos = buffers[5];
+                String ypos = buffers[7];
+                int xp,yp;
+                xp = Integer.parseInt(xpos);
+                yp = Integer.parseInt(ypos);
+                xp = xp + 75 - hero.getCounter();
+                this.shadow.setposition(new Position(xp,yp));
+            }
         }
     }
 

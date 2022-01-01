@@ -352,6 +352,8 @@ public class View_Manager {
         mediaPlayer.setVolume(0.3);
         MediaView mediaView = new MediaView(mediaPlayer);
         mainPane.getChildren().add(mediaView);
+        mediaView.setFitWidth(800);
+        mediaView.setFitHeight(600);
         mediaPlayer.play();
     }
 }
