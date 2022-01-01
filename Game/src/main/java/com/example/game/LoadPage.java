@@ -556,13 +556,14 @@ public class LoadPage {
 //            mainPane.getChildren().add(coinx.getImage());
 //        }
         for (int i = 0; i < 5; i++){
-            if (i ==  4){
-                Island largeIsland = new Island("Large", mainPane, new Position(10275,islandLocationfromTopofScreen), 450, 150 , 0.3);
+            if (i == 4){
+                Island largeIsland = new Island("Large", mainPane, new Position(8250,islandLocationfromTopofScreen), 450, 150 , 0.3);
                 islands.add(largeIsland);
-                Island largeIsland1 = new Island("Large", mainPane, new Position(10275+550,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                Island largeIsland1 = new Island("Large", mainPane, new Position(8250+550,islandLocationfromTopofScreen), 450, 150 , 0.3);
                 islands.add(largeIsland1);
-                Island largeIsland2 = new Island("Large", mainPane, new Position(10275+1100,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                Island largeIsland2 = new Island("Large", mainPane, new Position(8250+1100,islandLocationfromTopofScreen), 450, 150 , 0.3);
                 islands.add(largeIsland2);
+                this.ISLAND_COUNT+=3;
             }
             else{
                 this.ISLAND_COUNT+=5;
@@ -585,13 +586,10 @@ public class LoadPage {
                 continue;
             }
             if (count == islands.size()-1){
-                /*
                 this.GAME_OBJECT_COUNT+=1;
                 Position islandPosition = island.getPosition();
-                Boss_Orc boss_orc = new Boss_Orc(mainPane, new Position(islandPosition.getX() + 100, islandPosition.getY()), 70, 60, ((Math.random()*(0.5)) + 0.7), island,orcdie);
-                //take id also for boss orc :)
+                Boss_Orc boss_orc = new Boss_Orc(mainPane, new Position(islandPosition.getX() + 100, islandPosition.getY()-100), 100, 100, ((Math.random()*(0.5)) + 0.7), island,orcdie,10000);
                 this.gameObjects.add(boss_orc);
-                */
                 continue;
 
             }

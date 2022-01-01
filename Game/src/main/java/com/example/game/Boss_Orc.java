@@ -53,6 +53,7 @@ public class Boss_Orc extends Orc implements Serializable {
         this.islandofResidence = islandofResidence;
         this.isAboveIsland = true;
         this.anchorPane = anchorPane;
+        this.setHitPoints(1500);
     }
 
     @Override
