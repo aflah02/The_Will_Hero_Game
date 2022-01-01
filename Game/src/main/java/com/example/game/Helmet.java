@@ -8,8 +8,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.Serial;
+import java.io.Serializable;
 
-public class Helmet {
+public class Helmet implements Serializable {
     private transient ImageView Helmet;
     private final String pandaHelmetImage = "src/main/resources/com/example/game/images/panda.png";
     private final String pandaStreakPath = "src/main/resources/com/example/game/images/panda_streak.png";

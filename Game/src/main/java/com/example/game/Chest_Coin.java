@@ -5,8 +5,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Chest_Coin implements Coins{
+public class Chest_Coin implements Coins, Serializable {
 
     Chest_Coin(){
     }
@@ -16,5 +17,6 @@ public class Chest_Coin implements Coins{
         return isCollected;
     }
     public void collide(Player player){
+
     }
 }

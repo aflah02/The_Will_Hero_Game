@@ -7,7 +7,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 public class Standard_Red_Orc extends Orc{
-    private ImageView standardRedOrc;
+    private transient ImageView standardRedOrc;
     private double speed;
     private double initpos;
     private Island islandofResidence;

@@ -35,19 +35,19 @@ public class LoadPage {
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
     private PauseButton pauseButton;
-    private final AnchorPane mainPane;
+    private final transient AnchorPane mainPane;
     private final Scene mainScene;
     private final String spbutton = "src/main/resources/com/example/game/images/spearbutton.png";
     private final String swbutton = "src/main/resources/com/example/game/images/swordbutton.png";
     private Timeline time;
-    private AnchorPane newpane;
-    private AnchorPane abyssPane;
+    private transient AnchorPane newpane;
+    private transient AnchorPane abyssPane;
     private final Stage stage;
     private final ArrayList<Game_Objects> gameObjects;
     private final Player player;
     private final Hero hero;
     private final ArrayList<Island> islands;
-    private ImageView sword,lance;
+    private transient ImageView sword,lance;
     private final ArrayList<MediaPlayer> players;
     private final MediaPlayer orcjump,orcdie;
     private final MediaPlayer herojump,herodie,herorevive;
@@ -1024,7 +1024,7 @@ public class LoadPage {
         double obj_width = gameobject.getImage().getFitWidth();
         double hero_start_X , hero_end_X , hero_start_Y, hero_end_Y;
         double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
-        hero_start_X = 75;
+        hero_start_X = hero.getPosition().getX();
         hero_end_X = hero_start_X + hero_width;
         hero_start_Y = hero.getHero().getY();
         hero_end_Y = hero_start_Y + hero_height;
@@ -1032,14 +1032,15 @@ public class LoadPage {
         obj_end_X = obj_start_X + obj_width;
         obj_start_Y = gameobject.getImage().getY();
         obj_end_Y = obj_start_Y + obj_height;
-        if(!gameobject.isDead() && ((obj_start_Y + (obj_height/2) <= hero_start_Y) && (obj_end_Y >= hero_start_Y))){
-            killhero();
+        if(!gameobject.getDying() && ((obj_start_Y + ((obj_height*3)/4) <= hero_start_Y) && (obj_end_Y >= hero_start_Y))){
+            if(hero_end_X <= obj_end_X -5 && hero_end_X >= obj_start_X + 5){
+                killhero();
+            }
         }
-        else if(!gameobject.isDead() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){
+        else if(!gameobject.getDying() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){
             gameobject.collide(hero);
             collidingorc(gameobject,100);
         }
-
     }
 
     private void collidingorc(Orc gameobject,int run) {
@@ -1055,8 +1056,8 @@ public class LoadPage {
                     gameobject.getOrc().setX(gameobject.getOrc().getX() + 1);
                     for(Game_Objects object : gameObjects){
                         if(object instanceof Orc && gameobject.getId()!=((Orc) object).getId()){
-                            if(!gameobject.isDead() && checkorccollision(gameobject,(Orc)object)){
-                                collidingorc((Orc) object,run/5);
+                            if(!gameobject.getDying() && checkorccollision(gameobject,(Orc)object)){
+                                collidingorc((Orc) object,50);
                                 orcflag = 1;
                             }
                         }
@@ -1072,27 +1073,7 @@ public class LoadPage {
     }
 
     private boolean checkorccollision(Orc Orc1, Orc Orc2) {
-        /*
-        double hero_height = hero.getHero().getFitHeight();
-        double hero_width = hero.getHero().getFitWidth();
-        double obj_height = game_objects.getImage().getFitHeight();
-        double obj_width = game_objects.getImage().getFitWidth();
-        double hero_start_X , hero_end_X , hero_start_Y, hero_end_Y;
-        double obj_start_X , obj_end_X , obj_start_Y, obj_end_Y;
-        hero_start_X = hero.getHero().getX();
-        hero_end_X = hero_start_X + hero_width;
-        hero_start_Y = hero.getHero().getY();
-        hero_end_Y = hero_start_Y + hero_height;
-        obj_start_X = game_objects.getImage().getX();
-        obj_end_X = obj_start_X + obj_width;
-        obj_start_Y = game_objects.getImage().getY();
-        obj_end_Y = obj_start_Y + obj_height;
-        if((hero_start_Y <= obj_end_Y && hero_start_Y  >= obj_start_Y) || (hero_end_Y <= obj_end_Y && hero_end_Y >=obj_start_Y)){
-            if((hero_start_X <= obj_end_X && hero_start_X >=obj_start_X) || (hero_end_X <= obj_end_X && hero_end_X >=obj_start_X)){
-                return true;
-            }
-        }
-        */
+
         double Orc1_height = Orc1.getOrc().getFitHeight();
         double Orc1_width = Orc1.getOrc().getFitWidth();
 

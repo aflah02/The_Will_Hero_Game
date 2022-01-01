@@ -23,12 +23,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class View_Manager {
-    private final AnchorPane mainPane;
+    private final transient AnchorPane mainPane;
     private final Scene mainScene;
     private final Stage mainStage;
     private final ArrayList<MediaPlayer> players;
     private MediaView view;
-    private final AnchorPane helmetChooseMenu;
+    private final transient AnchorPane helmetChooseMenu;
     private String helmetChosen;
     View_Manager(Stage stage) {
         this.helmetChosen = "Panda";

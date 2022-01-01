@@ -25,11 +25,12 @@ public abstract class Orc extends Game_Objects implements Serializable {
     private int HitPoints;
     private int Damage;
     private int Coins;
-    private Boolean Dead,iscolliding;
+    private Boolean Dead,iscolliding,isDying;
     protected Boolean isAboveIsland;
     private Orc orcbelow;
 
     Orc(MediaPlayer diesound,int id){
+        this.isDying = false;
         this.id = id;
         this.iscolliding = false;
         this.orcbelow = null;
@@ -85,6 +86,7 @@ public abstract class Orc extends Game_Objects implements Serializable {
 
     public void animate() {
         if(!isDead()){
+            this.isDying = true;
             Orc orc = this;
             Transition animation = new Transition() {
                 {setCycleDuration(Duration.millis(500));}
@@ -122,5 +124,13 @@ public abstract class Orc extends Game_Objects implements Serializable {
 
     public int getId(){
         return this.id;
+    }
+
+    public void setDying(Boolean dying){
+        this.isDying = dying;
+    }
+
+    public Boolean getDying() {
+        return isDying;
     }
 }

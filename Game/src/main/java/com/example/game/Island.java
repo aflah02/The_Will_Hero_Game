@@ -14,21 +14,21 @@ public class Island implements Serializable {
     private Image island_image;
     private double speed;
     private String islandType;
-    String treeImage = "src/main/resources/com/example/game/images/Tree7.png";
-    ImageView treeImageView = new ImageView(new File(treeImage).toURI().toString());
-    String ruinImage = "src/main/resources/com/example/game/images/ruins4.png";
-    ImageView ruinImageView = new ImageView(new File(ruinImage).toURI().toString());
-    String spruceImage = "src/main/resources/com/example/game/images/Spruce1.png";
-    ImageView spruceImageView = new ImageView(new File(spruceImage).toURI().toString());
+    private String treeImage = "src/main/resources/com/example/game/images/Tree7.png";
+    private transient ImageView treeImageView = new ImageView(new File(treeImage).toURI().toString());
+    private String ruinImage = "src/main/resources/com/example/game/images/ruins4.png";
+    private transient ImageView ruinImageView = new ImageView(new File(ruinImage).toURI().toString());
+    private String spruceImage = "src/main/resources/com/example/game/images/Spruce1.png";
+    private transient ImageView spruceImageView = new ImageView(new File(spruceImage).toURI().toString());
 
     public String getIslandType() {
         return islandType;
     }
 
-    String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
-    String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
-    String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
-    private final ArrayList<ImageView> islandObjects = new ArrayList<>();
+    private String islandSmall = "src/main/resources/com/example/game/images/T_Islands_07.png";
+    private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
+    private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
+    private final transient ArrayList<ImageView> islandObjects = new ArrayList<>();
 
     public Island(String islandType, AnchorPane anchorPane, Position position, int width, int height , double Speed){
         this.initial_position = new Position(position.getX(), position.getY());
