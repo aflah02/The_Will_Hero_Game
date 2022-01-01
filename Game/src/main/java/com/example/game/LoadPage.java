@@ -349,7 +349,7 @@ public class LoadPage {
         swordt.setY(570);
         moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
         this.move = moveScreenButton;
-        Shadow shadow = new Shadow(new Position(0,hero.getHero().getY()), hero.getWidth(), hero.getHeight());
+        Shadow shadow = new Shadow(new Position(75,hero.getHero().getY()), hero.getWidth(), hero.getHeight());
         mainPane.getChildren().add(shadow.getshadow());
         this.shadow = shadow;
         mainPane.getChildren().remove(hero.getHero());
@@ -1066,8 +1066,22 @@ public class LoadPage {
                 int xp,yp;
                 xp = Integer.parseInt(xpos);
                 yp = Integer.parseInt(ypos);
-                xp = xp + 75 - hero.getCounter();
-                this.shadow.setposition(new Position(xp,yp));
+                xp = xp  - hero.getCounter();
+                double original_x = this.shadow.getposition().getX();
+                final double[] a = {0};
+                int finalXp = xp;
+                AnimationTimer shadow_timer = new AnimationTimer() {
+                    double end_x = finalXp;
+                    @Override
+                    public void handle(long l) {
+                        a[0] = a[0] +1;
+                        shadow.setposition(new Position(original_x + a[0],yp));
+                        if(a[0] >= end_x){
+                            this.stop();
+                        }
+                    }
+                };
+                shadow_timer.start();
             }
         }
     }

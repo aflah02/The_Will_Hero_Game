@@ -30,4 +30,8 @@ public class Shadow {
         shadowimg.setX(position.getX());
         shadowimg.setY(position.getY());
     }
+
+    public Position getposition(){
+        return this.position;
+    }
 }

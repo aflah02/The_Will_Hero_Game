@@ -153,7 +153,7 @@ public class TNT extends gameObstacles implements Serializable {
                 animateTNT(0);
             }
             else{
-                animateTNT(0.8);
+                animateTNT(0);
             }
         }
     }
