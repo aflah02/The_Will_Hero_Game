@@ -700,10 +700,10 @@ public class LoadPage {
     }
 
     private void tntbursting(TNT game_object) throws Exception {
-        double TNT_start_X_range = game_object.getImage().getX();
-        double TNT_start_Y_range = game_object.getImage().getY();
-        double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight();
-        double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth();
+        double TNT_start_X_range = game_object.getImage().getX() -20 ;
+        double TNT_start_Y_range = game_object.getImage().getY() -20 ;
+        double TNT_end_Y_range = TNT_start_Y_range + game_object.getImageViewHeight() + 20;
+        double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth() + 20;
         if(hero.getHero().getX() + hero.getHero().getFitWidth() > TNT_start_X_range && hero.getHero().getX() + hero.getHero().getFitWidth() < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
                 killhero();
@@ -752,9 +752,13 @@ public class LoadPage {
             }
         }
     }
-    private void orkkill(){
+    private void orkkill() throws Exception {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof Orc){
+                if (game_object instanceof Boss_Orc){
+                    hero.setRevived(true);
+                    killhero();
+                }
                 if(((Orc) game_object).isDead()){
                     mainPane.getChildren().remove(((Orc) game_object).getOrc());
                     gameObjects.remove(game_object);
@@ -778,8 +782,14 @@ public class LoadPage {
 
 
     private void moveChest(Chest game_object, Island island) {
-        if (!(island.getSpeed() == 0)){
+        double x,y;
+        x = game_object.getImage().getX();
+        y = game_object.getImage().getY();
+        if(!(island.getSpeed() ==0)){
             game_object.setPositionY(island.getPosition().getY()-island.getSpeed()-game_object.getImageViewHeight());
+        }
+        if(y + game_object.getHeight() > island.getPosition().getY()){
+            game_object.setPositionY(island.getPosition().getY() - game_object.getHeight());
         }
     }
 
@@ -887,7 +897,6 @@ public class LoadPage {
         hero.die(mainPane,abyssPane,resultmenu(),time,OrcKillCount,
                 TNTBurstCount,startTime,
                 OrcEncounterCount, SwordsCollected, SpearsCollected, CoinChestsOpened);
-
     }
 
     private Island getsafeisland(Position pos ,ArrayList<Island> islands, double height, double width){
@@ -1082,6 +1091,9 @@ public class LoadPage {
                     }
                 };
                 shadow_timer.start();
+            }
+            else{
+                mainPane.getChildren().remove(this.shadow.getshadow());
             }
         }
     }

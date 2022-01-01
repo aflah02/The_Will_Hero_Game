@@ -79,7 +79,10 @@ public class Boss_Orc extends Orc implements Serializable {
 //            }
 //        }
         if (hero.getActiveWeapon() != null){
-            this.anchorPane.getChildren().remove(this);
+            this.setHitPoints(this.getHitPoints() - hero.getActiveWeapon().getDamage());
+            if(this.getHitPoints()<=0){
+                this.animate();
+            }
         }
 //        this.BossOrc.setX(this.BossOrc.getX()+100);
     }
