@@ -298,11 +298,11 @@ public class Hero implements Serializable {
             mainpane.getChildren().add(abyssPane);
         }
         else{
-            isRevived=true;
-            mainpane.getChildren().add(resultmenu);
             LoadPage.appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", orcKillCount + " " + tntBurstCount + " " + this.getscore() +
                     " " + (java.time.Instant.now().getEpochSecond()-startTime) + " " + orcEncounterCount + " " + swordsCollected + " " + spearsCollected + " " + coinChestsOpened);
-        }
+            isRevived=true;
+            mainpane.getChildren().add(resultmenu);
+            }
         return isRevived;
     }
 }
