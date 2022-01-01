@@ -150,11 +150,7 @@ public class LoadPage {
         mainPane.getChildren().add(orcjumpview);
         islands = saveFileReturn.islandArrayList;
         gameObjects = saveFileReturn.gameObjectsArrayList;
-        String image = "src/main/resources/com/example/game/images/bg2.jpg";
-        ImageView background = new ImageView(new File(image).toURI().toString());
-        background.setFitHeight(600);
-        background.setFitWidth(800);
-        mainPane.getChildren().add(background);
+
         Text lancet = new Text();
         Text swordt = new Text();
         this.hero = this.player.getHero();
@@ -198,8 +194,13 @@ public class LoadPage {
         moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
         this.move = moveScreenButton;
         mainPane.getChildren().remove(this.hero.getHero());
-        mainPane.getChildren().add(this.hero.getHero());
-        saveGameDataToFile(new File("SaveFiles/save.ser"));
+        if (this.hero.getHero() == null){
+            System.out.println("Null hero");
+        }
+        else{
+            mainPane.getChildren().add(this.hero.getHero());
+        }
+
         mainPane.getChildren().add(move);
         mainPane.getChildren().add(pause);
         mainPane.getChildren().add(swordbutton);
@@ -1237,6 +1238,7 @@ public class LoadPage {
         try {
             FileOutputStream fileStream = new FileOutputStream(file);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            objectStream.writeObject(this.hero);
             objectStream.writeObject(this.player);
             for (Island island: islands){
                 objectStream.writeObject(island);

@@ -142,10 +142,14 @@ public class View_Manager {
 
     public void LoadGame() throws IOException {
         AnchorPane anchorPane = new AnchorPane();
+        for (MediaPlayer mediaPlayer: players){
+            mediaPlayer.setMute(true);
+        }
         LoadSaveFile loadSaveFile = new LoadSaveFile();
         try {
             SaveFileReturn saveFileReturn = loadSaveFile.loadGameState("SaveFiles/save.ser", anchorPane);
             LoadPage loadPage  = new LoadPage(this.getMainStage(), saveFileReturn, anchorPane);
+
             loadPage.start();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

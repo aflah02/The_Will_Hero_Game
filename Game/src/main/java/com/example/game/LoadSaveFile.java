@@ -1,11 +1,13 @@
 package com.example.game;
 
 import javafx.event.EventHandler;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.text.Text;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -24,13 +26,15 @@ public class LoadSaveFile {
 
     }
 
-    private void deserialize(String fileName) throws IOException, ClassNotFoundException {
+    private void deserialize(String fileName, AnchorPane anchorPane) throws IOException, ClassNotFoundException {
         ObjectInputStream in = null;
         in = new ObjectInputStream(new FileInputStream(fileName));
         try {
+            Hero deserializedHero = (Hero) in.readObject();
+            hero = new Hero(anchorPane, deserializedHero.getPosition(), deserializedHero.getWidth(), deserializedHero.getHeight(), deserializedHero.getSpeed(), new Text(), new Text(), deserializedHero.getChosenHelmet(), Integer.parseInt(deserializedHero.getscore()));
             Player deserializePlayer = (Player) in.readObject();
-            player = new Player(deserializePlayer.getHero());
-            hero = player.getHero();
+            player = new Player(hero);
+//            hero = player.getHero();
             while(true) {
                 try{
                     Object tmp = in.readObject();
@@ -48,7 +52,12 @@ public class LoadSaveFile {
     }
 
     public SaveFileReturn loadGameState(String fileName, AnchorPane mainPane) throws IOException, ClassNotFoundException {
-        deserialize(fileName);
+        String image = "src/main/resources/com/example/game/images/bg2.jpg";
+        ImageView background = new ImageView(new File(image).toURI().toString());
+        background.setFitHeight(600);
+        background.setFitWidth(800);
+        mainPane.getChildren().add(background);
+        deserialize(fileName, mainPane);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
         swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {

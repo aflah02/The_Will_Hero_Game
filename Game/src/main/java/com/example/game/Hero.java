@@ -30,17 +30,20 @@ public class Hero implements Serializable {
     private transient Text swordt , lancet;
     private transient AnchorPane mainpane;
     private int sflag , lflag;
-    public ImageView getHero() {
-        return Hero;
-    }
-    String chosenHelmet;
+    private String chosenHelmet;
+    private int width, height;
 
     public void setHero(ImageView hero) {
         Hero = hero;
     }
+    public ImageView getHero() {
+        return Hero;
+    }
 
     Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet, int Score){
         this.chosenHelmet = chosenHelmet;
+        this.width = width;
+        this.height = height;
         this.deathview = new ImageView(new Image(new File(deathpath).toURI().toString()));
         deathview.setFitHeight(600);
         deathview.setFitWidth(800);
@@ -80,6 +83,30 @@ public class Hero implements Serializable {
         anchorPane.getChildren().add(coinboard);
         this.position = position;
         this.isRevived = false;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public String getChosenHelmet() {
+        return chosenHelmet;
+    }
+
+    public void setChosenHelmet(String chosenHelmet) {
+        this.chosenHelmet = chosenHelmet;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public Weapon getsword(){
