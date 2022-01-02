@@ -181,7 +181,6 @@ public class View_Manager {
                 mainPane.getChildren().add(StatsButton());
             }
         });
-        //.............................
         mainPane.getChildren().add(Statsbutton);
     }
 
