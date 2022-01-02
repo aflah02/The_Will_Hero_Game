@@ -188,14 +188,14 @@ public class LoadPage {
 //        lancet.setText(score);
         lancet.setFont(Font.font ("Verdana", 10));
         lancet.setFill(Color.YELLOW);
-        lancet.setX(60);
+        lancet.setX(135);
         lancet.setY(570);
 
 //        score = Integer.toString(0);
 //        swordt.setText(score);
         swordt.setFont(Font.font ("Verdana", 10));
         swordt.setFill(Color.YELLOW);
-        swordt.setX(135);
+        swordt.setX(60);
         swordt.setY(570);
         moveScreenButton moveScreenButton = new moveScreenButton(0, 0, islands, gameObjects, hero, startTime);
         this.move = moveScreenButton;
@@ -356,7 +356,7 @@ public class LoadPage {
         this.shadow = shadow;
         mainPane.getChildren().remove(hero.getHero());
         mainPane.getChildren().add(hero.getHero());
-        saveGameDataToFile(new File("SaveFiles/save.ser"));
+        //saveGameDataToFile(new File("SaveFiles/save.ser"));
         mainPane.getChildren().add(move);
         mainPane.getChildren().add(pause);
         mainPane.getChildren().add(swordbutton);
@@ -714,18 +714,18 @@ public class LoadPage {
         double TNT_end_X_range = TNT_start_X_range + game_object.getImageViewWidth() + 20;
         if(hero.getHero().getX() + hero.getHero().getFitWidth() > TNT_start_X_range && hero.getHero().getX() + hero.getHero().getFitWidth() < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
-                killhero();
+                killhero(false);
             }
             else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
-                killhero();
+                killhero(false);
             }
         }
         else if(hero.getHero().getX() > TNT_start_X_range && hero.getHero().getX()  < TNT_end_X_range){
             if(hero.getHero().getY() + hero.getHero().getFitHeight() > TNT_start_Y_range && hero.getHero().getY() + hero.getHero().getFitHeight() < TNT_end_Y_range){
-                killhero();
+                killhero(false);
             }
             else if(hero.getHero().getY() > TNT_start_Y_range && hero.getHero().getY() < TNT_end_Y_range){
-                killhero();
+                killhero(false);
             }
         }
         for(Game_Objects object : this.gameObjects){
@@ -763,11 +763,11 @@ public class LoadPage {
     private void orkkill() throws Exception {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof Orc){
-                if (game_object instanceof Boss_Orc){
-//                    hero.setRevived(true);
-//                    killhero();
-                }
                 if(((Orc) game_object).isDead()){
+                    if (game_object instanceof Boss_Orc){
+                        hero.setRevived(true);
+                        killhero(true);
+                    }
                     mainPane.getChildren().remove(((Orc) game_object).getOrc());
                     gameObjects.remove(game_object);
                     break;
@@ -894,14 +894,16 @@ public class LoadPage {
         return ansisland;
     }
 
-    public void killhero() throws Exception {
+    public void killhero(Boolean winning) throws Exception {
         pause.setDisable(true);
         start.setDisable(true);
         move.setDisable(true);
         lancebutton.setDisable(true);
         swordbutton.setDisable(true);
-        herodie.play();
-        herodie.seek(Duration.ZERO);
+        if(!winning){
+            herodie.play();
+            herodie.seek(Duration.ZERO);
+        }
         hero.die(mainPane,abyssPane,resultmenu(),time,OrcKillCount,
                 TNTBurstCount,startTime,
                 OrcEncounterCount, SwordsCollected, SpearsCollected, CoinChestsOpened);
@@ -968,7 +970,7 @@ public class LoadPage {
         double hero_width = hero.getHero().getFitWidth();
         hero.setPosition(new Position(hero.getHero().getX(), hero.getHero().getY()));
         if(hero.getHero().getY()>600){
-             killhero();
+             killhero(false);
         }
         Island residence = getisland(hero.getPosition(), islands, hero_height, hero_width);
         //        if (hero.getPosition().getY() > islandLocationfromTopofScreen+25){
@@ -1126,7 +1128,7 @@ public class LoadPage {
         obj_end_Y = obj_start_Y + obj_height;
         if(!gameobject.getDying() && ((obj_start_Y + ((obj_height*3)/4) <= hero_start_Y) && (obj_end_Y >= hero_start_Y))){
             if(hero_end_X <= obj_end_X -5 && hero_end_X >= obj_start_X + 5){
-                killhero();
+                killhero(false);
             }
         }
         else if(!gameobject.getDying() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){

@@ -361,4 +361,9 @@ public class Hero implements Serializable {
     public int getLanceLevel(){
         return this.lance.getLevel();
     }
+
+    public void updatelevels() {
+        this.swordt.setText(Integer.toString(this.sword.getLevel()));
+        this.lancet.setText(Integer.toString(this.lance.getLevel()));
+    }
 }

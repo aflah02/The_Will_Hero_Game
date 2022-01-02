@@ -26,12 +26,24 @@ public class Helmet implements Serializable {
     private final int flag =0;
     private final String helmetName;
     public Helmet(AnchorPane anchorPane, Position position, int width, int height, String character){
-        this.helmetName = character;
-        switch (character) {
-            case "Loki" -> createImage(lokiHelmetImage, character);
-            case "Jotun" -> createImage(jotunHelmetImage, character);
-            case "Panda" -> createImage(pandaHelmetImage, character);
-            default -> createImage(angelHelmetImage, character);
+        //this.helmetName = character;
+        if(character==null){
+            this.helmetName = "Panda";
+        }
+        else{
+            this.helmetName = character;
+        }
+        if(helmetName.equals("Loki")){
+            createImage(lokiHelmetImage, character);
+        }
+        else if(helmetName.equals("Jotun")){
+            createImage(jotunHelmetImage, character);
+        }
+        else if(helmetName.equals("Panda")){
+            createImage(pandaHelmetImage, character);
+        }
+        else{
+            createImage(angelHelmetImage, character);
         }
         Helmet.setX(position.getX());
         Helmet.setY(position.getY());
@@ -62,12 +74,19 @@ public class Helmet implements Serializable {
             {setCycleDuration(Duration.millis(300));}
             @Override
             protected void interpolate(double fraction) {
-                Image streakimage = switch (helmetName) {
-                    case "Loki" -> new Image(new File(lokiStreakPath).toURI().toString());
-                    case "Jotun" -> new Image(new File(jotunStreakPath).toURI().toString());
-                    case "Panda" -> new Image(new File(pandaStreakPath).toURI().toString());
-                    default -> new Image(new File(angelStreakPath).toURI().toString());
-                };
+                Image streakimage;
+                if(helmetName.equals("Loki")){
+                    streakimage = new Image(new File(lokiStreakPath).toURI().toString());
+                }
+                else if(helmetName.equals("Jotun")){
+                    streakimage = new Image(new File(jotunStreakPath).toURI().toString());
+                }
+                else if(helmetName.equals("Panda")){
+                    streakimage = new Image(new File(pandaStreakPath).toURI().toString());
+                }
+                else{
+                    streakimage = new Image(new File(angelStreakPath).toURI().toString());
+                }
 
                 Helmet.setImage(streakimage);
                     Helmet.setFitWidth(width);
@@ -90,12 +109,20 @@ public class Helmet implements Serializable {
             {setCycleDuration(Duration.millis(300));}
             @Override
             protected void interpolate(double fraction) {
-                Image streakimage = switch (helmetName) {
-                    case "Loki" -> new Image(new File(lokiHelmetImage).toURI().toString());
-                    case "Jotun" -> new Image(new File(jotunHelmetImage).toURI().toString());
-                    case "Panda" -> new Image(new File(pandaHelmetImage).toURI().toString());
-                    default -> new Image(new File(angelHelmetImage).toURI().toString());
-                };
+                Image streakimage;
+
+                if(helmetName.equals("Loki")){
+                    streakimage = new Image(new File(lokiHelmetImage).toURI().toString());
+                }
+                else if(helmetName.equals("Jotun")){
+                    streakimage = new Image(new File(jotunHelmetImage).toURI().toString());
+                }
+                else if(helmetName.equals("Panda")){
+                    streakimage = new Image(new File(pandaHelmetImage).toURI().toString());
+                }
+                else{
+                    streakimage = new Image(new File(angelHelmetImage).toURI().toString());
+                }
                 Helmet.setImage(streakimage);
                 Helmet.setFitWidth(height);
                 Helmet.setFitWidth(width);

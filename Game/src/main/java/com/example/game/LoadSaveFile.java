@@ -37,20 +37,19 @@ public class LoadSaveFile {
 //            System.out.println(obj2.toString());
 //            Lance deserializedSword = (Lance) obj2;
 //            Sword deserializedLance = (Sword) obj1;
-            Sword sword = new Sword();
-            Lance lance = new Lance();
 //            sword.setLevel(deserializedSword.getLevel());
 //            lance.setLevel(deserializedLance.getLevel());
             Hero deserializedHero = (Hero) in.readObject();
-            sword.setLevel(deserializedHero.getSwordLevel());
-            lance.setLevel(deserializedHero.getLanceLevel());
             hero = new Hero(anchorPane, deserializedHero.getPosition(),
                     deserializedHero.getWidth(), deserializedHero.getHeight(),
                     deserializedHero.getSpeed(), new Text(), new Text(),
                     deserializedHero.getChosenHelmet(), Integer.parseInt(deserializedHero.getscore()),
-                    lance, sword);
+                    null, null);
             Player deserializePlayer = (Player) in.readObject();
             player = new Player(hero);
+            hero.getsword().setLevel(deserializedHero.getSwordLevel());
+            hero.getlance().setLevel(deserializedHero.getLanceLevel());
+            hero.updatelevels();
             hero.setWeapon(null);
 //            hero = player.getHero();
             while(true){
