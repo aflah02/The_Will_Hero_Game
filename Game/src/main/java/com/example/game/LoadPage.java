@@ -72,6 +72,8 @@ public class LoadPage {
         writer.print("");
         writer.close();
         this.player = saveFileReturn.getPlayer();
+        this.swordbutton = saveFileReturn.getSwordButton();
+        this.lancebutton = saveFileReturn.getLanceButton();
         RecordingLength = 5;
 //        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
 //        Process p = Runtime.getRuntime().exec(cmd);
@@ -155,42 +157,42 @@ public class LoadPage {
         mainPane.getChildren().add(orcjumpview);
         islands = saveFileReturn.islandArrayList;
         gameObjects = saveFileReturn.gameObjectsArrayList;
-        Text lancet = new Text();
-        Text swordt = new Text();
         this.hero = this.player.getHero();
-        this.swordbutton = new WeaponButton("Sword",25,525,hero);
-        this.lancebutton = new WeaponButton("Lance",100,525,hero);
-        swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                swordbutton.setactive();
-                lancebutton.setinactive();
-
-            }
-        });
-        lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                lancebutton.setactive();
-                swordbutton.setinactive();
-
-            }
-        });
+        Text lancet = this.hero.getLanceText();
+        Text swordt = this.hero.getSwordText();
+//        this.swordbutton = new WeaponButton("Sword",25,525,hero);
+//        this.lancebutton = new WeaponButton("Lance",100,525,hero);
+//        swordbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent mouseEvent) {
+//                swordbutton.setactive();
+//                lancebutton.setinactive();
+//
+//            }
+//        });
+//        lancebutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent mouseEvent) {
+//                lancebutton.setactive();
+//                swordbutton.setinactive();
+//
+//            }
+//        });
 
 
         players.add(herojump);
         players.add(orcjump);
         newpane = pauseMenu();
         abyssPane = reviveMenu();
-        String score = Integer.toString(0);
-        lancet.setText(score);
+//        String score = Integer.toString(0);
+//        lancet.setText(score);
         lancet.setFont(Font.font ("Verdana", 10));
         lancet.setFill(Color.YELLOW);
         lancet.setX(60);
         lancet.setY(570);
 
-        score = Integer.toString(0);
-        swordt.setText(score);
+//        score = Integer.toString(0);
+//        swordt.setText(score);
         swordt.setFont(Font.font ("Verdana", 10));
         swordt.setFill(Color.YELLOW);
         swordt.setX(135);
@@ -308,7 +310,7 @@ public class LoadPage {
         mainPane.getChildren().add(background);
         Text lancet = new Text();
         Text swordt = new Text();
-        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, HelmetName, 0);
+        this.hero = new Hero(mainPane, new Position(75,300-50), 60, 60 ,1.2, swordt, lancet, HelmetName, 0, null, null);
         this.player = new Player(this.hero);
         this.swordbutton = new WeaponButton("Sword",25,525,hero);
         this.lancebutton = new WeaponButton("Lance",100,525,hero);
@@ -557,21 +559,27 @@ public class LoadPage {
 //        }
         for (int i = 0; i < 5; i++){
             if (i == 4){
-                Island largeIsland = new Island("Large", mainPane, new Position(8250,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                Island largeIsland = new Island("Large", mainPane, new Position(8250,islandLocationfromTopofScreen), 450, 150 , 0.3, this.ISLAND_COUNT);
                 islands.add(largeIsland);
-                Island largeIsland1 = new Island("Large", mainPane, new Position(8250+550,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                this.ISLAND_COUNT+=1;
+                Island largeIsland1 = new Island("Large", mainPane, new Position(8250+550,islandLocationfromTopofScreen), 450, 150 , 0.3, this.ISLAND_COUNT);
                 islands.add(largeIsland1);
-                Island largeIsland2 = new Island("Large", mainPane, new Position(8250+1100,islandLocationfromTopofScreen), 450, 150 , 0.3);
+                this.ISLAND_COUNT+=1;
+                Island largeIsland2 = new Island("Large", mainPane, new Position(8250+1100,islandLocationfromTopofScreen), 450, 150 , 0.3, this.ISLAND_COUNT);
                 islands.add(largeIsland2);
-                this.ISLAND_COUNT+=3;
+                this.ISLAND_COUNT+=1;
             }
             else{
-                this.ISLAND_COUNT+=5;
-                Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5);
-                Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4);
-                Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5);
-                Island largeIsland = new Island("Large", mainPane, new Position(1075 + 2050*i,islandLocationfromTopofScreen), 450, 150 , 0.3);
-                Island mediumIsland2 = new Island("Medium", mainPane, new Position(1625 + 2050*i,islandLocationfromTopofScreen - 75), 350, 125, 0.2);
+                Island smallIsland1 = new Island("Small", mainPane, new Position(75 + 2050*i,islandLocationfromTopofScreen), 195, 100,0.5, this.ISLAND_COUNT);
+                this.ISLAND_COUNT+=1;
+                Island smallIsland2 = new Island("Small", mainPane, new Position(350 + 2050*i,islandLocationfromTopofScreen - 100), 195, 100,0.4, this.ISLAND_COUNT);
+                this.ISLAND_COUNT+=1;
+                Island mediumIsland1 = new Island("Medium", mainPane, new Position(625 + 2050*i,islandLocationfromTopofScreen), 350, 125, 0.5, this.ISLAND_COUNT);
+                this.ISLAND_COUNT+=1;
+                Island largeIsland = new Island("Large", mainPane, new Position(1075 + 2050*i,islandLocationfromTopofScreen), 450, 150 , 0.3, this.ISLAND_COUNT);
+                this.ISLAND_COUNT+=1;
+                Island mediumIsland2 = new Island("Medium", mainPane, new Position(1625 + 2050*i,islandLocationfromTopofScreen - 75), 350, 125, 0.2, this.ISLAND_COUNT);
+                this.ISLAND_COUNT+=1;
                 islands.add(smallIsland1);
                 islands.add(smallIsland2);
                 islands.add(mediumIsland1);
@@ -756,8 +764,8 @@ public class LoadPage {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof Orc){
                 if (game_object instanceof Boss_Orc){
-                    hero.setRevived(true);
-                    killhero();
+//                    hero.setRevived(true);
+//                    killhero();
                 }
                 if(((Orc) game_object).isDead()){
                     mainPane.getChildren().remove(((Orc) game_object).getOrc());
@@ -1327,6 +1335,8 @@ public class LoadPage {
         try {
             FileOutputStream fileStream = new FileOutputStream(file);
             ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+//            objectStream.writeObject(this.hero.getsword());
+//            objectStream.writeObject(this.hero.getlance());
             objectStream.writeObject(this.hero);
             objectStream.writeObject(this.player);
             for (Island island: islands){

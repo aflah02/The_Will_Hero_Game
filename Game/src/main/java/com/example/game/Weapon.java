@@ -39,4 +39,6 @@ public abstract class Weapon implements Serializable {
     }
     public ImageView getimage(){ return this.image; }
     public void setImage(ImageView image){ this.image = image;}
+    public void setLevel(int level){this.level = level; this.damage = this.level*150;}
+
 }

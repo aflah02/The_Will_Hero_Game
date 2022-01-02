@@ -183,7 +183,6 @@ public class View_Manager {
         try {
             SaveFileReturn saveFileReturn = loadSaveFile.loadGameState("SaveFiles/save.ser", anchorPane);
             LoadPage loadPage  = new LoadPage(this.getMainStage(), saveFileReturn, anchorPane);
-
             loadPage.start();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

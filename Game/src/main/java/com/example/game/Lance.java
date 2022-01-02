@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 public class Lance extends Weapon implements Serializable {
     private String path = "src/main/resources/com/example/game/images/lance.png";
-
     Lance(){
         super("Lance");
         ImageView image = new ImageView(new File(path).toURI().toString());

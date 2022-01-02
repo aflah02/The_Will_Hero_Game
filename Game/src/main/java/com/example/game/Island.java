@@ -30,9 +30,10 @@ public class Island implements Serializable {
     private String islandMedium = "src/main/resources/com/example/game/images/T_Islands_09.png";
     private String islandLarge = "src/main/resources/com/example/game/images/T_Islands_01.png";
     private final transient ArrayList<ImageView> islandObjects = new ArrayList<>();
-
-    public Island(String islandType, AnchorPane anchorPane, Position position, int width, int height , double Speed){
+    private int IslandID;
+    public Island(String islandType, AnchorPane anchorPane, Position position, int width, int height , double Speed, int IslandID){
         this.width = width;
+        this.IslandID = IslandID;
         this.height = height;
         this.initial_position = new Position(position.getX(), position.getY());
         this.islandType = islandType;
@@ -101,6 +102,14 @@ public class Island implements Serializable {
             image.setY(Island.getY() - ih/2 - h/2);
             anchorPane.getChildren().add(image);
         }
+    }
+
+    public int getIslandID() {
+        return IslandID;
+    }
+
+    public void setIslandID(int islandID) {
+        IslandID = islandID;
     }
 
     public ImageView getIsland() {

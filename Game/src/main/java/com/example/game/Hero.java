@@ -33,7 +33,6 @@ public class Hero implements Serializable {
     private String chosenHelmet;
     private int width, height;
     private int counter;
-
     public void setHero(ImageView hero) {
         Hero = hero;
     }
@@ -41,8 +40,8 @@ public class Hero implements Serializable {
         return Hero;
     }
 
-    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet, int Score){
-        counter =0;
+    Hero(AnchorPane anchorPane, Position position, int width, int height , double speed, Text lancet , Text swordt, String chosenHelmet, int Score, Weapon sword, Weapon lance){
+        counter = 0;
         this.chosenHelmet = chosenHelmet;
         this.width = width;
         this.height = height;
@@ -54,8 +53,20 @@ public class Hero implements Serializable {
         this.mainpane = anchorPane;
         this.swordt = swordt;
         this.lancet = lancet;
-        this.sword = new Sword();
-        this.lance = new Lance();
+        if (sword == null){
+            this.sword = new Sword();
+        }
+        else{
+            this.sword = sword;
+        }
+        if (sword == null){
+            this.lance = new Lance();
+        }
+        else{
+            this.lance = lance;
+        }
+        this.lancet.setText(Integer.toString(this.lance.getLevel()));
+        this.swordt.setText(Integer.toString(this.sword.getLevel()));
         this.currCoins = new ArrayList<>();
         helmet = new Helmet(anchorPane, position, width, height, chosenHelmet);
         Hero = helmet.getHelmet();
@@ -337,5 +348,17 @@ public class Hero implements Serializable {
             }
         }
         System.out.println("File Copied");
+    }
+    public Text getLanceText(){
+        return lancet;
+    }
+    public Text getSwordText(){
+        return swordt;
+    }
+    public int getSwordLevel(){
+        return this.sword.getLevel();
+    }
+    public int getLanceLevel(){
+        return this.lance.getLevel();
     }
 }

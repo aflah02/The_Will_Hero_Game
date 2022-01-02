@@ -30,6 +30,8 @@ public class Coin_Chest extends Chest{
     private double speed;
     Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence,MediaPlayer chestopen){
         this.chestopen = chestopen;
+        this.width = width;
+        this.height = height;
         coins = new ArrayList<>();
         int max = 80;
         int min = 10;
