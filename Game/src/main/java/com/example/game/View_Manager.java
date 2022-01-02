@@ -20,6 +20,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -181,14 +184,22 @@ public class View_Manager {
         }
         LoadSaveFile loadSaveFile = new LoadSaveFile();
         try {
+            Path path = Paths.get("SaveFiles/save.ser");
+            if (!Files.exists(path)) {
+                throw new NoLoadFileFoundException();
+            }
             SaveFileReturn saveFileReturn = loadSaveFile.loadGameState("SaveFiles/save.ser", anchorPane);
             LoadPage loadPage  = new LoadPage(this.getMainStage(), saveFileReturn, anchorPane);
             loadPage.start();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        catch (NoLoadFileFoundException e){
+            System.out.println(e.getMessage());
+        }
 
     }
+
 
     public AnchorPane getMainPane() {
         return mainPane;

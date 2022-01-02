@@ -46,5 +46,5 @@ textstr = '\n'.join((
 xmin, xmax = plt.xlim()
 ymin, ymax = plt.ylim()
 plt.text(xmin+10, ymax-85, textstr, fontsize = 7)
-plt.savefig('point.png')
+plt.show()
 

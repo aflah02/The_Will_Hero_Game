@@ -316,8 +316,6 @@ public class Hero implements Serializable {
         else{
             LoadPage.appendToFile("src\\main\\java\\com\\example\\game\\heroLocations.txt", orcKillCount + " " + tntBurstCount + " " + this.getscore() +
                     " " + (java.time.Instant.now().getEpochSecond()-startTime) + " " + orcEncounterCount + " " + swordsCollected + " " + spearsCollected + " " + coinChestsOpened);
-            isRevived=true;
-            mainpane.getChildren().add(resultmenu);
             File file1 = new File("src\\main\\java\\com\\example\\game\\heroLocations.txt");
             File file2 = new File("src\\main\\java\\com\\example\\game\\previousheroLocations.txt");
             PrintWriter writer = new PrintWriter("src\\main\\java\\com\\example\\game\\previousheroLocations.txt");
@@ -327,6 +325,8 @@ public class Hero implements Serializable {
             String[] cmd = {"src\\main\\java\\com\\example\\game\\analyze.bat"};
             Process p = Runtime.getRuntime().exec(cmd);
             System.out.println(p);
+            isRevived=true;
+            mainpane.getChildren().add(resultmenu);
             }
         return isRevived;
     }
@@ -340,12 +340,8 @@ public class Hero implements Serializable {
             }
         }
         finally {
-            if (in != null) {
-                in.close();
-            }
-            if (out != null) {
-                out.close();
-            }
+            in.close();
+            out.close();
         }
         System.out.println("File Copied");
     }

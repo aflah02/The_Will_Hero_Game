@@ -619,7 +619,7 @@ public class LoadPage {
     }
 
     private void generateIslandObjects(Island island, Position islandPosition, int maxQuantityObjectsOnIsland){
-        String[] gameObjects = {"TNT", "CoinChest", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
+        String[] gameObjects = {"TNT", "CoinChest", "CoinChest", "Standard_Green_Orc", "Standard_Green_Orc","Standard_Green_Orc","Standard_Green_Orc","Standard_Green_Orc", "Standard_Red_Orc", "Standard_Red_Orc","Standard_Red_Orc","Standard_Red_Orc","Standard_Red_Orc", "WeaponChestLance", "WeaponChestSword"};
         int placedSoFar = 0;
         int orcid =0;
         for (int i = 0; i < maxQuantityObjectsOnIsland; i++){
