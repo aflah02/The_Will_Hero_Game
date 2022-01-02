@@ -34,7 +34,26 @@ public class View_Manager {
     private transient MediaView view;
     private final transient AnchorPane helmetChooseMenu;
     private String helmetChosen;
+    private String path1 = "src/main/java/com/example/game/point.png";
+    private String path2 = "src/main/java/com/example/game/orcproportion.png";
+    private String path3 = "src/main/java/com/example/game/objectProportion.png";
+    private String path4 = "src/main/java/com/example/game/weaponProportion.png";
+    private String arrow = "src/main/resources/com/example/game/images/arrow.png";
+    private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover;";
+    private transient ArrayList<Image> stats;
+    private int statsindex;
     View_Manager(Stage stage) {
+        stats = new ArrayList<>();
+        Image statsimage = new Image(new File(path1).toURI().toString());
+        stats.add(statsimage);
+        statsimage = new Image(new File(path2).toURI().toString());
+        stats.add(statsimage);
+        statsimage = new Image(new File(path3).toURI().toString());
+        stats.add(statsimage);
+        statsimage = new Image(new File(path4).toURI().toString());
+        stats.add(statsimage);
+        statsindex = 0;
+        //..................................
         this.helmetChosen = "Panda";
         helmetChooseMenu = HelmetChoices();
         players = new ArrayList<>();
@@ -255,13 +274,60 @@ public class View_Manager {
         Statspane.setBackground(new Background(image));
         //.................................................
         String graphpath = "src/main/java/com/example/game/point.png";
-        ImageView statsimg = new ImageView(new File(graphpath).toURI().toString());
-        statsimg.setFitWidth(450);
+        ImageView statsimg = new ImageView(stats.get(this.statsindex));
+        statsimg.setFitWidth(500);
         statsimg.setFitHeight(450);
         statsimg.setX(150);
-        statsimg.setY(100);
+        statsimg.setY(75);
         Statspane.getChildren().add(statsimg);
-
+        //.......................................................
+        Button prev = new Button();
+        prev.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if(statsindex <= 0){
+                    statsindex = stats.size() - 1;
+                }
+                else{
+                    statsindex--;
+                }
+                statsimg.setImage(stats.get(statsindex));
+            }
+        });
+        Button next = new Button();
+        next.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if(statsindex >=stats.size() - 1){
+                    statsindex = 0;
+                }
+                else{
+                    statsindex++;
+                }
+                statsimg.setImage(stats.get(statsindex));
+            }
+        });
+        next.setLayoutX(700);
+        next.setLayoutY(300);
+        prev.setLayoutX(50);
+        prev.setLayoutY(300);
+        next.setMinHeight(50);
+        next.setMinWidth(50);
+        prev.setMinHeight(50);
+        prev.setMinWidth(50);
+        Statspane.getChildren().add(next);
+        Statspane.getChildren().add(prev);
+        prev.setStyle(STYLE);
+        next.setStyle(STYLE);
+        ImageView arrownext = new ImageView(new File(arrow).toURI().toString());
+        arrownext.setFitWidth(50);
+        arrownext.setFitHeight(50);
+        next.setGraphic(arrownext);
+        ImageView arrowprev = new ImageView(new File(arrow).toURI().toString());
+        arrowprev.setFitWidth(50);
+        arrowprev.setFitHeight(50);
+        prev.setGraphic(arrowprev);
+        arrowprev.setRotate(180);
         //.................................................
         CloseMenuButton closeMenuButton = new CloseMenuButton();
         closeMenuButton.setLayoutX(725);
