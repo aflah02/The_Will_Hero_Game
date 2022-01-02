@@ -439,8 +439,13 @@ public class LoadPage {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 hero.revivehero();
+                hero.setRevived(true);
                 mainPane.getChildren().remove(Menu);
-                mainPane.getChildren().add(resultmenu());
+                try {
+                    killhero(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         end_button.setLayoutX(20);
