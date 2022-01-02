@@ -175,7 +175,7 @@ public class LoadSaveFile {
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Weapon Chest Lance")) {
                 Weapon_Chest weapon_chest = (Weapon_Chest)obj;
-                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), weapon_chest.getWidth(), weapon_chest.getHeight(), "Lance", findIslandbyID(weapon_chest.getIslandofResidence().getIslandID(), islandList), swordbutton, lancebutton, player2);
+                Weapon_Chest s = new Weapon_Chest(mainPane, weapon_chest.getPosition(), weapon_chest.getWidth(), weapon_chest.getHeight(), "Lance", findIslandbyID(weapon_chest.getIslandofResidence().getIslandID(), islandList), lancebutton, swordbutton, player2);
                 gameObjectsList.add(s);
             } else if (obj.toString().equals("Coin_Chest")) {
                 Coin_Chest coin_chest = (Coin_Chest)obj;
