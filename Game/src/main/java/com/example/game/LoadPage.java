@@ -753,6 +753,7 @@ public class LoadPage {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof TNT){
                 if(((TNT) game_object).getBurst()){
+                    TNTBurstCount++;
                     gameObjects.remove(game_object);
                     tntbursting((TNT) game_object);
                     break;
@@ -764,6 +765,7 @@ public class LoadPage {
         for (Game_Objects game_object: this.gameObjects){
             if(game_object instanceof Orc){
                 if(((Orc) game_object).isDead()){
+                    OrcKillCount++;
                     if (game_object instanceof Boss_Orc){
                         hero.setRevived(true);
                         killhero(true);
@@ -1045,7 +1047,6 @@ public class LoadPage {
                         if (orcisland == null){
                             ((Orc) gameobject).setAboveIsland(false);
                         }
-                        OrcEncounterCount++;
                     }
                     else if(gameobject instanceof Floor_Loot_Coin){
                         gameobject.collide(hero);
@@ -1054,20 +1055,25 @@ public class LoadPage {
                         gameobject.collide(hero);
                         Island residenceTNT = getisland(gameobject.getPosition(), islands, gameobject.getImageViewHeight(), gameobject.getImageViewWidth());
                         ((TNT) gameobject).setIslandofResidence(residenceTNT);
-                        TNTBurstCount++;
                     }
                     else if (gameobject instanceof Coin_Chest){
+                        if (!((Coin_Chest) gameobject).getOpen()){
+                            CoinChestsOpened++;
+                        }
                         gameobject.collide(hero);
-                        CoinChestsOpened++;
                     }
                     else if (gameobject instanceof Weapon_Chest){
-                        gameobject.collide(hero);
                         if (((Weapon_Chest)gameobject).getName().equals("Weapon Chest Sword")){
-                            SwordsCollected++;
+                            if (!((Weapon_Chest) gameobject).getOpen()){
+                                SwordsCollected++;
+                            }
                         }
                         else{
-                            SpearsCollected++;
+                            if (!((Weapon_Chest) gameobject).getOpen()) {
+                                SpearsCollected++;
+                            }
                         }
+                        gameobject.collide(hero);
                     }
                 }
             }
@@ -1128,15 +1134,18 @@ public class LoadPage {
         obj_end_Y = obj_start_Y + obj_height;
         if(!gameobject.getDying() && ((obj_start_Y + ((obj_height*3)/4) <= hero_start_Y) && (obj_end_Y >= hero_start_Y))){
             if(hero_end_X <= obj_end_X -5 && hero_end_X >= obj_start_X + 5){
+                OrcEncounterCount++;
                 killhero(false);
             }
         }
         else if(!gameobject.getDying() && (hero_start_Y + (hero_height*3/4) >= obj_start_Y) && hero_start_X<=obj_start_X + obj_width/2){
             gameobject.collide(hero);
             if (gameobject instanceof Boss_Orc){
+                OrcEncounterCount++;
                 collidingorc(gameobject,10);
             }
             else{
+                OrcEncounterCount++;
                 collidingorc(gameobject,100);
             }
 
