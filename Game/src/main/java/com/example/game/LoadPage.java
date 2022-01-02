@@ -221,7 +221,7 @@ public class LoadPage {
         writer.close();
         this.HelmetName = HelmetName;
         RecordingLength = 5;
-        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "Will Hero"};
+        String[] cmd = {"src\\main\\java\\com\\example\\game\\exec.bat", "10"};
         Process p = Runtime.getRuntime().exec(cmd);
         System.out.println(p);
         System.out.println("hello");

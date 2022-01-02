@@ -10,14 +10,14 @@ def convert_avi_to_mp4(avi_file_path, output_name):
     return True
 
 # the window name, e.g "notepad", "Chrome", etc.
-window_name = sys.argv[1]
+window_name = "Will Hero"
 
 # define the codec
 fourcc = cv2.VideoWriter_fourcc(*"XVID")
 # frames per second
 fps = 20.0
 # the time you want to record in seconds
-record_seconds = 10
+record_seconds = int(sys.argv[1])
 # search for the window, getting the first matched window with the title
 w = gw.getWindowsWithTitle(window_name)[0]
 # activate the window
