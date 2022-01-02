@@ -2,7 +2,8 @@ import pandas as pd
 from mpl_toolkits import mplot3d
 import numpy as np
 import matplotlib.pyplot as plt
-with open("previousheroLocations.txt", "r") as f:
+import os
+with open("src\main\java\com\example\game\previousheroLocations.txt", "r") as f:
     data = f.readlines()
 ls = []
 x = len(data)
@@ -46,5 +47,28 @@ textstr = '\n'.join((
 xmin, xmax = plt.xlim()
 ymin, ymax = plt.ylim()
 plt.text(xmin+10, ymax-85, textstr, fontsize = 7)
-plt.savefig('point.png')
+plt.savefig(os.path.join('src\main\java\com\example\game', 'point.png'))
 
+###########################################
+
+from PIL import Image, ImageDraw
+
+image_path_output = 'src\main\java\com\example\game\/'
+image_name_output = 'stats.jpg'
+
+mode = 'RGB'
+size = (640, 480)
+color = (73, 109, 137)
+
+im = Image.new(mode, size, color)
+
+im.save(image_path_output + image_name_output )
+
+im = Image.open(image_path_output + image_name_output)
+position = (50, 50)
+message = textstr
+
+draw = ImageDraw.Draw(im)
+draw.text(position, message)
+image_name_output = 'stats.jpg'
+im.save(image_path_output + image_name_output)

@@ -170,6 +170,14 @@ public class View_Manager {
         Statsbutton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                String[] cmd = {"src\\main\\java\\com\\example\\game\\analyze.bat", ""};
+                Process p = null;
+                try {
+                    p = Runtime.getRuntime().exec(cmd);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("analyze" + p);
                 mainPane.getChildren().add(StatsButton());
             }
         });
