@@ -632,7 +632,7 @@ public class LoadPage {
                     this.gameObjects.add(tnt);
                 }
                 case "CoinChest" -> {
-                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, island,coincchestsound);
+                    Coin_Chest chest = new Coin_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, island,coincchestsound, false);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
@@ -649,12 +649,12 @@ public class LoadPage {
                     this.gameObjects.add(redOrc);
                 }
                 case "WeaponChestLance" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Lance", island,this.lancebutton,this.swordbutton,weaponchestsound);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Lance", island,this.lancebutton,this.swordbutton,weaponchestsound,false);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }
                 case "WeaponChestSword" -> {
-                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Sword", island,this.swordbutton,this.lancebutton,weaponchestsound);
+                    Weapon_Chest chest = new Weapon_Chest(mainPane, new Position(islandPosition.getX() + 50 + placedSoFar * 150, islandPosition.getY() - 40), 100, 75, "Sword", island,this.swordbutton,this.lancebutton,weaponchestsound,false);
                     placedSoFar++;
                     this.gameObjects.add(chest);
                 }

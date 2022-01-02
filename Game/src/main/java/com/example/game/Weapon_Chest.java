@@ -55,13 +55,13 @@ public class Weapon_Chest extends Chest implements Serializable {
 
 
 
-    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2,MediaPlayer opensound){
+    Weapon_Chest(AnchorPane anchorPane, Position position, int width, int height, String WeaponName, Island islandOfResidence,WeaponButton button1 , WeaponButton button2,MediaPlayer opensound, Boolean isopen){
         this.opensound = opensound;
+        this.isopen = isopen;
         this.width = width;
         this.height = height;
         this.button1 = button1;
         this.button2 = button2;
-        this.isopen=false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7, path8};
         chestAnimations = new ArrayList<>();
         this.islandOfResidence = islandOfResidence;
@@ -75,15 +75,6 @@ public class Weapon_Chest extends Chest implements Serializable {
         chest.setY(position.getY());
         chest.setFitWidth(width);
         chest.setFitHeight(height);
-        chest.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(!isopen){
-                    isopen = true;
-                    animateChest();
-                }
-            }
-        });
         anchorPane.getChildren().add(chest);
         this.position = position;
         if (WeaponName.equals("Sword")){
@@ -94,6 +85,9 @@ public class Weapon_Chest extends Chest implements Serializable {
         }
         this.speed = islandOfResidence.getSpeed();
         this.weaponName = WeaponName;
+        if (isopen){
+            animateChest();
+        }
     }
     @Override
     public String getName(){

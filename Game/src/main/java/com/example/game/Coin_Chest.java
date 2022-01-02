@@ -28,8 +28,9 @@ public class Coin_Chest extends Chest{
 
     Island islandOfResidence;
     private double speed;
-    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence,MediaPlayer chestopen){
+    Coin_Chest(AnchorPane anchorPane, Position position, int width, int height, Island islandOfResidence,MediaPlayer chestopen, Boolean isopen){
         this.chestopen = chestopen;
+        this.isopen = isopen;
         this.width = width;
         this.height = height;
         coins = new ArrayList<>();
@@ -40,7 +41,6 @@ public class Coin_Chest extends Chest{
             Coins coin = new Chest_Coin();
             coins.add((Chest_Coin) coin);
         }
-        this.isopen = false;
         this.imagePaths = new String[]{path1, path2, path3, path4, path5, path6, path7};
         chestAnimations = new ArrayList<>();
         this.islandOfResidence = islandOfResidence;
@@ -54,15 +54,9 @@ public class Coin_Chest extends Chest{
         chest.setY(position.getY());
         chest.setFitWidth(width);
         chest.setFitHeight(height);
-        chest.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(!isopen){
-                    isopen = true;
-                    animateChest();
-                }
-            }
-        });
+        if (isopen){
+            animateChest();
+        }
         anchorPane.getChildren().add(chest);
         this.position = position;
         this.speed = islandOfResidence.getSpeed();
