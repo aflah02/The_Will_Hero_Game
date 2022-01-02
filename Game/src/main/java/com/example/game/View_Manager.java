@@ -268,7 +268,7 @@ public class View_Manager {
         Statspane.setPrefWidth(800);
         Statspane.setLayoutX(0);
         Statspane.setLayoutY(0);
-        String bg1 = "src/main/resources/com/example/game/images/cloud2.jpeg";
+        String bg1 = "src/main/resources/com/example/game/images/bg2.jpg";
         Image bg = new Image(new File(bg1).toURI().toString(),800,600,false,true);
         BackgroundImage image = new BackgroundImage(bg, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,null);
         Statspane.setBackground(new Background(image));
