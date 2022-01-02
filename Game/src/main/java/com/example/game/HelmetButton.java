@@ -16,10 +16,10 @@ public class HelmetButton extends Button {
     private final String STYLE = "-fx-background-color:transparent; -fx-background-size: cover;-fx-border-color: grey; -fx-border-style: solid; -fx-border-width: 2;";
     private final String STYLE_CLOSED = "-fx-background-color:transparent; -fx-background-size: cover;-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;";
     private final String STYLE_ACTIVE = "-fx-background-color:black; -fx-background-size: cover;-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 2;";
-    private String pandaHelmetImage = "src/main/resources/com/example/game/images/panda.png";
-    private String angelHelmetImage = "src/main/resources/com/example/game/images/angel.png";
-    private String jotunHelmetImage = "src/main/resources/com/example/game/images/jotun.png";
-    private String lokiHelmetImage = "src/main/resources/com/example/game/images/loki.png";
+    private final String pandaHelmetImage = "src/main/resources/com/example/game/images/panda.png";
+    private final String angelHelmetImage = "src/main/resources/com/example/game/images/angel.png";
+    private final String jotunHelmetImage = "src/main/resources/com/example/game/images/jotun.png";
+    private final String lokiHelmetImage = "src/main/resources/com/example/game/images/loki.png";
     private Weapon weapon;
     private int type;
     private boolean isactive;

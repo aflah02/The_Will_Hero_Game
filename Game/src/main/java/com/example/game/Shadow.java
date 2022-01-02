@@ -9,7 +9,7 @@ import java.io.File;
 public class Shadow {
     private Position position;
     private transient ImageView shadowimg;
-    private String Path = "src/main/resources/com/example/game/images/panda.png";
+    private final String Path = "src/main/resources/com/example/game/images/panda.png";
 
     Shadow(Position position,int width,int height){
         this.position = position;

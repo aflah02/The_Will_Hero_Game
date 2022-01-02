@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Hero implements Serializable {
-    private String coinpath = "src/main/resources/com/example/game/images/coin.png";
-    private String deathpath = "src/main/resources/com/example/game/images/death.png";
+    private final String coinpath = "src/main/resources/com/example/game/images/coin.png";
+    private final String deathpath = "src/main/resources/com/example/game/images/death.png";
     private Helmet helmet;
     private Position position;
     private ArrayList<Coins> currCoins;

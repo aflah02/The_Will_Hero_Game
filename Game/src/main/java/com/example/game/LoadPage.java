@@ -31,7 +31,7 @@ public class LoadPage {
     private int SwordsCollected = 0;
     private int SpearsCollected = 0;
     private int CoinChestsOpened = 0;
-    final int islandLocationfromTopofScreen = 450;
+    private final int islandLocationfromTopofScreen = 450;
     private final double MAX_FALLING_HEIGHT = 600;
     private int ISLAND_COUNT;
     private int GAME_OBJECT_COUNT;
