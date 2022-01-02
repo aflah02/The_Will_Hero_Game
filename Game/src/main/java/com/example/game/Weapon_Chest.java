@@ -15,14 +15,14 @@ import java.util.ArrayList;
 
 public class Weapon_Chest extends Chest implements Serializable {
     private Weapon weapon;
-    private String path1 = "src/main/resources/com/example/game/images/chest1.png";
-    private String path2 = "src/main/resources/com/example/game/images/chest2.png";
-    private String path3 = "src/main/resources/com/example/game/images/chest3.png";
-    private String path4 = "src/main/resources/com/example/game/images/chest4.png";
-    private String path5 = "src/main/resources/com/example/game/images/chest5.png";
-    private String path6 = "src/main/resources/com/example/game/images/chest6.png";
-    private String path7 = "src/main/resources/com/example/game/images/chest7.png";
-    private String path8 = "src/main/resources/com/example/game/images/chest8.png";
+    private final String path1 = "src/main/resources/com/example/game/images/chest1.png";
+    private final String path2 = "src/main/resources/com/example/game/images/chest2.png";
+    private final String path3 = "src/main/resources/com/example/game/images/chest3.png";
+    private final String path4 = "src/main/resources/com/example/game/images/chest4.png";
+    private final String path5 = "src/main/resources/com/example/game/images/chest5.png";
+    private final String path6 = "src/main/resources/com/example/game/images/chest6.png";
+    private final String path7 = "src/main/resources/com/example/game/images/chest7.png";
+    private final String path8 = "src/main/resources/com/example/game/images/chest8.png";
     private transient MediaPlayer opensound;
     private final transient ImageView chest;
     private Position position;
