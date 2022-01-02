@@ -46,29 +46,62 @@ textstr = '\n'.join((
     ))
 xmin, xmax = plt.xlim()
 ymin, ymax = plt.ylim()
-plt.text(xmin+10, ymax-85, textstr, fontsize = 7)
+# plt.text(xmin+10, ymax-85, textstr, fontsize = 7)
 plt.savefig(os.path.join('src\main\java\com\example\game', 'point.png'))
 
 ###########################################
 
-from PIL import Image, ImageDraw
+# from PIL import Image, ImageDraw
 
-image_path_output = 'src\main\java\com\example\game\/'
-image_name_output = 'stats.jpg'
+# image_path_output = 'src\main\java\com\example\game\/'
+# image_name_output = 'stats.jpg'
 
-mode = 'RGB'
-size = (640, 480)
-color = (73, 109, 137)
+# mode = 'RGB'
+# size = (640, 480)
+# color = (73, 109, 137)
 
-im = Image.new(mode, size, color)
+# im = Image.new(mode, size, color)
 
-im.save(image_path_output + image_name_output )
+# im.save(image_path_output + image_name_output )
 
-im = Image.open(image_path_output + image_name_output)
-position = (50, 50)
-message = textstr
+# im = Image.open(image_path_output + image_name_output)
+# position = (50, 50)
+# message = textstr
 
-draw = ImageDraw.Draw(im)
-draw.text(position, message)
-image_name_output = 'stats.jpg'
-im.save(image_path_output + image_name_output)
+# draw = ImageDraw.Draw(im)
+# draw.text(position, message)
+# image_name_output = 'stats.jpg'
+# im.save(image_path_output + image_name_output)
+
+#####
+
+plt.title("Orc Encounter Statistics")
+plt.xlabel("")
+plt.ylabel("")
+sizes = np.array([int(lsdata[0]), int(lsdata[4])-int(lsdata[0])])
+labels = [f'Orcs Killed {sizes[0]*100/(sizes[1]+sizes[0])}%', f'Orcs Avoided {sizes[1]*100/(sizes[1]+sizes[0])}%']
+colors = ['yellowgreen', 'gold']
+patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+plt.legend(patches, labels, loc="best")
+plt.savefig(os.path.join('src\main\java\com\example\game', 'orcproportion.png'))
+
+plt.title("Weapon Statistics")
+plt.xlabel("")
+plt.ylabel("")
+sizes = np.array([int(lsdata[5]), int(lsdata[6])])
+labels = [f'Swords Collected {sizes[0]*100/(sizes[1]+sizes[0])}%', f'Spears Collected {sizes[1]*100/(sizes[1]+sizes[0])}%']
+colors = ['yellowgreen', 'gold']
+patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+plt.legend(patches, labels, loc="best")
+plt.savefig(os.path.join('src\main\java\com\example\game', 'weaponProportion.png'))
+
+plt.title("Game Object Encounter Statistics")
+plt.xlabel("")
+plt.ylabel("")
+sizes = np.array([int(lsdata[1]), int(lsdata[4]), int(lsdata[5])+int(lsdata[6]), int(lsdata[7])])
+labels = [f'TNTs Burst {sizes[0]*100/(sum(sizes))}%', f'Orcs Encountered {sizes[1]*100/(sum(sizes))}%',
+          f'Weapon Chests Opened {sizes[2]*100/(sum(sizes))}%', f'Coin Chests Opened {sizes[3]*100/(sum(sizes))}%']
+colors = ['yellowgreen', 'gold', 'orange', 'red']
+patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+plt.legend(patches, labels, loc="best")
+plt.savefig(os.path.join('src\main\java\com\example\game', 'objectProportion.png'))
