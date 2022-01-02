@@ -178,8 +178,6 @@ public class LoadPage {
 //
 //            }
 //        });
-
-
         players.add(herojump);
         players.add(orcjump);
         newpane = pauseMenu();
