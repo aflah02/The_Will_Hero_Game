@@ -7,6 +7,18 @@ Adaptation of the popular game [Will Hero](https://apps.apple.com/us/app/will-he
 - Java
 - JavaFX
 
+## Salient Features
+
+- Fully functional game with with lots of additional features
+- Audio assets have been used to replicate the original game to the maximum
+- Revive Functionality for the Hero on his First Death based on Coins
+- 2 Kinds of Weapons for the Hero
+- Choice between 4 different Hero Helmets
+- Auto generated player statistics for recap
+- Custom implemented video recording which captures this screen only for a specified duration
+- Ghost feature which can be used to play against your previous game
+
+
 ## Visuals
 
 Loading Screen -
@@ -15,8 +27,13 @@ Loading Screen -
 Game Play - 
 
 ![GamePlay](gamePlay.jpg)
+Helmet Choices - 
+![Helmet Choosing Menu](helmets.jpg)
+Player Statistics Menu - 
+![Player Statistics](PlayerStatistics.jpg)
 
-## Designs
+
+## Designs 
 
 UML Diagram -
 
