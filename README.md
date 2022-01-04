@@ -6,8 +6,8 @@ Adaptation of the popular game [Will Hero](https://apps.apple.com/us/app/will-he
 
 - Java
 - JavaFX
-- Bat Scripting
-- Python (OpenCV, Pandas, Matplotlib, pyautogui, numpy, pygetwindow)
+- Batch Scripts
+- Python (OpenCV, Pandas, Matplotlib, PyAutoGUI, Numpy, PyGetWindow)
 
 ## Salient Features
 
