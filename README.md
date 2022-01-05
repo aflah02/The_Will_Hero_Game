@@ -19,7 +19,7 @@ Adaptation of the popular game [Will Hero](https://apps.apple.com/us/app/will-he
 - Auto generated player statistics for recap
 - Custom implemented video recording which captures this screen only for a specified duration
 - Ghost feature which can be used to play against your previous game
-
+- Implemented Custom Exceptions and JavaFX Components by building on top of the standard tools
 
 ## 👀 Visuals
 
