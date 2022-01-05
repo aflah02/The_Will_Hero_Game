@@ -2,14 +2,14 @@
 
 Adaptation of the popular game [Will Hero](https://apps.apple.com/us/app/will-hero/id1317231325) by [ZPlay](https://apps.apple.com/us/developer/zplay-beijing-info-tech-co-ltd/id531022725) for our [Advanced Programming Course (CSE201)](http://techtree.iiitd.edu.in/viewDescription/filename?=CSE201)
 
-## Tech Stack
+## 💻 Tech Stack
 
 - Java
 - JavaFX
 - Batch Scripts
 - Python (OpenCV, Pandas, Matplotlib, PyAutoGUI, Numpy, PyGetWindow)
 
-## Salient Features
+## 💡Salient Features
 
 - Fully functional game with with lots of additional features
 - Audio assets have been used to replicate the original game to the maximum
@@ -21,7 +21,7 @@ Adaptation of the popular game [Will Hero](https://apps.apple.com/us/app/will-he
 - Ghost feature which can be used to play against your previous game
 
 
-## Visuals
+## 👀 Visuals
 
 Loading Screen -
 
