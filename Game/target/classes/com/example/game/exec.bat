@@ -1,0 +1,1 @@
+python src\main\java\com\example\game\record.py %~1
